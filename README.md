@@ -6,6 +6,8 @@
 A curated list of notable quantum computing experiments, focused primarily on the implementation of quantum error correction codes.
 
 
+![Plot](out/qec_exp.png)
+
 
 ## Table of Contents
 
