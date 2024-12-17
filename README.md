@@ -54,7 +54,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 - [Experimental demonstration of a graph state quantum error-correction code](https://arxiv.org/abs/1404.5498v1) (2014) - [[4,1,2]] surface code using photons
 - [Repeated Quantum Error Detection in a Surface Code](https://arxiv.org/abs/1912.09410) (2020) - [[4,1,2]] surface code using superconducting circuit
 - [Realizing repeated quantum error correction in a distance-three surface code](https://arxiv.org/abs/2112.03708) (2021) - [[9, 1, 3]] surface code using a superconducting circuit
-- [Suppressing quantum errors by scaling a surface code logical qubit](https://arxiv.org/abs/2207.06431) (2023) - [3, 1, 3]-[25, 1, 25] repetition codes below threshold using superconducting circuit
+- [Suppressing quantum errors by scaling a surface code logical qubit](https://arxiv.org/abs/2207.06431) (2023) - [[9, 1, 3]], [[25, 1, 5]] surface codes using a superconducting circuit
 - [A quantum processor based on coherent transport of entangled atom arrays](https://arxiv.org/abs/2112.03923) (2021) - [[13, 1, 3]] surface code and [[16, 2, 2]] toric code on neutral atoms
 - [Logical quantum processor based on reconfigurable atom arrays](https://arxiv.org/abs/2312.03982) (2023) - [[9, 1, 3]], [[25, 1, 5]], [[49, 1, 7]] surface codes using neutral atoms
 - [Quantum error correction below the surface code threshold](https://arxiv.org/abs/2408.13687v1) (2024) - [[9, 1, 3]], [[25, 1, 5]], [[49, 1, 7]] surface codes below threshold using superconducting circuit
