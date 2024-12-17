@@ -38,7 +38,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 - [Repeated quantum error correction on a continuously encoded qubit by real-time feedback](https://arxiv.org/abs/1508.01388) (2016) - [3,1,3] on superconducting circuit
 - [A repetition code of 15 qubits](https://arxiv.org/abs/1709.00990) (2018) - [3,1,3]-[8,1,8] on superconducting circuit
 - [Benchmarking near-term devices with quantum error correction](https://arxiv.org/abs/2004.11037) (2020) - [3,1,3]-[22,1,22] on superconducting circuit
-- [Exponential suppression of bit or phase flip errors with repetitive error correction](https://arxiv.org/abs/2102.06132) (2020) - [3,1,3]-[11,1,11], [[4,1,2]] on superconducting circuit
+- [Exponential suppression of bit or phase flip errors with repetitive error correction](https://arxiv.org/abs/2102.06132) (2020) - [3,1,3]-[11,1,11] on superconducting circuit
 - [Suppressing quantum errors by scaling a surface code logical qubit](https://arxiv.org/abs/2207.06431) (2023) - [3, 1, 3]-[25, 1, 25] repetition codes below threshold using superconducting circuit
 - [Hardware-efficient quantum error correction using concatenated bosonic qubits](https://arxiv.org/abs/2409.13025) (2024) - [[3, 1, 3]], [[5, 1, 5]] repetition cat codes, below the threshold of the phase-flip correcting repetition code, using a superconducting circuit
 - [Quantum error correction below the surface code threshold](https://arxiv.org/abs/2408.13687v1) (2024) - [3, 1, 3]-[29, 1, 29] repetition codes below threshold using superconducting circuit
@@ -81,6 +81,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 ### Four-qubit Code
 
+- [Exponential suppression of bit or phase flip errors with repetitive error correction](https://arxiv.org/abs/2102.06132) (2020) - [[4,1,2]] on superconducting circuit
 - [Logical computation demonstrated with a neutral atom quantum processor](https://arxiv.org/abs/2411.11822v2) (2024) - [[4, 1, 2]], [[4, 2, 2]] on neutral atoms
 
 ### Cluster State
