@@ -40,6 +40,7 @@ readme_content = f"""# Awesome Quantum Computing Experiments
 A curated list of notable quantum computing experiments, focused primarily on the implementation of quantum error correction codes.
 
 ![Plot](out/qec_exp.png)
+![Plot](out/qec_time_evolution.png)
 
 ## Table of Contents
 
