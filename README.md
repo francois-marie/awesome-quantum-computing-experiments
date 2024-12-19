@@ -69,8 +69,35 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 ### Four-qubit Code
 
+- [Experimental demonstration of fault-tolerant state preparation with superconducting qubits
+](https://arxiv.org/abs/1705.09259) (2017) - [[4,1,2]] on Superconducting circuit
+- [Fault-tolerant quantum error detection
+](https://arxiv.org/abs/1611.06946) (2017) - [[4,1,2]] on Ion traps
+- [Protecting quantum memories using coherent parity check codes
+](https://arxiv.org/abs/1709.01866v3) (2018) - [[4,2,2]] on Superconducting circuit
+- [Is error detection helpful on IBM 5Q chips ?
+](https://arxiv.org/abs/1705.08957) (2018) - [[4,2,2]] on Superconducting circuit
+- [Testing quantum fault tolerance on small systems
+](https://arxiv.org/abs/1805.05227) (2018) - [[4,2,2]] on Superconducting circuit
+- [Fault-Tolerant Logical Gates in the IBM Quantum Experience
+](https://arxiv.org/abs/1806.02359) (2019) - [[4,2,2]] on Superconducting circuit
+- [Error detection on quantum computers improves accuracy of chemical calculations
+](https://arxiv.org/abs/1910.00129) (2020) - [[4,2,2]] on Superconducting circuit
 - [Exponential suppression of bit or phase flip errors with repetitive error correction](https://arxiv.org/abs/2102.06132) (2020) - [[4,1,2]] on Superconducting circuit
+- [Resource Optimal Realization of Fault-Tolerant Quantum Circuit](https://ieeexplore.ieee.org/document/9171796) (2020) - [[4,2,2]] on Superconducting circuit
+- [Experimental Characterization of Fault-Tolerant Circuits in Small-Scale Quantum Processors
+](https://arxiv.org/abs/2112.04076) (2021) - [[4,2,2]] on Superconducting circuit
+- [Optical demonstration of quantum fault-tolerant threshold
+](https://arxiv.org/abs/2012.08927) (2022) - [[4,2,2]] on Photons
+- [Comparative analysis of error mitigation techniques for variational quantum eigensolver implementations on IBM quantum system
+](https://arxiv.org/abs/2206.07907) (2022) - [[4,2,2]] on Superconducting circuit
+- [End-to-End Quantum Simulation of a Chemical System
+](https://arxiv.org/abs/2409.05835) (2024) - [[4,2,2]] on Ion traps
+- [Encoding a magic state with beyond break-even fidelity
+](https://arxiv.org/abs/2305.13581) (2024) - [[4,2,2]] on Superconducting circuit
 - [Logical computation demonstrated with a neutral atom quantum processor](https://arxiv.org/abs/2411.11822v2) (2024) - [[4,1,2]], [[4,2,2]] on Neutral atoms
+- [Fault-Tolerant Operation and Materials Science
+with Neutral Atom Logical Qubits](https://arxiv.org/abs/2412.07670v1) (2024) - [[4,2,2]] on Neutral atoms
 
 ### Bacon-Shor Code
 
