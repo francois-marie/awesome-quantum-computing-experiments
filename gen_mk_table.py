@@ -21,7 +21,9 @@ def format_entry(row):
 qec_section = "## Quantum Error Correction\n\n"
 qec_toc = ""
 
-for code_name, group in qec_data.sort_values("Year").groupby("Code Name", sort=False):
+for code_name, group in qec_data.sort_values(by=["Year", "Article Title"]).groupby(
+    "Code Name", sort=False
+):
     anchor = (
         code_name.lower()
         .replace(" ", "-")
