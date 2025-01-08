@@ -4,6 +4,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 ![Plot](out/qec_exp.png)
 ![Plot](out/qec_time_evolution.png)
+![Plot](out/entangled_state_error_vs_year.png)
 
 ## Table of Contents
 
