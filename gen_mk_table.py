@@ -2,10 +2,12 @@ import pandas as pd
 
 # Paths to the CSV files and README.md
 qec_csv_path = "data/qec_exp.csv"
+msd_csv_path = "data/msd_exp.csv"
 readme_path = "README.md"
 
 # Load CSV files
 qec_data = pd.read_csv(qec_csv_path)
+msd_data = pd.read_csv(msd_csv_path)
 
 
 # Function to format entries in the markdown
@@ -14,7 +16,10 @@ def format_entry(row):
         suffix = ""
     else:
         suffix = f", {row['Notes']}"
-    return f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - {row['Code Parameters']} on {row['Platform']}{suffix}"
+    if "Code Parameters" in row.index:
+        return f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - {row['Code Parameters']} on {row['Platform']}{suffix}"
+    else:
+        return f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - on {row['Platform']}{suffix}"
 
 
 # Generate content for Quantum Error Correction section
@@ -36,6 +41,26 @@ for code_name, group in qec_data.sort_values(by=["Year", "Article Title"]).group
     entries = group.apply(format_entry, axis=1)
     qec_section += "\n".join(entries) + "\n\n"
 
+# Generate content for Magic State Distillation section
+msd_section = "## Magic State Distillation\n\n"
+msd_toc = ""
+
+for code_name, group in msd_data.sort_values(by=["Year", "Article Title"]).groupby(
+    "Code Name", sort=False
+):
+    anchor = (
+        code_name.lower()
+        .replace(" ", "-")
+        .replace("[", "")
+        .replace("]", "")
+        .replace(",", "")
+    )
+    msd_toc += f"\t- [{code_name}](#{anchor})\n"
+    msd_section += f"### {code_name}\n\n"
+    entries = group.apply(format_entry, axis=1)
+    msd_section += "\n".join(entries) + "\n\n"
+
+
 # Define README structure
 readme_content = f"""# Awesome Quantum Computing Experiments
 
@@ -48,8 +73,12 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 - [Quantum Error Correction](#quantum-error-correction)
 {qec_toc}
+- [Magic State Distillation](#magic-state-distillation)
+{msd_toc}
 
 {qec_section}
+
+{msd_section}
 
 ## Contributing
 
