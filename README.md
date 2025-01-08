@@ -17,6 +17,10 @@ A curated list of notable quantum computing experiments, focused primarily on th
 	- [Bacon-Shor Code](#bacon-shor-code)
 	- [Cluster State](#cluster-state)
 
+- [Magic State Distillation](#magic-state-distillation)
+	- [5 to 1](#5-to-1)
+	- [1 to 1](#1-to-1)
+
 
 ## Quantum Error Correction
 
@@ -111,6 +115,18 @@ A curated list of notable quantum computing experiments, focused primarily on th
 ### Cluster State
 
 - [A quantum processor based on coherent transport of entangled atom arrays](https://arxiv.org/abs/2112.03923) (2021) - 1D with 12 qubits on Neutral atoms
+
+
+
+## Magic State Distillation
+
+### 5 to 1
+
+- [Experimental Demonstration of Logical Magic State Distillation](https://arxiv.org/abs/2412.15165) (2024) - on Neutral atoms, Injection and distillation
+
+### 1 to 1
+
+- [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting circuit, Injection and teleportation
 
 
 
