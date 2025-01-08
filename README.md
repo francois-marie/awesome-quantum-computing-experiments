@@ -28,7 +28,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 - [Experimental Quantum Error Correction](https://arxiv.org/abs/quant-ph/9802018) (1998) - [3,1,3] on NMR
 - [Demonstration of Sufficient Control for Two Rounds of Quantum Error Correction in a Solid-State Ensemble Quantum Information Processor](https://arxiv.org/abs/1108.4842) (2011) - [3,1,3] on NMR
-- [Experimental Repetitive Quantum Error Correction](https://jubarreiro.physics.ucsd.edu/files/Schindler-Science-332-1059-1061.pdf) (2011) - [3,1,3] on Ion trap
+- [Experimental Repetitive Quantum Error Correction](https://jubarreiro.physics.ucsd.edu/files/Schindler-Science-332-1059-1061.pdf) (2011) - [3,1,3] on Ion traps
 - [Experimental quantum error correction with high fidelity](https://arxiv.org/abs/1109.4821) (2011) - [3,1,3] on NMR
 - [Realization of Three-Qubit Quantum Error Correction with Superconducting Circuits](https://arxiv.org/abs/1109.4948) (2012) - [3,1,3] on Superconducting circuit
 - [Quantum error correction in a solid-state hybrid spin register](https://arxiv.org/abs/1309.6424) (2014) - [[3,1,3]] on NV centers
@@ -51,7 +51,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 ### Color Code
 
 - [Experimental Quantum Computations on a Topologically Encoded Qubit](https://arxiv.org/abs/1403.5426) (2014) - [[7,1,3]] on Ion traps
-- [Experimental demonstration of fault-tolerant state preparation with superconducting qubits](https://arxiv.org/abs/1705.09259v1) (2017) - [[4,2,2]] on Superconducting circuit
+- [Experimental demonstration of fault-tolerant state preparation with superconducting qubits](https://arxiv.org/abs/1705.09259) (2017) - [[4,2,2]] on Superconducting circuit
 - [Fault-tolerant quantum error detection](https://arxiv.org/abs/1611.06946) (2017) - [[4,2,2]] on Ion traps
 - [A quantum processor based on coherent transport of entangled atom arrays](https://arxiv.org/abs/2112.03923) (2021) - [[7,1,3]] on Neutral atoms
 - [Logical quantum processor based on reconfigurable atom arrays](https://arxiv.org/abs/2312.03982) (2023) - [[7,1,3]], [[8,3,2]] on Neutral atoms
@@ -60,7 +60,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 ### Surface Code
 
-- [Experimental demonstration of a graph state quantum error-correction code](https://arxiv.org/abs/1404.5498v1) (2014) - [[4,1,2]] on Photons
+- [Experimental demonstration of a graph state quantum error-correction code](https://arxiv.org/abs/1404.5498) (2014) - [[4,1,2]] on Photons
 - [Repeated Quantum Error Detection in a Surface Code](https://arxiv.org/abs/1912.09410) (2020) - [[4,1,2]] on Superconducting circuit
 - [A quantum processor based on coherent transport of entangled atom arrays](https://arxiv.org/abs/2112.03923) (2021) - [[13,1,3]] surface code, [[16,2,2]] toric code on Neutral atoms
 - [Realizing repeated quantum error correction in a distance-three surface code](https://arxiv.org/abs/2112.03708) (2021) - [[9,1,3]] on Superconducting circuit
@@ -84,7 +84,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 - [Is error detection helpful on IBM 5Q chips ?
 ](https://arxiv.org/abs/1705.08957) (2018) - [[4,2,2]] on Superconducting circuit
 - [Protecting quantum memories using coherent parity check codes
-](https://arxiv.org/abs/1709.01866v3) (2018) - [[4,2,2]] on Superconducting circuit
+](https://arxiv.org/abs/1709.01866) (2018) - [[4,2,2]] on Superconducting circuit
 - [Testing quantum fault tolerance on small systems
 ](https://arxiv.org/abs/1805.05227) (2018) - [[4,2,2]] on Superconducting circuit
 - [Fault-Tolerant Logical Gates in the IBM Quantum Experience
@@ -103,14 +103,14 @@ A curated list of notable quantum computing experiments, focused primarily on th
 ](https://arxiv.org/abs/2305.13581) (2024) - [[4,2,2]] on Superconducting circuit
 - [End-to-End Quantum Simulation of a Chemical System
 ](https://arxiv.org/abs/2409.05835) (2024) - [[4,2,2]] on Ion traps
-- [Fault-Tolerant Operation and Materials Science with Neutral Atom Logical Qubits](https://arxiv.org/abs/2412.07670v1) (2024) - [[4,2,2]] on Neutral atoms
-- [Logical computation demonstrated with a neutral atom quantum processor](https://arxiv.org/abs/2411.11822v2) (2024) - [[4,1,2]], [[4,2,2]] on Neutral atoms
+- [Fault-Tolerant Operation and Materials Science with Neutral Atom Logical Qubits](https://arxiv.org/abs/2412.07670) (2024) - [[4,2,2]] on Neutral atoms
+- [Logical computation demonstrated with a neutral atom quantum processor](https://arxiv.org/abs/2411.11822) (2024) - [[4,1,2]], [[4,2,2]] on Neutral atoms
 
 ### Bacon-Shor Code
 
 - [Fault-Tolerant Operation of a Quantum Error-Correction Code](https://arxiv.org/abs/2009.11482) (2020) - [[9,1,3]] on Ion traps
 - [Quantum teleportation of physical qubits into logical code-spaces](https://arxiv.org/abs/2009.06242) (2020) - [[9,1,3]] on Photons
-- [Logical computation demonstrated with a neutral atom quantum processor](https://arxiv.org/abs/2411.11822v1) (2024) - [[9,1,3]] on Neutral atoms
+- [Logical computation demonstrated with a neutral atom quantum processor](https://arxiv.org/abs/2411.11822) (2024) - [[9,1,3]] on Neutral atoms
 
 ### Cluster State
 
