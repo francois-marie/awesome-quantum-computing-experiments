@@ -4,6 +4,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 ![Plot](out/qec_exp.png)
 ![Plot](out/qec_time_evolution.png)
+![Plot](out/entangled_state_error_vs_year.png)
 
 ## Table of Contents
 
@@ -20,6 +21,11 @@ A curated list of notable quantum computing experiments, focused primarily on th
 - [Magic State Distillation](#magic-state-distillation)
 	- [5 to 1](#5-to-1)
 	- [1 to 1](#1-to-1)
+
+- [Entangled State Error](#entangled-state-error)
+	- [Ion traps](#ion-traps)
+	- [Superconducting circuits](#superconducting-circuits)
+	- [Neutral atoms](#neutral-atoms)
 
 
 ## Quantum Error Correction
@@ -127,6 +133,38 @@ A curated list of notable quantum computing experiments, focused primarily on th
 ### 1 to 1
 
 - [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting circuit, Injection and teleportation
+
+
+
+## Entangled State Error
+
+### Ion traps
+
+- [Experimental Demonstration of a Controlled-NOT Quantum Gate](https://arxiv.org/abs/quant-ph/9806012) (1998) - 0.3 on Ion traps
+- [Experimental Entanglement of Four Particles](https://www.nature.com/articles/35005011) (2000) - 0.2 on Ion traps
+- [Experimental Violation of a Bell's Inequality with Efficient Detection](https://www.nature.com/articles/35057215) (2001) - 0.1 on Ion traps
+- [Experimental Demonstration of a Robust, High-Fidelity Geometric Two Ion-Quibit Phase Gate](https://www.nature.com/articles/nature01492) (2003) - 0.03 on Ion traps
+- [Towards Fault-Tolerant Quantum Computing with Trapped Ions](https://arxiv.org/abs/0803.2798) (2008) - 0.007 on Ion traps
+- [High-Fidelity Quantum Logic Gates Using Trapped Ions](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps
+- [High-Fidelity Universal Gate Set for Be+ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps
+
+### Superconducting circuits
+
+- [Measurement-Based Quantum Computation with Superconducting Qubits](https://www.science.org/doi/10.1126/science.1130886) (2006) - 0.3 on Superconducting circuits
+- [Demonstration of Two-Qubit Algorithms with a Superconducting Quantum Processor](https://arxiv.org/abs/0903.2030) (2009) - 0.05 on Superconducting circuits
+- [Complete universal quantum gate set approaching fault-tolerant thresholds with superconducting qubits](https://arxiv.org/abs/1202.5344) (2012) - 0.02 on Superconducting circuits
+- [Logic gates at the surface code threshold: Superconducting qubits poised for fault-tolerant quantum computing](https://arxiv.org/abs/1402.4848) (2014) - 0.006 on Superconducting circuits
+- [Procedure for systematically tuning up crosstalk in the cross resonance gate](https://arxiv.org/abs/1603.04821) (2016) - 0.004 on Superconducting circuits
+- [Programming a quantum computer with quantum instructions](https://arxiv.org/abs/2001.08838) (2020) - 0.003 on Superconducting circuits
+
+### Neutral atoms
+
+- [Demonstration of a neutral atom controlled-NOT quantum gate](https://arxiv.org/abs/0907.5552) (2010) - 0.3 on Neutral atoms
+- [Entanglement of two individual neutral atoms using Rydberg blockade](https://arxiv.org/abs/0908.0454) (2010) - 0.5 on Neutral atoms
+- [Rydberg-blockade controlled-not gate and entanglement in a two-dimensional array of neutral-atom qubits](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.92.022336) (2015) - 0.2 on Neutral atoms
+- [Parallel implementation of high-fidelity multi-qubit gates with neutral atoms](https://arxiv.org/abs/1908.06101) (2019) - 0.03 on Neutral atoms
+- [High-Fidelity Entanglement and Detection of Alkaline-Earth Rydberg Atoms](https://arxiv.org/abs/2001.04455) (2020) - 0.01 on Neutral atoms
+- [Erasure conversion in a high-fidelity Rydberg quantum simulator](https://arxiv.org/abs/2305.03406) (2023) - 0.002 on Neutral atoms
 
 
 

@@ -3,23 +3,29 @@ import pandas as pd
 # Paths to the CSV files and README.md
 qec_csv_path = "data/qec_exp.csv"
 msd_csv_path = "data/msd_exp.csv"
+entangled_csv_path = "data/entangled_state_error_exp.csv"
 readme_path = "README.md"
 
 # Load CSV files
 qec_data = pd.read_csv(qec_csv_path)
 msd_data = pd.read_csv(msd_csv_path)
+entangled_data = pd.read_csv(entangled_csv_path)
 
 
 # Function to format entries in the markdown
-def format_entry(row):
+def format_entry(row, section: str):
     if pd.isna(row["Notes"]):
         suffix = ""
     else:
         suffix = f", {row['Notes']}"
-    if "Code Parameters" in row.index:
+    if section == "qec":
         return f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - {row['Code Parameters']} on {row['Platform']}{suffix}"
-    else:
+    elif section == "msd":
         return f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - on {row['Platform']}{suffix}"
+    elif section == "entangled":
+        return f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - {row['Entangled State Error']} on {row['Platform']}{suffix}"
+    else:
+        raise NotImplementedError(f"The section type {section} is incorrect.")
 
 
 # Generate content for Quantum Error Correction section
@@ -38,7 +44,7 @@ for code_name, group in qec_data.sort_values(by=["Year", "Article Title"]).group
     )
     qec_toc += f"\t- [{code_name}](#{anchor})\n"
     qec_section += f"### {code_name}\n\n"
-    entries = group.apply(format_entry, axis=1)
+    entries = group.apply(format_entry, args=("qec",), axis=1)
     qec_section += "\n".join(entries) + "\n\n"
 
 # Generate content for Magic State Distillation section
@@ -57,8 +63,28 @@ for code_name, group in msd_data.sort_values(by=["Year", "Article Title"]).group
     )
     msd_toc += f"\t- [{code_name}](#{anchor})\n"
     msd_section += f"### {code_name}\n\n"
-    entries = group.apply(format_entry, axis=1)
+    entries = group.apply(format_entry, args=("msd",), axis=1)
     msd_section += "\n".join(entries) + "\n\n"
+
+
+# Generate content for Entangled State Error section
+entangled_section = "## Entangled State Error\n\n"
+entangled_toc = ""
+
+for platform, group in entangled_data.sort_values(by=["Year", "Article Title"]).groupby(
+    "Platform", sort=False
+):
+    anchor = (
+        platform.lower()
+        .replace(" ", "-")
+        .replace("[", "")
+        .replace("]", "")
+        .replace(",", "")
+    )
+    entangled_toc += f"\t- [{platform}](#{anchor})\n"
+    entangled_section += f"### {platform}\n\n"
+    entries = group.apply(format_entry, args=("entangled",), axis=1)
+    entangled_section += "\n".join(entries) + "\n\n"
 
 
 # Define README structure
@@ -68,6 +94,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 ![Plot](out/qec_exp.png)
 ![Plot](out/qec_time_evolution.png)
+![Plot](out/entangled_state_error_vs_year.png)
 
 ## Table of Contents
 
@@ -75,10 +102,14 @@ A curated list of notable quantum computing experiments, focused primarily on th
 {qec_toc}
 - [Magic State Distillation](#magic-state-distillation)
 {msd_toc}
+- [Entangled State Error](#entangled-state-error)
+{entangled_toc}
 
 {qec_section}
 
 {msd_section}
+
+{entangled_section}
 
 ## Contributing
 
