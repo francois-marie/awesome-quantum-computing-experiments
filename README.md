@@ -5,6 +5,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 ![Plot](out/qec_exp.png)
 ![Plot](out/qec_time_evolution.png)
 ![Plot](out/entangled_state_error_vs_year.png)
+![Plot](out/qubit_count_vs_year.png)
 
 ## Table of Contents
 
@@ -26,6 +27,13 @@ A curated list of notable quantum computing experiments, focused primarily on th
 	- [Ion traps](#ion-traps)
 	- [Superconducting circuits](#superconducting-circuits)
 	- [Neutral atoms](#neutral-atoms)
+	- [Superconducting spins](#superconducting-spins)
+
+- [Qubit Count](#qubit-count)
+	- [Ion traps](#ion-traps)
+	- [Superconducting circuit](#superconducting-circuit)
+	- [Neutral atoms](#neutral-atoms)
+	- [Superconducting spins](#superconducting-spins)
 
 
 ## Quantum Error Correction
@@ -165,6 +173,45 @@ A curated list of notable quantum computing experiments, focused primarily on th
 - [Parallel implementation of high-fidelity multi-qubit gates with neutral atoms](https://arxiv.org/abs/1908.06101) (2019) - 0.03 on Neutral atoms
 - [High-Fidelity Entanglement and Detection of Alkaline-Earth Rydberg Atoms](https://arxiv.org/abs/2001.04455) (2020) - 0.01 on Neutral atoms
 - [Erasure conversion in a high-fidelity Rydberg quantum simulator](https://arxiv.org/abs/2305.03406) (2023) - 0.002 on Neutral atoms
+
+### Superconducting spins
+
+- [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Superconducting spins
+- [High fidelity state preparation, quantum control, and readout of an isotopically enriched silicon spin qubit](https://arxiv.org/abs/2204.09551) (2022) - nan on Superconducting spins
+- [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.05 on Superconducting spins
+
+
+## Qubit Count
+
+### Ion traps
+
+- [Experimental Demonstration of a Controlled-NOT Quantum Gate](https://arxiv.org/abs/quant-ph/9806012) (1998) - 2 qubits on Ion traps
+- [Experimental Entanglement of Four Particles](https://www.nature.com/articles/35005011) (2000) - 4 qubits on Ion traps
+- [14-qubit entanglement: creation and coherence](https://arxiv.org/abs/1009.6126) (2011) - 14 qubits on Ion traps
+- [Observation of Entangled States of a Fully Controlled 20-Qubit System](https://arxiv.org/abs/1711.11092) (2017) - 20 qubits on Ion traps
+- [Controlling two-dimensional Coulomb crystals of more than 100 ions in a monolithic radio-frequency trap](https://arxiv.org/abs/2302.00565) (2023) - 100 qubits on Ion traps
+
+### Superconducting circuit
+
+- [Measurement of the Entanglement of Two Superconducting Qubits via State Tomography](https://www.science.org/doi/10.1126/science.1130886) (2006) - 2 qubits on Superconducting circuit
+- [Superconducting quantum circuits at the surface code threshold for fault tolerance](https://www.nature.com/articles/nature13171) (2014) - 5 qubits on Superconducting circuit
+- [Quantum supremacy using a programmable superconducting processor](https://www.nature.com/articles/s41586-019-1666-5) (2019) - 53 qubits on Superconducting circuit
+- [Evidence for the utility of quantum computing before fault tolerance](https://www.nature.com/articles/s41586-023-06096-3) (2023) - 127 qubits on Superconducting circuit
+
+### Neutral atoms
+
+- [Entanglement of two individual neutral atoms using Rydberg blockade](https://arxiv.org/abs/0908.0454) (2010) - 2 qubits on Neutral atoms
+- [An atom-by-atom assembler of defect-free arbitrary 2d atomic arrays](https://arxiv.org/abs/1607.03042) (2016) - 50 qubits on Neutral atoms
+- [Probing many-body dynamics on a 51-atom quantum simulator](https://arxiv.org/abs/1707.04344) (2017) - 51 qubits on Neutral atoms
+- [Defect-free assembly of 2D clusters of more than 100 single-atom quantum systems](https://arxiv.org/abs/1902.00284) (2019) - 111 qubits on Neutral atoms
+- [Quantum Phases of Matter on a 256-Atom Programmable Quantum Simulator](https://arxiv.org/abs/2012.12281) (2021) - 256 qubits on Neutral atoms
+- [In-situ equalization of single-atom loading in large-scale optical tweezers arrays](https://arxiv.org/abs/2207.06500) (2022) - 324 qubits on Neutral atoms
+- [A tweezer array with 6100 highly coherent atomic qubits](https://arxiv.org/abs/2403.12021) (2024) - 6100 qubits on Neutral atoms
+
+### Superconducting spins
+
+- [A programmable two-qubit quantum processor in silicon](https://arxiv.org/abs/1708.04214) (2018) - 2 qubits on Superconducting spins
+- [Universal control of a six-qubit quantum processor in silicon](https://arxiv.org/abs/2202.09252) (2022) - 6 qubits on Superconducting spins
 
 
 
