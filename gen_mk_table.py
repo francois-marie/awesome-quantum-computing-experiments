@@ -4,12 +4,14 @@ import pandas as pd
 qec_csv_path = "data/qec_exp.csv"
 msd_csv_path = "data/msd_exp.csv"
 entangled_csv_path = "data/entangled_state_error_exp.csv"
+qubit_count_csv_path = "data/qubit_count.csv"
 readme_path = "README.md"
 
 # Load CSV files
 qec_data = pd.read_csv(qec_csv_path)
 msd_data = pd.read_csv(msd_csv_path)
 entangled_data = pd.read_csv(entangled_csv_path)
+qubit_count_data = pd.read_csv(qubit_count_csv_path)
 
 
 # Function to format entries in the markdown
@@ -24,6 +26,8 @@ def format_entry(row, section: str):
         return f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - on {row['Platform']}{suffix}"
     elif section == "entangled":
         return f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - {row['Entangled State Error']} on {row['Platform']}{suffix}"
+    elif section == "qubit_count":
+        return f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - {row['Number of qubits']} qubits on {row['Platform']}{suffix}"
     else:
         raise NotImplementedError(f"The section type {section} is incorrect.")
 
@@ -86,15 +90,28 @@ for platform, group in entangled_data.sort_values(by=["Year", "Article Title"]).
     entries = group.apply(format_entry, args=("entangled",), axis=1)
     entangled_section += "\n".join(entries) + "\n\n"
 
+# Generate content for Qubit Count section
+qubit_count_section = "## Qubit Count\n\n"
+qubit_count_toc = ""
 
-# Define README structure
-readme_content = f"""# Awesome Quantum Computing Experiments
+for platform, group in qubit_count_data.sort_values(by=["Year", "Article Title"]).groupby(
+    "Platform", sort=False
+):
+    anchor = platform.lower().replace(" ", "-")
+    qubit_count_toc += f"\t- [{platform}](#{anchor})\n"
+    qubit_count_section += f"### {platform}\n\n"
+    entries = group.apply(format_entry, args=("qubit_count",), axis=1)
+    qubit_count_section += "\n".join(entries) + "\n\n"
+
+# Combine all sections
+content = f"""# Awesome Quantum Computing Experiments
 
 A curated list of notable quantum computing experiments, focused primarily on the implementation of quantum error correction codes.
 
 ![Plot](out/qec_exp.png)
 ![Plot](out/qec_time_evolution.png)
 ![Plot](out/entangled_state_error_vs_year.png)
+![Plot](out/qubit_count_vs_year.png)
 
 ## Table of Contents
 
@@ -104,12 +121,15 @@ A curated list of notable quantum computing experiments, focused primarily on th
 {msd_toc}
 - [Entangled State Error](#entangled-state-error)
 {entangled_toc}
+- [Qubit Count](#qubit-count)
+{qubit_count_toc}
 
 {qec_section}
 
 {msd_section}
 
 {entangled_section}
+{qubit_count_section}
 
 ## Contributing
 
@@ -124,6 +144,6 @@ For more information, see [Creative Commons CC0 1.0 Legal Code](https://creative
 
 # Write to README.md
 with open(readme_path, "w") as f:
-    f.write(readme_content)
+    f.write(content)
 
 print("README.md has been successfully updated.")
