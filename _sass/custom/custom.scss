@@ -1,0 +1,64 @@
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    
+    h3 {
+        margin: 0 0 0.5rem 0;
+        color: $body-text-color;
+    }
+    
+    p {
+        margin: 0 0 1rem 0;
+        color: lighten($body-text-color, 20%);
+        font-size: 0.9rem;
+    }
+    
+    .metric-value {
+        span {
+            display: block;
+            &:not(:last-child) {
+                margin-bottom: 0.25rem;
+            }
+        }
+        
+        .count, .error-rate {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: $link-color;
+        }
+        
+        .platform {
+            color: $body-text-color;
+        }
+        
+        .year {
+            color: lighten($body-text-color, 30%);
+            font-size: 0.9rem;
+        }
+        
+        .link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: $link-color;
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+            
+            &:not([href]) {
+                display: none;
+            }
+        }
+    }
+} 
