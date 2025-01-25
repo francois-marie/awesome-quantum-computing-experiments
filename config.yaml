@@ -1,0 +1,27 @@
+paths:
+  data:
+    qec: data/qec_exp.csv
+    msd: data/msd_exp.csv
+    entangled: data/entangled_state_error_exp.csv
+    qubit_count: data/qubit_count.csv
+  output:
+    plots: out/plots
+    readme: README.md
+
+plots:
+  nkd: nkd_plot.png
+  qec_time: qec_time_evolution.png
+  entangled: entangled_state_error_vs_year.png
+  qubit_count: qubit_count_vs_year.png
+
+plot_settings:
+  figsize: [12, 8]
+  fontsize:
+    title: 16
+    label: 14
+    tick: 12
+    annotation: 10
+  style:
+    palette: tab10
+    alpha: 0.8
+    linewidth: 2 

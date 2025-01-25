@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "awesome-quantum-computing-experiments"
+version = "0.1.0"
+description = "Quantum Computing Experiments Analysis"
+authors = [
+    {name = "François-Marie Le Régent", email = "fm.le.regent@gmail.com"},
+]
+requires-python = ">=3.8"
+
+[project.dependencies]
+matplotlib = ">=3.6.0"
+seaborn = ">=0.12.0"
+pandas = ">=2.0.0"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=6.0",
+    "pytest-mock>=3.0",
+    "pandas>=2.0.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."] 

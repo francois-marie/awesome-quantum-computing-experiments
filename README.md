@@ -2,10 +2,36 @@
 
 A curated list of notable quantum computing experiments, focused primarily on the implementation of quantum error correction codes.
 
-![Plot](out/qec_exp.png)
-![Plot](out/qec_time_evolution.png)
-![Plot](out/entangled_state_error_vs_year.png)
-![Plot](out/qubit_count_vs_year.png)
+![Plot](out/plots/nkd_plot.png)
+![Plot](out/plots/qec_time_evolution.png)
+![Plot](out/plots/entangled_state_error_vs_year.png)
+![Plot](out/plots/qubit_count_vs_year.png)
+
+## Overview
+
+This repository maintains a comprehensive database of quantum computing experiments, with a focus on:
+- Quantum Error Correction (QEC) implementations
+- Magic State Distillation (MSD) experiments
+- Entangled State Error measurements
+- Physical Qubit Count evolution
+
+## Quick Start
+
+1. Clone the repository and install dependencies:
+```bash
+git clone https://github.com/yourusername/awesome-quantum-computing-experiments.git
+cd awesome-quantum-computing-experiments
+pip install -r requirements.txt
+```
+
+2. Generate all plots and README:
+```bash
+make all
+```
+
+For more detailed information:
+- See [Documentation](docs/DOCUMENTATION.md) for usage and data format details
+- See [Contributing Guide](docs/CONTRIBUTING.md) for how to add new experiments
 
 ## Table of Contents
 
@@ -18,23 +44,19 @@ A curated list of notable quantum computing experiments, focused primarily on th
 	- [Four-qubit Code](#four-qubit-code)
 	- [Bacon-Shor Code](#bacon-shor-code)
 	- [Cluster State](#cluster-state)
-
 - [Magic State Distillation](#magic-state-distillation)
 	- [5 to 1](#5-to-1)
 	- [1 to 1](#1-to-1)
-
 - [Entangled State Error](#entangled-state-error)
 	- [Ion traps](#ion-traps)
 	- [Superconducting circuits](#superconducting-circuits)
 	- [Neutral atoms](#neutral-atoms)
 	- [Superconducting spins](#superconducting-spins)
-
 - [Qubit Count](#qubit-count)
 	- [Ion traps](#ion-traps)
 	- [Superconducting circuit](#superconducting-circuit)
 	- [Neutral atoms](#neutral-atoms)
 	- [Superconducting spins](#superconducting-spins)
-
 
 ## Quantum Error Correction
 
@@ -130,8 +152,6 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 - [A quantum processor based on coherent transport of entangled atom arrays](https://arxiv.org/abs/2112.03923) (2021) - 1D with 12 qubits on Neutral atoms
 
-
-
 ## Magic State Distillation
 
 ### 5 to 1
@@ -141,8 +161,6 @@ A curated list of notable quantum computing experiments, focused primarily on th
 ### 1 to 1
 
 - [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting circuit, Injection and teleportation
-
-
 
 ## Entangled State Error
 
@@ -180,7 +198,6 @@ A curated list of notable quantum computing experiments, focused primarily on th
 - [High fidelity state preparation, quantum control, and readout of an isotopically enriched silicon spin qubit](https://arxiv.org/abs/2204.09551) (2022) - nan on Superconducting spins
 - [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.05 on Superconducting spins
 
-
 ## Qubit Count
 
 ### Ion traps
@@ -212,7 +229,6 @@ A curated list of notable quantum computing experiments, focused primarily on th
 
 - [A programmable two-qubit quantum processor in silicon](https://arxiv.org/abs/1708.04214) (2018) - 2 qubits on Superconducting spins
 - [Universal control of a six-qubit quantum processor in silicon](https://arxiv.org/abs/2202.09252) (2022) - 6 qubits on Superconducting spins
-
 
 
 ## Contributing
