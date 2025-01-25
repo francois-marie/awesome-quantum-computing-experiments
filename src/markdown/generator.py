@@ -59,7 +59,7 @@ This repository maintains a comprehensive database of quantum computing experime
 
 1. Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/yourusername/awesome-quantum-computing-experiments.git
+git clone https://github.com/francois-marie/awesome-quantum-computing-experiments.git
 cd awesome-quantum-computing-experiments
 pip install -r requirements.txt
 ```

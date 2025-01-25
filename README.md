@@ -19,7 +19,7 @@ This repository maintains a comprehensive database of quantum computing experime
 
 1. Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/yourusername/awesome-quantum-computing-experiments.git
+git clone https://github.com/francois-marie/awesome-quantum-computing-experiments.git
 cd awesome-quantum-computing-experiments
 pip install -r requirements.txt
 ```
@@ -35,27 +35,33 @@ For more detailed information:
 
 ## Table of Contents
 
-- [Quantum Error Correction](#quantum-error-correction)
-	- [Repetition Code](#repetition-code)
-	- [[[5,1,3]] Perfect Code](#513-perfect-code)
-	- [Color Code](#color-code)
-	- [Surface Code](#surface-code)
-	- [Bell State](#bell-state)
-	- [Four-qubit Code](#four-qubit-code)
-	- [Bacon-Shor Code](#bacon-shor-code)
-	- [Cluster State](#cluster-state)
-- [Magic State Distillation](#magic-state-distillation)
-	- [5 to 1](#5-to-1)
-	- [1 to 1](#1-to-1)
-- [Entangled State Error](#entangled-state-error)
-	- [Ion traps](#ion-traps)
-	- [Superconducting circuits](#superconducting-circuits)
-	- [Neutral atoms](#neutral-atoms)
-- [Qubit Count](#qubit-count)
-	- [Ion traps](#ion-traps)
-	- [Superconducting circuit](#superconducting-circuit)
-	- [Neutral atoms](#neutral-atoms)
-	- [Superconducting spins](#superconducting-spins)
+- [Awesome Quantum Computing Experiments](#awesome-quantum-computing-experiments)
+	- [Overview](#overview)
+	- [Quick Start](#quick-start)
+	- [Table of Contents](#table-of-contents)
+	- [Quantum Error Correction](#quantum-error-correction)
+		- [Repetition Code](#repetition-code)
+		- [\[\[5,1,3\]\] Perfect Code](#513-perfect-code)
+		- [Color Code](#color-code)
+		- [Surface Code](#surface-code)
+		- [Bell State](#bell-state)
+		- [Four-qubit Code](#four-qubit-code)
+		- [Bacon-Shor Code](#bacon-shor-code)
+		- [Cluster State](#cluster-state)
+	- [Magic State Distillation](#magic-state-distillation)
+		- [5 to 1](#5-to-1)
+		- [1 to 1](#1-to-1)
+	- [Entangled State Error](#entangled-state-error)
+		- [Ion traps](#ion-traps)
+		- [Superconducting circuits](#superconducting-circuits)
+		- [Neutral atoms](#neutral-atoms)
+	- [Qubit Count](#qubit-count)
+		- [Ion traps](#ion-traps-1)
+		- [Superconducting circuit](#superconducting-circuit)
+		- [Neutral atoms](#neutral-atoms-1)
+		- [Superconducting spins](#superconducting-spins)
+	- [Contributing](#contributing)
+	- [License](#license)
 
 ## Quantum Error Correction
 
