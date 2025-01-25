@@ -64,3 +64,10 @@ coverage.xml
 .pytest_cache/
 
 # !out/plots/*.png  # Uncomment this if plots are being ignored
+
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.DS_Store
+Gemfile.lock
