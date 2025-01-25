@@ -48,6 +48,21 @@ body {
     padding: 2rem;
 }
 
+.button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    margin: 1rem 0;
+    
+    &:hover {
+        opacity: 0.9;
+        color: white;
+    }
+}
+
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
