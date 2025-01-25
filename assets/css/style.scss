@@ -1,0 +1,49 @@
+@import "{{ site.theme }}";
+
+:root {
+    --primary-color: #6366f1;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    
+    a {
+        color: var(--text-color);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        margin: 0 0.5rem;
+        border-radius: 0.25rem;
+        
+        &:hover {
+            background-color: var(--background-color);
+        }
+        
+        &.active {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+    }
+}
+
+.plot {
+    max-width: 100%;
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+} 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <nav class="navbar">
+        {% for link in site.nav_links %}
+        <a href="{{ link.url | relative_url }}" {% if page.url == link.url %}class="active"{% endif %}>
+            {{ link.title }}
+        </a>
+        {% endfor %}
+    </nav>
+
+    <main class="content">
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>Maintained by the quantum computing community. <a href="{{ site.github.repository_url }}">Contribute on GitHub</a></p>
+    </footer>
+</body>
+</html> 
