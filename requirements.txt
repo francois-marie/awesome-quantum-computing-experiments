@@ -1,0 +1,6 @@
+pandas
+matplotlib
+seaborn
+pyyaml
+pytest
+pytest-mock 
