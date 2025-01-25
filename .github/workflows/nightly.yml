@@ -46,7 +46,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        ref: feature/github-pages
+        ref: gh-pages
         
     - name: Copy latest plots and data
       run: |
@@ -63,4 +63,4 @@ jobs:
       uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target_branch: feature/github-pages 
+        target_branch: gh-pages
