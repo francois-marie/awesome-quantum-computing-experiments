@@ -1,7 +1,6 @@
-.PHONY: test plots readme clean
+.PHONY: all plots readme test
 
-test:
-	pytest tests/
+all: plots readme
 
 plots:
 	python -m src.plotting.qubit_count_plot
@@ -12,7 +11,5 @@ plots:
 readme:
 	python -m src.markdown.generator
 
-clean:
-	rm -f out/plots/*
-
-all: clean plots readme 
+test:
+	pytest tests/ 
