@@ -1,9 +1,10 @@
 ---
 layout: default
-title: Experiments
+title: Experiments Data
+nav_order: 2
 ---
 
-# Quantum Computing Experiments Database
+# Awesome Quantum Computing Experiments
 
 ## Quantum Error Correction (QEC)
 The QEC database tracks implementations of quantum error correction codes across different platforms.
@@ -13,7 +14,7 @@ The QEC database tracks implementations of quantum error correction codes across
 - **k**: Number of logical qubits
 - **d**: Code distance
 
-[View QEC Database →](https://github.com/francois-marie/awesome-quantum-computing-experiments/blob/main/data/qec_exp.csv){: .button}
+<table id="qec-table" class="display responsive nowrap" width="100%"></table>
 
 ## Magic State Distillation (MSD)
 Magic state distillation is crucial for fault-tolerant quantum computation, enabling high-fidelity T gates.
@@ -23,7 +24,7 @@ Magic state distillation is crucial for fault-tolerant quantum computation, enab
 - Distillation Protocol
 - Output State Fidelity
 
-[View MSD Database →](https://github.com/francois-marie/awesome-quantum-computing-experiments/blob/main/data/msd_exp.csv){: .button}
+<table id="msd-table" class="display responsive nowrap" width="100%"></table>
 
 ## Entangled State Error
 This database tracks progress in creating and maintaining high-fidelity entangled states.
@@ -33,7 +34,7 @@ This database tracks progress in creating and maintaining high-fidelity entangle
 - State Preparation Method
 - Measurement Technique
 
-[View Entangled State Database →](https://github.com/francois-marie/awesome-quantum-computing-experiments/blob/main/data/entangled_state_error_exp.csv){: .button}
+<table id="entangled-table" class="display responsive nowrap" width="100%"></table>
 
 ## Physical Qubit Count
 Tracking the evolution of physical qubit counts across different quantum computing platforms.
@@ -44,7 +45,7 @@ Tracking the evolution of physical qubit counts across different quantum computi
 - Coherence Time
 - Control Fidelity
 
-[View Qubit Count Database →](https://github.com/francois-marie/awesome-quantum-computing-experiments/blob/main/data/qubit_count.csv){: .button}
+<table id="qubit-count-table" class="display responsive nowrap" width="100%"></table>
 
 ## Contributing
 
