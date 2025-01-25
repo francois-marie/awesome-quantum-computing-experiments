@@ -1,0 +1,16 @@
+title: Quantum Computing Experiments Database
+description: A curated collection of notable quantum computing experiments and implementations
+theme: jekyll-theme-minimal
+baseurl: "/awesome-quantum-computing-experiments"
+url: "https://francois-marie.github.io"
+
+# Navigation
+nav_links:
+  - title: Home
+    url: /
+  - title: Experiments
+    url: /experiments
+  - title: Plots
+    url: /plots
+  - title: GitHub
+    url: https://github.com/francois-marie/awesome-quantum-computing-experiments 

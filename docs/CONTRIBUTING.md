@@ -52,7 +52,7 @@ Help improve our documentation by:
 
 1. Clone your fork:
 ```bash
-git clone https://github.com/yourusername/awesome-quantum-computing-experiments.git
+git clone https://github.com/francois-marie/awesome-quantum-computing-experiments.git
 cd awesome-quantum-computing-experiments
 ```
 
