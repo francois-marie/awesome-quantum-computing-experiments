@@ -46,4 +46,29 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    
+    h3 {
+        margin: 0 0 0.5rem;
+        color: var(--primary-color);
+    }
+    
+    p {
+        margin: 0;
+        color: var(--text-color);
+        opacity: 0.8;
+    }
 } 
