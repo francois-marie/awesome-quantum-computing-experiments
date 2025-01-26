@@ -30,7 +30,7 @@
             }
         }
         
-        .count, .error-rate {
+        .count, .error-rate, .code-params, .msd-code-name {
             font-size: 1.25rem;
             font-weight: bold;
             color: $link-color;
@@ -59,6 +59,56 @@
             &:not([href]) {
                 display: none;
             }
+            
+            .external-link-icon {
+                display: inline-block;
+                margin-left: 0.25rem;
+                font-size: 0.9em;
+                transition: transform 0.1s ease-in-out;
+            }
+            
+            &:hover .external-link-icon {
+                transform: translate(1px, -1px);
+            }
         }
     }
+}
+
+.button {
+    .fa-github {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-left: 0.5rem;
+        // vertical-align: -0.125em;
+    }
+}
+
+.aux-nav-list-item, .external-link {
+    .fa-github {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-left: 0.5rem;
+        vertical-align: -0.125em;
+    }
+}
+
+.plots-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.plot-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.plot-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #27262b;
 } 
