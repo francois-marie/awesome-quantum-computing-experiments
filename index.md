@@ -21,10 +21,10 @@ A comprehensive collection of notable quantum computing experiments, focusing on
 ![NKD Plot](out/plots/nkd_plot.png){: .plot}
 
 ### Entangled State Error Progress
-![Entangled Error](out/plots/entangled_state_error_vs_year.png){: .plot}
+<div id="entangled-error-plot" style="width:100%; height:500px;"></div>
 
 ### Qubit Count Evolution
-![Qubit Count](out/plots/qubit_count_vs_year.png){: .plot}
+<div id="qubit-count-plot" style="width:100%; height:500px;"></div>
 
 ## About
 
@@ -35,4 +35,4 @@ This database tracks:
 - Physical Qubit Count evolution
 
 
-[View on GitHub](https://github.com/francois-marie/awesome-quantum-computing-experiments){: .button} 
+[View on GitHub <i class="fa-brands fa-github"></i>](https://github.com/francois-marie/awesome-quantum-computing-experiments){: .button} 
