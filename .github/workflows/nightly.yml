@@ -62,8 +62,18 @@ jobs:
         ruby-version: '3.2'
         bundler-cache: true
         
-    - name: Build and deploy
-      uses: helaili/jekyll-action@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        target_branch: gh-pages
+    - name: Install Jekyll
+      run: |
+        gem install bundler
+        bundle install
+        
+    - name: Build site
+      run: JEKYLL_ENV=production bundle exec jekyll build
+      
+    - name: Deploy to GitHub Pages
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add .
+        git commit -m "Deploy site [automated]" || echo "No changes to commit"
+        git push
