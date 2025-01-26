@@ -10,19 +10,19 @@ nav_order: 2
 The QEC database tracks implementations of quantum error correction codes across different platforms.
 
 ### Key Parameters:
-- **n**: Total number of physical qubits
+- **n**: Total number of physical data qubits
 - **k**: Number of logical qubits
 - **d**: Code distance
 
 <table id="qec-table" class="display responsive nowrap" width="100%"></table>
 
 ## Magic State Distillation (MSD)
-Magic state distillation is crucial for fault-tolerant quantum computation, enabling high-fidelity T gates.
+Magic state distillation is crucial for fault-tolerant quantum computation, enabling high-fidelity T gates for instance.
 
 ### Tracked Metrics:
 - Implementation Platform
 - Distillation Protocol
-- Output State Fidelity
+- Year
 
 <table id="msd-table" class="display responsive nowrap" width="100%"></table>
 
@@ -31,8 +31,8 @@ This database tracks progress in creating and maintaining high-fidelity entangle
 
 ### Key Metrics:
 - Error Rate
-- State Preparation Method
-- Measurement Technique
+- Platform
+- Year
 
 <table id="entangled-table" class="display responsive nowrap" width="100%"></table>
 
@@ -42,8 +42,7 @@ Tracking the evolution of physical qubit counts across different quantum computi
 ### Tracked Information:
 - Platform Type
 - Number of Qubits
-- Coherence Time
-- Control Fidelity
+- Year
 
 <table id="qubit-count-table" class="display responsive nowrap" width="100%"></table>
 
