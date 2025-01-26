@@ -92,11 +92,12 @@ class NKDPlot(BasePlot):
                        label=code,
                        alpha=0.7)
         
-        # Add legend
-        plt.legend(title="Code Types", 
-                  bbox_to_anchor=(1.05, 1),
+        # Move legend inside the plot
+        plt.legend(
                   loc='upper left',
-                  fontsize=self.plot_settings['fontsize']['tick'])
+                  framealpha=0.9,  # Slight transparency for better visibility
+                  edgecolor='white'
+                  )  # White edge around legend box
         
         # Set log scale for both axes
         plt.xscale('log')
