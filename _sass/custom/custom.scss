@@ -1,0 +1,114 @@
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    
+    h3 {
+        margin: 0 0 0.5rem 0;
+        color: $body-text-color;
+    }
+    
+    p {
+        margin: 0 0 1rem 0;
+        color: lighten($body-text-color, 20%);
+        font-size: 0.9rem;
+    }
+    
+    .metric-value {
+        span {
+            display: block;
+            &:not(:last-child) {
+                margin-bottom: 0.25rem;
+            }
+        }
+        
+        .count, .error-rate, .code-params, .msd-code-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: $link-color;
+        }
+        
+        .platform {
+            color: $body-text-color;
+        }
+        
+        .year {
+            color: lighten($body-text-color, 30%);
+            font-size: 0.9rem;
+        }
+        
+        .link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: $link-color;
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+            
+            &:not([href]) {
+                display: none;
+            }
+            
+            .external-link-icon {
+                display: inline-block;
+                margin-left: 0.25rem;
+                font-size: 0.9em;
+                transition: transform 0.1s ease-in-out;
+            }
+            
+            &:hover .external-link-icon {
+                transform: translate(1px, -1px);
+            }
+        }
+    }
+}
+
+.button {
+    .fa-github {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-left: 0.5rem;
+        // vertical-align: -0.125em;
+    }
+}
+
+.aux-nav-list-item, .external-link {
+    .fa-github {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-left: 0.5rem;
+        vertical-align: -0.125em;
+    }
+}
+
+.plots-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.plot-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.plot-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #27262b;
+} 
