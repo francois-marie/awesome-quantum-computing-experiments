@@ -48,9 +48,11 @@ jobs:
     - uses: actions/checkout@v4
       with:
         ref: gh-pages
+        fetch-depth: 0
         
     - name: Copy latest plots and data
       run: |
+        git fetch origin main
         git checkout origin/main -- out/plots/
         git checkout origin/main -- README.md
         
