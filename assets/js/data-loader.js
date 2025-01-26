@@ -159,6 +159,19 @@ function loadCSV(url, tableId) {
                 
                 updateMetricsGrid(tableId, results.data);
                 
+                // Create corresponding plot if applicable
+                switch(tableId) {
+                    case 'qec-table':
+                        createQECTimelinePlot(results.data);
+                        break;
+                    case 'qubit-count-table':
+                        createQubitCountPlot(results.data);
+                        break;
+                    case 'entangled-table':
+                        createEntangledErrorPlot(results.data);
+                        break;
+                }
+                
             } catch (error) {
                 console.error('Error initializing DataTable:', error);
                 $(`#${tableId}`).after(`<div class="error-message">Error loading table: ${error.message}</div>`);
@@ -222,7 +235,7 @@ function updateMetricsGrid(tableId, data) {
             break;
             
         case 'msd-table':
-            $('#msd-metric .code-name').text(latest['Code Name'] || '');
+            $('#msd-metric .msd-code-name').text(latest['Code Name'] || '');
             $('#msd-metric .platform').text(latest.Platform || '');
             $('#msd-metric .year').text(latest.Year || '');
             updateLink('#msd-metric', latest.Link);
@@ -230,8 +243,52 @@ function updateMetricsGrid(tableId, data) {
     }
 }
 
+function createQubitCountPlot(data) {
+    const platforms = [...new Set(data.map(d => d.Platform))];
+    const traces = platforms.map(platform => {
+        const platformData = data.filter(d => d.Platform === platform);
+        return {
+            name: platform,
+            type: 'scatter',
+            mode: 'lines+markers',
+            x: platformData.map(d => d.Year),
+            y: platformData.map(d => d['Number of qubits']),
+            text: platformData.map(d => d['Article Title']),
+            customdata: platformData.map(d => d.Link || d.DOI || ''),
+            hovertemplate: 
+                '<b>%{text}</b><br>' +
+                'Qubits: %{y}<br>' +
+                'Year: %{x}<br>' +
+                '%{customdata}<extra></extra>'
+        };
+    });
+
+    const layout = {
+        title: 'Number of Qubits vs. Year by Platform',
+        xaxis: { title: 'Year' },
+        yaxis: { 
+            title: 'Number of Qubits',
+            type: 'log'
+        },
+        hovermode: 'closest',
+        showlegend: true,
+        legend: {
+            x: 0,
+            y: 1
+        }
+    };
+
+    const config = {
+        responsive: true,
+        displayModeBar: true,
+        modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
+    };
+
+    Plotly.newPlot('qubit-count-plot', traces, layout, config);
+}
+
 $(document).ready(function() {
-    // Load data for metrics grid even if tables aren't visible
+    // Load data for metrics grid and plots
     loadCSV('https://raw.githubusercontent.com/francois-marie/awesome-quantum-computing-experiments/main/data/qec_exp.csv', 'qec-table');
     loadCSV('https://raw.githubusercontent.com/francois-marie/awesome-quantum-computing-experiments/main/data/msd_exp.csv', 'msd-table');
     loadCSV('https://raw.githubusercontent.com/francois-marie/awesome-quantum-computing-experiments/main/data/entangled_state_error_exp.csv', 'entangled-table');
