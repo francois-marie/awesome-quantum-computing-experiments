@@ -15,19 +15,19 @@ A comprehensive collection of notable quantum computing experiments, focusing on
 ## Visualizations
 
 ### Quantum Error Correction Timeline
-[View QEC database →](experiments#quantum-error-correction-qec)
+[View QEC database →]({{ site.baseurl }}/experiments#quantum-error-correction-qec)
 ![QEC Timeline](out/plots/qec_time_evolution.png){: .plot}
 
 ### [[n, k, d]] Distribution
-[View QEC database →](experiments#quantum-error-correction-qec)
+[View QEC database →]({{ site.baseurl }}/experiments#quantum-error-correction-qec)
 ![NKD Plot](out/plots/nkd_plot.png){: .plot}
 
 ### Entangled State Error Progress
-[View Entangled State database →](experiments#entangled-state-error)
+[View Entangled State database →]({{ site.baseurl }}/experiments#entangled-state-error)
 <div id="entangled-error-plot" style="width:100%; height:500px;"></div>
 
 ### Qubit Count Evolution
-[View Qubit Count database →](experiments#physical-qubit-count)
+[View Qubit Count database →]({{ site.baseurl }}/experiments#physical-qubit-count)
 <div id="qubit-count-plot" style="width:100%; height:500px;"></div>
 
 ## About
