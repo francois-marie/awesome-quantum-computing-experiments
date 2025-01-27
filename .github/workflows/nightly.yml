@@ -50,11 +50,11 @@ jobs:
         ref: gh-pages
         fetch-depth: 0
         
-    - name: Copy latest plots and data
+    - name: Copy latest content from main
       run: |
         git fetch origin main
-        git checkout origin/main -- out/plots/
-        git checkout origin/main -- README.md
+        git checkout origin/main -- .
+        git checkout HEAD -- .git
         
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
