@@ -54,7 +54,6 @@ jobs:
       run: |
         git fetch origin main
         git checkout origin/main -- .
-        git checkout HEAD -- .git
         
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
