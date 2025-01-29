@@ -1,7 +1,10 @@
 import yaml
 import pandas as pd
 from pathlib import Path
-from .sections import QECSection, MSDSection, EntangledSection, QubitCountSection
+from .sections import (
+    QECSection, MSDSection, EntangledSection,
+    QubitCountSection, PhysicalQubitsSection
+)
 
 class MarkdownGenerator:
     """Generates the complete README.md file."""
@@ -15,14 +18,16 @@ class MarkdownGenerator:
         self.msd_data = pd.read_csv(self.config['paths']['data']['msd'])
         self.entangled_data = pd.read_csv(self.config['paths']['data']['entangled'])
         self.qubit_count_data = pd.read_csv(self.config['paths']['data']['qubit_count'])
+        self.physical_qubits_data = pd.read_csv(self.config['paths']['data']['physical_qubits'])  # Load physical qubits data
         
         # Initialize section generators
-        self.sections = {
-            'qec': QECSection(self.qec_data),
-            'msd': MSDSection(self.msd_data),
-            'entangled': EntangledSection(self.entangled_data),
-            'qubit_count': QubitCountSection(self.qubit_count_data)
-        }
+        self.sections = [
+            QECSection(self.qec_data),
+            MSDSection(self.msd_data),
+            EntangledSection(self.entangled_data),
+            QubitCountSection(self.qubit_count_data),
+            PhysicalQubitsSection(self.physical_qubits_data)  # Pass the data here
+        ]
     
     def generate(self):
         """Generate the complete README.md content."""
@@ -46,6 +51,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 ![Plot]({plots_dir}/{plots['qec_time']})
 ![Plot]({plots_dir}/{plots['entangled']})
 ![Plot]({plots_dir}/{plots['qubit_count']})
+![Plot]({plots_dir}/{plots['coherence_times']})
 
 ## Overview
 
@@ -81,25 +87,29 @@ For more detailed information:
         
         # QEC section
         content += "- [Quantum Error Correction](#quantum-error-correction)\n"
-        content += self.sections['qec'].generate_toc()
+        content += self.sections[0].generate_toc()
         
         # MSD section
         content += "- [Magic State Distillation](#magic-state-distillation)\n"
-        content += self.sections['msd'].generate_toc()
+        content += self.sections[1].generate_toc()
         
         # Entangled section
         content += "- [Entangled State Error](#entangled-state-error)\n"
-        content += self.sections['entangled'].generate_toc()
+        content += self.sections[2].generate_toc()
         
         # Qubit count section
         content += "- [Qubit Count](#qubit-count)\n"
-        content += self.sections['qubit_count'].generate_toc()
+        content += self.sections[3].generate_toc()
+        
+        # Physical qubits section
+        content += "- [Physical Qubits](#physical-qubits)\n"
+        content += self.sections[4].generate_toc()
         
         content += "\n"
         return content
     
     def _generate_sections(self) -> str:
-        return "".join(section.generate_content() for section in self.sections.values())
+        return "".join(section.generate_content() for section in self.sections)
     
     def _generate_footer(self) -> str:
         return """
@@ -113,6 +123,15 @@ This work is licensed under a [CC0 1.0 Universal (Public Domain Dedication)](LIC
 To the extent possible under law, the authors have dedicated all copyright and related and neighboring rights to this work to the public domain worldwide.
 For more information, see [Creative Commons CC0 1.0 Legal Code](https://creativecommons.org/publicdomain/zero/1.0/).
 """
+
+    def generate_plots_section(self) -> str:
+        return "\n".join([
+            "![Plot](out/plots/nkd_plot.png)",
+            "![Plot](out/plots/qec_time_evolution.png)",
+            "![Plot](out/plots/entangled_state_error_vs_year.png)",
+            "![Plot](out/plots/qubit_count_vs_year.png)",
+            "![Plot](out/plots/coherence_times.png)"
+        ])
 
 def main():
     """Main function to generate the README."""
