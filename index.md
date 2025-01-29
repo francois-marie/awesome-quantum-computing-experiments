@@ -26,6 +26,9 @@ A comprehensive collection of notable quantum computing experiments, focusing on
 ### Qubit Count Evolution
 <div id="qubit-count-plot" style="width:100%; height:500px;"></div>
 
+### Physical Qubit Coherence Times
+<div id="coherence-times-plot" style="width:100%; height:500px;"></div>
+
 ## About
 
 This database tracks:

@@ -140,6 +140,37 @@ function loadCSV(url, tableId) {
                         }
                     ];
                     break;
+                case 'physical-qubits-table':
+                    columnDefs = [
+                        { 
+                            title: "Year",
+                            data: findColumn(headers, ["Year", "year", "Date", "date"]) || "Year"
+                        },
+                        { 
+                            title: "Platform",
+                            data: findColumn(headers, ["Platform", "platform", "Implementation"]) || "Platform"
+                        },
+                        {
+                            title: "Code Name",
+                            data: findColumn(headers, ["Code Name", "code_name", "Code", "code"]) || "Code Name"
+                        },
+                        {
+                            title: "T1",
+                            data: findColumn(headers, ["T1", "t1", "T1 Time"]) || "T1"
+                        },
+                        {
+                            title: "T2",
+                            data: findColumn(headers, ["T2", "t2", "T2 Time"]) || "T2"
+                        },
+                        { 
+                            title: "Link",
+                            data: findColumn(headers, ["Link", "URL", "DOI", "link"]) || "Link",
+                            render: function(data) {
+                                return data ? `<a href="${data}" target="_blank">Link</a>` : '';
+                            }
+                        }
+                    ];
+                    break;
             }
 
             try {
@@ -169,6 +200,9 @@ function loadCSV(url, tableId) {
                         break;
                     case 'entangled-table':
                         createEntangledErrorPlot(results.data);
+                        break;
+                    case 'physical-qubits-table':
+                        createCoherenceTimesPlot(results.data);
                         break;
                 }
                 
@@ -240,6 +274,17 @@ function updateMetricsGrid(tableId, data) {
             $('#msd-metric .year').text(latest.Year || '');
             updateLink('#msd-metric', latest.Link);
             break;
+
+        case 'physical-qubits-table':  // Update for coherence times
+            const t1Value = latest['T1'] ? `${latest['T1']} s` : 'N/A';
+            const t2Value = latest['T2'] ? `${latest['T2']} s` : 'N/A';
+            $('#coherence-times-metric .t1-value').text(`T1: ${t1Value}`);
+            $('#coherence-times-metric .t2-value').text(`T2: ${t2Value}`);
+            $('#coherence-times-metric .platform').text(latest.Platform || '');
+            $('#coherence-times-metric .code-name').text(latest['Code Name'] || 'N/A');
+            $('#coherence-times-metric .year').text(latest.Year || '');
+            updateLink('#coherence-times-metric', latest.Link);
+            break;
     }
 }
 
@@ -293,4 +338,5 @@ $(document).ready(function() {
     loadCSV('https://raw.githubusercontent.com/francois-marie/awesome-quantum-computing-experiments/main/data/msd_exp.csv', 'msd-table');
     loadCSV('https://raw.githubusercontent.com/francois-marie/awesome-quantum-computing-experiments/main/data/entangled_state_error_exp.csv', 'entangled-table');
     loadCSV('https://raw.githubusercontent.com/francois-marie/awesome-quantum-computing-experiments/main/data/qubit_count.csv', 'qubit-count-table');
+    loadCSV('https://raw.githubusercontent.com/francois-marie/awesome-quantum-computing-experiments/main/data/physical_qubits.csv', 'physical-qubits-table');
 }); 
