@@ -1,0 +1,24 @@
+name: Periodic Pages Rebuild
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Run weekly on Sunday at midnight
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Delete gh-pages branch
+      uses: dawidd6/action-delete-branch@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        soft: false  # Hard delete
+    
+    - name: Trigger main workflow
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        event-type: rebuild-pages 
