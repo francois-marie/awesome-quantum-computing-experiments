@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 from src.markdown.base import ExperimentSection
-from src.markdown.sections import QECSection, EntangledSection, QubitCountSection
+from src.markdown.sections import QECSection, EntangledSection, QubitCountSection, PhysicalQubitsSection
 from src.markdown.generator import MarkdownGenerator
 
 class TestExperimentSection:
@@ -34,7 +34,7 @@ class TestEntangledSection:
 
 class TestMarkdownGenerator:
     def test_generate(self, mocker, sample_qec_data, sample_entangled_data, 
-                     sample_qubit_count_data):
+                     sample_qubit_count_data, sample_physical_qubits_data):
         # Mock data loading
         mock_msd_data = pd.DataFrame({
             "Article Title": [],
@@ -49,7 +49,8 @@ class TestMarkdownGenerator:
             sample_qec_data,
             mock_msd_data,  # msd data with proper columns
             sample_entangled_data,
-            sample_qubit_count_data
+            sample_qubit_count_data,
+            sample_physical_qubits_data  # Add the mock physical qubits data here
         ])
         
         # Mock file writing
@@ -64,3 +65,13 @@ class TestMarkdownGenerator:
         assert "# Awesome Quantum Computing Experiments" in content
         assert "## Table of Contents" in content
         assert "## Contributing" in content 
+
+class TestPhysicalQubitsSection:
+    def test_generate_content(self, sample_physical_qubits_data):
+        section = PhysicalQubitsSection(sample_physical_qubits_data)
+        content = section.generate_content()
+        assert "## Physical Qubits" in content
+        assert "[Test Physical Qubit Paper]" in content
+        assert "T1: 5e-08s" in content
+        assert "T2: 1e-07s" in content
+        assert "Test Platform" in content 
