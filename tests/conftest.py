@@ -34,4 +34,18 @@ def sample_qubit_count_data():
         'Platform': ['Test Platform'],
         'Number of qubits': [100],
         'Notes': ['Test note']
+    })
+
+# New fixture for physical qubits data
+@pytest.fixture
+def sample_physical_qubits_data():
+    return pd.DataFrame({
+        'Article Title': ['Test Physical Qubit Paper'],
+        'Link': ['https://arxiv.org/test_physical'],
+        'Year': [2024],
+        'Platform': ['Test Platform'],
+        'T1': [5e-08],
+        'T2': [1e-07],
+        'Code Name': ['Test Code'],
+        'Notes': ['Test note']
     }) 
