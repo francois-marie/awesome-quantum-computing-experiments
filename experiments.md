@@ -46,6 +46,17 @@ Tracking the evolution of physical qubit counts across different quantum computi
 
 <table id="qubit-count-table" class="display responsive nowrap" width="100%"></table>
 
+## Physical Qubit Coherence Times
+This database tracks the evolution of coherence times (T1 and T2) across different physical qubit implementations.
+
+### Key Metrics:
+- T1 (Energy relaxation time)
+- T2 (Dephasing time)
+- Platform
+- Year
+
+<table id="physical-qubits-table" class="display responsive nowrap" width="100%"></table>
+
 ## Contributing
 
 Have a new experiment to add? Check our [Contributing Guide](docs/CONTRIBUTING.md) for instructions on how to submit new entries.
