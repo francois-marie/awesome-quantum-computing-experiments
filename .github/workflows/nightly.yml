@@ -1,66 +1,32 @@
-name: Nightly Build
+name: Deploy Jekyll site
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # Run at midnight UTC every day
+  push:
+    branches:
+      - main  # or your default branch
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-        cache: 'pip'
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -e ".[test]"
-    
-    - name: Run tests
-      run: |
-        pytest tests/
-    
-    - name: Generate plots and README
-      run: |
-        make all
-    
-    - name: Commit and push if changes
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add out/plots/*.png README.md
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Update plots and README [automated]" && git push)
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 0
-        ref: gh-pages
-        
-    - name: Copy latest plots and data
-      run: |
-        git checkout origin/main -- .
-        
+        fetch-depth: 0  # Fetch all history for all branches
+    
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2'
         bundler-cache: true
-        
+    
+    - name: Install dependencies
+      run: |
+        bundle install
+    
     - name: Build and deploy
       uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target_branch: gh-pages
+        target_branch: gh-pages 
