@@ -3,8 +3,8 @@ name: Deploy Jekyll site
 on:
   push:
     branches:
-      - main  # or your default branch
-  workflow_dispatch:  # Allow manual trigger
+      - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -12,22 +12,18 @@ jobs:
     if: github.ref == 'refs/heads/main'
     
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout main branch first
+      uses: actions/checkout@v4
       with:
-        fetch-depth: 0 
-        ref: gh-pages
-
-    - name: Copy latest plots and data
-      run: |
-        git config --global --add safe.directory /github/workspace
-        git checkout origin/main -- .
+        ref: main
+        fetch-depth: 0
     
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.1'
         bundler-cache: true
-
+    
     - name: Clean Gemfile.lock
       run: rm -f Gemfile.lock
     
@@ -40,4 +36,5 @@ jobs:
       uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        target_branch: gh-pages 
+        target_branch: gh-pages
+        keep_history: true 
