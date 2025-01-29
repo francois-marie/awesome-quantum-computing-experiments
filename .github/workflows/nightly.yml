@@ -17,17 +17,24 @@ jobs:
         fetch-depth: 0 
         ref: gh-pages
 
-    - name: Copy all files
+    - name: Copy latest plots and data
       run: |
+        git config --global --add safe.directory /github/workspace
         git checkout origin/main -- .
-    
     
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.2'
+        ruby-version: '3.1'
         bundler-cache: true
 
+    - name: Clean Gemfile.lock
+      run: rm -f Gemfile.lock
+    
+    - name: Install dependencies
+      run: |
+        bundle config set --local path 'vendor/bundle'
+        bundle install
     
     - name: Build and deploy
       uses: helaili/jekyll-action@v2
