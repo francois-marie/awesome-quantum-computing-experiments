@@ -9,21 +9,25 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Fetch all history for all branches
+        fetch-depth: 0 
+        ref: gh-pages
+
+    - name: Copy all files
+      run: |
+        git checkout origin/main -- .
+    
     
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2'
         bundler-cache: true
-    
-    - name: Install dependencies
-      run: |
-        bundle install
+
     
     - name: Build and deploy
       uses: helaili/jekyll-action@v2
