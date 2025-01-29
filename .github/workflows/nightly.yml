@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
+      - fix/deploy
   workflow_dispatch:
 
 jobs:
@@ -42,17 +42,17 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/fix/deploy'
     
     steps:
     - uses: actions/checkout@v4
       with:
+        fetch-depth: 0  # Fetch all history for all branches
         ref: gh-pages
-        
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Copy latest plots and data
       run: |
-        git checkout origin/main -- out/plots/
-        git checkout origin/main -- README.md
+        git checkout origin/main -- .
         
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
