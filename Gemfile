@@ -14,4 +14,9 @@ gem "ostruct"
 # Theme and plugins
 group :jekyll_plugins do
   gem "jekyll-remote-theme"
-end 
+end
+
+# Pin these versions to avoid conflicts
+gem "google-protobuf", "~> 3.24.0"  # Use a more stable version
+gem "sass-embedded", "~> 1.58.0"    # Use an older, more stable version
+
