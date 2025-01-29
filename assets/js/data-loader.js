@@ -281,7 +281,7 @@ function updateMetricsGrid(tableId, data) {
             $('#coherence-times-metric .t1-value').text(`T1: ${t1Value}`);
             $('#coherence-times-metric .t2-value').text(`T2: ${t2Value}`);
             $('#coherence-times-metric .platform').text(latest.Platform || '');
-            $('#coherence-times-metric .code-name').text(latest['Code Name'] || 'N/A');
+            $('#coherence-times-metric .physical-encoding').text(latest['Code Name'] || 'N/A');
             $('#coherence-times-metric .year').text(latest.Year || '');
             updateLink('#coherence-times-metric', latest.Link);
             break;
