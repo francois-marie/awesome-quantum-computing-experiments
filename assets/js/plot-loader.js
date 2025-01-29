@@ -148,3 +148,78 @@ function createEntangledErrorPlot(data) {
 
     Plotly.newPlot('entangled-error-plot', traces, layout, config);
 }
+
+function createCoherenceTimesPlot(data) {
+    const platforms = [...new Set(data.map(d => d.Platform))];
+    const traces = [];
+    
+    platforms.forEach(platform => {
+        const platformData = data.filter(d => d.Platform === platform);
+        
+        // T1 trace
+        const t1Data = platformData.filter(d => d.T1 && d.T1 !== '');
+        if (t1Data.length > 0) {
+            traces.push({
+                name: `${platform} (T1)`,
+                type: 'scatter',
+                mode: 'lines+markers',
+                x: t1Data.map(d => d.Year),
+                y: t1Data.map(d => d.T1),
+                text: t1Data.map(d => d['Article Title'] || d['Code Name']),
+                customdata: t1Data.map(d => d.Link || ''),
+                hovertemplate: 
+                    '<b>%{text}</b><br>' +
+                    'T1: %{y}s<br>' +
+                    'Year: %{x}<br>' +
+                    '%{customdata}<extra></extra>',
+                marker: { symbol: 'circle' }
+            });
+        }
+        
+        // T2 trace
+        const t2Data = platformData.filter(d => d.T2 && d.T2 !== '');
+        if (t2Data.length > 0) {
+            traces.push({
+                name: `${platform} (T2)`,
+                type: 'scatter',
+                mode: 'lines+markers',
+                x: t2Data.map(d => d.Year),
+                y: t2Data.map(d => d.T2),
+                text: t2Data.map(d => d['Article Title'] || d['Code Name']),
+                customdata: t2Data.map(d => d.Link || ''),
+                hovertemplate: 
+                    '<b>%{text}</b><br>' +
+                    'T2: %{y}s<br>' +
+                    'Year: %{x}<br>' +
+                    '%{customdata}<extra></extra>',
+                marker: { symbol: 'circle-open' }
+            });
+        }
+    });
+
+    const layout = {
+        title: 'Evolution of Qubit Coherence Times',
+        xaxis: { 
+            title: 'Year',
+            dtick: 1  // Force integer ticks
+        },
+        yaxis: { 
+            title: 'Coherence Time (s)',
+            type: 'log'
+        },
+        hovermode: 'closest',
+        showlegend: true,
+        legend: {
+            x: 0,
+            y: 1
+        }
+    };
+
+    const config = {
+        responsive: true,
+        displayModeBar: true,
+        modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
+    };
+
+    Plotly.newPlot('coherence-times-plot', traces, layout, config);
+}
