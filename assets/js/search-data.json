@@ -1,0 +1,93 @@
+{"0": {
+    "doc": "Experiments Data",
+    "title": "Awesome Quantum Computing Experiments",
+    "content": " ",
+    "url": "/awesome-quantum-computing-experiments/experiments.html#awesome-quantum-computing-experiments",
+    
+    "relUrl": "/experiments.html#awesome-quantum-computing-experiments"
+  },"1": {
+    "doc": "Experiments Data",
+    "title": "Quantum Error Correction (QEC)",
+    "content": "The QEC database tracks implementations of quantum error correction codes across different platforms. Key Parameters: . | n: Total number of physical data qubits | k: Number of logical qubits | d: Code distance | . ",
+    "url": "/awesome-quantum-computing-experiments/experiments.html#quantum-error-correction-qec",
+    
+    "relUrl": "/experiments.html#quantum-error-correction-qec"
+  },"2": {
+    "doc": "Experiments Data",
+    "title": "Magic State Distillation (MSD)",
+    "content": "Magic state distillation is crucial for fault-tolerant quantum computation, enabling high-fidelity T gates for instance. Tracked Metrics: . | Implementation Platform | Distillation Protocol | Year | . ",
+    "url": "/awesome-quantum-computing-experiments/experiments.html#magic-state-distillation-msd",
+    
+    "relUrl": "/experiments.html#magic-state-distillation-msd"
+  },"3": {
+    "doc": "Experiments Data",
+    "title": "Entangled State Error",
+    "content": "This database tracks progress in creating and maintaining high-fidelity entangled states. Key Metrics: . | Error Rate | Platform | Year | . ",
+    "url": "/awesome-quantum-computing-experiments/experiments.html#entangled-state-error",
+    
+    "relUrl": "/experiments.html#entangled-state-error"
+  },"4": {
+    "doc": "Experiments Data",
+    "title": "Physical Qubit Count",
+    "content": "Tracking the evolution of physical qubit counts across different quantum computing platforms. Tracked Information: . | Platform Type | Number of Qubits | Year | . ",
+    "url": "/awesome-quantum-computing-experiments/experiments.html#physical-qubit-count",
+    
+    "relUrl": "/experiments.html#physical-qubit-count"
+  },"5": {
+    "doc": "Experiments Data",
+    "title": "Physical Qubit Coherence Times",
+    "content": "This database tracks the evolution of coherence times (T1 and T2) across different physical qubit implementations. Key Metrics: . | T1 (Energy relaxation time) | T2 (Dephasing time) | Platform | Year | . ",
+    "url": "/awesome-quantum-computing-experiments/experiments.html#physical-qubit-coherence-times",
+    
+    "relUrl": "/experiments.html#physical-qubit-coherence-times"
+  },"6": {
+    "doc": "Experiments Data",
+    "title": "Contributing",
+    "content": "Have a new experiment to add? Check our Contributing Guide for instructions on how to submit new entries. Each experiment entry should include: . | Article Title | Link (preferably arXiv or DOI) | Publication Year | Implementation Platform | Relevant Measurements | Additional Notes | . ",
+    "url": "/awesome-quantum-computing-experiments/experiments.html#contributing",
+    
+    "relUrl": "/experiments.html#contributing"
+  },"7": {
+    "doc": "Experiments Data",
+    "title": "Experiments Data",
+    "content": " ",
+    "url": "/awesome-quantum-computing-experiments/experiments.html",
+    
+    "relUrl": "/experiments.html"
+  },"8": {
+    "doc": "Home",
+    "title": "Awesome Quantum Computing Experiments",
+    "content": "A comprehensive collection of notable quantum computing experiments, focusing on implementations of quantum error correction codes and other key metrics. ",
+    "url": "/awesome-quantum-computing-experiments/#awesome-quantum-computing-experiments",
+    
+    "relUrl": "/#awesome-quantum-computing-experiments"
+  },"9": {
+    "doc": "Home",
+    "title": "Latest Highlights",
+    "content": "QEC Implementation . Latest achievement in QEC . View paper ↗ Qubit Count . Current record in physical qubit count . View paper ↗ Entangled State . Best entangled state error rate . View paper ↗ Magic State . Recent MSD milestone . View paper ↗ Qubit Coherence Times . Latest T1 and T2 values for physical qubits . View paper ↗ ",
+    "url": "/awesome-quantum-computing-experiments/#latest-highlights",
+    
+    "relUrl": "/#latest-highlights"
+  },"10": {
+    "doc": "Home",
+    "title": "Visualizations",
+    "content": "Quantum Error Correction Timeline . [[n, k, d]] Distribution . Entangled State Error Progress . Qubit Count Evolution . Physical Qubit Coherence Times . ",
+    "url": "/awesome-quantum-computing-experiments/#visualizations",
+    
+    "relUrl": "/#visualizations"
+  },"11": {
+    "doc": "Home",
+    "title": "About",
+    "content": "This database tracks: . | Quantum Error Correction (QEC) implementations | Magic State Distillation (MSD) experiments | Entangled State Error measurements | Physical Qubit Count evolution | . View on GitHub . ",
+    "url": "/awesome-quantum-computing-experiments/#about",
+    
+    "relUrl": "/#about"
+  },"12": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/awesome-quantum-computing-experiments/",
+    
+    "relUrl": "/"
+  }
+}
