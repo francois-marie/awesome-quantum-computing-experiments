@@ -6,6 +6,7 @@ A curated list of notable quantum computing experiments, focused primarily on th
 ![Plot](out/plots/qec_time_evolution.png)
 ![Plot](out/plots/entangled_state_error_vs_year.png)
 ![Plot](out/plots/qubit_count_vs_year.png)
+![Plot](out/plots/coherence_times.png)
 
 ## Overview
 
@@ -57,6 +58,10 @@ For more detailed information:
 	- [Superconducting circuit](#superconducting-circuit)
 	- [Neutral atoms](#neutral-atoms)
 	- [Superconducting spins](#superconducting-spins)
+- [Physical Qubits](#physical-qubits)
+	- [Superconducting circuit](#superconducting-circuit)
+	- [Semiconductor](#semiconductor)
+	- [Graphene](#graphene)
 
 ## Quantum Error Correction
 
@@ -229,6 +234,41 @@ For more detailed information:
 
 - [A programmable two-qubit quantum processor in silicon](https://arxiv.org/abs/1708.04214) (2018) - 2 qubits on Superconducting spins
 - [Universal control of a six-qubit quantum processor in silicon](https://arxiv.org/abs/2202.09252) (2022) - 6 qubits on Superconducting spins
+
+## Physical Qubits
+
+### Superconducting circuit
+
+- [Coherent control of macroscopic quantum states in a single-Cooper-pair box](https://arxiv.org/abs/cond-mat/9904003v1) (1999) - Cooper-pair box, T1: 2e-09s on Superconducting circuit
+- Cooper-pair box (2001) - Cooper-pair box, T1: 9e-09s, T2: 5e-09s on Superconducting circuit
+- [Manipulating the Quantum State of an Electrical Circuit](https://arxiv.org/abs/cond-mat/0205343) (2002) - Quantronium, T1: 1e-06s, T2: 8e-07s on Superconducting circuit
+- Flux qubit (2003) - Flux qubit, T1: 1e-06s, T2: 2e-08s on Superconducting circuit
+- Flux qubit (2005) - Flux qubit, T1: 5e-06s, T2: 5e-06s on Superconducting circuit
+- [Suppressing Charge Noise Decoherence in Superconducting Charge Qubits](https://arxiv.org/abs/0712.3581) (2007) - Transmon, T1: 4e-06s, T2: 2e-06s on Superconducting circuit
+- Fock (2D) (2008) - Fock (2D), T1: 3e-06s, T2: 6e-06s on Superconducting circuit
+- [Fluxonium: single Cooper pair circuit free of charge offsets](https://arxiv.org/abs/0906.0831) (2009) - Fluxonium, T2: 3.5e-07s on Superconducting circuit
+- Flux qubit (2010) - Flux qubit, T1: 1.1e-05s, T2: 2e-05s on Superconducting circuit
+- Transmon (3D) (2011) - Transmon (3D), T1: 7e-05s, T2: 3e-05s on Superconducting circuit
+- Transmon (3D) (2012) - Transmon (3D), T1: 9e-05s, T2: 0.0001s on Superconducting circuit
+- Transmon (2013) - Transmon, T1: 7e-05s, T2: 7e-05s on Superconducting circuit
+- Fluxonium (3D) (2014) - Fluxonium (3D), T1: 0.001s, T2: 2e-05s on Superconducting circuit
+- Transmon (3D) (2014) - Transmon (3D), T1: 0.0001s, T2: 0.0002s on Superconducting circuit
+- C-sh. flux qubit (2015) - C-sh. flux qubit, T1: 7e-05s, T2: 0.0001s on Superconducting circuit
+- Fock (3D) (2015) - Fock (3D), T1: 0.004s, T2: 0.001s on Superconducting circuit
+- Cat encoding (2016) - Cat encoding, T1: 0.0002s on Superconducting circuit
+- Fock (3D) (2018) - Fock (3D), T1: 0.001s, T2: 0.002s on Superconducting circuit
+- Fluxonium (3D) (2018) - Fluxonium (3D), T1: 0.0002s, T2: 0.0003s on Superconducting circuit
+- Binomial encoding (2019) - Binomial encoding, T1: 0.0001s, T2: 0.0001s on Superconducting circuit
+
+### Semiconductor
+
+- Gatemon (2015) - Gatemon, T1: 7e-07s on Semiconductor
+- Gatemon (2016) - Gatemon, T1: 3e-06s on Semiconductor
+- Gatemon (2018) - Gatemon, T1: 1e-05s on Semiconductor
+
+### Graphene
+
+- Gatemon (2018) - Gatemon, T1: 5e-08s on Graphene
 
 
 ## Contributing
