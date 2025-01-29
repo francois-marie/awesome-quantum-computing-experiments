@@ -4,6 +4,7 @@ paths:
     msd: data/msd_exp.csv
     entangled: data/entangled_state_error_exp.csv
     qubit_count: data/qubit_count.csv
+    physical_qubits: data/physical_qubits.csv
   output:
     plots: out/plots
     readme: README.md
@@ -13,6 +14,7 @@ plots:
   qec_time: qec_time_evolution.png
   entangled: entangled_state_error_vs_year.png
   qubit_count: qubit_count_vs_year.png
+  coherence_times: coherence_times.png
 
 plot_settings:
   figsize: [12, 8]
