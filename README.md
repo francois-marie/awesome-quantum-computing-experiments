@@ -22,7 +22,7 @@ This repository maintains a comprehensive database of quantum computing experime
 ```bash
 git clone https://github.com/francois-marie/awesome-quantum-computing-experiments.git
 cd awesome-quantum-computing-experiments
-pip install -r requirements.txt
+pip install -e ".[test]" # Install package and test dependencies
 ```
 
 2. Generate all plots and README:
