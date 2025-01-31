@@ -27,6 +27,8 @@ class NKDPlot(BasePlot):
         for code_param in code_params_list:
             if code_param == "1Dwith12qubits":
                 continue
+            # Store original parameter string before stripping brackets
+            original_param = code_param
             # Remove leading/trailing brackets and text
             code_param = code_param.strip("[]")
             code_param = code_param.replace("surfacecode", "").replace("toriccode", "")
@@ -39,6 +41,9 @@ class NKDPlot(BasePlot):
                     n, k, d = map(int, code.split(","))
                     n_list.append(n)
                     k_list.append(k)
+                    # Check if this parameter set had single brackets
+                    if not original_param.startswith("[["):
+                        d = 1
                     d_list.append(d)
                 except Exception as e:
                     print(f"Error parsing code parameters '{code}': {e}")

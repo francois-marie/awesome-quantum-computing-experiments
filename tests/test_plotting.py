@@ -4,6 +4,7 @@ from src.plotting.base import BasePlot
 from src.plotting.qubit_count_plot import QubitCountPlot
 from src.plotting.entangled_error_plot import EntangledErrorPlot
 from src.plotting.qec_time_plot import QECTimePlot
+from src.plotting.nkd_plot import NKDPlot
 
 class TestBasePlot:
     def test_setup_plot(self, mocker):
@@ -46,4 +47,31 @@ class TestEntangledErrorPlot:
         plot = EntangledErrorPlot()
         plot.create_plot()
         assert plt.gca().get_yscale() == 'log'
-        plt.close() 
+        plt.close()
+
+    def test_parse_code_parameters_brackets(self):
+        plot = NKDPlot()
+        
+        # Test single bracket case
+        n, k, d = plot.parse_code_parameters("[3,1,3]")
+        assert n == [3]
+        assert k == [1]
+        assert d == [1], "Single brackets should give d=1"
+        
+        # Test double bracket case
+        n, k, d = plot.parse_code_parameters("[[3,1,3]]")
+        assert n == [3]
+        assert k == [1]
+        assert d == [3], "Double brackets should preserve original d"
+        
+        # Test multiple parameters case with single brackets
+        n, k, d = plot.parse_code_parameters("[3,1,3],[5,1,3]")
+        assert n == [3, 5]
+        assert k == [1, 1]
+        assert d == [1, 1], "Multiple single-bracket parameters should all have d=1"
+        
+        # Test mixed case
+        n, k, d = plot.parse_code_parameters("[[3,1,3]],[5,1,3]")
+        assert n == [3, 5]
+        assert k == [1, 1]
+        assert d == [3, 1], "Mixed brackets should respect each parameter's bracket type" 

@@ -4,6 +4,18 @@ import pandas as pd
 class QECSection(ExperimentSection):
     """Generator for Quantum Error Correction section."""
     
+    def _format_code_parameters(self, row) -> str:
+        """Format code parameters with special handling for repetition codes."""
+        code_name = row['Code Name'].lower()
+        code_params = row['Code Parameters']
+        
+        # Special handling for repetition codes with single brackets
+        if ( code_params.startswith('[') and 
+            not code_params.startswith('[[')):
+            return f"{code_params}, d=1"
+        
+        return code_params
+    
     def generate_toc(self) -> str:
         toc = ""
         for code_name in self.data.sort_values(by=["Year", "Article Title"])["Code Name"].unique():
@@ -19,8 +31,9 @@ class QECSection(ExperimentSection):
             content += f"### {code_name}\n\n"
             for _, row in group.iterrows():
                 suffix = f", {row['Notes']}" if not pd.isna(row.get('Notes')) else ""
+                formatted_params = self._format_code_parameters(row)
                 content += (f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - "
-                          f"{row['Code Parameters']} on {row['Platform']}{suffix}\n")
+                          f"{formatted_params} on {row['Platform']}{suffix}\n")
             content += "\n"
         return content
 
