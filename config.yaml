@@ -23,7 +23,28 @@ plot_settings:
     label: 14
     tick: 12
     annotation: 10
+    legend: 10
   style:
-    palette: tab10
+    palette: husl
     alpha: 0.8
-    linewidth: 2 
+    linewidth: 2
+    figure:
+      facecolor: white
+      dpi: 300
+    axes:
+      facecolor: white
+      edgecolor: black
+      grid: true
+      spines:
+        top: true
+        right: true
+        bottom: true
+        left: true
+    grid:
+      color: '#E6E6E6'
+      linestyle: '-'
+      alpha: 0.5
+    text:
+      color: black
+    ticks:
+      color: black 
