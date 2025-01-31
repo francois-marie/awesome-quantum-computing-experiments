@@ -81,47 +81,58 @@ class NKDPlot(BasePlot):
         
         # Get unique code names for color mapping
         unique_codes = df_plot['Code Name'].unique()
-        markers = ['o', 's', '^', 'D', 'v', '<', '>', 'p', 'h', '8']  # Different marker shapes
+        markers = ['o', 's', '^', 'D', 'v', '<', '>', 'p', 'h', '8']
+        
+        # Use color palette from config
+        colors = sns.color_palette(
+            self.config['plot_settings']['style']['palette'], 
+            n_colors=len(unique_codes)
+        )
         
         # Create scatter plot with different colors and markers for each code
-        for i, code in enumerate(unique_codes):
+        for i, (code, color) in enumerate(zip(unique_codes, colors)):
             mask = df_plot['Code Name'] == code
             data = df_plot[mask]
             
-            # Size proportional to k, but with a minimum size for visibility
             sizes = 100 * data['k'] + 50
             
             plt.scatter(data['n'], data['d'], 
                        s=sizes,
                        marker=markers[i % len(markers)],
                        label=code,
-                       alpha=0.7)
+                       alpha=self.config['plot_settings']['style']['alpha'],
+                       color=color,
+                       edgecolor='black',
+                       linewidth=0.5)
         
-        # Move legend inside the plot
+        # Improve legend appearance
         plt.legend(
-                  loc='upper left',
-                  framealpha=0.9,  # Slight transparency for better visibility
-                  edgecolor='white'
-                  )  # White edge around legend box
+            loc='upper left',
+            framealpha=1.0,      # Solid background
+            edgecolor='black',   # Black edge
+            fancybox=True,       # Rounded corners
+            fontsize=self.plot_settings['fontsize']['legend']
+        )
         
-        # Set log scale for both axes
         plt.xscale('log')
         plt.yscale('log')
         
-        # Add grid
+        # Add grid with improved visibility
         plt.grid(True, which="both", ls="-", alpha=0.2)
         
-        # Adjust layout to prevent legend cutoff
         plt.tight_layout()
         
-        # Add text annotations for k values
+        # Add text annotations with improved visibility
         for _, row in df_plot.iterrows():
-            plt.annotate(f'k={row["k"]}', 
-                        (row['n'], row['d']),
-                        xytext=(5, 5),
-                        textcoords='offset points',
-                        fontsize=self.plot_settings['fontsize']['annotation'],
-                        alpha=0.7)
+            plt.annotate(
+                f'k={row["k"]}', 
+                (row['n'], row['d']),
+                xytext=(5, 5),
+                textcoords='offset points',
+                fontsize=self.plot_settings['fontsize']['annotation'],
+                alpha=0.9,
+                bbox=dict(facecolor='white', edgecolor='none', alpha=0.7)
+            )
 
 def main():
     """Main function to create and save the plot."""
