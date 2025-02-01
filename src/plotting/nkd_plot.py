@@ -114,9 +114,6 @@ class NKDPlot(BasePlot):
             fontsize=self.plot_settings['fontsize']['legend']
         )
         
-        plt.xscale('log')
-        plt.yscale('log')
-        
         # Add grid with improved visibility
         plt.grid(True, which="both", ls="-", alpha=0.2)
         
