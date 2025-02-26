@@ -19,9 +19,8 @@ class BasePlot(ABC):
         
         # Use LaTeX for text rendering if available
         plt.rcParams.update({
-            'text.usetex': True,
-            'font.family': 'serif',
-            'font.serif': ['Computer Modern Roman'],
+            'text.usetex': False,
+            'font.family': 'sans-serif',
             'figure.figsize': self.plot_settings['figsize_double'] if double_column 
                             else self.plot_settings['figsize'],
             'figure.dpi': self.plot_settings['style']['figure']['dpi'],
