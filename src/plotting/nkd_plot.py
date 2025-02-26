@@ -79,57 +79,104 @@ class NKDPlot(BasePlot):
         
         df_plot = pd.DataFrame(plot_data)
         
-        # Get unique code names for color mapping
+        # Get unique code names for marker mapping
         unique_codes = df_plot['Code Name'].unique()
         markers = ['o', 's', '^', 'D', 'v', '<', '>', 'p', 'h', '8']
         
-        # Use color palette from config
+        # Get unique k values for color mapping
+        unique_k = sorted(df_plot['k'].unique())
         colors = sns.color_palette(
             self.config['plot_settings']['style']['palette'], 
-            n_colors=len(unique_codes)
+            n_colors=len(unique_k)
         )
+        k_to_color = dict(zip(unique_k, colors))
         
-        # Create scatter plot with different colors and markers for each code
-        for i, (code, color) in enumerate(zip(unique_codes, colors)):
+        # Plot the actual data points
+        for i, code in enumerate(unique_codes):
             mask = df_plot['Code Name'] == code
             data = df_plot[mask]
             
-            sizes = 100 * data['k'] + 50
-            
-            plt.scatter(data['n'], data['d'], 
-                       s=sizes,
-                       marker=markers[i % len(markers)],
-                       label=code,
-                       alpha=self.config['plot_settings']['style']['alpha'],
-                       color=color,
-                       edgecolor='black',
-                       linewidth=0.5)
+            for k_val in unique_k:
+                k_mask = data['k'] == k_val
+                if k_mask.any():
+                    plt.scatter(
+                        data[k_mask]['n'], 
+                        data[k_mask]['d'],
+                        s=20, 
+                        marker=markers[i % len(markers)],
+                        color='black',
+                        facecolors=k_to_color[k_val],
+                        alpha=self.plot_settings['style']['alpha'],
+                        linewidth=0.5,
+                        zorder=3  # Ensure points are above grid
+                    )
         
-        # Improve legend appearance
-        plt.legend(
+        # Create handles and labels for both legends
+        code_handles = []
+        code_labels = []
+        k_handles = []
+        k_labels = []
+        
+        # Collect handles and labels for code names
+        for i, code in enumerate(unique_codes):
+            handle = plt.Line2D([], [], 
+                              color='gray',
+                              marker=markers[i % len(markers)],
+                              linestyle='None',
+                              markersize=3)
+            code_handles.append(handle)
+            # Simplify code names more aggressively
+            simplified_code = (code.replace(" code", "")
+                              .replace("Code", "")
+                              .replace("[[", "")
+                              .replace("]]", "")
+                              .replace("Perfect", "Perf.")
+                              .strip())
+            code_labels.append(simplified_code)
+        
+        # Collect handles and labels for k values
+        for k_val in unique_k:
+            handle = plt.Line2D([], [],
+                              color=k_to_color[k_val],
+                              marker='o',
+                              linestyle='None',
+                              markersize=3)
+            k_handles.append(handle)
+            k_labels.append(f'k={k_val}')
+        
+        # Create first legend for code names
+        legend1 = plt.legend(code_handles, code_labels,
+            title="Code Name",
+            loc='center right',
+            fontsize=self.plot_settings['fontsize']['legend'],
+            title_fontsize=self.plot_settings['fontsize']['legend'],
+            ncol=2,  # Use two columns to make it more compact
+            frameon=True,  # Enable frame
+            framealpha=0.8,  # Make background more opaque
+            edgecolor='none'
+        )
+
+        # Add the first legend manually
+        plt.gca().add_artist(legend1)
+        
+        # Create second legend for k values
+        legend2 = plt.legend(k_handles, k_labels,
+            title="Logical Qubits",
             loc='upper left',
-            framealpha=1.0,      # Solid background
-            edgecolor='black',   # Black edge
-            fancybox=True,       # Rounded corners
-            fontsize=self.plot_settings['fontsize']['legend']
+            fontsize=self.plot_settings['fontsize']['legend'],
+            title_fontsize=self.plot_settings['fontsize']['legend'],
+            ncol=2,  # Use two columns to make it more compact
+            frameon=True,  # Enable frame
+            framealpha=0.8,  # Make background more opaque
+            edgecolor='none'
         )
         
         # Add grid with improved visibility
-        plt.grid(True, which="both", ls="-", alpha=0.2)
+        plt.grid(True, which="both", ls="-", alpha=0.2, zorder=1)
         
+        # Adjust layout to accommodate legends
         plt.tight_layout()
-        
-        # Add text annotations with improved visibility
-        for _, row in df_plot.iterrows():
-            plt.annotate(
-                f'k={row["k"]}', 
-                (row['n'], row['d']),
-                xytext=(5, 5),
-                textcoords='offset points',
-                fontsize=self.plot_settings['fontsize']['annotation'],
-                alpha=0.9,
-                bbox=dict(facecolor='white', edgecolor='none', alpha=0.7)
-            )
+        plt.subplots_adjust(right=0.8)  # Less margin on the right
 
 def main():
     """Main function to create and save the plot."""

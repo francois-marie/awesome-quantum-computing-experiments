@@ -8,32 +8,40 @@ from pathlib import Path
 class BasePlot(ABC):
     """Base class for all plotting classes."""
     
-    def __init__(self):
+    def __init__(self, double_column=False):
         """Initialize plot settings and load config."""
         self.config = self.load_config()
         self.plot_settings = self.config['plot_settings']
+        self.double_column = double_column
         
-        # Apply style settings
-        plt.style.use('default')  # Reset to default style
+        # Set publication-ready style
+        plt.style.use('default')
         
-        # Update rcParams with config settings
+        # Use LaTeX for text rendering if available
         plt.rcParams.update({
-            'figure.figsize': self.plot_settings['figsize'],
-            'figure.facecolor': self.plot_settings['style']['figure']['facecolor'],
+            'text.usetex': True,
+            'font.family': 'serif',
+            'font.serif': ['Computer Modern Roman'],
+            'figure.figsize': self.plot_settings['figsize_double'] if double_column 
+                            else self.plot_settings['figsize'],
             'figure.dpi': self.plot_settings['style']['figure']['dpi'],
-            'axes.facecolor': self.plot_settings['style']['axes']['facecolor'],
-            'axes.edgecolor': self.plot_settings['style']['axes']['edgecolor'],
-            'axes.grid': self.plot_settings['style']['axes']['grid'],
-            'axes.spines.top': self.plot_settings['style']['axes']['spines']['top'],
-            'axes.spines.right': self.plot_settings['style']['axes']['spines']['right'],
-            'axes.spines.bottom': self.plot_settings['style']['axes']['spines']['bottom'],
-            'axes.spines.left': self.plot_settings['style']['axes']['spines']['left'],
-            'grid.color': self.plot_settings['style']['grid']['color'],
-            'grid.linestyle': self.plot_settings['style']['grid']['linestyle'],
-            'grid.alpha': self.plot_settings['style']['grid']['alpha'],
-            'text.color': self.plot_settings['style']['text']['color'],
-            'xtick.color': self.plot_settings['style']['ticks']['color'],
-            'ytick.color': self.plot_settings['style']['ticks']['color']
+            'axes.linewidth': 0.5,
+            'grid.linewidth': 0.5,
+            'lines.linewidth': self.plot_settings['style']['linewidth'],
+            'xtick.major.width': 0.5,
+            'ytick.major.width': 0.5,
+            'xtick.minor.width': 0.5,
+            'ytick.minor.width': 0.5,
+            'xtick.major.size': 3,
+            'ytick.major.size': 3,
+            'xtick.minor.size': 1.5,
+            'ytick.minor.size': 1.5,
+            'axes.labelpad': 4,
+            'legend.frameon': False,
+            'legend.borderpad': 0.4,
+            'legend.handlelength': 1.5,
+            'legend.handletextpad': 0.5,
+            'legend.columnspacing': 1.0,
         })
         
     def load_data(self, csv_path: str) -> pd.DataFrame:
@@ -59,31 +67,27 @@ class BasePlot(ABC):
             edgecolor='none',
             dpi=300
         )
+        # save also as pdf
+        plt.savefig(output_path.with_suffix('.pdf'), bbox_inches='tight', facecolor='white', edgecolor='none')
         plt.close()
 
     def setup_plot(self, title: str, xlabel: str, ylabel: str):
         """Set up the basic plot parameters."""
-        plt.figure(figsize=(10, 6))
-        plt.title(title, fontsize=self.config['plot_settings']['fontsize']['title'])
-        plt.xlabel(xlabel, fontsize=self.config['plot_settings']['fontsize']['label'])
-        plt.ylabel(ylabel, fontsize=self.config['plot_settings']['fontsize']['label'])
+        plt.figure()
+        plt.title(title, fontsize=self.plot_settings['fontsize']['title'])
+        plt.xlabel(xlabel, fontsize=self.plot_settings['fontsize']['label'])
+        plt.ylabel(ylabel, fontsize=self.plot_settings['fontsize']['label'])
         
         # Configure ticks
         plt.tick_params(
             axis='both',
             which='major',
-            labelsize=self.config['plot_settings']['fontsize']['tick'],
-            length=6,
-            width=1,
-            colors='black'
+            labelsize=self.plot_settings['fontsize']['tick']
         )
         plt.tick_params(
             axis='both',
             which='minor',
-            labelsize=self.config['plot_settings']['fontsize']['tick'],
-            length=3,
-            width=1,
-            colors='black'
+            labelsize=self.plot_settings['fontsize']['tick']
         )
 
     def load_config(self):

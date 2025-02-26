@@ -43,7 +43,7 @@ class CoherenceTimesPlot(BasePlot):
                     marker=markers[idx % len(markers)],
                     color=colors[idx],
                     label=f'{platform} (T1)',
-                    s=100,
+                    s=10,
                     alpha=self.plot_settings['style']['alpha']
                 )
                 # Connect T1 points with a line
@@ -64,7 +64,7 @@ class CoherenceTimesPlot(BasePlot):
                     color=colors[idx],
                     label=f'{platform} (T2)',
                     facecolors='none',
-                    s=100,
+                    s=10,
                     alpha=self.plot_settings['style']['alpha']
                 )
                 # Connect T2 points with a line
@@ -75,16 +75,20 @@ class CoherenceTimesPlot(BasePlot):
                     alpha=0.5
                 )
         
-        # Set integer ticks for x-axis
-        year_min = int(self.data['Year'].min())
-        year_max = int(self.data['Year'].max())
-        plt.gca().xaxis.set_major_locator(plt.MultipleLocator(1))  # Force integer ticks
-        plt.xlim(year_min - 0.5, year_max + 0.5)  # Add padding but keep integer ticks
+        # # Set integer ticks for x-axis
+        # year_min = int(self.data['Year'].min())
+        # year_max = int(self.data['Year'].max())
+        # plt.gca().xaxis.set_major_locator(plt.MultipleLocator(1))  # Force integer ticks
+        # plt.xlim(year_min - 0.5, year_max + 0.5)  # Add padding but keep integer ticks
         
         # Additional customization
         plt.yscale('log')
-        plt.legend(title="Platform", fontsize=self.plot_settings['fontsize']['tick'],
-                   loc='upper left', bbox_to_anchor=(0.1, 0.9))
+        plt.legend(
+            title="", 
+            fontsize=self.plot_settings['fontsize']['tick'],       
+            loc='upper left', 
+            # bbox_to_anchor=(0.1, 0.9)
+            )
         plt.grid(axis="y", linestyle="--", alpha=0.6)
         plt.tight_layout()
 
