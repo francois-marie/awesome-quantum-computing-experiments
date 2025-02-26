@@ -15,6 +15,7 @@ This repository maintains a comprehensive database of quantum computing experime
 - Magic State Distillation (MSD) experiments
 - Entangled State Error measurements
 - Physical Qubit Count evolution
+- Relaxation and Coherence Times (see [Superconducting Qubits: Current State of Play](https://arxiv.org/abs/1905.13641) for more details)
 
 ## Quick Start
 
