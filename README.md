@@ -68,7 +68,7 @@ For more detailed information:
 ### Repetition Code
 
 - [Experimental Quantum Error Correction](https://arxiv.org/abs/quant-ph/9802018) (1998) - [3,1,3], d=1 on NMR
-- [Demonstration of Sufficient Control for Two Rounds of Quantum Error Correction in a Solid-State Ensemble Quantum Information Processor](https://arxiv.org/abs/1108.4842) (2011) - [3,1,3], d=1 on NMR
+- [Demonstration of sufficient control for two rounds of quantum error correction in a solid state ensemble quantum information processor](https://arxiv.org/abs/1108.4842) (2011) - [3,1,3], d=1 on NMR
 - [Experimental Repetitive Quantum Error Correction](https://jubarreiro.physics.ucsd.edu/files/Schindler-Science-332-1059-1061.pdf) (2011) - [3,1,3], d=1 on Ion traps
 - [Experimental quantum error correction with high fidelity](https://arxiv.org/abs/1109.4821) (2011) - [3,1,3], d=1 on NMR
 - [Realization of Three-Qubit Quantum Error Correction with Superconducting Circuits](https://arxiv.org/abs/1109.4948) (2012) - [3,1,3], d=1 on Superconducting circuit
@@ -85,7 +85,7 @@ For more detailed information:
 
 ### [[5,1,3]] Perfect Code
 
-- [Benchmarking Quantum Computers: The Five-Qubit Error Correcting Code](https://arxiv.org/abs/quant-ph/0101034) (2001) - [[5,1,3]] on NMR
+- [Implementation of the Five Qubit Error Correction Benchmark](https://arxiv.org/abs/quant-ph/0101034) (2001) - [[5,1,3]] on NMR
 - [Experimental implementation of encoded logical qubit operations in a perfect quantum error correcting code](https://arxiv.org/abs/1208.4797) (2012) - [[5,1,3]] on NMR
 - [Experimental exploration of five-qubit quantum error correcting code with superconducting qubits](https://arxiv.org/abs/1907.04507) (2019) - [[5,1,3]] on Superconducting circuit
 
@@ -171,17 +171,17 @@ For more detailed information:
 
 ### Ion traps
 
-- [Experimental Demonstration of a Controlled-NOT Quantum Gate](https://arxiv.org/abs/quant-ph/9806012) (1998) - 0.3 on Ion traps
+- [Deterministic entanglement of two trapped ions](https://arxiv.org/abs/quant-ph/9806012) (1998) - 0.3 on Ion traps
 - [Experimental Entanglement of Four Particles](https://www.nature.com/articles/35005011) (2000) - 0.2 on Ion traps
 - [Experimental Violation of a Bell's Inequality with Efficient Detection](https://www.nature.com/articles/35057215) (2001) - 0.1 on Ion traps
-- [Experimental Demonstration of a Robust, High-Fidelity Geometric Two Ion-Quibit Phase Gate](https://www.nature.com/articles/nature01492) (2003) - 0.03 on Ion traps
+- [Experimental demonstration of a robust, high-fidelity geometric two ion-qubit phase gate](https://www.nature.com/articles/nature01492) (2003) - 0.03 on Ion traps
 - [Towards Fault-Tolerant Quantum Computing with Trapped Ions](https://arxiv.org/abs/0803.2798) (2008) - 0.007 on Ion traps
-- [High-Fidelity Quantum Logic Gates Using Trapped Ions](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps
-- [High-Fidelity Universal Gate Set for Be+ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps
+- [High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps
+- [High-fidelity quantum logic gates using trapped-ion hyperfine qubits](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps
 
 ### Superconducting circuits
 
-- [Measurement-Based Quantum Computation with Superconducting Qubits](https://www.science.org/doi/10.1126/science.1130886) (2006) - 0.3 on Superconducting circuits
+- [Measurement of the Entanglement of Two Superconducting Qubits via State Tomography](https://www.science.org/doi/10.1126/science.1130886) (2006) - 0.3 on Superconducting circuits
 - [Demonstration of Two-Qubit Algorithms with a Superconducting Quantum Processor](https://arxiv.org/abs/0903.2030) (2009) - 0.05 on Superconducting circuits
 - [Complete universal quantum gate set approaching fault-tolerant thresholds with superconducting qubits](https://arxiv.org/abs/1202.5344) (2012) - 0.02 on Superconducting circuits
 - [Logic gates at the surface code threshold: Superconducting qubits poised for fault-tolerant quantum computing](https://arxiv.org/abs/1402.4848) (2014) - 0.006 on Superconducting circuits
@@ -240,35 +240,35 @@ For more detailed information:
 ### Superconducting circuit
 
 - [Coherent control of macroscopic quantum states in a single-Cooper-pair box](https://arxiv.org/abs/cond-mat/9904003v1) (1999) - Cooper-pair box, T1: 2e-09s on Superconducting circuit
-- Cooper-pair box (2001) - Cooper-pair box, T1: 9e-09s, T2: 5e-09s on Superconducting circuit
+- [Charge echo in a Cooper-pair box](https://arxiv.org/abs/cond-mat/0111402) (2001) - Cooper-pair box, T1: 9e-09s, T2: 5e-09s on Superconducting circuit
 - [Manipulating the Quantum State of an Electrical Circuit](https://arxiv.org/abs/cond-mat/0205343) (2002) - Quantronium, T1: 1e-06s, T2: 8e-07s on Superconducting circuit
-- Flux qubit (2003) - Flux qubit, T1: 1e-06s, T2: 2e-08s on Superconducting circuit
-- Flux qubit (2005) - Flux qubit, T1: 5e-06s, T2: 5e-06s on Superconducting circuit
-- [Suppressing Charge Noise Decoherence in Superconducting Charge Qubits](https://arxiv.org/abs/0712.3581) (2007) - Transmon, T1: 4e-06s, T2: 2e-06s on Superconducting circuit
-- Fock (2D) (2008) - Fock (2D), T1: 3e-06s, T2: 6e-06s on Superconducting circuit
+- [Coherent Quantum Dynamics of a Superconducting Flux Qubit](https://arxiv.org/abs/cond-mat/0305461) (2003) - Flux qubit, T1: 1e-06s, T2: 2e-08s on Superconducting circuit
+- [Dephasing of a superconducting qubit induced by photon noise](https://arxiv.org/abs/cond-mat/0512428) (2005) - Flux qubit, T1: 5e-06s, T2: 5e-06s on Superconducting circuit
+- [Controlling the spontaneous emission of a superconducting transmon qubit](https://arxiv.org/abs/0803.4490) (2007) - Transmon, T1: 4e-06s, T2: 2e-06s on Superconducting circuit
+- [Measurement of the decay of Fock states in a superconducting quantum circuit](https://arxiv.org/abs/0808.3279) (2008) - Fock (2D), T1: 3e-06s, T2: 6e-06s on Superconducting circuit
 - [Fluxonium: single Cooper pair circuit free of charge offsets](https://arxiv.org/abs/0906.0831) (2009) - Fluxonium, T2: 3.5e-07s on Superconducting circuit
-- Flux qubit (2010) - Flux qubit, T1: 1.1e-05s, T2: 2e-05s on Superconducting circuit
-- Transmon (3D) (2011) - Transmon (3D), T1: 7e-05s, T2: 3e-05s on Superconducting circuit
-- Transmon (3D) (2012) - Transmon (3D), T1: 9e-05s, T2: 0.0001s on Superconducting circuit
-- Transmon (2013) - Transmon, T1: 7e-05s, T2: 7e-05s on Superconducting circuit
-- Fluxonium (3D) (2014) - Fluxonium (3D), T1: 0.001s, T2: 2e-05s on Superconducting circuit
-- Transmon (3D) (2014) - Transmon (3D), T1: 0.0001s, T2: 0.0002s on Superconducting circuit
-- C-sh. flux qubit (2015) - C-sh. flux qubit, T1: 7e-05s, T2: 0.0001s on Superconducting circuit
-- Fock (3D) (2015) - Fock (3D), T1: 0.004s, T2: 0.001s on Superconducting circuit
-- Cat encoding (2016) - Cat encoding, T1: 0.0002s on Superconducting circuit
-- Fock (3D) (2018) - Fock (3D), T1: 0.001s, T2: 0.002s on Superconducting circuit
-- Fluxonium (3D) (2018) - Fluxonium (3D), T1: 0.0002s, T2: 0.0003s on Superconducting circuit
-- Binomial encoding (2019) - Binomial encoding, T1: 0.0001s, T2: 0.0001s on Superconducting circuit
+- [Dynamical decoupling and noise spectroscopy with a superconducting flux qubit](https://arxiv.org/abs/1101.4707) (2010) - Flux qubit, T1: 1.2e-05s, T2: 2.3e-05s on Superconducting circuit
+- [Observation of high coherence in Josephson junction qubits measured in a three-dimensional circuit QED architecture](https://arxiv.org/abs/1105.4652) (2011) - Transmon (3D), T1: 7e-05s, T2: 1.5e-05s on Superconducting circuit
+- [Superconducting qubit in waveguide cavity with coherence time approaching 0.1ms](https://arxiv.org/abs/1202.5533) (2012) - Transmon (3D), T1: 7e-05s, T2: 9.5e-05s on Superconducting circuit
+- [Improved superconducting qubit coherence using titanium nitride](https://arxiv.org/abs/1303.4071) (2013) - Transmon, T1: 7e-05s, T2: 7e-05s on Superconducting circuit
+- [Coherent suppression of electromagnetic dissipation due to superconducting quasiparticles](https://www.nature.com/articles/nature13017) (2014) - Fluxonium (3D), T1: 0.001s, T2: 2e-05s on Superconducting circuit
+- [Thermal and Residual Excited-State Population in a 3D Transmon Qubit](https://arxiv.org/abs/1412.2772) (2014) - Transmon (3D), T1: 0.0001s, T2: 0.0002s on Superconducting circuit
+- [A Schrodinger Cat Living in Two Boxes](https://arxiv.org/abs/1601.05505) (2015) - Fock (3D), T1: 0.004s, T2: 0.001s on Superconducting circuit
+- [The Flux Qubit Revisited to Enhance Coherence and Reproducibility](https://arxiv.org/abs/1508.06299) (2015) - C-sh. flux qubit, T1: 4e-05s, T2: 8.5e-05s on Superconducting circuit
+- [Demonstrating Quantum Error Correction that Extends the Lifetime of Quantum Information](https://arxiv.org/abs/1602.04768v1) (2016) - Cat encoding, T1: 0.00015s on Superconducting circuit, The enhanced lifetime of the encoded information is 320µs without any post-selection.
+- [Fault-tolerant detection of a quantum error](https://arxiv.org/abs/1803.00102) (2018) - Fock (3D), T1: 0.0011s, T2: 0.0014s on Superconducting circuit
+- [The high-coherence fluxonium qubit](https://arxiv.org/abs/1810.11006) (2018) - Fluxonium (3D), T1: 0.0002s, T2: 0.0003s on Superconducting circuit
+- [Demonstration of quantum error correction and universal gate set on a binomial bosonic logical qubit](https://arxiv.org/abs/1805.09072) (2019) - Binomial encoding, T1: 0.0001s, T2: 0.0001s on Superconducting circuit, The corrected logical qubit has a lifetime 2.8 times longer than that of its uncorrected counterpart.
 
 ### Semiconductor
 
-- Gatemon (2015) - Gatemon, T1: 7e-07s on Semiconductor
-- Gatemon (2016) - Gatemon, T1: 3e-06s on Semiconductor
-- Gatemon (2018) - Gatemon, T1: 1e-05s on Semiconductor
+- [A Semiconductor Nanowire-Based Superconducting Qubit](https://arxiv.org/abs/1503.08339) (2015) - Gatemon, T1: 8e-07s, T2: 1e-06s on Semiconductor
+- [Gatemon Benchmarking and Two-Qubit Operation](https://arxiv.org/abs/1512.09195) (2016) - Gatemon, T1: 3e-06s on Semiconductor
+- [Evolution of Nanowire Transmons and Their Quantum Coherence in Magnetic Field](https://arxiv.org/abs/1711.07961) (2018) - Gatemon, T1: 1e-05s on Semiconductor
 
 ### Graphene
 
-- Gatemon (2018) - Gatemon, T1: 5e-08s on Graphene
+- [Quantum coherent control of a hybrid superconducting circuit made with graphene-based van der Waals heterostructures](https://arxiv.org/abs/1809.05215) (2018) - Gatemon, T1: 5e-08s on Graphene
 
 
 ## Contributing
