@@ -17,34 +17,35 @@ plots:
   coherence_times: coherence_times.png
 
 plot_settings:
-  figsize: [12, 8]
+  figsize: [3.5, 2.5]  # Standard single-column width
+  figsize_double: [7.2, 4]  # Double-column width
   fontsize:
-    title: 16
-    label: 14
-    tick: 12
-    annotation: 10
-    legend: 10
+    title: 9
+    label: 8
+    tick: 7
+    annotation: 6
+    legend: 6
   style:
-    palette: husl
-    alpha: 0.8
-    linewidth: 2
+    palette: 'Set2'  # Professional colorblind-friendly palette
+    alpha: 0.9
+    linewidth: 1
     figure:
-      facecolor: white
-      dpi: 300
+      facecolor: 'white'
+      dpi: 600  # Higher DPI for publication
     axes:
-      facecolor: white
-      edgecolor: black
+      facecolor: 'white'
+      edgecolor: 'black'
       grid: true
       spines:
-        top: true
-        right: true
+        top: false
+        right: false
         bottom: true
         left: true
     grid:
       color: '#E6E6E6'
-      linestyle: '-'
+      linestyle: ':'
       alpha: 0.5
     text:
-      color: black
+      color: 'black'
     ticks:
-      color: black 
+      color: 'black' 

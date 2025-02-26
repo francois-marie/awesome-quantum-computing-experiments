@@ -6,8 +6,8 @@ import pandas as pd
 class QECTimePlot(BasePlot):
     """Creates the QEC time evolution plot."""
     
-    def __init__(self):
-        super().__init__()
+    def __init__(self, double_column=False):
+        super().__init__(double_column)
         self.data = self.load_data(self.config['paths']['data']['qec'])
         
     def load_data(self, csv_path: str):
@@ -31,7 +31,7 @@ class QECTimePlot(BasePlot):
             jitter=True,
             dodge=True,
             palette=self.plot_settings['style']['palette'],
-            size=8,
+            size=7,
             alpha=self.plot_settings['style']['alpha'],
         )
         
@@ -54,7 +54,7 @@ class QECTimePlot(BasePlot):
 
 def main():
     """Main function to create and save the plot."""
-    plot = QECTimePlot()
+    plot = QECTimePlot(double_column=True)
     plot.create_plot()
     plot.save_plot("qec_time_evolution.png")
 

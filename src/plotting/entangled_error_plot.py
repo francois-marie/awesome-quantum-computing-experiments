@@ -40,7 +40,7 @@ class EntangledErrorPlot(BasePlot):
         
         # Additional customization
         plt.yscale("log")
-        plt.legend(title="Platform", fontsize=self.plot_settings['fontsize']['tick'], 
+        plt.legend(title="", fontsize=self.plot_settings['fontsize']['tick'], 
                   loc="lower left")
         plt.grid(axis="y", linestyle="--", alpha=0.6)
         plt.tight_layout()
