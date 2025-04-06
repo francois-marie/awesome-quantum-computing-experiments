@@ -33,6 +33,11 @@ function loadCSV(url, tableId) {
             let columnDefs;
             switch(tableId) {
                 case 'qec-table':
+                    // Filter out any empty rows
+                    results.data = results.data.filter(row => 
+                        row['Year'] && row['Year'].toString().trim() !== ''
+                    );
+                    
                     columnDefs = [
                         { 
                             title: "Year",
