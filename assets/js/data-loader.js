@@ -41,23 +41,24 @@ function loadCSV(url, tableId) {
                     columnDefs = [
                         { 
                             title: "Year",
-                            data: findColumn(headers, ["Year", "year", "Date", "date"]) || "Year"
+                            data: "Year",
+                            type: "num"  // Specify that this is a numeric column
                         },
                         { 
                             title: "Platform",
-                            data: findColumn(headers, ["Platform", "platform", "Implementation"]) || "Platform"
+                            data: "Platform"
                         },
                         {
                             title: "Code Name",
-                            data: findColumn(headers, ["Code Name", "code_name", "Code", "code"]) || "Code Name"
+                            data: "Code Name"
                         },
                         {
                             title: "Code Parameters",
-                            data: findColumn(headers, ["Code Parameters", "code_parameters", "Parameters"]) || "Code Parameters"
+                            data: "Code Parameters"
                         },
                         { 
                             title: "Link",
-                            data: findColumn(headers, ["Link", "URL", "DOI", "link"]) || "Link",
+                            data: "Link",
                             render: function(data) {
                                 return data ? `<a href="${data}" target="_blank">Link</a>` : '';
                             }
@@ -195,22 +196,6 @@ function loadCSV(url, tableId) {
                 
                 updateMetricsGrid(tableId, results.data);
                 
-                // Create corresponding plot if applicable
-                switch(tableId) {
-                    case 'qec-table':
-                        createQECTimelinePlot(results.data);
-                        break;
-                    case 'qubit-count-table':
-                        createQubitCountPlot(results.data);
-                        break;
-                    case 'entangled-table':
-                        createEntangledErrorPlot(results.data);
-                        break;
-                    case 'physical-qubits-table':
-                        createCoherenceTimesPlot(results.data);
-                        break;
-                }
-                
             } catch (error) {
                 console.error('Error initializing DataTable:', error);
                 $(`#${tableId}`).after(`<div class="error-message">Error loading table: ${error.message}</div>`);
@@ -291,50 +276,6 @@ function updateMetricsGrid(tableId, data) {
             updateLink('#coherence-times-metric', latest.Link);
             break;
     }
-}
-
-function createQubitCountPlot(data) {
-    const platforms = [...new Set(data.map(d => d.Platform))];
-    const traces = platforms.map(platform => {
-        const platformData = data.filter(d => d.Platform === platform);
-        return {
-            name: platform,
-            type: 'scatter',
-            mode: 'lines+markers',
-            x: platformData.map(d => d.Year),
-            y: platformData.map(d => d['Number of qubits']),
-            text: platformData.map(d => d['Article Title']),
-            customdata: platformData.map(d => d.Link || d.DOI || ''),
-            hovertemplate: 
-                '<b>%{text}</b><br>' +
-                'Qubits: %{y}<br>' +
-                'Year: %{x}<br>' +
-                '%{customdata}<extra></extra>'
-        };
-    });
-
-    const layout = {
-        title: 'Number of Qubits vs. Year by Platform',
-        xaxis: { title: 'Year' },
-        yaxis: { 
-            title: 'Number of Qubits',
-            type: 'log'
-        },
-        hovermode: 'closest',
-        showlegend: true,
-        legend: {
-            x: 0,
-            y: 1
-        }
-    };
-
-    const config = {
-        responsive: true,
-        displayModeBar: true,
-        modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
-    };
-
-    Plotly.newPlot('qubit-count-plot', traces, layout, config);
 }
 
 $(document).ready(function() {
