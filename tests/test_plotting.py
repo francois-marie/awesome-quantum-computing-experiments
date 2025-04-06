@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from src.plotting.base import BasePlot
 from src.plotting.qubit_count_plot import QubitCountPlot
 from src.plotting.entangled_error_plot import EntangledErrorPlot
-from src.plotting.qec_time_plot import QECTimePlot
+from src.plotting.qec_timeline_plot import QECTimelineScatterPlot
 from src.plotting.nkd_plot import NKDPlot
 
 class TestBasePlot:
