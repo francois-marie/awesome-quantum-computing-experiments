@@ -8,44 +8,64 @@ paths:
   output:
     plots: out/plots
     readme: README.md
+    js: out/js
+    pdf: out/pdf
 
-plots:
-  nkd: nkd_plot.png
-  qec_time: qec_time_evolution.png
-  entangled: entangled_state_error_vs_year.png
-  qubit_count: qubit_count_vs_year.png
-  coherence_times: coherence_times.png
+# Standard colors for platforms
+platform_colors:
+  NMR: "#3498DB"           # Bright Sky Blue
+  Ion traps: "#FFC107"      # Vibrant Orange
+  Superconducting circuit: "#2ECC71"  # Fresh Green
+  NV centers: "#E74C3C"     # Deep Coral
+  Photons: "#7A288A"        # Rich Purple
+  Neutral atoms: "#95A5A6"   # Cool Gray
 
+# Standard colors for QEC codes
+code_colors:
+  Surface Code: "#3498DB"      # Bright Sky Blue
+  Color Code: "#2ECC71"        # Fresh Green
+  Repetition Code: "#E74C3C"   # Deep Coral
+  Bacon-Shor Code: "#7A288A"   # Rich Purple
+  "[[5,1,3]] Perfect Code": "#F7DC6F"  # Warm Gold
+  Four-qubit Code: "#87CEEB"   # Soft Sky Blue
+  Steane Code: "#C5C3C8"       # Pastel Lavender
+  Bell State: "#FFC107"        # Vibrant Orange
+  Cluster State: "#95A5A6"     # Cool Gray
+
+
+# Plotly specific settings
 plot_settings:
-  figsize: [3.5, 2.5]  # Standard single-column width
-  figsize_double: [7.2, 4]  # Double-column width
-  fontsize:
-    title: 9
-    label: 8
-    tick: 7
-    annotation: 6
-    legend: 6
-  style:
-    palette: 'Set2'  # Professional colorblind-friendly palette
-    alpha: 0.9
-    linewidth: 1
-    figure:
-      facecolor: 'white'
-      dpi: 600  # Higher DPI for publication
-    axes:
-      facecolor: 'white'
-      edgecolor: 'black'
-      grid: true
-      spines:
-        top: false
-        right: false
-        bottom: true
-        left: true
+  font:
+    family: "Arial, Helvetica, sans-serif"
+    size: 14
+    color: "#2F3136"
+    title_size: 16
+  layout:
+    margin:
+      top: 80
+      bottom: 80
+      left: 80
+      right: 40
+      pad: 10
+    background:
+      plot: "#F5F6F7"
+      paper: "white"
     grid:
-      color: '#E6E6E6'
-      linestyle: ':'
-      alpha: 0.5
-    text:
-      color: 'black'
-    ticks:
-      color: 'black' 
+      color: "#E5E5E5"
+      width: 1
+    axis:
+      line_color: "#2F3136"
+      line_width: 1
+      tick_length: 5
+      minor_tick_length: 3
+    legend:
+      position_x: 1.02
+      position_y: 1
+      bg_color: "rgba(255, 255, 255, 0.8)"
+      border_color: "#E5E5E5"
+      font_size: 12
+  export:
+    width: 1000
+    height: 800
+    scale: 2
+    dpi: 300 
