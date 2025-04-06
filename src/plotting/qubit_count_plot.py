@@ -1,13 +1,12 @@
 from .base import BasePlot
-import seaborn as sns
+import plotly.graph_objects as go
 import pandas as pd
-import matplotlib.pyplot as plt
 
 class QubitCountPlot(BasePlot):
-    """Creates the qubit count evolution plot."""
+    """Creates the physical qubit count evolution plot."""
     
-    def __init__(self, double_column=False):
-        super().__init__(double_column)
+    def __init__(self):
+        super().__init__()
         self.data = self.load_data(self.config['paths']['data']['qubit_count'])
         
     def load_data(self, csv_path: str):
@@ -19,42 +18,66 @@ class QubitCountPlot(BasePlot):
         return data
         
     def create_plot(self):
-        """Create the qubit count evolution plot."""
-        self.setup_plot(
-            title="Number of Qubits vs. Year by Platform",
-            xlabel="Year",
-            ylabel="Number of Qubits"
-        )
+        """Create the physical qubit count evolution plot using Plotly."""
+        # Create traces manually for better control
+        traces = []
+        for platform in sorted(self.data['Platform'].unique()):
+            platform_data = self.data[self.data['Platform'] == platform].sort_values('Year')
+            trace = {
+                'type': 'scatter',
+                'x': platform_data['Year'].tolist(),
+                'y': platform_data['Number of qubits'].tolist(),
+                'name': platform,
+                'mode': 'lines+markers',
+                'line': {'color': self.PLATFORM_COLORS.get(platform), 'width': 3},  # Thicker lines
+                'marker': {
+                    'color': self.PLATFORM_COLORS.get(platform),
+                    'size': 12,  # Larger markers
+                    'line': {'width': 2, 'color': 'white'}  # Add white border
+                },
+                'hovertemplate': "<b>%{text}</b><br>Qubits: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+                'text': platform_data['Article Title'].tolist(),
+                'customdata': platform_data['Link'].tolist()
+            }
+            traces.append(trace)
+
+        # Create layout with standardized settings
+        layout = {
+            'title': {
+                'text': 'Physical Qubit Count Evolution',
+                'font': self.PLOTLY_LAYOUT_DEFAULTS['title']['font']
+            },
+            'xaxis': {
+                'title': {'text': 'Year'},
+                **self.PLOTLY_LAYOUT_DEFAULTS['xaxis']
+            },
+            'yaxis': {
+                'title': {'text': 'Physical Qubit Count'},
+                'type': 'log',
+                **self.PLOTLY_LAYOUT_DEFAULTS['yaxis']
+            },
+            'showlegend': True,
+            'legend': {
+                'title': {'text': 'Platform'},
+                **self.PLOTLY_LAYOUT_DEFAULTS['legend']
+            },
+            'font': self.PLOTLY_LAYOUT_DEFAULTS['font'],
+            'plot_bgcolor': self.PLOTLY_LAYOUT_DEFAULTS['plot_bgcolor'],
+            'paper_bgcolor': self.PLOTLY_LAYOUT_DEFAULTS['paper_bgcolor'],
+            'margin': self.PLOTLY_LAYOUT_DEFAULTS['margin'],
+            'hovermode': self.PLOTLY_LAYOUT_DEFAULTS['hovermode'],
+            'width': self.plot_settings['export']['width'],
+            'height': self.plot_settings['export']['height']
+        }
         
-        # Create the plot with publication-ready styling
-        sns.lineplot(
-            data=self.data,
-            x="Year",
-            y="Number of qubits",
-            hue="Platform",
-            marker="o",
-            markersize=5.5,
-            palette=self.plot_settings['style']['palette'],
-            linewidth=self.plot_settings['style']['linewidth'],
-            alpha=self.plot_settings['style']['alpha'],
-        )
-        
-        # Customize for publication
-        plt.yscale("log")
-        plt.legend(
-            title=None,  # Remove legend title
-            fontsize=self.plot_settings['fontsize']['legend'],
-            # bbox_to_anchor=(1.05, 1),  # Place legend outside
-            loc='upper left'
-        )
-        plt.grid(axis="y", linestyle="--", alpha=0.6)
-        plt.tight_layout()
+        # Create a Plotly figure for export
+        self.fig = go.Figure(data=traces, layout=layout)
+        self.export_to_multiple(export_name="qubit_count_plot")
 
 def main():
     """Main function to create and save the plot."""
     plot = QubitCountPlot()
     plot.create_plot()
-    plot.save_plot("qubit_count_vs_year.png")
 
 if __name__ == "__main__":
     main() 
