@@ -1,6 +1,5 @@
 from .base import BasePlot
-import seaborn as sns
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import pandas as pd
 
 class EntangledErrorPlot(BasePlot):
@@ -19,37 +18,66 @@ class EntangledErrorPlot(BasePlot):
         return data
         
     def create_plot(self):
-        """Create the entangled state error evolution plot."""
-        self.setup_plot(
-            title="Entangled State Error vs. Year",
-            xlabel="Year",
-            ylabel="Entangled State Error"
-        )
+        """Create the entangled state error evolution plot using Plotly."""
+        # Create traces manually for better control
+        traces = []
+        for platform in sorted(self.data['Platform'].unique()):
+            platform_data = self.data[self.data['Platform'] == platform].sort_values('Year')
+            trace = {
+                'type': 'scatter',
+                'x': platform_data['Year'].tolist(),
+                'y': platform_data['Entangled State Error'].tolist(),
+                'name': platform,
+                'mode': 'lines+markers',
+                'line': {'color': self.PLATFORM_COLORS.get(platform), 'width': 3},
+                'marker': {
+                    'color': self.PLATFORM_COLORS.get(platform),
+                    'size': 12,
+                    'line': {'width': 2, 'color': 'white'}
+                },
+                'hovertemplate': "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+                'text': platform_data['Article Title'].tolist(),
+                'customdata': platform_data['Link'].tolist()
+            }
+            traces.append(trace)
+
+        # Create layout with standardized settings
+        layout = {
+            'title': {
+                'text': 'Entangled State Error vs. Year',
+                'font': self.PLOTLY_LAYOUT_DEFAULTS['title']['font']
+            },
+            'xaxis': {
+                'title': {'text': 'Year'},
+                **self.PLOTLY_LAYOUT_DEFAULTS['xaxis']
+            },
+            'yaxis': {
+                'title': {'text': 'Entangled State Error'},
+                'type': 'log',
+                **self.PLOTLY_LAYOUT_DEFAULTS['yaxis']
+            },
+            'showlegend': True,
+            'legend': {
+                'title': {'text': 'Platform'},
+                **self.PLOTLY_LAYOUT_DEFAULTS['legend']
+            },
+            'font': self.PLOTLY_LAYOUT_DEFAULTS['font'],
+            'plot_bgcolor': self.PLOTLY_LAYOUT_DEFAULTS['plot_bgcolor'],
+            'paper_bgcolor': self.PLOTLY_LAYOUT_DEFAULTS['paper_bgcolor'],
+            'margin': self.PLOTLY_LAYOUT_DEFAULTS['margin'],
+            'hovermode': self.PLOTLY_LAYOUT_DEFAULTS['hovermode'],
+            'height': self.plot_settings['export']['height'],
+            'width': self.plot_settings['export']['width']
+        }
         
-        # Create the plot
-        sns.lineplot(
-            data=self.data,
-            x="Year",
-            y="Entangled State Error",
-            hue="Platform",
-            marker="o",
-            palette=self.plot_settings['style']['palette'],
-            linewidth=self.plot_settings['style']['linewidth'],
-            alpha=self.plot_settings['style']['alpha'],
-        )
-        
-        # Additional customization
-        plt.yscale("log")
-        plt.legend(title="", fontsize=self.plot_settings['fontsize']['tick'], 
-                  loc="lower left")
-        plt.grid(axis="y", linestyle="--", alpha=0.6)
-        plt.tight_layout()
+        # Create a Plotly figure for export
+        self.fig = go.Figure(data=traces, layout=layout)
+        self.export_to_multiple(export_name="entangled_error_plot")
 
 def main():
     """Main function to create and save the plot."""
     plot = EntangledErrorPlot()
     plot.create_plot()
-    plot.save_plot("entangled_state_error_vs_year.png")
 
 if __name__ == "__main__":
-    main() 
+    main()

@@ -1,10 +1,9 @@
 from .base import BasePlot
-import seaborn as sns
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import pandas as pd
 
 class CoherenceTimesPlot(BasePlot):
-    """Creates the coherence times evolution plot."""
+    """Creates the physical qubit coherence times plot."""
     
     def __init__(self):
         super().__init__()
@@ -19,84 +18,95 @@ class CoherenceTimesPlot(BasePlot):
         return data
         
     def create_plot(self):
-        """Create the coherence times evolution plot."""
-        self.setup_plot(
-            title="Evolution of Qubit Coherence Times",
-            xlabel="Year",
-            ylabel="Coherence Time (s)"
-        )
-        
-        # Plot T1 and T2 for each platform
-        platforms = self.data['Platform'].unique()
-        markers = ['o', 's', '^', 'D', 'v']  # Different markers for different platforms
-        colors = sns.color_palette(self.plot_settings['style']['palette'], len(platforms))
-        
-        for idx, platform in enumerate(platforms):
-            platform_data = self.data[self.data['Platform'] == platform]
+        """Create the physical qubit coherence times plot using Plotly."""
+        # Create traces manually for better control
+        traces = []
+        for platform in sorted(self.data['Platform'].unique()):
+            platform_data = self.data[self.data['Platform'] == platform].sort_values('Year')
+            platform_color = self.PLATFORM_COLORS.get(platform)
             
-            # Plot T1
-            mask_t1 = platform_data['T1'].notna()
-            if mask_t1.any():
-                plt.scatter(
-                    platform_data[mask_t1]['Year'], 
-                    platform_data[mask_t1]['T1'],
-                    marker=markers[idx % len(markers)],
-                    color=colors[idx],
-                    label=f'{platform} (T1)',
-                    s=10,
-                    alpha=self.plot_settings['style']['alpha']
-                )
-                # Connect T1 points with a line
-                plt.plot(
-                    platform_data[mask_t1]['Year'], 
-                    platform_data[mask_t1]['T1'],
-                    color=colors[idx],
-                    alpha=0.5
-                )
+            # Add T1 trace
+            t1_data = platform_data[platform_data['T1'].notna()]
+            if not t1_data.empty:
+                trace_t1 = {
+                    'type': 'scatter',
+                    'x': t1_data['Year'].tolist(),
+                    'y': t1_data['T1'].tolist(),
+                    'name': f'{platform} (T1)',
+                    'mode': 'lines+markers',
+                    'line': {'color': platform_color, 'width': 3},
+                    'marker': {
+                        'color': platform_color, 
+                        'symbol': 'circle',
+                        'size': 12,
+                        'line': {'width': 2, 'color': 'white'}
+                    },
+                    'hovertemplate': "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+                    'text': t1_data['Article Title'].tolist(),
+                    'customdata': t1_data['Link'].tolist()
+                }
+                traces.append(trace_t1)
             
-            # Plot T2
-            mask_t2 = platform_data['T2'].notna()
-            if mask_t2.any():
-                plt.scatter(
-                    platform_data[mask_t2]['Year'], 
-                    platform_data[mask_t2]['T2'],
-                    marker=markers[idx % len(markers)],
-                    color=colors[idx],
-                    label=f'{platform} (T2)',
-                    facecolors='none',
-                    s=10,
-                    alpha=self.plot_settings['style']['alpha']
-                )
-                # Connect T2 points with a line
-                plt.plot(
-                    platform_data[mask_t2]['Year'], 
-                    platform_data[mask_t2]['T2'],
-                    color=colors[idx],
-                    alpha=0.5
-                )
+            # Add T2 trace
+            t2_data = platform_data[platform_data['T2'].notna()]
+            if not t2_data.empty:
+                trace_t2 = {
+                    'type': 'scatter',
+                    'x': t2_data['Year'].tolist(),
+                    'y': t2_data['T2'].tolist(),
+                    'name': f'{platform} (T2)',
+                    'mode': 'lines+markers',
+                    'line': {'color': platform_color, 'dash': 'dash', 'width': 3},
+                    'marker': {
+                        'color': platform_color, 
+                        'symbol': 'circle-open',
+                        'size': 12,
+                        'line': {'width': 2, 'color': platform_color}
+                    },
+                    'hovertemplate': "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+                    'text': t2_data['Article Title'].tolist(),
+                    'customdata': t2_data['Link'].tolist()
+                }
+                traces.append(trace_t2)
+
+        # Create layout with standardized settings
+        layout = {
+            'title': {
+                'text': 'Physical Qubit Coherence Times Evolution',
+                'font': self.PLOTLY_LAYOUT_DEFAULTS['title']['font']
+            },
+            'xaxis': {
+                'title': {'text': 'Year'},
+                **self.PLOTLY_LAYOUT_DEFAULTS['xaxis']
+            },
+            'yaxis': {
+                'title': {'text': 'Coherence Time (s)'},
+                'type': 'log',
+                **self.PLOTLY_LAYOUT_DEFAULTS['yaxis']
+            },
+            'showlegend': True,
+            'legend': {
+                'title': {'text': 'Platform & Measurement'},
+                **self.PLOTLY_LAYOUT_DEFAULTS['legend']
+            },
+            'font': self.PLOTLY_LAYOUT_DEFAULTS['font'],
+            'plot_bgcolor': self.PLOTLY_LAYOUT_DEFAULTS['plot_bgcolor'],
+            'paper_bgcolor': self.PLOTLY_LAYOUT_DEFAULTS['paper_bgcolor'],
+            'margin': self.PLOTLY_LAYOUT_DEFAULTS['margin'],
+            'hovermode': self.PLOTLY_LAYOUT_DEFAULTS['hovermode'],
+            'width': self.plot_settings['export']['width'],
+            'height': self.plot_settings['export']['height']
+        }
         
-        # # Set integer ticks for x-axis
-        # year_min = int(self.data['Year'].min())
-        # year_max = int(self.data['Year'].max())
-        # plt.gca().xaxis.set_major_locator(plt.MultipleLocator(1))  # Force integer ticks
-        # plt.xlim(year_min - 0.5, year_max + 0.5)  # Add padding but keep integer ticks
-        
-        # Additional customization
-        plt.yscale('log')
-        plt.legend(
-            title="", 
-            fontsize=self.plot_settings['fontsize']['tick'],       
-            loc='upper left', 
-            # bbox_to_anchor=(0.1, 0.9)
-            )
-        plt.grid(axis="y", linestyle="--", alpha=0.6)
-        plt.tight_layout()
+        # Create a Plotly figure for export
+        self.fig = go.Figure(data=traces, layout=layout)
+        self.export_to_multiple(export_name="coherence_times_plot")
+
 
 def main():
     """Main function to create and save the plot."""
     plot = CoherenceTimesPlot()
     plot.create_plot()
-    plot.save_plot("coherence_times.png")
 
 if __name__ == "__main__":
     main() 
