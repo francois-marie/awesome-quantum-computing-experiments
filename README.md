@@ -189,7 +189,6 @@ For more detailed information:
 ### Superconducting spins
 
 - [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Superconducting spins
-- [High fidelity state preparation, quantum control, and readout of an isotopically enriched silicon spin qubit](https://arxiv.org/abs/2204.09551) (2022) - nan on Superconducting spins
 - [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.0035 on Superconducting spins
 
 ## Qubit Count
