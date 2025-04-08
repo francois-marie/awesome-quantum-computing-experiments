@@ -43,6 +43,34 @@ For more detailed information:
 
 <hr style="margin: 30px 0;">
 
+## Local Development
+
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+
+1. Set up Ruby environment using rbenv:
+```bash
+eval "$(rbenv init -)"
+rbenv shell 2.7.8
+gem install bundler -v 2.4.22
+```
+
+2. Install Ruby dependencies:
+```bash
+rm -rf vendor/ .bundle/ Gemfile.lock
+bundle _2.4.22_ install
+```
+
+3. Run Jekyll server:
+```bash
+bundle exec jekyll clean
+bundle exec jekyll serve
+```
+
+The site will be available at `http://localhost:4000`.
+</div>
+
+<hr style="margin: 30px 0;">
+
 ## Visualizations
 
 <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
