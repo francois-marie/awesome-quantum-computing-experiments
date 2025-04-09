@@ -61,6 +61,7 @@ For more detailed information:
 	- [Superconducting spins](#superconducting-spins)
 - [Physical Qubits](#physical-qubits)
 	- [Superconducting circuit](#superconducting-circuit)
+	- [Ion traps](#ion-traps)
 	- [Semiconductor](#semiconductor)
 	- [Graphene](#graphene)
 
@@ -248,6 +249,13 @@ For more detailed information:
 - [Fault-tolerant detection of a quantum error](https://arxiv.org/abs/1803.00102) (2018) - Fock (3D), T1: 0.0011s, T2: 0.0014s on Superconducting circuit
 - [The high-coherence fluxonium qubit](https://arxiv.org/abs/1810.11006) (2018) - Fluxonium (3D), T1: 0.0002s, T2: 0.0003s on Superconducting circuit
 - [Demonstration of quantum error correction and universal gate set on a binomial bosonic logical qubit](https://arxiv.org/abs/1805.09072) (2019) - Binomial encoding, T1: 0.0001s, T2: 0.0001s on Superconducting circuit, The corrected logical qubit has a lifetime 2.8 times longer than that of its uncorrected counterpart.
+
+### Ion traps
+
+- [Long-Lived Qubit Memory Using Atomic Ions](https://doi.org/10.1103/PhysRevLett.95.060502) (2005) - Beryllium, T2: 14.7s on Ion traps
+- [High-Fidelity Preparation, Gates, Memory, and Readout of a Trapped-Ion Quantum Bit](https://doi.org/10.1103/PhysRevLett.113.220501) (2014) - Calcium, T2: 50.0s on Ion traps
+- [Single-qubit quantum memory exceeding ten-minute coherence time](https://doi.org/10.1038/s41566-017-0007-1) (2017) - Ytterbium, T2: 667.0s on Ion traps
+- [Single ion qubit with estimated coherence time exceeding one hour](https://doi.org/10.1038/s41467-020-20330-w) (2021) - Ytterbium, T2: 5500.0s on Ion traps
 
 ### Semiconductor
 
