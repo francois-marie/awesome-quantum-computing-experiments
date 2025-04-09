@@ -231,22 +231,22 @@ For more detailed information:
 
 ### Superconducting circuit
 
-- [Coherent control of macroscopic quantum states in a single-Cooper-pair box](https://arxiv.org/abs/cond-mat/9904003v1) (1999) - Cooper-pair box, T1: 0.000000002s on Superconducting circuit
-- [Charge echo in a Cooper-pair box](https://arxiv.org/abs/cond-mat/0111402) (2001) - Cooper-pair box, T1: 0.000000009s, T2: 5e-09s on Superconducting circuit
-- [Manipulating the Quantum State of an Electrical Circuit](https://arxiv.org/abs/cond-mat/0205343) (2002) - Quantronium, T1: 0.000001s, T2: 8e-07s on Superconducting circuit
-- [Coherent Quantum Dynamics of a Superconducting Flux Qubit](https://arxiv.org/abs/cond-mat/0305461) (2003) - Flux qubit, T1: 0.000001s, T2: 2e-08s on Superconducting circuit
-- [Dephasing of a superconducting qubit induced by photon noise](https://arxiv.org/abs/cond-mat/0512428) (2005) - Flux qubit, T1: 0.000005s, T2: 5e-06s on Superconducting circuit
-- [Controlling the spontaneous emission of a superconducting transmon qubit](https://arxiv.org/abs/0803.4490) (2007) - Transmon, T1: 0.000004s, T2: 2e-06s on Superconducting circuit
-- [Measurement of the decay of Fock states in a superconducting quantum circuit](https://arxiv.org/abs/0808.3279) (2008) - Fock (2D), T1: 0.000003s, T2: 6e-06s on Superconducting circuit
+- [Coherent control of macroscopic quantum states in a single-Cooper-pair box](https://arxiv.org/abs/cond-mat/9904003v1) (1999) - Cooper-pair box, T1: 2e-09s on Superconducting circuit
+- [Charge echo in a Cooper-pair box](https://arxiv.org/abs/cond-mat/0111402) (2001) - Cooper-pair box, T1: 9e-09s, T2: 5e-09s on Superconducting circuit
+- [Manipulating the Quantum State of an Electrical Circuit](https://arxiv.org/abs/cond-mat/0205343) (2002) - Quantronium, T1: 1e-06s, T2: 8e-07s on Superconducting circuit
+- [Coherent Quantum Dynamics of a Superconducting Flux Qubit](https://arxiv.org/abs/cond-mat/0305461) (2003) - Flux qubit, T1: 1e-06s, T2: 2e-08s on Superconducting circuit
+- [Dephasing of a superconducting qubit induced by photon noise](https://arxiv.org/abs/cond-mat/0512428) (2005) - Flux qubit, T1: 5e-06s, T2: 5e-06s on Superconducting circuit
+- [Controlling the spontaneous emission of a superconducting transmon qubit](https://arxiv.org/abs/0803.4490) (2007) - Transmon, T1: 4e-06s, T2: 2e-06s on Superconducting circuit
+- [Measurement of the decay of Fock states in a superconducting quantum circuit](https://arxiv.org/abs/0808.3279) (2008) - Fock (2D), T1: 3e-06s, T2: 6e-06s on Superconducting circuit
 - [Fluxonium: single Cooper pair circuit free of charge offsets](https://arxiv.org/abs/0906.0831) (2009) - Fluxonium, T2: 3.5e-07s on Superconducting circuit
-- [Dynamical decoupling and noise spectroscopy with a superconducting flux qubit](https://arxiv.org/abs/1101.4707) (2010) - Flux qubit, T1: 0.000012s, T2: 2.3e-05s on Superconducting circuit
-- [Observation of high coherence in Josephson junction qubits measured in a three-dimensional circuit QED architecture](https://arxiv.org/abs/1105.4652) (2011) - Transmon (3D), T1: 0.00007s, T2: 1.5e-05s on Superconducting circuit
-- [Superconducting qubit in waveguide cavity with coherence time approaching 0.1ms](https://arxiv.org/abs/1202.5533) (2012) - Transmon (3D), T1: 0.00007s, T2: 9.5e-05s on Superconducting circuit
-- [Improved superconducting qubit coherence using titanium nitride](https://arxiv.org/abs/1303.4071) (2013) - Transmon, T1: 0.00007s, T2: 7e-05s on Superconducting circuit
+- [Dynamical decoupling and noise spectroscopy with a superconducting flux qubit](https://arxiv.org/abs/1101.4707) (2010) - Flux qubit, T1: 1.2e-05s, T2: 2.3e-05s on Superconducting circuit
+- [Observation of high coherence in Josephson junction qubits measured in a three-dimensional circuit QED architecture](https://arxiv.org/abs/1105.4652) (2011) - Transmon (3D), T1: 7e-05s, T2: 1.5e-05s on Superconducting circuit
+- [Superconducting qubit in waveguide cavity with coherence time approaching 0.1ms](https://arxiv.org/abs/1202.5533) (2012) - Transmon (3D), T1: 7e-05s, T2: 9.5e-05s on Superconducting circuit
+- [Improved superconducting qubit coherence using titanium nitride](https://arxiv.org/abs/1303.4071) (2013) - Transmon, T1: 7e-05s, T2: 7e-05s on Superconducting circuit
 - [Coherent suppression of electromagnetic dissipation due to superconducting quasiparticles](https://www.nature.com/articles/nature13017) (2014) - Fluxonium (3D), T1: 0.001s, T2: 2e-05s on Superconducting circuit
 - [Thermal and Residual Excited-State Population in a 3D Transmon Qubit](https://arxiv.org/abs/1412.2772) (2014) - Transmon (3D), T1: 0.0001s, T2: 0.0002s on Superconducting circuit
 - [A Schrodinger Cat Living in Two Boxes](https://arxiv.org/abs/1601.05505) (2015) - Fock (3D), T1: 0.004s, T2: 0.001s on Superconducting circuit
-- [The Flux Qubit Revisited to Enhance Coherence and Reproducibility](https://arxiv.org/abs/1508.06299) (2015) - C-sh. flux qubit, T1: 0.00004s, T2: 8.5e-05s on Superconducting circuit
+- [The Flux Qubit Revisited to Enhance Coherence and Reproducibility](https://arxiv.org/abs/1508.06299) (2015) - C-sh. flux qubit, T1: 4e-05s, T2: 8.5e-05s on Superconducting circuit
 - [Demonstrating Quantum Error Correction that Extends the Lifetime of Quantum Information](https://arxiv.org/abs/1602.04768v1) (2016) - Cat encoding, T1: 0.00015s on Superconducting circuit, The enhanced lifetime of the encoded information is 320µs without any post-selection.
 - [Fault-tolerant detection of a quantum error](https://arxiv.org/abs/1803.00102) (2018) - Fock (3D), T1: 0.0011s, T2: 0.0014s on Superconducting circuit
 - [The high-coherence fluxonium qubit](https://arxiv.org/abs/1810.11006) (2018) - Fluxonium (3D), T1: 0.0002s, T2: 0.0003s on Superconducting circuit
@@ -254,7 +254,7 @@ For more detailed information:
 - [Exponential suppression of bit-flips in a qubit encoded in an oscillator](https://doi.org/10.1038/s41567-020-0824-x) (2019) - Cat encoding, T1: 0.001s on Superconducting circuit
 - [One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator](https://doi.org/10.1103/PRXQuantum.4.020350) (2023) - Cat encoding,  on Superconducting circuit, 127
 - [Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s](https://doi.org/10.1103/PhysRevX.14.021019) (2024) - Cat encoding,  on Superconducting circuit, 0.3
-- [Quantum control of a cat-qubit with bit-flip times exceeding ten seconds](https://doi.org/10.1038/s41586-024-07294-3) (2024) - Cat encoding, T1: 0,0000005s on Superconducting circuit, 15
+- [Quantum control of a cat-qubit with bit-flip times exceeding ten seconds](https://doi.org/10.1038/s41586-024-07294-3) (2024) - Cat encoding, T1: 5e-07s on Superconducting circuit, 15
 
 ### Ion traps
 
@@ -265,13 +265,13 @@ For more detailed information:
 
 ### Semiconductor
 
-- [A Semiconductor Nanowire-Based Superconducting Qubit](https://arxiv.org/abs/1503.08339) (2015) - Gatemon, T1: 0.0000008s, T2: 1e-06s on Semiconductor
-- [Gatemon Benchmarking and Two-Qubit Operation](https://arxiv.org/abs/1512.09195) (2016) - Gatemon, T1: 0.000003s on Semiconductor
-- [Evolution of Nanowire Transmons and Their Quantum Coherence in Magnetic Field](https://arxiv.org/abs/1711.07961) (2018) - Gatemon, T1: 0.00001s on Semiconductor
+- [A Semiconductor Nanowire-Based Superconducting Qubit](https://arxiv.org/abs/1503.08339) (2015) - Gatemon, T1: 8e-07s, T2: 1e-06s on Semiconductor
+- [Gatemon Benchmarking and Two-Qubit Operation](https://arxiv.org/abs/1512.09195) (2016) - Gatemon, T1: 3e-06s on Semiconductor
+- [Evolution of Nanowire Transmons and Their Quantum Coherence in Magnetic Field](https://arxiv.org/abs/1711.07961) (2018) - Gatemon, T1: 1e-05s on Semiconductor
 
 ### Graphene
 
-- [Quantum coherent control of a hybrid superconducting circuit made with graphene-based van der Waals heterostructures](https://arxiv.org/abs/1809.05215) (2018) - Gatemon, T1: 0.00000005s on Graphene
+- [Quantum coherent control of a hybrid superconducting circuit made with graphene-based van der Waals heterostructures](https://arxiv.org/abs/1809.05215) (2018) - Gatemon, T1: 5e-08s on Graphene
 
 
 ## Contributing
