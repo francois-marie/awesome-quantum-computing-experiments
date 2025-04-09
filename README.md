@@ -252,10 +252,10 @@ For more detailed information:
 
 ### Ion traps
 
-- [Long-Lived Qubit Memory Using Atomic Ions](https://doi.org/10.1103/PhysRevLett.95.060502) (2005) - Beryllium, T2: 14.7s on Ion traps
-- [High-Fidelity Preparation, Gates, Memory, and Readout of a Trapped-Ion Quantum Bit](https://doi.org/10.1103/PhysRevLett.113.220501) (2014) - Calcium, T2: 50.0s on Ion traps
-- [Single-qubit quantum memory exceeding ten-minute coherence time](https://doi.org/10.1038/s41566-017-0007-1) (2017) - Ytterbium, T2: 667.0s on Ion traps
-- [Single ion qubit with estimated coherence time exceeding one hour](https://doi.org/10.1038/s41467-020-20330-w) (2021) - Ytterbium, T2: 5500.0s on Ion traps
+- [Long-Lived Qubit Memory Using Atomic Ions](https://doi.org/10.1103/PhysRevLett.95.060502) (2005) - 2s2S1/2 F=1, mF=1 and F=2, mF=2, T2: 14.7s on Ion traps
+- [High-Fidelity Preparation, Gates, Memory, and Readout of a Trapped-Ion Quantum Bit](https://doi.org/10.1103/PhysRevLett.113.220501) (2014) - Hyperfine atomic-clock states, T2: 50.0s on Ion traps
+- [Single-qubit quantum memory exceeding ten-minute coherence time](https://doi.org/10.1038/s41566-017-0007-1) (2017) - S1/2 mF=0 hyperfine levels, T2: 667.0s on Ion traps
+- [Single ion qubit with estimated coherence time exceeding one hour](https://doi.org/10.1038/s41467-020-20330-w) (2021) - S1/2 mF=0 hyperfine levels, T2: 5500.0s on Ion traps
 
 ### Semiconductor
 
