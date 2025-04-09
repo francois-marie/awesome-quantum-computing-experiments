@@ -69,6 +69,7 @@ For more detailed information:
 ### Repetition Code
 
 - [Experimental Quantum Error Correction](https://arxiv.org/abs/quant-ph/9802018) (1998) - [3,1,3], d=1 on NMR
+- [Realization of quantum error correction](https://doi.org/10.1038/nature03074) (2004) - [3,1,3], d=1 on Ion traps
 - [Demonstration of Sufficient Control for Two Rounds of Quantum Error Correction in a Solid-State Ensemble Quantum Information Processor](https://arxiv.org/abs/1108.4842) (2011) - [3,1,3], d=1 on NMR
 - [Experimental Repetitive Quantum Error Correction](https://jubarreiro.physics.ucsd.edu/files/Schindler-Science-332-1059-1061.pdf) (2011) - [3,1,3], d=1 on Ion traps
 - [Experimental quantum error correction with high fidelity](https://arxiv.org/abs/1109.4821) (2011) - [3,1,3], d=1 on NMR
