@@ -252,9 +252,9 @@ For more detailed information:
 - [The high-coherence fluxonium qubit](https://arxiv.org/abs/1810.11006) (2018) - Fluxonium (3D), T1: 0.0002s, T2: 0.0003s on Superconducting circuit
 - [Demonstration of quantum error correction and universal gate set on a binomial bosonic logical qubit](https://arxiv.org/abs/1805.09072) (2019) - Binomial encoding, T1: 0.0001s, T2: 0.0001s on Superconducting circuit, The corrected logical qubit has a lifetime 2.8 times longer than that of its uncorrected counterpart.
 - [Exponential suppression of bit-flips in a qubit encoded in an oscillator](https://doi.org/10.1038/s41567-020-0824-x) (2019) - Cat encoding, T1: 0.001s on Superconducting circuit
-- [One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator](https://doi.org/10.1103/PRXQuantum.4.020350) (2023) - Cat encoding,  on Superconducting circuit, 127
-- [Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s](https://doi.org/10.1103/PhysRevX.14.021019) (2024) - Cat encoding,  on Superconducting circuit, 0.3
-- [Quantum control of a cat-qubit with bit-flip times exceeding ten seconds](https://doi.org/10.1038/s41586-024-07294-3) (2024) - Cat encoding, T1: 5e-07s on Superconducting circuit, 15
+- [One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator](https://doi.org/10.1103/PRXQuantum.4.020350) (2023) - Cat encoding, T1: 127.0s on Superconducting circuit
+- [Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s](https://doi.org/10.1103/PhysRevX.14.021019) (2024) - Cat encoding, T1: 0.3s on Superconducting circuit
+- [Quantum control of a cat-qubit with bit-flip times exceeding ten seconds](https://doi.org/10.1038/s41586-024-07294-3) (2024) - Cat encoding, T1: 15.0s, T2: 5e-07s on Superconducting circuit
 
 ### Ion traps
 
