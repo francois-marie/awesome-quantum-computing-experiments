@@ -208,6 +208,7 @@ For more detailed information:
 ### Superconducting circuit
 
 - [Measurement of the Entanglement of Two Superconducting Qubits via State Tomography](https://www.science.org/doi/10.1126/science.1130886) (2006) - 2 qubits on Superconducting circuit
+- [Implementing a strand of a scalable fault-tolerant quantum computing fabric](https://doi.org/10.1038/ncomms5015) (2013) - 3 qubits on Superconducting circuit
 - [Superconducting quantum circuits at the surface code threshold for fault tolerance](https://www.nature.com/articles/nature13171) (2014) - 5 qubits on Superconducting circuit
 - [Quantum supremacy using a programmable superconducting processor](https://www.nature.com/articles/s41586-019-1666-5) (2019) - 53 qubits on Superconducting circuit
 - [Evidence for the utility of quantum computing before fault tolerance](https://www.nature.com/articles/s41586-023-06096-3) (2023) - 127 qubits on Superconducting circuit
