@@ -166,6 +166,7 @@ For more detailed information:
 - [Experimental Entanglement of Four Particles](https://www.nature.com/articles/35005011) (2000) - 0.2 on Ion traps
 - [Experimental Violation of a Bell's Inequality with Efficient Detection](https://www.nature.com/articles/35057215) (2001) - 0.1 on Ion traps
 - [Experimental demonstration of a robust, high-fidelity geometric two ion-qubit phase gate](https://www.nature.com/articles/nature01492) (2003) - 0.03 on Ion traps
+- [Robust entanglement](https://doi.org/10.1007/s00340-005-1917-z) (2005) - 0,04 on Ion traps, Entangled states of two trapped Ca+ ions with robust entanglement lasting for more than 20 s.
 - [Towards Fault-Tolerant Quantum Computing with Trapped Ions](https://arxiv.org/abs/0803.2798) (2008) - 0.007 on Ion traps
 - [High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps
 - [High-fidelity quantum logic gates using trapped-ion hyperfine qubits](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps
