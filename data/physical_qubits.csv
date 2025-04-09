@@ -27,3 +27,7 @@
 "S1/2 mF=0 hyperfine levels","Single-qubit quantum memory exceeding ten-minute coherence time","https://doi.org/10.1038/s41566-017-0007-1","2017","Ion traps","Ytterbium","","","667"
 "2s2S1/2 F=1, mF=1 and F=2, mF=2","Long-Lived Qubit Memory Using Atomic Ions","https://doi.org/10.1103/PhysRevLett.95.060502","2005","Ion traps","Beryllium","","","14.7"
 "Hyperfine atomic-clock states","High-Fidelity Preparation, Gates, Memory, and Readout of a Trapped-Ion Quantum Bit","https://doi.org/10.1103/PhysRevLett.113.220501","2014","Ion traps","Calcium","","","50"
+"Cat encoding","Exponential suppression of bit-flips in a qubit encoded in an oscillator","https://doi.org/10.1038/s41567-020-0824-x","2019","Superconducting circuit","Bosonic","","0.001",""
+"Cat encoding","One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator","https://doi.org/10.1103/PRXQuantum.4.020350","2023","Superconducting circuit","Bosonic","127",""
+"Cat encoding","Quantum control of a cat-qubit with bit-flip times exceeding ten seconds","https://doi.org/10.1038/s41586-024-07294-3","2024","Superconducting circuit","Bosonic","15","0,0000005"
+"Cat encoding","Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s","https://doi.org/10.1103/PhysRevX.14.021019","2024","Superconducting circuit","Bosonic","0.3",""
