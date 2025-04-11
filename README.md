@@ -64,6 +64,7 @@ For more detailed information:
 	- [Ion traps](#ion-traps)
 	- [Semiconductor](#semiconductor)
 	- [Graphene](#graphene)
+	- [Neutral atom](#neutral-atom)
 
 ## Quantum Error Correction
 
@@ -280,6 +281,10 @@ For more detailed information:
 ### Graphene
 
 - [Quantum coherent control of a hybrid superconducting circuit made with graphene-based van der Waals heterostructures](https://arxiv.org/abs/1809.05215) (2018) - Gatemon, T1: 5e-08s on Graphene
+
+### Neutral atom
+
+- [A tweezer array with 6100 highly coherent atomic qubits](https://doi.org/10.48550/arXiv.2403.12021) (2024) - Hyperfine, T1: 119.0s, T2: 12.6s on Neutral atom
 
 
 ## Contributing
