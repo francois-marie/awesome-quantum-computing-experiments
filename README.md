@@ -190,6 +190,7 @@ For more detailed information:
 - [High-Fidelity Entanglement and Detection of Alkaline-Earth Rydberg Atoms](https://arxiv.org/abs/2001.04455) (2020) - 0.01 on Neutral atoms
 - [Erasure conversion in a high-fidelity Rydberg quantum simulator](https://arxiv.org/abs/2305.03406) (2023) - 0.002 on Neutral atoms
 - [High-fidelity parallel entangling gates on a neutral-atom quantum computer](https://doi.org/10.1038/s41586-023-06481-y) (2023) - 0.005 on Neutral atoms, Rb
+- [High-fidelity universal gates in the 171Yb ground state nuclear spin qubit](https://doi.org/10.48550/arXiv.2411.11708) (2024) - 0.006 on Neutral atoms, Yb
 - [Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates](https://doi.org/10.1103/PRXQuantum.6.010331) (2025) - 0.0029 on Neutral atoms, Sr
 - [Spectroscopy and Modeling of 171Yb Rydberg States for High-Fidelity Two-Qubit Gates](https://doi.org/10.1103/PhysRevX.15.011009) (2025) - 0.006 on Neutral atoms, Yb
 
