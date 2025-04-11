@@ -228,6 +228,7 @@ For more detailed information:
 - [In-situ equalization of single-atom loading in large-scale optical tweezers arrays](https://arxiv.org/abs/2207.06500) (2022) - 324 qubits on Neutral atoms
 - [A tweezer array with 6100 highly coherent atomic qubits](https://arxiv.org/abs/2403.12021) (2024) - 6100 qubits on Neutral atoms, Not rearranged
 - [AI-Enabled Rapid Assembly of Thousands of Defect-Free Neutral Atom Arrays with Constant-time-overhead](https://doi.org/10.48550/arXiv.2412.14647) (2024) - 2024 qubits on Neutral atoms, Defect-free 2D and 3D atom arrays
+- [Rearrangement of individual atoms in a 2000-site optical-tweezer array at cryogenic temperatures](https://doi.org/10.1103/PhysRevApplied.22.024073) (2024) - 2088 qubits on Neutral atoms, Cryogenic environment at 6K
 
 ### Superconducting spins
 
