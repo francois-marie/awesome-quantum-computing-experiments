@@ -18,7 +18,10 @@ platform_colors:
   Superconducting circuit: "#2ECC71"  # Fresh Green
   NV centers: "#E74C3C"     # Deep Coral
   Photons: "#7A288A"        # Rich Purple
+  Graphene: "#867BFA"      # Cool Gray
   Neutral atoms: "#95A5A6"   # Cool Gray
+  Superconducting spins: "#F7DC6F"  # Warm Gold
+  Semiconductor: "#92DCE5"  # Warm Gold
 
 # Standard colors for QEC codes
 code_colors:
