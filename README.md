@@ -64,6 +64,7 @@ For more detailed information:
 	- [Ion traps](#ion-traps)
 	- [Neutral atoms](#neutral-atoms)
 	- [Semiconductor](#semiconductor)
+	- [NV center](#nv-center)
 	- [Graphene](#graphene)
 
 ## Quantum Error Correction
@@ -282,6 +283,10 @@ For more detailed information:
 - [A Semiconductor Nanowire-Based Superconducting Qubit](https://arxiv.org/abs/1503.08339) (2015) - Gatemon, T1: 8e-07s, T2: 1e-06s on Semiconductor
 - [Gatemon Benchmarking and Two-Qubit Operation](https://arxiv.org/abs/1512.09195) (2016) - Gatemon, T1: 3e-06s on Semiconductor
 - [Evolution of Nanowire Transmons and Their Quantum Coherence in Magnetic Field](https://arxiv.org/abs/1711.07961) (2018) - Gatemon, T1: 1e-05s on Semiconductor
+
+### NV center
+
+- [One-second coherence for a single electron spin coupled to a multi-qubit nuclear-spin environment](https://doi.org/10.1038/s41467-018-04916-z) (2018) - e spin, T1: 3600.0s, T2: 1.58s on NV center
 
 ### Graphene
 
