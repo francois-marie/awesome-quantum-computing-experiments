@@ -62,7 +62,7 @@ For more detailed information:
 - [Physical Qubits](#physical-qubits)
 	- [Superconducting circuit](#superconducting-circuit)
 	- [Ion traps](#ion-traps)
-	- [Neutral atom](#neutral-atom)
+	- [Neutral atoms](#neutral-atoms)
 	- [Semiconductor](#semiconductor)
 	- [Graphene](#graphene)
 
@@ -272,10 +272,10 @@ For more detailed information:
 - [Single-qubit quantum memory exceeding ten-minute coherence time](https://doi.org/10.1038/s41566-017-0007-1) (2017) - S1/2 mF=0 hyperfine levels, T2: 667.0s on Ion traps
 - [Single ion qubit with estimated coherence time exceeding one hour](https://doi.org/10.1038/s41467-020-20330-w) (2021) - S1/2 mF=0 hyperfine levels, T2: 5500.0s on Ion traps
 
-### Neutral atom
+### Neutral atoms
 
-- [Fast Quantum State Control of a Single Trapped Neutral Atom](https://doi.org/10.1103/PhysRevA.75.040301) (2007) - Hyperfine, T1: 3.0s, T2: 0.034s on Neutral atom, Spin-echo, dephasing time of 370µs. T1=trap lifetime in the absence of any near-resonant light
-- [A tweezer array with 6100 highly coherent atomic qubits](https://doi.org/10.48550/arXiv.2403.12021) (2024) - Hyperfine, T1: 119.0s, T2: 12.6s on Neutral atom
+- [Fast Quantum State Control of a Single Trapped Neutral Atom](https://doi.org/10.1103/PhysRevA.75.040301) (2007) - Hyperfine, T1: 3.0s, T2: 0.034s on Neutral atoms, Spin-echo, dephasing time of 370µs. T1=trap lifetime in the absence of any near-resonant light
+- [A tweezer array with 6100 highly coherent atomic qubits](https://doi.org/10.48550/arXiv.2403.12021) (2024) - Hyperfine, T1: 119.0s, T2: 12.6s on Neutral atoms
 
 ### Semiconductor
 
