@@ -53,18 +53,20 @@ For more detailed information:
 	- [Ion traps](#ion-traps)
 	- [Superconducting circuits](#superconducting-circuits)
 	- [Neutral atoms](#neutral-atoms)
+	- [NV centers](#nv-centers)
 	- [Superconducting spins](#superconducting-spins)
 - [Qubit Count](#qubit-count)
 	- [Ion traps](#ion-traps)
 	- [Superconducting circuit](#superconducting-circuit)
 	- [Neutral atoms](#neutral-atoms)
 	- [Superconducting spins](#superconducting-spins)
+	- [NV centers](#nv-centers)
 - [Physical Qubits](#physical-qubits)
 	- [Superconducting circuit](#superconducting-circuit)
 	- [Ion traps](#ion-traps)
 	- [Neutral atoms](#neutral-atoms)
 	- [Semiconductor](#semiconductor)
-	- [NV center](#nv-center)
+	- [NV centers](#nv-centers)
 	- [Graphene](#graphene)
 
 ## Quantum Error Correction
@@ -197,6 +199,10 @@ For more detailed information:
 - [Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates](https://doi.org/10.1103/PRXQuantum.6.010331) (2025) - 0.0029 on Neutral atoms, Sr
 - [Spectroscopy and Modeling of 171Yb Rydberg States for High-Fidelity Two-Qubit Gates](https://doi.org/10.1103/PhysRevX.15.011009) (2025) - 0.006 on Neutral atoms, Yb
 
+### NV centers
+
+- [Strongly coupled diamond spin qubits by molecular nitrogen implantation](https://doi.org/10.1103/PhysRevB.88.201201) (2013) - 0.03 on NV centers
+
 ### Superconducting spins
 
 - [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Superconducting spins
@@ -236,6 +242,10 @@ For more detailed information:
 
 - [A programmable two-qubit quantum processor in silicon](https://arxiv.org/abs/1708.04214) (2018) - 2 qubits on Superconducting spins
 - [Universal control of a six-qubit quantum processor in silicon](https://arxiv.org/abs/2202.09252) (2022) - 6 qubits on Superconducting spins
+
+### NV centers
+
+- [A Ten-Qubit Solid-State Spin Register with Quantum Memory up to One Minute](https://doi.org/10.1103/PhysRevX.9.031045) (2019) - 10 qubits on NV centers
 
 ## Physical Qubits
 
@@ -284,9 +294,9 @@ For more detailed information:
 - [Gatemon Benchmarking and Two-Qubit Operation](https://arxiv.org/abs/1512.09195) (2016) - Gatemon, T1: 3e-06s on Semiconductor
 - [Evolution of Nanowire Transmons and Their Quantum Coherence in Magnetic Field](https://arxiv.org/abs/1711.07961) (2018) - Gatemon, T1: 1e-05s on Semiconductor
 
-### NV center
+### NV centers
 
-- [One-second coherence for a single electron spin coupled to a multi-qubit nuclear-spin environment](https://doi.org/10.1038/s41467-018-04916-z) (2018) - e spin, T1: 3600.0s, T2: 1.58s on NV center
+- [One-second coherence for a single electron spin coupled to a multi-qubit nuclear-spin environment](https://doi.org/10.1038/s41467-018-04916-z) (2018) - e spin, T1: 3600.0s, T2: 1.58s on NV centers
 
 ### Graphene
 
