@@ -1,6 +1,8 @@
 from .base import BasePlot
 import plotly.graph_objects as go
 import pandas as pd
+import numpy as np
+from scipy import stats
 
 class EntangledErrorPlot(BasePlot):
     """Creates the entangled state error evolution plot."""
@@ -16,6 +18,27 @@ class EntangledErrorPlot(BasePlot):
             data["Entangled State Error"], errors="coerce"
         )
         return data
+
+    def _calculate_fit(self, x, y):
+        """Calculate linear fit in log space and return improvement rate."""
+        if len(x) < 2 or len(y) < 2:  # Need at least 2 points for a fit
+            return None, None, None
+        
+        # Convert to log space for fitting
+        y_log = np.log10(y)
+        
+        # Perform linear regression
+        slope, intercept, r_value, p_value, std_err = stats.linregress(x, y_log)
+        
+        # Generate fit line points
+        x_fit = np.array([min(x), max(x)])
+        y_fit = 10**(slope * x_fit + intercept)
+        
+        # Calculate time to reduce error by factor of 10 (in years)
+        # reduction_time = -1/slope if slope != 0 else float('inf')
+        doubling_time = -np.log10(2) / slope if slope != 0 else float('inf')
+        
+        return x_fit, y_fit, doubling_time
         
     def create_plot(self):
         """Create the entangled state error evolution plot using Plotly."""
@@ -23,6 +46,8 @@ class EntangledErrorPlot(BasePlot):
         traces = []
         for platform in sorted(self.data['Platform'].unique()):
             platform_data = self.data[self.data['Platform'] == platform].sort_values('Year')
+            
+            # Data trace
             trace = {
                 'type': 'scatter',
                 'x': platform_data['Year'].tolist(),
@@ -40,6 +65,27 @@ class EntangledErrorPlot(BasePlot):
                 'customdata': platform_data['Link'].tolist()
             }
             traces.append(trace)
+            
+            # Calculate and add fit
+            x_fit, y_fit, doubling_time = self._calculate_fit(
+                platform_data['Year'].values,
+                platform_data['Entangled State Error'].values
+            )
+            if x_fit is not None:
+                trace_fit = {
+                    'type': 'scatter',
+                    'x': x_fit.tolist(),
+                    'y': y_fit.tolist(),
+                    'name': f'{platform} T1 fit (×2 every {doubling_time:.1f}y)',
+                    'mode': 'lines',
+                    'line': {
+                        'color': self.PLATFORM_COLORS.get(platform),
+                        'width': 2,
+                        'dash': 'dot'
+                    },
+                    'showlegend': True
+                }
+                traces.append(trace_fit)
 
         # Create layout with standardized settings
         layout = {
@@ -58,7 +104,6 @@ class EntangledErrorPlot(BasePlot):
             },
             'showlegend': True,
             'legend': {
-                'title': {'text': 'Platform'},
                 **self.PLOTLY_LAYOUT_DEFAULTS['legend']
             },
             'font': self.PLOTLY_LAYOUT_DEFAULTS['font'],
