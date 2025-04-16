@@ -54,7 +54,7 @@ For more detailed information:
 	- [Superconducting circuits](#superconducting-circuits)
 	- [Neutral atoms](#neutral-atoms)
 	- [NV centers](#nv-centers)
-	- [Superconducting spins](#superconducting-spins)
+	- [Semiconductor spins](#semiconductor-spins)
 - [Qubit Count](#qubit-count)
 	- [Ion traps](#ion-traps)
 	- [Superconducting circuit](#superconducting-circuit)
@@ -203,10 +203,10 @@ For more detailed information:
 
 - [Strongly coupled diamond spin qubits by molecular nitrogen implantation](https://doi.org/10.1103/PhysRevB.88.201201) (2013) - 0.03 on NV centers
 
-### Superconducting spins
+### Semiconductor spins
 
-- [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Superconducting spins
-- [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.0035 on Superconducting spins
+- [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Semiconductor spins
+- [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.0035 on Semiconductor spins
 
 ## Qubit Count
 
