@@ -59,7 +59,7 @@ For more detailed information:
 	- [Ion traps](#ion-traps)
 	- [Superconducting circuit](#superconducting-circuit)
 	- [Neutral atoms](#neutral-atoms)
-	- [Superconducting spins](#superconducting-spins)
+	- [Semiconductor spins](#semiconductor-spins)
 	- [NV centers](#nv-centers)
 - [Physical Qubits](#physical-qubits)
 	- [Superconducting circuit](#superconducting-circuit)
@@ -238,10 +238,10 @@ For more detailed information:
 - [AI-Enabled Rapid Assembly of Thousands of Defect-Free Neutral Atom Arrays with Constant-time-overhead](https://doi.org/10.48550/arXiv.2412.14647) (2024) - 2024 qubits on Neutral atoms, Defect-free 2D and 3D atom arrays
 - [Rearrangement of individual atoms in a 2000-site optical-tweezer array at cryogenic temperatures](https://doi.org/10.1103/PhysRevApplied.22.024073) (2024) - 2088 qubits on Neutral atoms, Cryogenic environment at 6K
 
-### Superconducting spins
+### Semiconductor spins
 
-- [A programmable two-qubit quantum processor in silicon](https://arxiv.org/abs/1708.04214) (2018) - 2 qubits on Superconducting spins
-- [Universal control of a six-qubit quantum processor in silicon](https://arxiv.org/abs/2202.09252) (2022) - 6 qubits on Superconducting spins
+- [A programmable two-qubit quantum processor in silicon](https://arxiv.org/abs/1708.04214) (2018) - 2 qubits on Semiconductor spins
+- [Universal control of a six-qubit quantum processor in silicon](https://arxiv.org/abs/2202.09252) (2022) - 6 qubits on Semiconductor spins
 
 ### NV centers
 
