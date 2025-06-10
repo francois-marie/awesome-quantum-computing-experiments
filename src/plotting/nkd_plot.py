@@ -122,7 +122,7 @@ class NKDPlot(BasePlot):
                             'symbol': code_to_marker[code],
                             'color': k_to_color[k_val],
                             'size': 12,
-                            'line': {'width': 2, 'color': 'black'},
+                            'line': {'width': 2, 'color': 'grey'},
                             'opacity': 0.8
                         },
                         'hovertemplate': '%{customdata}<extra></extra>',
