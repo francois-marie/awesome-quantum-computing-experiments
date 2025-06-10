@@ -29,6 +29,7 @@ class CoherenceTimesPlot(BasePlot):
         
         # Perform linear regression
         slope, intercept, r_value, p_value, std_err = stats.linregress(x, y_log)
+        print(r_value)
         
         # Generate fit line points
         x_fit = np.array([min(x), max(x)])
@@ -46,6 +47,7 @@ class CoherenceTimesPlot(BasePlot):
         for platform in sorted(self.data['Platform'].unique()):
             platform_data = self.data[self.data['Platform'] == platform].sort_values('Year')
             platform_color = self.PLATFORM_COLORS.get(platform)
+            print(platform)
             
             # Add T1 trace and fit
             t1_data = platform_data[platform_data['T1'].notna()]
@@ -56,7 +58,8 @@ class CoherenceTimesPlot(BasePlot):
                     'x': t1_data['Year'].tolist(),
                     'y': t1_data['T1'].tolist(),
                     'name': f'{platform} (T1)',
-                    'mode': 'lines+markers',
+                    # 'mode': 'lines+markers',
+                    'mode': 'markers',
                     'line': {'color': platform_color, 'width': 3},
                     'marker': {
                         'color': platform_color, 
@@ -96,7 +99,8 @@ class CoherenceTimesPlot(BasePlot):
                     'x': t2_data['Year'].tolist(),
                     'y': t2_data['T2'].tolist(),
                     'name': f'{platform} (T2)',
-                    'mode': 'lines+markers',
+                    # 'mode': 'lines+markers',
+                    'mode': 'markers',
                     'line': {'color': platform_color, 'dash': 'dash', 'width': 3},
                     'marker': {
                         'color': platform_color, 

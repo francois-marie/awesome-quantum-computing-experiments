@@ -29,6 +29,7 @@ class QubitCountPlot(BasePlot):
         
         # Perform linear regression
         slope, intercept, r_value, p_value, std_err = stats.linregress(x, y_log)
+        print(r_value)
         
         # Generate fit line points
         x_fit = np.array([min(x), max(x)])
@@ -45,6 +46,7 @@ class QubitCountPlot(BasePlot):
         traces = []
         for platform in sorted(self.data['Platform'].unique()):
             platform_data = self.data[self.data['Platform'] == platform].sort_values('Year')
+            print(platform)
             
             # Data trace
             trace = {
@@ -52,7 +54,8 @@ class QubitCountPlot(BasePlot):
                 'x': platform_data['Year'].tolist(),
                 'y': platform_data['Number of qubits'].tolist(),
                 'name': platform,
-                'mode': 'lines+markers',
+                # 'mode': 'lines+markers',
+                'mode': 'markers',
                 'line': {'color': self.PLATFORM_COLORS.get(platform), 'width': 3},
                 'marker': {
                     'color': self.PLATFORM_COLORS.get(platform),

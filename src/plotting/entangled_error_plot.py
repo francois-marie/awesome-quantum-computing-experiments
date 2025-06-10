@@ -29,6 +29,7 @@ class EntangledErrorPlot(BasePlot):
         
         # Perform linear regression
         slope, intercept, r_value, p_value, std_err = stats.linregress(x, y_log)
+        print(r_value)
         
         # Generate fit line points
         x_fit = np.array([min(x), max(x)])
@@ -46,6 +47,7 @@ class EntangledErrorPlot(BasePlot):
         traces = []
         for platform in sorted(self.data['Platform'].unique()):
             platform_data = self.data[self.data['Platform'] == platform].sort_values('Year')
+            print(platform)
             
             # Data trace
             trace = {
@@ -53,7 +55,8 @@ class EntangledErrorPlot(BasePlot):
                 'x': platform_data['Year'].tolist(),
                 'y': platform_data['Entangled State Error'].tolist(),
                 'name': platform,
-                'mode': 'lines+markers',
+                # 'mode': 'lines+markers',
+                'mode': 'markers',
                 'line': {'color': self.PLATFORM_COLORS.get(platform), 'width': 3},
                 'marker': {
                     'color': self.PLATFORM_COLORS.get(platform),
@@ -76,7 +79,7 @@ class EntangledErrorPlot(BasePlot):
                     'type': 'scatter',
                     'x': x_fit.tolist(),
                     'y': y_fit.tolist(),
-                    'name': f'{platform} T1 fit (×2 every {doubling_time:.1f}y)',
+                    'name': f'{platform} fit (×2 every {doubling_time:.1f}y)',
                     'mode': 'lines',
                     'line': {
                         'color': self.PLATFORM_COLORS.get(platform),
