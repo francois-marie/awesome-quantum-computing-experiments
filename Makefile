@@ -12,6 +12,7 @@ plots: setup
 	python -m src.plotting.coherence_times_plot
 	python -m src.plotting.nkd_plot
 	python -m src.plotting.qec_cumulative_plot
+	python -m src.plotting.qec_qubit_count_plot
 
 # Alternative way to generate all plots at once
 generate_all: setup
