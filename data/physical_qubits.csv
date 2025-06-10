@@ -35,3 +35,4 @@
 "Hyperfine","Fast Quantum State Control of a Single Trapped Neutral Atom","https://doi.org/10.1103/PhysRevA.75.040301","2007","Neutral atoms","Rubidium","Spin-echo, dephasing time of 370µs. T1=trap lifetime in the absence of any near-resonant light","3","0.034"
 "e spin","One-second coherence for a single electron spin coupled to a multi-qubit nuclear-spin environment","https://doi.org/10.1038/s41467-018-04916-z","2018","NV centers","Diamond","","3600","1.58"
 "Hyperfine","A quantum processor based on coherent transport of entangled atom arrays","https://doi.org/10.1038/s41586-022-04592-6","2022","Neutral atoms","Rubidium","","4","1.5"
+"Hyperfine","Multi-qubit entanglement and algorithms on a neutral-atom quantum computer","https://doi.org/10.1038/s41586-022-04603-6","2022","Neutral atoms","Cesium","T2 using a XY8 pulse","4","1"
