@@ -205,6 +205,7 @@ For more detailed information:
 
 ### Semiconductor spins
 
+- [Fidelity benchmarks for two-qubit gates in silicon](https://doi.org/10.1038/s41586-019-1197-0) (2019) - 0.02 on Semiconductor spins
 - [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Semiconductor spins
 - [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.0035 on Semiconductor spins
 
