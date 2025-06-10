@@ -17,12 +17,12 @@ platform_colors:
   Ion traps: "#FFC107" # Vibrant Orange
   Superconducting circuit: "#2ECC71" # Fresh Green
   Superconducting circuits: "#2ECC71" # Fresh Green
-  NV centers: "#E74C3C" # Deep Coral
   Photons: "#7A288A" # Rich Purple
   Graphene: "#867BFA" # Cool Gray
   Neutral atoms: "#95A5A6" # Cool Gray
-  Superconducting spins: "#F7DC6F" # Warm Gold
+  Semiconductor spins: "#F7DC6F" # Warm Gold
   Semiconductor: "#92DCE5" # Warm Gold
+  NV centers: "#E74C3C" # Deep Coral
 
 # Standard colors for QEC codes
 code_colors:
@@ -72,4 +72,3 @@ plot_settings:
     height: 800
     scale: 2
     dpi: 300
-
