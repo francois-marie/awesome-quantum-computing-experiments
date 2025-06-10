@@ -286,6 +286,9 @@ For more detailed information:
 ### Neutral atoms
 
 - [Fast Quantum State Control of a Single Trapped Neutral Atom](https://doi.org/10.1103/PhysRevA.75.040301) (2007) - Hyperfine, T1: 3.0s, T2: 0.034s on Neutral atoms, Spin-echo, dephasing time of 370µs. T1=trap lifetime in the absence of any near-resonant light
+- [2000-times repeated imaging of strontium atoms in clock-magic tweezer arrays](https://doi.org/10.1103/PhysRevLett.122.173201) (2019) - Hyperfine, T1: 420.0s on Neutral atoms
+- [A quantum processor based on coherent transport of entangled atom arrays](https://doi.org/10.1038/s41586-022-04592-6) (2022) - Hyperfine, T1: 4.0s, T2: 1.5s on Neutral atoms
+- [Multi-qubit entanglement and algorithms on a neutral-atom quantum computer](https://doi.org/10.1038/s41586-022-04603-6) (2022) - Hyperfine, T1: 4.0s, T2: 1.0s on Neutral atoms, T2 using a XY8 pulse
 - [A tweezer array with 6100 highly coherent atomic qubits](https://doi.org/10.48550/arXiv.2403.12021) (2024) - Hyperfine, T1: 119.0s, T2: 12.6s on Neutral atoms
 
 ### Semiconductor
