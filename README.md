@@ -242,6 +242,7 @@ For more detailed information:
 ### Semiconductor spins
 
 - [A programmable two-qubit quantum processor in silicon](https://arxiv.org/abs/1708.04214) (2018) - 2 qubits on Semiconductor spins
+- [A four-qubit germanium quantum processor](https://doi.org/10.1038/s41586-021-03332-6) (2021) - 4 qubits on Semiconductor spins
 - [Universal control of a six-qubit quantum processor in silicon](https://arxiv.org/abs/2202.09252) (2022) - 6 qubits on Semiconductor spins
 
 ### NV centers
