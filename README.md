@@ -53,7 +53,6 @@ For more detailed information:
 	- [Ion traps](#ion-traps)
 	- [Superconducting circuits](#superconducting-circuits)
 	- [Neutral atoms](#neutral-atoms)
-	- [NV centers](#nv-centers)
 	- [Semiconductor spins](#semiconductor-spins)
 - [Qubit Count](#qubit-count)
 	- [Ion traps](#ion-traps)
@@ -166,48 +165,44 @@ For more detailed information:
 
 ### Ion traps
 
-- [Deterministic entanglement of two trapped ions](https://arxiv.org/abs/quant-ph/9806012) (1998) - 0.3 on Ion traps
-- [Experimental Entanglement of Four Particles](https://www.nature.com/articles/35005011) (2000) - 0.2 on Ion traps
-- [Experimental Violation of a Bell's Inequality with Efficient Detection](https://www.nature.com/articles/35057215) (2001) - 0.1 on Ion traps
-- [Experimental demonstration of a robust, high-fidelity geometric two ion-qubit phase gate](https://www.nature.com/articles/nature01492) (2003) - 0.03 on Ion traps
-- [Robust entanglement](https://doi.org/10.1007/s00340-005-1917-z) (2005) - 0.04 on Ion traps, Entangled states of two trapped Ca+ ions with robust entanglement lasting for more than 20 s.
-- [Towards Fault-Tolerant Quantum Computing with Trapped Ions](https://arxiv.org/abs/0803.2798) (2008) - 0.007 on Ion traps
-- [High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps
-- [High-fidelity quantum logic gates using trapped-ion hyperfine qubits](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps
-- [Scalable, high-fidelity all-electronic control of trapped-ion qubits](https://arxiv.org/abs/2407.07694) (2024) - 0.0003 on Ion traps
+- [Deterministic entanglement of two trapped ions](https://arxiv.org/abs/quant-ph/9806012) (1998) - 0.3 on Ion traps, Bell state error
+- [Experimental Entanglement of Four Particles](https://www.nature.com/articles/35005011) (2000) - 0.17 on Ion traps, entangled state error
+- [Experimental Violation of a Bell's Inequality with Efficient Detection](https://www.nature.com/articles/35057215) (2001) - 0.1 on Ion traps, Bell state error
+- [Experimental demonstration of a robust, high-fidelity geometric two ion-qubit phase gate](https://www.nature.com/articles/nature01492) (2003) - 0.03 on Ion traps, Bell state error
+- [Robust entanglement](https://doi.org/10.1007/s00340-005-1917-z) (2005) - 0.04 on Ion traps, Bell state error
+- [Towards Fault-Tolerant Quantum Computing with Trapped Ions](https://arxiv.org/abs/0803.2798) (2008) - 0.007 on Ion traps, Mølmer-Sørensen gate error
+- [High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps, two-qubit gate error
+- [High-fidelity quantum logic gates using trapped-ion hyperfine qubits](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps, two-qubit gate error
+- [Scalable, high-fidelity all-electronic control of trapped-ion qubits](https://arxiv.org/abs/2407.07694) (2024) - 0.0003 on Ion traps, Two-qubit maximally entangled states
 
 ### Superconducting circuits
 
-- [Measurement of the Entanglement of Two Superconducting Qubits via State Tomography](https://www.science.org/doi/10.1126/science.1130886) (2006) - 0.3 on Superconducting circuits
-- [Demonstration of Two-Qubit Algorithms with a Superconducting Quantum Processor](https://arxiv.org/abs/0903.2030) (2009) - 0.05 on Superconducting circuits
-- [Complete universal quantum gate set approaching fault-tolerant thresholds with superconducting qubits](https://arxiv.org/abs/1202.5344) (2012) - 0.02 on Superconducting circuits
-- [Logic gates at the surface code threshold: Superconducting qubits poised for fault-tolerant quantum computing](https://arxiv.org/abs/1402.4848) (2014) - 0.006 on Superconducting circuits
-- [Procedure for systematically tuning up crosstalk in the cross resonance gate](https://arxiv.org/abs/1603.04821) (2016) - 0.004 on Superconducting circuits
-- [Programming a quantum computer with quantum instructions](https://arxiv.org/abs/2001.08838) (2020) - 0.003 on Superconducting circuits
+- [Measurement of the Entanglement of Two Superconducting Qubits via State Tomography](https://www.science.org/doi/10.1126/science.1130886) (2006) - 0.13 on Superconducting circuits, entangled Bell state error
+- [Demonstration of Two-Qubit Algorithms with a Superconducting Quantum Processor](https://arxiv.org/abs/0903.2030) (2009) - 0.05 on Superconducting circuits, entangled state error
+- [Complete universal quantum gate set approaching fault-tolerant thresholds with superconducting qubits](https://arxiv.org/abs/1202.5344) (2012) - 0.02 on Superconducting circuits, CNOT gate error
+- [Logic gates at the surface code threshold: Superconducting qubits poised for fault-tolerant quantum computing](https://arxiv.org/abs/1402.4848) (2014) - 0.006 on Superconducting circuits, CZ gate error
+- [Procedure for systematically tuning up crosstalk in the cross resonance gate](https://arxiv.org/abs/1603.04821) (2016) - 0.009 on Superconducting circuits, cross resonance gate error
+- [Programming a quantum computer with quantum instructions](https://arxiv.org/abs/2001.08838) (2020) - 0.003 on Superconducting circuits, controlled-phase gate error
 
 ### Neutral atoms
 
-- [Demonstration of a neutral atom controlled-NOT quantum gate](https://arxiv.org/abs/0907.5552) (2010) - 0.3 on Neutral atoms
-- [Entanglement of two individual neutral atoms using Rydberg blockade](https://arxiv.org/abs/0908.0454) (2010) - 0.5 on Neutral atoms
-- [Rydberg-blockade controlled-not gate and entanglement in a two-dimensional array of neutral-atom qubits](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.92.022336) (2015) - 0.2 on Neutral atoms
-- [Parallel implementation of high-fidelity multi-qubit gates with neutral atoms](https://arxiv.org/abs/1908.06101) (2019) - 0.03 on Neutral atoms
-- [High-Fidelity Entanglement and Detection of Alkaline-Earth Rydberg Atoms](https://arxiv.org/abs/2001.04455) (2020) - 0.01 on Neutral atoms
-- [Erasure conversion in a high-fidelity Rydberg quantum simulator](https://arxiv.org/abs/2305.03406) (2023) - 0.002 on Neutral atoms
-- [High-fidelity parallel entangling gates on a neutral-atom quantum computer](https://doi.org/10.1038/s41586-023-06481-y) (2023) - 0.005 on Neutral atoms, Rb
-- [High-fidelity universal gates in the 171Yb ground state nuclear spin qubit](https://doi.org/10.48550/arXiv.2411.11708) (2024) - 0.006 on Neutral atoms, Yb
-- [A universal neutral-atom quantum computer with individual optical addressing and non-destructive readout](https://doi.org/10.48550/arXiv.2408.08288) (2025) - 0.0066 on Neutral atoms, Cs
-- [Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates](https://doi.org/10.1103/PRXQuantum.6.010331) (2025) - 0.0029 on Neutral atoms, Sr
-- [Spectroscopy and Modeling of 171Yb Rydberg States for High-Fidelity Two-Qubit Gates](https://doi.org/10.1103/PhysRevX.15.011009) (2025) - 0.006 on Neutral atoms, Yb
-
-### NV centers
-
-- [Strongly coupled diamond spin qubits by molecular nitrogen implantation](https://doi.org/10.1103/PhysRevB.88.201201) (2013) - 0.03 on NV centers
+- [Demonstration of a neutral atom controlled-NOT quantum gate](https://arxiv.org/abs/0907.5552) (2010) - 0.27 on Neutral atoms, CNOT gate error
+- [Entanglement of two individual neutral atoms using Rydberg blockade](https://arxiv.org/abs/0908.0454) (2010) - 0.25 on Neutral atoms, entangled state error
+- [Rydberg-blockade controlled-not gate and entanglement in a two-dimensional array of neutral-atom qubits](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.92.022336) (2015) - 0.21 on Neutral atoms, post-selected entanglement error on X operation conditioned on the control qubit being in state |0〉
+- [Parallel implementation of high-fidelity multi-qubit gates with neutral atoms](https://arxiv.org/abs/1908.06101) (2019) - 0.03 on Neutral atoms, CZ gate error
+- [High-Fidelity Entanglement and Detection of Alkaline-Earth Rydberg Atoms](https://arxiv.org/abs/2001.04455) (2020) - 0.01 on Neutral atoms, Bell state error, SPAM-corrected
+- [Erasure conversion in a high-fidelity Rydberg quantum simulator](https://arxiv.org/abs/2305.03406) (2023) - 0.002 on Neutral atoms, Rydberg entangling operation error
+- [High-fidelity parallel entangling gates on a neutral-atom quantum computer](https://doi.org/10.1038/s41586-023-06481-y) (2023) - 0.005 on Neutral atoms, Rb, CZ gate
+- [High-fidelity universal gates in the 171Yb ground state nuclear spin qubit](https://doi.org/10.48550/arXiv.2411.11708) (2024) - 0.006 on Neutral atoms, Yb, CZ gate
+- [A universal neutral-atom quantum computer with individual optical addressing and non-destructive readout](https://doi.org/10.48550/arXiv.2408.08288) (2025) - 0.0066 on Neutral atoms, Cs, CZ gate
+- [Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates](https://doi.org/10.1103/PRXQuantum.6.010331) (2025) - 0.0029 on Neutral atoms, Sr, CZ gate
+- [Spectroscopy and Modeling of 171Yb Rydberg States for High-Fidelity Two-Qubit Gates](https://doi.org/10.1103/PhysRevX.15.011009) (2025) - 0.006 on Neutral atoms, Yb, CZ gate
 
 ### Semiconductor spins
 
-- [Fidelity benchmarks for two-qubit gates in silicon](https://doi.org/10.1038/s41586-019-1197-0) (2019) - 0.02 on Semiconductor spins
-- [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Semiconductor spins
-- [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.0035 on Semiconductor spins
+- [Fidelity benchmarks for two-qubit gates in silicon](https://doi.org/10.1038/s41586-019-1197-0) (2019) - 0.02 on Semiconductor spins, average controlled-rotation gate error
+- [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Semiconductor spins, CNOT gate
+- [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.0035 on Semiconductor spins, CZ gate
 
 ## Qubit Count
 
