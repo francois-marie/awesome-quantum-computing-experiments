@@ -7,69 +7,68 @@ from pathlib import Path
 import plotly.graph_objects as go
 
 class QECTimelineScatterPlot(BasePlot):
-    """Creates a scatter plot showing QEC code evolution over time."""
+    """Creates a scatter plot showing aggregated QEC implementations over time."""
     
     def __init__(self, double_column=False):
         super().__init__(double_column)
         self.data = self.load_data(self.config['paths']['data']['qec'])
         
     def create_plot(self):
-        """Create interactive scatter plot of QEC implementations over time."""
-        self.data = self.data.copy()  # Create a copy to avoid modifying original
+        """Create an interactive scatter plot of aggregated QEC implementations."""
+        self.data = self.data.copy()
         self.data['Year'] = pd.to_numeric(self.data['Year'], errors='coerce')
-        
-        # Convert Year to string to treat it as a categorical variable
         self.data['Year_str'] = self.data['Year'].astype(str)
-        
-        # Create custom hover text
-        self.data['hover_text'] = self.data.apply(
-            lambda row: f"<b>{row['Article Title']}</b><br>{row['Link']}<br>" + 
-                      f"Platform: {row['Platform']}<br>" +
-                      f"Code: {row['Code Name']}<br>" +
-                      f"Year: {row['Year']}", 
+
+        # Aggregate data. The erroneous indexer has been removed here.
+        agg_data = self.data.groupby(['Platform', 'Year_str', 'Code Name']).size().reset_index(name='Count')
+
+        # Create custom hover text for the aggregated data points
+        agg_data['hover_text'] = agg_data.apply(
+            lambda row: f"<b>Platform: {row['Platform']}</b><br>" +
+                      f"Year: {row['Year_str']}<br>" +
+                      f"Experiments: {row['Count']}",
             axis=1
         )
 
-        SYMBOLS = ['circle']
-        
-        # Create strip plot
-        fig = px.strip(
-            self.data, 
+        # Corrected line: removed the erroneous [2] at the end
+        fig = px.scatter(
+            agg_data,
+            x='Year_str',
             y='Code Name',
-            x='Year_str',  # Use the string version of Year
+            size='Count',
             color='Platform',
-            title="Timeline of Quantum Error Correction Implementations",
+            title="Aggregated Timeline of Quantum Error Correction Implementations",
             labels={
+                "Platform": "Quantum Platform",
                 "Code Name": "QEC Code Type",
-                "Year_str": "Publication Year",  # Update label
-                "Platform": "Quantum Platform"
+                "Year_str": "Publication Year",
+                "Count": "Number of Experiments"
             },
-            custom_data=['hover_text'],  # Include our custom hover text
+            custom_data=['hover_text'],
             color_discrete_map=self.PLATFORM_COLORS
         )
 
-        # Customize the jitter and point appearance
+        # Corrected line: removed the erroneous [1] at the end
         fig.update_traces(
-            jitter=0.8,  # Reduce jitter slightly for better organization
             marker=dict(
-                size=12,  # Increase marker size
-                opacity=0.9,  # Slight transparency for overlapping points
-                line=dict(width=1.5, color='black'),  # Thicker border for better visibility
-                symbol=SYMBOLS[0]
+                sizemode='area',
+                sizemin=4,
+                line=dict(width=1.5, color='black'),
+                opacity=0.8
             ),
-            orientation='h',  # Ensure horizontal orientation
-            hovertemplate="%{customdata}<extra></extra>"  # Use our custom hover text
+            hovertemplate="%{customdata}<extra></extra>"
         )
 
         # Apply standardized layout settings
         fig.update_layout(
             title={
-                'text': "Timeline of Quantum Error Correction Implementations",
+                'text': "Aggregated Timeline of Quantum Error Correction Implementations",
                 'font': self.PLOTLY_LAYOUT_DEFAULTS['title']['font']
             },
             showlegend=True,
             legend={
                 'title': {'text': 'Quantum Platform'},
+                'itemsizing': 'constant',
                 **{k: v for k, v in self.PLOTLY_LAYOUT_DEFAULTS['legend'].items() if k not in ['title']}
             },
             hovermode=self.PLOTLY_LAYOUT_DEFAULTS['hovermode'],
@@ -79,26 +78,23 @@ class QECTimelineScatterPlot(BasePlot):
             margin=self.PLOTLY_LAYOUT_DEFAULTS['margin'],
             xaxis=dict(
                 title={"text": "Publication Year"},
-                type='category',  # Treat x-axis as categorical
+                type='category',
                 categoryorder='array',
-                categoryarray=sorted(self.data['Year_str'].unique()),  # Sort years
+                categoryarray=sorted(agg_data['Year_str'].unique()),
                 **{k: v for k, v in self.PLOTLY_LAYOUT_DEFAULTS['xaxis'].items() if k not in ['title', 'type']}
             ),
             yaxis=dict(
                 title={"text": "QEC Code Type"},
                 type='category',
-                categoryorder='category ascending',
+                categoryorder='total ascending',
                 **{k: v for k, v in self.PLOTLY_LAYOUT_DEFAULTS['yaxis'].items() if k not in ['title', 'type']}
             ),
             height=self.plot_settings['export']['height'],
             width=self.plot_settings['export']['width']
         )
         
-        # Store the figure as an instance attribute for export
         self.fig = fig
-        
-        # Export to multiple formats
-        self.export_to_multiple(export_name="qec_timeline", element_id="qec-timeline-scatter")
+        self.export_to_multiple(export_name="qec_timeline_aggregated", element_id="qec-timeline-aggregated-scatter")
 
 def main():
     """Main function to create and save the plot."""
