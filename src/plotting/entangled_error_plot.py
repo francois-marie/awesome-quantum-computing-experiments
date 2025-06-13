@@ -50,6 +50,11 @@ class EntangledErrorPlot(BasePlot):
             print(platform)
             
             # Data trace
+            # Determine marker symbols based on 'Notes' column
+            notes_list = platform_data['Notes'].fillna('').astype(str).tolist()
+            marker_symbols = [
+                'square' if 'gate' in note.lower() else 'circle' for note in notes_list
+            ]
             trace = {
                 'type': 'scatter',
                 'x': platform_data['Year'].tolist(),
@@ -61,7 +66,8 @@ class EntangledErrorPlot(BasePlot):
                 'marker': {
                     'color': self.PLATFORM_COLORS.get(platform),
                     'size': 12,
-                    'line': {'width': 2, 'color': 'white'}
+                    'line': {'width': 2, 'color': 'white'},
+                    'symbol': marker_symbols
                 },
                 'hovertemplate': "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
                 'text': platform_data['Article Title'].tolist(),
