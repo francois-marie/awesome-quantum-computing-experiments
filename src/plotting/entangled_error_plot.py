@@ -71,9 +71,28 @@ class EntangledErrorPlot(BasePlot):
                 },
                 'hovertemplate': "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
                 'text': platform_data['Article Title'].tolist(),
-                'customdata': platform_data['Link'].tolist()
+                'customdata': platform_data['Link'].tolist(),
+                'legendgroup': platform,
+                'showlegend': False
+            }
+            # For Plotly, to force legend to show only circle, we add a dummy trace for legend
+            legend_trace = {
+                'type': 'scatter',
+                'x': [None],
+                'y': [None],
+                'name': platform,
+                'mode': 'markers',
+                'marker': {
+                    'color': self.PLATFORM_COLORS.get(platform),
+                    'size': 12,
+                    'line': {'width': 2, 'color': 'white'},
+                    'symbol': 'circle'
+                },
+                'showlegend': True,
+                'legendgroup': platform
             }
             traces.append(trace)
+            traces.append(legend_trace)
             
             # Calculate and add fit
             x_fit, y_fit, doubling_time = self._calculate_fit(
@@ -95,6 +114,40 @@ class EntangledErrorPlot(BasePlot):
                     'showlegend': True
                 }
                 traces.append(trace_fit)
+
+        # Add legend section for marker meaning
+        traces.append({
+            'type': 'scatter',
+            'x': [None],
+            'y': [None],
+            'name': 'state',
+            'mode': 'markers',
+            'marker': {
+                'color': 'gray',
+                'size': 12,
+                'symbol': 'circle',
+                'line': {'width': 2, 'color': 'white'}
+            },
+            'showlegend': True,
+            'legendgroup': 'symbol_legend',
+            'legendrank': 1000
+        })
+        traces.append({
+            'type': 'scatter',
+            'x': [None],
+            'y': [None],
+            'name': 'gate',
+            'mode': 'markers',
+            'marker': {
+                'color': 'gray',
+                'size': 12,
+                'symbol': 'square',
+                'line': {'width': 2, 'color': 'white'}
+            },
+            'showlegend': True,
+            'legendgroup': 'symbol_legend',
+            'legendrank': 1001
+        })
 
         # Create layout with standardized settings
         layout = {
