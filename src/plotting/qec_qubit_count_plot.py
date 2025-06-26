@@ -26,7 +26,6 @@ class QECQubitCountPlot(BasePlot):
             
         # Convert all matches to integers and take the maximum
         n_values = [int(n) for n in matches]
-        print(n_values)
         return max(n_values)
         
     def load_data(self, csv_path: str):

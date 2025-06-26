@@ -76,7 +76,6 @@ def _export_figure(fig, output_path, format, width=800, height=600, scale=2):
         validate=True
     )
     
-    print(f"Exported figure to {output_path}")
     return output_path
 
 def export_figure_to_pdf(fig, filename, output_dir='out/pdf', width=800, height=600, scale=2):
