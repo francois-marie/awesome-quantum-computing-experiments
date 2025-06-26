@@ -75,7 +75,7 @@ class NKDPlot(BasePlot):
                 new_row['hover_text'] = (
                     f"<b>{row['Article Title']} ({row['Year']})</b><br>"
                     f"Code: {row['Code Name']} {row['Code Parameters']}<br>"
-f"Platform: {row['Platform']}"
+                    f"Platform: {row['Platform']}"
                 )
                 expanded_data.append(new_row)
 
@@ -108,7 +108,7 @@ f"Platform: {row['Platform']}"
     def create_plot(self):
         """Create the aggregated NKD parameter space plot using Plotly."""
         if self.data.empty:
-            print("No data available to plot.")
+            # print("No data available to plot.")
             return
 
         # Get unique k values for color mapping
@@ -118,7 +118,7 @@ f"Platform: {row['Platform']}"
         # Create one trace for each value of k
         traces = []
         yjitter = 0.
-        base_marker_size = 10  # Scale factor for marker size
+        base_marker_size = 15  # Scale factor for marker size
 
         for k_val in unique_k[::-1]:
             k_data = self.data[self.data['k'] == k_val]
@@ -181,8 +181,82 @@ f"Platform: {row['Platform']}"
         self.fig = go.Figure(data=traces, layout=layout)
         self.fig.update_yaxes(minor_ticks="")
 
+        # Add size reference annotation
+        self.add_size_reference()
+
         # Export to multiple formats
         self.export_to_multiple(export_name="nkd_plot_aggregated")
+
+    def add_size_reference(self):
+        """Add a size reference to show marker size vs experiment count."""
+        # Get the range of counts to create meaningful reference sizes
+        if self.data.empty:
+            return
+            
+        min_count = self.data['count'].min()
+        max_count = self.data['count'].max()
+        
+        # Create reference points (1, 5, 10, or based on data range)
+        if max_count <= 5:
+            ref_counts = [1, max_count] if max_count > 1 else [1]
+        elif max_count <= 10:
+            ref_counts = [1, 5, max_count] if max_count > 5 else [1, max_count]
+        else:
+            ref_counts = [1, 5, 10, max_count]
+        
+        # Remove duplicates and sort
+        ref_counts = sorted(list(set(ref_counts)))
+        
+        # Calculate positions for the size reference (top-right corner)
+        x_range = self.data['n'].max() - self.data['n'].min()
+        y_range = self.data['d'].max() - self.data['d'].min()
+        
+        ref_x = self.data['n'].max() - 0.15 * x_range
+        ref_y_start = self.data['d'].min() + 0.1 * y_range
+        
+        base_marker_size = 15
+        
+        # Add reference markers and labels
+        for i, count in enumerate(ref_counts):
+            y_pos = ref_y_start - i * 0.08 * y_range
+            marker_size = np.sqrt(count) * base_marker_size
+            
+            # Add invisible scatter point for the reference marker
+            self.fig.add_trace(go.Scatter(
+                x=[ref_x],
+                y=[y_pos],
+                mode='markers',
+                marker=dict(
+                    size=marker_size,
+                    color='gray',
+                    opacity=0.7,
+                    line=dict(width=1, color='black')
+                ),
+                showlegend=False,
+                hoverinfo='skip'
+            ))
+            
+            # Add text label
+            self.fig.add_annotation(
+                x=ref_x + 0.05 * x_range,
+                y=y_pos,
+                text=f"{count} exp{'s' if count > 1 else ''}",
+                showarrow=False,
+                font=dict(size=10, color='black'),
+                xanchor='left',
+                yanchor='middle'
+            )
+        
+        # Add title for the size reference
+        self.fig.add_annotation(
+            x=ref_x,
+            y=ref_y_start + 0.05 * y_range,
+            text="<b>Marker Size</b>",
+            showarrow=False,
+            font=dict(size=11, color='black'),
+            xanchor='center',
+            yanchor='bottom'
+        )
 
 def main():
     """Main function to create and save the plot."""
