@@ -71,7 +71,7 @@
   },"10": {
     "doc": "Home",
     "title": "Visualizations",
-    "content": "Quantum Error Correction Timeline . [[n, k, d]] Distribution . Entangled State Error Progress . Qubit Count Evolution . Physical Qubit Coherence Times . ",
+    "content": "Physical Qubit Coherence Times . Entangled State Error Progress . Qubit Count Evolution . Cumulative Experiment Counts by Platform . [[n, k, d]] Distribution . Yearly Experiment Counts by Platform . Cumulative Growth of QEC Implementations Over Time . Aggregated Timeline of Quantum Error Correction Implementations . Distribution of QEC Implementations Across Platforms . ",
     "url": "/awesome-quantum-computing-experiments/#visualizations",
     
     "relUrl": "/#visualizations"
