@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from src.plotting.base import BasePlot
 from src.plotting.qubit_count_plot import QubitCountPlot
 from src.plotting.entangled_error_plot import EntangledErrorPlot
-from src.plotting.qec_time_plot import QECTimePlot
+from src.plotting.qec_timeline_plot import QECTimelineScatterPlot
 from src.plotting.nkd_plot import NKDPlot
 
 class TestBasePlot:
@@ -30,10 +30,14 @@ class TestQubitCountPlot:
     
     def test_create_plot(self, sample_qubit_count_data, mocker):
         mocker.patch('pandas.read_csv', return_value=sample_qubit_count_data)
+        # Mock the export functions to avoid Kaleido issues in CI
+        mocker.patch.object(QubitCountPlot, 'export_to_multiple')
+        
         plot = QubitCountPlot()
         plot.create_plot()
-        assert plt.gca().get_yscale() == 'log'
-        plt.close()
+        # Test that a Plotly figure was created with log y-axis
+        assert plot.fig is not None
+        assert plot.fig.layout.yaxis.type == 'log'
 
 class TestEntangledErrorPlot:
     def test_load_data(self, sample_entangled_data, mocker):
@@ -44,10 +48,14 @@ class TestEntangledErrorPlot:
     
     def test_create_plot(self, sample_entangled_data, mocker):
         mocker.patch('pandas.read_csv', return_value=sample_entangled_data)
+        # Mock the export functions to avoid Kaleido issues in CI
+        mocker.patch.object(EntangledErrorPlot, 'export_to_multiple')
+        
         plot = EntangledErrorPlot()
         plot.create_plot()
-        assert plt.gca().get_yscale() == 'log'
-        plt.close()
+        # Test that a Plotly figure was created with log y-axis
+        assert plot.fig is not None
+        assert plot.fig.layout.yaxis.type == 'log'
 
     def test_parse_code_parameters_brackets(self):
         plot = NKDPlot()
