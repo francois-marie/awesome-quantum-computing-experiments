@@ -63,20 +63,17 @@ coverage.xml
 # Pytest
 .pytest_cache/
 
-# Output directories - with exceptions for README images
-out/
-# Except for PNG files used in README
+# Include JavaScript files for interactive plots
+!out/js/
+!out/js/*.js
+
+# Include PNG files for README and website
 !out/png/
-out/png/*
-!out/png/experiment_counts.png
-!out/png/experiment_counts_yearly.png
-!out/png/qec_cumulative_growth.png
-!out/png/qec_platform_sunburst.png
-!out/png/qec_timeline.png
-!out/png/nkd_plot.png
-!out/png/entangled_error_plot.png
-!out/png/qubit_count_plot.png
-!out/png/coherence_times_plot.png
+!out/png/*.png
+
+# Include PDF files for publication
+!out/pdf/
+!out/pdf/*.pdf
 
 _site/
 .sass-cache/
