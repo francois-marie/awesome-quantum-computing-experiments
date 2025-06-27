@@ -30,6 +30,9 @@ class TestQubitCountPlot:
     
     def test_create_plot(self, sample_qubit_count_data, mocker):
         mocker.patch('pandas.read_csv', return_value=sample_qubit_count_data)
+        # Mock the export functions to avoid Kaleido issues in CI
+        mocker.patch.object(QubitCountPlot, 'export_to_multiple')
+        
         plot = QubitCountPlot()
         plot.create_plot()
         # Test that a Plotly figure was created with log y-axis
@@ -45,6 +48,9 @@ class TestEntangledErrorPlot:
     
     def test_create_plot(self, sample_entangled_data, mocker):
         mocker.patch('pandas.read_csv', return_value=sample_entangled_data)
+        # Mock the export functions to avoid Kaleido issues in CI
+        mocker.patch.object(EntangledErrorPlot, 'export_to_multiple')
+        
         plot = EntangledErrorPlot()
         plot.create_plot()
         # Test that a Plotly figure was created with log y-axis

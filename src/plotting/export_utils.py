@@ -61,8 +61,13 @@ def _export_figure(fig, output_path, format, width=800, height=600, scale=2):
     Returns:
         Path to the saved file
     """
-    # Configure renderer
-    pio.kaleido.scope.mathjax = None  # Disable MathJax in Kaleido
+    # Configure renderer - handle case where Kaleido is not available
+    try:
+        if pio.kaleido.scope is not None:
+            pio.kaleido.scope.mathjax = None  # Disable MathJax in Kaleido
+    except (AttributeError, TypeError):
+        # Handle cases where Kaleido is not properly initialized
+        pass
     
     # Export the figure
     write_image(
