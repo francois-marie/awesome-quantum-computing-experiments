@@ -30,6 +30,16 @@ sass:
   style: compressed
   sourcemap: never
 
+# Include generated plot files in the site
+include:
+  - out/js
+  - out/png
+  - out/plots
+
+# Keep the generated files during Jekyll build
+keep_files:
+  - out
+
 plugins:
   - jekyll-remote-theme
 
