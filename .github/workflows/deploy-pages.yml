@@ -5,11 +5,15 @@ on:
     branches:
       - main
   workflow_dispatch:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
     
     steps:
     - name: Checkout main branch first
@@ -17,6 +21,13 @@ jobs:
       with:
         ref: main
         fetch-depth: 0
+    
+    - name: Verify generated files exist
+      run: |
+        echo "=== Checking for generated files on main branch ==="
+        ls -la out/ || echo "No out directory"
+        ls -la out/js/ || echo "No JS files"
+        ls -la out/png/ || echo "No PNG files"
     
     - name: Clean workspace
       run: |
