@@ -55,9 +55,27 @@ jobs:
       run: |
         make all
     
+    - name: Check generated files
+      run: |
+        echo "=== Checking generated files ==="
+        ls -la out/
+        echo "=== JS files ==="
+        ls -la out/js/ || echo "JS directory not found"
+        echo "=== PNG files ==="
+        ls -la out/png/ || echo "PNG directory not found"
+        echo "=== Git status before adding ==="
+        git status --porcelain out/ || true
+    
     - name: Commit and push if changed
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        # Explicitly add the generated files
+        mkdir -p out/js out/png out/plots
+        git add out/js/*.js out/png/*.png out/plots/*.pdf README.md || true
         git add -A
+        echo "=== Git status after adding ==="
+        git status --porcelain || true
+        echo "=== Files to be committed ==="
+        git diff --staged --name-only || true
         git diff --quiet && git diff --staged --quiet || (git commit -m "Update plots and README [skip ci]" && git push) 
