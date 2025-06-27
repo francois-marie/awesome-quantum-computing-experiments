@@ -139,20 +139,20 @@ class BasePlot(ABC):
     def setup_plot(self, title: str, xlabel: str, ylabel: str):
         """Set up the basic plot parameters."""
         plt.figure()
-        plt.title(title, fontsize=self.plot_settings['fontsize']['title'])
-        plt.xlabel(xlabel, fontsize=self.plot_settings['fontsize']['label'])
-        plt.ylabel(ylabel, fontsize=self.plot_settings['fontsize']['label'])
+        plt.title(title, fontsize=self.plot_settings['font']['title_size'])
+        plt.xlabel(xlabel, fontsize=self.plot_settings['font']['size'])
+        plt.ylabel(ylabel, fontsize=self.plot_settings['font']['size'])
         
         # Configure ticks
         plt.tick_params(
             axis='both',
             which='major',
-            labelsize=self.plot_settings['fontsize']['tick']
+            labelsize=self.plot_settings['font']['size']
         )
         plt.tick_params(
             axis='both',
             which='minor',
-            labelsize=self.plot_settings['fontsize']['tick']
+            labelsize=self.plot_settings['font']['size']
         )
 
     def load_config(self):

@@ -32,8 +32,9 @@ class TestQubitCountPlot:
         mocker.patch('pandas.read_csv', return_value=sample_qubit_count_data)
         plot = QubitCountPlot()
         plot.create_plot()
-        assert plt.gca().get_yscale() == 'log'
-        plt.close()
+        # Test that a Plotly figure was created with log y-axis
+        assert plot.fig is not None
+        assert plot.fig.layout.yaxis.type == 'log'
 
 class TestEntangledErrorPlot:
     def test_load_data(self, sample_entangled_data, mocker):
@@ -46,8 +47,9 @@ class TestEntangledErrorPlot:
         mocker.patch('pandas.read_csv', return_value=sample_entangled_data)
         plot = EntangledErrorPlot()
         plot.create_plot()
-        assert plt.gca().get_yscale() == 'log'
-        plt.close()
+        # Test that a Plotly figure was created with log y-axis
+        assert plot.fig is not None
+        assert plot.fig.layout.yaxis.type == 'log'
 
     def test_parse_code_parameters_brackets(self):
         plot = NKDPlot()
