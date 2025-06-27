@@ -201,8 +201,8 @@ const coherence_times_plotData = [
     "customdata": [
       "https://doi.org/10.1103/PhysRevA.75.040301",
       "https://doi.org/10.1103/PhysRevLett.122.173201",
-      "https://doi.org/10.1038/s41586-022-04592-6",
       "https://doi.org/10.1038/s41586-022-04603-6",
+      "https://doi.org/10.1038/s41586-022-04592-6",
       "https://doi.org/10.48550/arXiv.2403.12021"
     ],
     "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
@@ -224,8 +224,8 @@ const coherence_times_plotData = [
     "text": [
       "Fast Quantum State Control of a Single Trapped Neutral Atom",
       "2000-times repeated imaging of strontium atoms in clock-magic tweezer arrays",
-      "A quantum processor based on coherent transport of entangled atom arrays",
       "Multi-qubit entanglement and algorithms on a neutral-atom quantum computer",
+      "A quantum processor based on coherent transport of entangled atom arrays",
       "A tweezer array with 6100 highly coherent atomic qubits"
     ],
     "x": [
@@ -266,7 +266,7 @@ const coherence_times_plotData = [
       2024
     ],
     "y": [
-      4.713383552745194,
+      4.713383552745039,
       34.80109955052615
     ],
     "type": "scatter",
@@ -282,8 +282,8 @@ const coherence_times_plotData = [
   {
     "customdata": [
       "https://doi.org/10.1103/PhysRevA.75.040301",
-      "https://doi.org/10.1038/s41586-022-04592-6",
       "https://doi.org/10.1038/s41586-022-04603-6",
+      "https://doi.org/10.1038/s41586-022-04592-6",
       "https://doi.org/10.48550/arXiv.2403.12021"
     ],
     "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
@@ -305,8 +305,8 @@ const coherence_times_plotData = [
     "name": "Neutral atoms (T2)",
     "text": [
       "Fast Quantum State Control of a Single Trapped Neutral Atom",
-      "A quantum processor based on coherent transport of entangled atom arrays",
       "Multi-qubit entanglement and algorithms on a neutral-atom quantum computer",
+      "A quantum processor based on coherent transport of entangled atom arrays",
       "A tweezer array with 6100 highly coherent atomic qubits"
     ],
     "x": [
@@ -317,8 +317,8 @@ const coherence_times_plotData = [
     ],
     "y": [
       0.034,
-      1.5,
       1.0,
+      1.5,
       12.6
     ],
     "type": "scatter",

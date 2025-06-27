@@ -9,7 +9,7 @@ function loadCSV(url, tableId) {
                 console.warn(`No data found for ${tableId}`);
                 $(`#${tableId}`).after(`<div class="info-message">No data available yet. Please contribute by adding entries!</div>`);
                 return;
-            }
+}
             
             if (tableId === 'qubit-count-table') {
                 results.data = results.data.filter(row => {
@@ -101,6 +101,11 @@ function loadCSV(url, tableId) {
                     ];
                     break;
                 case 'entangled-table':
+                    // Filter out any empty rows
+                    results.data = results.data.filter(row => 
+                        row['Year'] && row['Year'].toString().trim() !== ''
+                    );
+                    
                     columnDefs = [
                         { 
                             title: "Year",
@@ -147,6 +152,11 @@ function loadCSV(url, tableId) {
                     ];
                     break;
                 case 'physical-qubits-table':
+                    // Filter out any empty rows
+                    results.data = results.data.filter(row => 
+                        row['Year'] && row['Year'].toString().trim() !== ''
+                    );
+                    
                     columnDefs = [
                         { 
                             title: "Year",
