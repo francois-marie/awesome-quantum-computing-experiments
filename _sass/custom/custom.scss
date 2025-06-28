@@ -111,4 +111,86 @@
     margin-top: 0;
     margin-bottom: 1rem;
     color: #27262b;
+}
+
+/* Responsive plot containers */
+.plot-container {
+    width: 100%;
+    height: 700px; /* Desktop default - increased */
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Tablet and larger mobile devices */
+@media (max-width: 768px) {
+    .plot-container {
+        height: 600px; /* Increased significantly */
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .plot-container {
+        height: 550px; /* Much taller for mobile */
+        margin: 0.5rem 0;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+    .plot-container {
+        height: 500px; /* Much taller for small screens */
+    }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+    /* Make tables horizontally scrollable on mobile */
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Improve readability on mobile */
+    body {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Better button spacing on mobile */
+    .button {
+        padding: 0.75rem 1rem;
+        margin: 0.5rem 0;
+        display: inline-block;
+    }
+    
+    /* Ensure metrics grid is mobile-friendly */
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .metric-card {
+        padding: 1rem;
+    }
+    
+    /* Better spacing for headings on mobile */
+    h1, h2, h3 {
+        line-height: 1.3;
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Ensure content doesn't get cut off */
+    .main-content {
+        padding: 1rem;
+    }
+}
+
+/* Touch-friendly hover effects */
+@media (hover: none) and (pointer: coarse) {
+    .metric-card:hover {
+        transform: none;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
 } 
