@@ -1,11 +1,16 @@
 source "https://rubygems.org"
 
 # Jekyll and theme for Netlify deployment (no github-pages needed)
-gem "jekyll", "~> 4.3.0"
+gem "jekyll", "~> 4.2.0"
 gem "just-the-docs"
 gem "webrick", "~> 1.7.0"
 
-# Required for Ruby 3.1+ compatibility
+# Use sassc instead of sass-embedded to avoid compilation issues
+gem "sassc", "~> 2.4.0"
+gem "jekyll-sass-converter", "~> 2.2.0"
+
+# Missing dependencies for Ruby 3.1
+gem "json", "~> 2.6.0"
 gem "base64"
 gem "bigdecimal"
 gem "csv"

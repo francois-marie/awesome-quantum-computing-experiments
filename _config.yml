@@ -29,6 +29,7 @@ markdown: kramdown
 sass:
   style: compressed
   sourcemap: never
+  implementation: sassc
 
 # Ensure Jekyll processes all necessary files
 plugins:
