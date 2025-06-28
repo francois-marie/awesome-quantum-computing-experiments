@@ -1,4 +1,4 @@
-name: Deploy GitHub Pages
+name: Deploy GitHub Pages Redirect
 
 on:
   push:
@@ -7,41 +7,34 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  deploy-redirect:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     
     steps:
-    - name: Checkout main branch first
+    - name: Checkout main branch
       uses: actions/checkout@v4
       with:
         ref: main
         fetch-depth: 0
     
-    - name: Clean workspace
+    - name: Create redirect site
       run: |
-        rm -rf _site
-        rm -rf .jekyll-cache
-        rm -rf vendor
+        mkdir -p _redirect_site
+        cp redirect.html _redirect_site/index.html
+        
+        # Create a simple 404 page that also redirects
+        cp redirect.html _redirect_site/404.html
+        
+        # Create CNAME file if you want to use a custom domain for the redirect
+        # echo "your-custom-domain.com" > _redirect_site/CNAME
+        
+        echo "Created redirect site:"
+        ls -la _redirect_site/
     
-    - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        ruby-version: '3.1'
-        bundler-cache: true
-    
-    - name: Clean Gemfile.lock
-      run: rm -f Gemfile.lock
-    
-    - name: Install dependencies
-      run: |
-        bundle config set --local path 'vendor/bundle'
-        bundle install
-    
-    - name: Build and deploy
-      uses: helaili/jekyll-action@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        target_branch: gh-pages
-        keep_history: true
-        jekyll_build_options: "--trace" 
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_redirect_site
+        force_orphan: true 

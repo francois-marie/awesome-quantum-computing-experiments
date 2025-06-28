@@ -2,7 +2,7 @@ title: "AQCE"
 description: "Awesome Quantum Computing Experiments: A curated collection of notable quantum computing experiments"
 remote_theme: just-the-docs/just-the-docs
 baseurl: "/awesome-quantum-computing-experiments"
-url: "https://francois-marie.github.io"
+url: "https://francoismarieleregent.xyz"
 
 # Theme settings
 color_scheme: custom
@@ -30,8 +30,45 @@ sass:
   style: compressed
   sourcemap: never
 
+# Ensure Jekyll processes all necessary files
 plugins:
   - jekyll-remote-theme
+  - jekyll-include-cache
+  - jekyll-feed
+
+# Include generated plot files in the site
+include:
+  - out/js
+  - out/png
+  - out/plots
+  - assets/js
+  - assets/css
+
+# Keep the generated files during Jekyll build
+keep_files:
+  - out
+  - assets
+
+# Exclude development files from build
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - src/
+  - tests/
+  - "*.py"
+  - "*.pyc"
+  - requirements*.txt
+  - pyproject.toml
+  - venv/
+  - __pycache__/
 
 # Just the Docs specific settings
 callouts:

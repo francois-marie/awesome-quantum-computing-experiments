@@ -1,0 +1,44 @@
+[build]
+  command = "bundle install && bundle exec jekyll build --verbose && echo 'Build complete. Checking assets...' && ls -la _site/assets/ && ls -la _site/out/"
+  publish = "_site"
+
+[build.environment]
+  RUBY_VERSION = "3.1.0"
+  JEKYLL_ENV = "production"
+  BUNDLE_PATH = "vendor/bundle"
+  BUNDLE_WITHOUT = "development:test"
+  NODE_VERSION = "18"
+
+# Cache bundle for faster builds
+[[build.cache]]
+  paths = ["vendor/bundle", "_site"]
+
+# Simple redirect for 404s
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
+
+# Headers for better performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/out/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "/out/png/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400" 
