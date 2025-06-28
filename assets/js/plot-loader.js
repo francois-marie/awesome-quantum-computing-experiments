@@ -19,23 +19,37 @@ function createQubitCountPlot(data) {
     });
 
     const layout = {
-        title: 'Number of Qubits vs. Year by Platform',
-        xaxis: { title: 'Year' },
+        title: {
+            text: 'Number of Qubits vs. Year by Platform',
+            font: { size: window.innerWidth < 768 ? 14 : 18 }
+        },
+        xaxis: { 
+            title: 'Year',
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
+        },
         yaxis: { 
             title: 'Number of Qubits',
-            type: 'log'
+            type: 'log',
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
         },
         hovermode: 'closest',
         showlegend: true,
         legend: {
             x: 0,
-            y: 1
+            y: 1,
+            font: { size: window.innerWidth < 768 ? 10 : 12 }
+        },
+        margin: {
+            l: window.innerWidth < 768 ? 50 : 80,
+            r: window.innerWidth < 768 ? 50 : 80,
+            t: window.innerWidth < 768 ? 50 : 80,
+            b: window.innerWidth < 768 ? 50 : 80
         }
     };
 
     const config = {
         responsive: true,
-        displayModeBar: true,
+        displayModeBar: window.innerWidth >= 768,
         modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
     };
 
@@ -60,16 +74,35 @@ function createQECTimelinePlot(data) {
     });
 
     const layout = {
-        title: 'Time Evolution of Quantum Error Correction Experiments',
-        xaxis: { title: 'Year' },
+        title: {
+            text: 'Time Evolution of Quantum Error Correction Experiments',
+            font: { size: window.innerWidth < 768 ? 14 : 18 }
+        },
+        xaxis: { 
+            title: 'Year',
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
+        },
         yaxis: { 
             title: 'Platform',
-            type: 'category'
+            type: 'category',
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
         },
-        hovermode: 'closest'
+        hovermode: 'closest',
+        margin: {
+            l: window.innerWidth < 768 ? 50 : 80,
+            r: window.innerWidth < 768 ? 50 : 80,
+            t: window.innerWidth < 768 ? 50 : 80,
+            b: window.innerWidth < 768 ? 50 : 80
+        }
     };
 
-    Plotly.newPlot('qec-timeline-plot', traces, layout);
+    const config = {
+        responsive: true,
+        displayModeBar: window.innerWidth >= 768,
+        modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
+    };
+
+    Plotly.newPlot('qec-timeline-plot', traces, layout, config);
 }
 
 function createNKDPlot(data) {
@@ -94,15 +127,39 @@ function createNKDPlot(data) {
     };
 
     const layout = {
-        title: '[[n,k,d]] Code Parameter Distribution',
+        title: {
+            text: '[[n,k,d]] Code Parameter Distribution',
+            font: { size: window.innerWidth < 768 ? 14 : 18 }
+        },
         scene: {
-            xaxis: {title: 'n (physical qubits)'},
-            yaxis: {title: 'k (logical qubits)'},
-            zaxis: {title: 'd (distance)'}
+            xaxis: {
+                title: 'n (physical qubits)',
+                titlefont: { size: window.innerWidth < 768 ? 10 : 12 }
+            },
+            yaxis: {
+                title: 'k (logical qubits)',
+                titlefont: { size: window.innerWidth < 768 ? 10 : 12 }
+            },
+            zaxis: {
+                title: 'd (distance)',
+                titlefont: { size: window.innerWidth < 768 ? 10 : 12 }
+            }
+        },
+        margin: {
+            l: window.innerWidth < 768 ? 20 : 40,
+            r: window.innerWidth < 768 ? 20 : 40,
+            t: window.innerWidth < 768 ? 40 : 60,
+            b: window.innerWidth < 768 ? 20 : 40
         }
     };
 
-    Plotly.newPlot('nkd-plot', [trace], layout);
+    const config = {
+        responsive: true,
+        displayModeBar: window.innerWidth >= 768,
+        modeBarButtons: [['zoom3d', 'pan3d', 'resetCameraDefault3d', 'toImage']]
+    };
+
+    Plotly.newPlot('nkd-plot', [trace], layout, config);
 }
 
 function createEntangledErrorPlot(data) {
@@ -126,23 +183,37 @@ function createEntangledErrorPlot(data) {
     });
 
     const layout = {
-        title: 'Entangled State Error vs. Year',
-        xaxis: { title: 'Year' },
+        title: {
+            text: 'Entangled State Error vs. Year',
+            font: { size: window.innerWidth < 768 ? 14 : 18 }
+        },
+        xaxis: { 
+            title: 'Year',
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
+        },
         yaxis: { 
             title: 'Entangled State Error',
-            type: 'log'
+            type: 'log',
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
         },
         hovermode: 'closest',
         showlegend: true,
         legend: {
             x: 0,
-            y: 1
+            y: 1,
+            font: { size: window.innerWidth < 768 ? 10 : 12 }
+        },
+        margin: {
+            l: window.innerWidth < 768 ? 50 : 80,
+            r: window.innerWidth < 768 ? 50 : 80,
+            t: window.innerWidth < 768 ? 50 : 80,
+            b: window.innerWidth < 768 ? 50 : 80
         }
     };
 
     const config = {
         responsive: true,
-        displayModeBar: true,
+        displayModeBar: window.innerWidth >= 768,
         modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
     };
 
@@ -198,28 +269,69 @@ function createCoherenceTimesPlot(data) {
     });
 
     const layout = {
-        title: 'Evolution of Qubit Coherence Times',
+        title: {
+            text: 'Evolution of Qubit Coherence Times',
+            font: { size: window.innerWidth < 768 ? 14 : 18 }
+        },
         xaxis: { 
             title: 'Year',
-            dtick: 1  // Force integer ticks
+            dtick: 1,
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
         },
         yaxis: { 
             title: 'Coherence Time (s)',
-            type: 'log'
+            type: 'log',
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
         },
         hovermode: 'closest',
         showlegend: true,
         legend: {
             x: 0,
-            y: 1
+            y: 1,
+            font: { size: window.innerWidth < 768 ? 10 : 12 }
+        },
+        margin: {
+            l: window.innerWidth < 768 ? 50 : 80,
+            r: window.innerWidth < 768 ? 50 : 80,
+            t: window.innerWidth < 768 ? 50 : 80,
+            b: window.innerWidth < 768 ? 50 : 80
         }
     };
 
     const config = {
         responsive: true,
-        displayModeBar: true,
+        displayModeBar: window.innerWidth >= 768,
         modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
     };
 
     Plotly.newPlot('coherence-times-plot', traces, layout, config);
 }
+
+// Window resize handler for mobile responsiveness
+window.addEventListener('resize', function() {
+    // Debounce resize events
+    clearTimeout(window.resizeTimer);
+    window.resizeTimer = setTimeout(function() {
+        // List of all plot element IDs
+        const plotIds = [
+            'coherence-times-plot',
+            'entangled-error-plot', 
+            'qubit-count-plot',
+            'experiment-counts',
+            'nkd-plot-aggregated',
+            'experiment-counts-yearly',
+            'qec-cumulative-growth',
+            'qec-timeline-aggregated-scatter',
+            'qec-platform-sunburst',
+            'qec-data-qubit-count-plot'
+        ];
+        
+        // Resize all existing plots
+        plotIds.forEach(plotId => {
+            const plotDiv = document.getElementById(plotId);
+            if (plotDiv && plotDiv.data) {
+                Plotly.Plots.resize(plotId);
+            }
+        });
+    }, 100);
+});
