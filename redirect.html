@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    
+    <!-- Multiple redirect methods for maximum compatibility -->
+    <meta http-equiv="refresh" content="0; url=https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/">
+    
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            padding: 2rem;
+        }
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 3px solid #fff;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Site Moved!</h1>
+        <p>The Awesome Quantum Computing Experiments site has moved to a new location.</p>
+        <div class="spinner"></div>
+        <p>You'll be redirected automatically in a moment...</p>
+        <a href="https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/">
+            Go to new site manually
+        </a>
+    </div>
+
+    <script>
+        // JavaScript redirect as backup
+        setTimeout(function() {
+            window.location.href = 'https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/';
+        }, 2000);
+
+        // Track the redirect with PostHog if it exists
+        if (typeof posthog !== 'undefined') {
+            posthog.capture('github_pages_redirect', {
+                from: 'github-pages',
+                to: 'francoismarieleregent.xyz'
+            });
+        }
+    </script>
+</body>
+</html> 

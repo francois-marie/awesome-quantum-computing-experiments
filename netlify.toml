@@ -1,0 +1,45 @@
+[build]
+  command = "python -m pip install --upgrade pip && pip install -e '.[test]' && make all && bundle install && bundle exec jekyll build --verbose"
+  publish = "_site"
+
+[build.environment]
+  PYTHON_VERSION = "3.10"
+  RUBY_VERSION = "3.1.0"
+  JEKYLL_ENV = "production"
+  BUNDLE_PATH = "vendor/bundle"
+  BUNDLE_WITHOUT = "development:test"
+  NODE_VERSION = "18"
+
+# Cache dependencies for faster builds
+[[build.cache]]
+  paths = ["vendor/bundle", "_site", "venv", "__pycache__"]
+
+# Simple redirect for 404s - updated for subfolder deployment
+[[redirects]]
+  from = "/awesome-quantum-computing-experiments/*"
+  to = "/awesome-quantum-computing-experiments/index.html"
+  status = 404
+
+# Headers for better performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/out/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "/out/png/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400" 

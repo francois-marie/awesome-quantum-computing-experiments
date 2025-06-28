@@ -47,15 +47,15 @@ A comprehensive collection of notable quantum computing experiments, focusing on
 <div id="qec-platform-sunburst" style="width:100%; height:800px;"></div>
 
 <!-- Load plot scripts -->
-<script src="out/js/coherence_times_plot.js"></script>
-<script src="out/js/entangled_error_plot.js"></script>
-<script src="out/js/qubit_count_plot.js"></script>
-<script src="out/js/experiment_counts.js"></script>
-<script src="out/js/nkd_plot_aggregated.js"></script>
-<script src="out/js/experiment_counts_yearly.js"></script>
-<script src="out/js/qec_cumulative_growth.js"></script>
-<script src="out/js/qec_timeline_aggregated.js"></script>
-<script src="out/js/qec_platform_sunburst.js"></script>
+<script src="{{ '/out/js/coherence_times_plot.js' | relative_url }}"></script>
+<script src="{{ '/out/js/entangled_error_plot.js' | relative_url }}"></script>
+<script src="{{ '/out/js/qubit_count_plot.js' | relative_url }}"></script>
+<script src="{{ '/out/js/experiment_counts.js' | relative_url }}"></script>
+<script src="{{ '/out/js/nkd_plot_aggregated.js' | relative_url }}"></script>
+<script src="{{ '/out/js/experiment_counts_yearly.js' | relative_url }}"></script>
+<script src="{{ '/out/js/qec_cumulative_growth.js' | relative_url }}"></script>
+<script src="{{ '/out/js/qec_timeline_aggregated.js' | relative_url }}"></script>
+<script src="{{ '/out/js/qec_platform_sunburst.js' | relative_url }}"></script>
 
 ## About
 
