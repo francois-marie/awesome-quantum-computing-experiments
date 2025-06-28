@@ -1,7 +1,7 @@
 title: "AQCE"
 description: "Awesome Quantum Computing Experiments: A curated collection of notable quantum computing experiments"
 remote_theme: just-the-docs/just-the-docs
-baseurl: "/awesome-quantum-computing-experiments"
+# baseurl: "/awesome-quantum-computing-experiments"  # Commented out for root deployment
 url: "https://francoismarieleregent.xyz"
 
 # Theme settings
