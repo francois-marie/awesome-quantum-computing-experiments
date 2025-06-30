@@ -103,9 +103,9 @@ The following PNG files are included in the repository to display in this README
 
 ![QEC Platform Distribution](/out/png/qec_platform_sunburst.png)
 
-![Timeline of QEC Implementations](/out/png/qec_timeline.png)
+![Timeline of QEC Implementations](/out/png/qec_timeline_aggregated.png)
 
-![[[n, k, d]] Distribution](/out/png/nkd_plot.png)
+![[[n, k, d]] Distribution](/out/png/nkd_plot_aggregated.png)
 
 ![Entangled State Error Progress](/out/png/entangled_error_plot.png)
 
