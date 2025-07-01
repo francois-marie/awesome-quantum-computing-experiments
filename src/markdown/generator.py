@@ -94,23 +94,21 @@ For more detailed information:
 1. Set up Ruby environment using rbenv:
 ```bash
 eval "$(rbenv init -)"
-rbenv shell 2.7.8
-gem install bundler -v 2.4.22
+rbenv shell 3.1.0
 ```
 
 2. Install Ruby dependencies:
 ```bash
-rm -rf vendor/ .bundle/ Gemfile.lock
-bundle _2.4.22_ install
+bundle install
 ```
 
 3. Run Jekyll server:
 ```bash
 bundle exec jekyll clean
-bundle exec jekyll serve
+bundle exec jekyll serve --baseurl="/awesome-quantum-computing-experiments" --livereload
 ```
 
-The site will be available at `http://localhost:4000`.
+The site will be available at `http://localhost:4000/awesome-quantum-computing-experiments/`.
 </div>
 
 <hr style="margin: 30px 0;">
@@ -141,23 +139,23 @@ After generation, plots will be available in multiple formats:
 
 The following PNG files are included in the repository to display in this README:
 
-![Cumulative Experiment Counts by Platform]({{ '/out/png/experiment_counts.png' | relative_url }})
+![Cumulative Experiment Counts by Platform](out/png/experiment_counts.png)
 
-![Yearly Experiment Counts]({{ '/out/png/experiment_counts_yearly.png' | relative_url }})
+![Yearly Experiment Counts](out/png/experiment_counts_yearly.png)
 
-![QEC Platform Distribution]({{ '/out/png/qec_platform_sunburst.png' | relative_url }})
+![QEC Platform Distribution](out/png/qec_platform_sunburst.png)
 
-![Timeline of QEC Implementations]({{ '/out/png/qec_timeline.png' | relative_url }})
+![Timeline of QEC Implementations](out/png/qec_timeline.png)
 
-![[[n, k, d]] Distribution]({{ '/out/png/nkd_plot.png' | relative_url }})
+![[[n, k, d]] Distribution](out/png/nkd_plot.png)
 
-![Entangled State Error Progress]({{ '/out/png/entangled_error_plot.png' | relative_url }})
+![Entangled State Error Progress](out/png/entangled_error_plot.png)
 
-![Qubit Count Evolution]({{ '/out/png/qubit_count_plot.png' | relative_url }})
+![Qubit Count Evolution](out/png/qubit_count_plot.png)
 
-![Physical Qubit Coherence Times]({{ '/out/png/coherence_times_plot.png' | relative_url }})
+![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)
 
-![Cumulative Experiment Counts by QEC code]({{ '/out/png/qec_cumulative_growth.png' | relative_url }})
+![Cumulative Experiment Counts by QEC code](out/png/qec_cumulative_growth.png)
 
 </div>
 

@@ -13,13 +13,46 @@
 }
 
 .copyright-notice a {
-  color: #5c5962;
-  text-decoration: none;
-  transition: color 0.2s;
+  color: #7c3aed;
+  text-decoration: underline;
+  text-decoration-color: rgba(124, 58, 237, 0.3);
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
 .copyright-notice a:hover {
-  color: #27262b;
-  text-decoration: underline;
+  color: #5b21b6;
+  text-decoration-color: rgba(91, 33, 182, 0.8);
+  transform: translateY(-1px);
 }
-</style> 
+</style>
+
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Hamburger menu icon -->
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/>
+    </symbol>
+    
+    <!-- Search icon -->
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    </symbol>
+    
+    <!-- External link icon -->
+    <symbol id="svg-external-link" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/>
+    </symbol>
+    
+    <!-- Link icon for anchors -->
+    <symbol id="svg-link" viewBox="0 0 16 16">
+      <path fill="currentColor" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/>
+    </symbol>
+    
+    <!-- Close/X icon -->
+    <symbol id="svg-close" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+    </symbol>
+  </defs>
+</svg> 
