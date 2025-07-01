@@ -116,26 +116,198 @@
 /* Responsive plot containers */
 .plot-container {
     width: 100%;
-    min-height: 400px; /* Use min-height instead of fixed height */
+    min-height: 400px;
     margin: 1rem 0;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    /* Remove overflow: hidden to prevent clipping */
+}
+
+/* Plot section wrapper */
+.plot-section {
+    margin: 2rem 0;
 }
 
 /* Mobile-specific plot adjustments */
 @media (max-width: 768px) {
     .plot-container {
-        min-height: 350px;
-        margin: 0.75rem 0;
+        /* Hide plot containers completely on mobile since we show PNG images in modal */
+        display: none !important;
+    }
+    
+    /* Show thumbnails on mobile */
+    .plot-thumbnail {
+        display: block !important;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #dee2e6;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .plot-thumbnail:hover {
+        border-color: #007bff;
+        box-shadow: 0 4px 12px rgba(0,123,255,0.15);
+        transform: translateY(-2px);
+    }
+    
+    .plot-thumbnail h4 {
+        margin: 0 0 0.5rem 0;
+        color: #2c3e50;
+        font-size: 1.1rem;
+    }
+    
+    .plot-thumbnail p {
+        margin: 0.5rem 0;
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+    
+    .preview-stats {
+        background: rgba(0,123,255,0.1);
+        border-radius: 6px;
+        padding: 0.5rem;
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+        color: #0056b3;
     }
 }
 
 @media (max-width: 480px) {
     .plot-container {
-        min-height: 300px;
-        margin: 0.5rem 0;
+        /* Hide plot containers completely on mobile */
+        display: none !important;
     }
+}
+
+/* Desktop: Hide thumbnails, show plot containers */
+@media (min-width: 769px) {
+    /* Hide thumbnails on desktop */
+    .plot-thumbnail {
+        display: none !important;
+    }
+    
+    /* Show plot containers on desktop */
+    .plot-container {
+        display: block !important;
+        width: 100%;
+        min-height: 400px;
+        margin: 1rem 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+}
+
+/* Modal styles - unified and fixed */
+.plot-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 10000;
+    display: none !important;
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.plot-modal.show {
+    display: flex !important;
+}
+
+.plot-modal.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    flex-shrink: 0;
+    min-height: 60px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    flex-grow: 1;
+}
+
+.close-btn {
+    background: #ff4757;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    flex-shrink: 0;
+    z-index: 10001;
+}
+
+.close-btn:hover {
+    background: #ff3838;
+    transform: scale(1.1);
+}
+
+.close-btn:active {
+    background: #ff2222;
+    transform: scale(0.95);
+}
+
+.modal-plot-container {
+    width: 100%;
+    flex-grow: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background: white;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-instructions {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    text-align: center;
+    border-top: 1px solid #dee2e6;
+    font-size: 0.8rem;
+    color: #6c757d;
+    flex-shrink: 0;
+}
+
+.modal-instructions p {
+    margin: 0;
 }
 
 /* Mobile-specific improvements */
@@ -232,102 +404,10 @@
 
 /* Desktop: Show plot containers, hide thumbnails */
 @media (min-width: 769px) {
-    /* Hide thumbnails on desktop */
-    .plot-thumbnail {
-        display: none;
-    }
-    
-    /* Show plot containers on desktop */
-    .plot-container {
-        display: block;
-        width: 100%;
-        min-height: 400px;
-        margin: 1rem 0;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
     /* Ensure hamburger menu is hidden on desktop (theme handles this) */
     #menu-button {
         /* Let the theme handle desktop visibility */
     }
-}
-
-/* FIXED: Modal should be hidden by default */
-.plot-modal {
-    display: none !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 10000;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-.plot-modal.show {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-content {
-    background: white;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
-}
-
-.modal-header h3 {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-plot-container {
-    flex: 1;
-    min-height: 300px;
-    padding: 1rem;
-}
-
-.modal-instructions {
-    padding: 0.5rem 1rem;
-    background: #f5f5f5;
-    border-top: 1px solid #eee;
-    text-align: center;
-}
-
-.modal-instructions p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #666;
 }
 
 /* Touch-friendly hover effects */
@@ -338,149 +418,7 @@
     }
 }
 
-/* Mobile plot thumbnail styles */
-.plot-thumbnail {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border: 2px solid #dee2e6;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin: 1rem 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.plot-thumbnail:hover {
-    border-color: #007bff;
-    box-shadow: 0 4px 12px rgba(0,123,255,0.15);
-    transform: translateY(-2px);
-}
-
-.plot-thumbnail h4 {
-    margin: 0 0 0.5rem 0;
-    color: #2c3e50;
-    font-size: 1.1rem;
-}
-
-.plot-thumbnail p {
-    margin: 0.5rem 0;
-    color: #6c757d;
-    font-size: 0.9rem;
-}
-
-.preview-stats {
-    background: rgba(0,123,255,0.1);
-    border-radius: 6px;
-    padding: 0.5rem;
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: #0056b3;
-}
-
-/* Modal styles */
-.plot-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.8);
-    z-index: 1000;
-    display: none !important;
-    backdrop-filter: blur(4px);
-}
-
-.plot-modal.show {
-    display: block !important;
-}
-
-.plot-modal.hidden {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-}
-
-.modal-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: white;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
-    flex-shrink: 0;
-    min-height: 60px;
-}
-
-.modal-header h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #2c3e50;
-    flex-grow: 1;
-}
-
-.close-btn {
-    background: #ff4757;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
-    padding: 0.5rem 0.75rem;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1rem;
-    flex-shrink: 0;
-    z-index: 1001;
-}
-
-.close-btn:hover {
-    background: #ff3838;
-    transform: scale(1.1);
-}
-
-.close-btn:active {
-    background: #ff2222;
-    transform: scale(0.95);
-}
-
-.modal-plot-container {
-    width: 100%;
-    flex-grow: 1;
-    overflow: auto; /* Allow scrolling in both directions */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    background: white;
-    min-height: 0; /* Important for flex child */
-}
-
-.modal-instructions {
-    background: #f8f9fa;
-    padding: 0.75rem;
-    text-align: center;
-    border-top: 1px solid #dee2e6;
-    font-size: 0.8rem;
-    color: #6c757d;
-    flex-shrink: 0;
-}
-
-.modal-instructions p {
-    margin: 0;
-}
-
+/* Plot thumbnail styles are now handled in media queries above */
 
 /* Mobile plot interaction improvements */
 @media (max-width: 768px) {
@@ -500,11 +438,23 @@
         width: 100% !important;
     }
     
-    /* Ensure plot containers allow horizontal scrolling */
+    /* Ensure plot containers allow horizontal scrolling on mobile when shown */
     .plot-container {
         overflow-x: auto !important;
         overflow-y: visible !important;
         -webkit-overflow-scrolling: touch !important;
+    }
+    
+    /* Ensure plot sections have proper spacing */
+    .plot-section {
+        margin: 1.5rem 0;
+    }
+    
+    /* Make sure text in thumbnails is readable */
+    .plot-thumbnail h4,
+    .plot-thumbnail p {
+        cursor: pointer;
+        user-select: none;
     }
 }
 
@@ -523,6 +473,18 @@
         height: 35px;
         font-size: 1.25rem;
     }
+    
+    .plot-modal {
+        padding: 0.5rem;
+    }
+}
+
+/* Ensure modal displays properly */
+.plot-modal.show {
+    /* Ensure it's actually visible when shown */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
 }
 
  

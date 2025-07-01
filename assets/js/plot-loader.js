@@ -352,24 +352,17 @@ window.addEventListener('resize', function() {
     }, 150); // Slightly longer debounce for better performance
 });
 
-// Mobile modal functionality
-function openPlotModal(plotId) {
+// Make functions globally available immediately
+window.openPlotModal = function(plotId) {
     console.log('Opening modal for plot:', plotId);
     
     const modal = document.getElementById('plot-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalPlotContainer = document.getElementById('modal-plot-container');
-    const originalPlotDiv = document.getElementById(plotId);
     
     if (!modal || !modalTitle || !modalPlotContainer) {
         console.error('Modal elements not found');
         alert('Modal elements not found. Please check the page setup.');
-        return;
-    }
-    
-    if (!originalPlotDiv) {
-        console.error('Original plot div not found:', plotId);
-        alert('Plot not found: ' + plotId);
         return;
     }
     
@@ -391,11 +384,31 @@ function openPlotModal(plotId) {
     
     modalTitle.textContent = plotTitles[plotId] || 'Interactive Plot';
     
+    // Map plot IDs to PNG file names
+    const plotImageMap = {
+        'coherence-times-plot': 'coherence_times_plot.png',
+        'entangled-error-plot': 'entangled_error_plot.png',
+        'qubit-count-plot': 'qubit_count_plot.png',
+        'experiment-counts': 'experiment_counts.png',
+        'nkd-plot-aggregated': 'nkd_plot_aggregated.png',
+        'experiment-counts-yearly': 'experiment_counts_yearly.png',
+        'qec-cumulative-growth': 'qec_cumulative_growth.png',
+        'qec-timeline-aggregated-scatter': 'qec_timeline_aggregated.png',
+        'qec-platform-sunburst': 'qec_platform_sunburst.png'
+    };
+    
+    const imageName = plotImageMap[plotId];
+    if (!imageName) {
+        console.error('No image mapping found for plot:', plotId);
+        modalPlotContainer.innerHTML = '<div style="padding: 2rem; text-align: center; color: #666;">Plot image not found.</div>';
+        return;
+    }
+    
     // Show loading indicator immediately
     modalPlotContainer.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column; color: #666;">
             <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
-            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">Loading interactive plot...</div>
+            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">Loading plot...</div>
             <div style="font-size: 0.9rem;">Please wait a moment</div>
         </div>
     `;
@@ -403,71 +416,74 @@ function openPlotModal(plotId) {
     // Show modal using CSS classes
     modal.classList.remove('hidden');
     modal.classList.add('show');
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     modal.style.visibility = 'visible';
     modal.style.opacity = '1';
     document.body.style.overflow = 'hidden';
     document.body.classList.add('modal-open');
     
     console.log('Modal should now be visible. Classes:', modal.className);
-    console.log('Modal computed style display:', window.getComputedStyle(modal).display);
     
-    // Wait for plot data to be available
-    const waitForPlotData = () => {
-        if (!originalPlotDiv.data || !originalPlotDiv.layout) {
-            console.log('Waiting for plot data to load...', plotId);
-            setTimeout(waitForPlotData, 100);
-            return;
-        }
-        
-        console.log('Plot data found, creating mobile plot');
-        
-        // Clear loading and create plot container
-        modalPlotContainer.innerHTML = '<div id="modal-plot" style="width:100%; height:100%;"></div>';
-        
-        // Clone the plot data and layout for mobile optimization
-        const mobileLayout = {
-            ...originalPlotDiv.layout,
-            autosize: true,
-            margin: { l: 50, r: 20, t: 40, b: 40 },
-            font: { size: 12 },
-            title: {
-                ...originalPlotDiv.layout.title,
-                font: { size: 16 }
-            },
-            legend: {
-                ...originalPlotDiv.layout.legend,
-                font: { size: 10 }
-            }
-        };
-        
-        // Create mobile-optimized plot in modal
-        const config = {
-            responsive: true,
-            displayModeBar: false,
-            doubleClick: 'reset',
-            scrollZoom: true,
-            touchmove: true,
-            // Enable better touch interaction
-            showTips: false,
-            staticPlot: false,
-            // Allow plot interaction on touch devices
-            modeBarButtonsToRemove: [],
-            dragmode: 'pan'
-        };
-        
-        try {
-            Plotly.newPlot('modal-plot', originalPlotDiv.data, mobileLayout, config);
-            console.log('Plot successfully created in modal for', plotId);
-        } catch (error) {
-            console.error('Error creating plot in modal:', error);
-            modalPlotContainer.innerHTML = '<div style="padding: 2rem; text-align: center; color: #666;">Error loading plot. Please try again.</div>';
-        }
+    // Create image element and load the PNG
+    const baseUrl = window.location.pathname.includes('/awesome-quantum-computing-experiments') 
+        ? '/awesome-quantum-computing-experiments' 
+        : '';
+    const imageUrl = `${baseUrl}/out/png/${imageName}`;
+    console.log('Loading image:', imageUrl);
+    
+    const img = new Image();
+    img.onload = function() {
+        console.log('Image loaded successfully');
+        modalPlotContainer.innerHTML = `
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box;">
+                <img src="${imageUrl}" 
+                     alt="${plotTitles[plotId] || 'Plot'}" 
+                     style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            </div>
+        `;
     };
     
-    // Start waiting for plot data
-    waitForPlotData();
-}
+    img.onerror = function() {
+        console.error('Failed to load image:', imageUrl);
+        modalPlotContainer.innerHTML = `
+            <div style="padding: 2rem; text-align: center; color: #666;">
+                <p>Failed to load plot image.</p>
+                <p><small>Image path: ${imageUrl}</small></p>
+                <button onclick="closePlotModal()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+            </div>
+        `;
+    };
+    
+    // Start loading the image
+    img.src = imageUrl;
+};
+
+window.closePlotModal = function() {
+    console.log('Attempting to close modal');
+    
+    const modal = document.getElementById('plot-modal');
+    const modalPlotContainer = document.getElementById('modal-plot-container');
+    
+    if (!modal) {
+        console.error('Modal not found for closing');
+        return;
+    }
+    
+    console.log('Modal before closing. Classes:', modal.className);
+    
+    // Reset modal to clean state
+    resetModalState(modal, modalPlotContainer);
+    
+    // Hide modal using CSS class
+    modal.classList.add('hidden');
+    modal.style.display = 'none';
+    
+    console.log('Modal after closing. Classes:', modal.className);
+    console.log('Modal closed successfully');
+    
+    // Force a reflow to ensure changes are applied
+    modal.offsetHeight;
+};
 
 function resetModalState(modal, modalPlotContainer) {
     console.log('Resetting modal state');
@@ -489,39 +505,6 @@ function resetModalState(modal, modalPlotContainer) {
     
     console.log('Modal state reset complete');
 }
-
-function closePlotModal() {
-    console.log('Attempting to close modal');
-    
-    const modal = document.getElementById('plot-modal');
-    const modalPlotContainer = document.getElementById('modal-plot-container');
-    
-    if (!modal) {
-        console.error('Modal not found for closing');
-        return;
-    }
-    
-    console.log('Modal before closing. Classes:', modal.className);
-    console.log('Modal computed style before closing:', window.getComputedStyle(modal).display);
-    
-    // Reset modal to clean state
-    resetModalState(modal, modalPlotContainer);
-    
-    // Hide modal using CSS class
-    modal.classList.add('hidden');
-    modal.style.display = 'none';
-    
-    console.log('Modal after closing. Classes:', modal.className);
-    console.log('Modal computed style after closing:', window.getComputedStyle(modal).display);
-    console.log('Modal closed successfully');
-    
-    // Force a reflow to ensure changes are applied
-    modal.offsetHeight;
-}
-
-// Make closePlotModal globally available
-window.closePlotModal = closePlotModal;
-window.openPlotModal = openPlotModal;
 
 // Close modal when clicking outside content or pressing escape
 document.addEventListener('DOMContentLoaded', function() {
