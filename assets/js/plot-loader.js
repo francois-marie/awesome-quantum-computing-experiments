@@ -18,24 +18,43 @@ function createQubitCountPlot(data) {
         };
     });
 
+    const isMobile = window.innerWidth < 768;
+    
     const layout = {
-        title: 'Number of Qubits vs. Year by Platform',
-        xaxis: { title: 'Year' },
+        title: {
+            text: 'Number of Qubits vs. Year by Platform',
+            font: { size: isMobile ? 14 : 18 }
+        },
+        xaxis: { 
+            title: 'Year',
+            titlefont: { size: isMobile ? 12 : 14 },
+            tickfont: { size: isMobile ? 10 : 12 }
+        },
         yaxis: { 
             title: 'Number of Qubits',
-            type: 'log'
+            type: 'log',
+            titlefont: { size: isMobile ? 12 : 14 },
+            tickfont: { size: isMobile ? 10 : 12 }
         },
         hovermode: 'closest',
         showlegend: true,
         legend: {
             x: 0,
-            y: 1
-        }
+            y: 1,
+            font: { size: isMobile ? 9 : 12 }
+        },
+        margin: {
+            l: isMobile ? 60 : 80,
+            r: isMobile ? 20 : 80,
+            t: isMobile ? 60 : 80,
+            b: isMobile ? 50 : 80
+        },
+        autosize: true
     };
 
     const config = {
         responsive: true,
-        displayModeBar: true,
+        displayModeBar: !isMobile,
         modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
     };
 
@@ -60,16 +79,35 @@ function createQECTimelinePlot(data) {
     });
 
     const layout = {
-        title: 'Time Evolution of Quantum Error Correction Experiments',
-        xaxis: { title: 'Year' },
+        title: {
+            text: 'Time Evolution of Quantum Error Correction Experiments',
+            font: { size: window.innerWidth < 768 ? 14 : 18 }
+        },
+        xaxis: { 
+            title: 'Year',
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
+        },
         yaxis: { 
             title: 'Platform',
-            type: 'category'
+            type: 'category',
+            titlefont: { size: window.innerWidth < 768 ? 12 : 14 }
         },
-        hovermode: 'closest'
+        hovermode: 'closest',
+        margin: {
+            l: window.innerWidth < 768 ? 50 : 80,
+            r: window.innerWidth < 768 ? 50 : 80,
+            t: window.innerWidth < 768 ? 50 : 80,
+            b: window.innerWidth < 768 ? 50 : 80
+        }
     };
 
-    Plotly.newPlot('qec-timeline-plot', traces, layout);
+    const config = {
+        responsive: true,
+        displayModeBar: window.innerWidth >= 768,
+        modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
+    };
+
+    Plotly.newPlot('qec-timeline-plot', traces, layout, config);
 }
 
 function createNKDPlot(data) {
@@ -94,15 +132,39 @@ function createNKDPlot(data) {
     };
 
     const layout = {
-        title: '[[n,k,d]] Code Parameter Distribution',
+        title: {
+            text: '[[n,k,d]] Code Parameter Distribution',
+            font: { size: window.innerWidth < 768 ? 14 : 18 }
+        },
         scene: {
-            xaxis: {title: 'n (physical qubits)'},
-            yaxis: {title: 'k (logical qubits)'},
-            zaxis: {title: 'd (distance)'}
+            xaxis: {
+                title: 'n (physical qubits)',
+                titlefont: { size: window.innerWidth < 768 ? 10 : 12 }
+            },
+            yaxis: {
+                title: 'k (logical qubits)',
+                titlefont: { size: window.innerWidth < 768 ? 10 : 12 }
+            },
+            zaxis: {
+                title: 'd (distance)',
+                titlefont: { size: window.innerWidth < 768 ? 10 : 12 }
+            }
+        },
+        margin: {
+            l: window.innerWidth < 768 ? 20 : 40,
+            r: window.innerWidth < 768 ? 20 : 40,
+            t: window.innerWidth < 768 ? 40 : 60,
+            b: window.innerWidth < 768 ? 20 : 40
         }
     };
 
-    Plotly.newPlot('nkd-plot', [trace], layout);
+    const config = {
+        responsive: true,
+        displayModeBar: window.innerWidth >= 768,
+        modeBarButtons: [['zoom3d', 'pan3d', 'resetCameraDefault3d', 'toImage']]
+    };
+
+    Plotly.newPlot('nkd-plot', [trace], layout, config);
 }
 
 function createEntangledErrorPlot(data) {
@@ -125,24 +187,43 @@ function createEntangledErrorPlot(data) {
         };
     });
 
+    const isMobile = window.innerWidth < 768;
+
     const layout = {
-        title: 'Entangled State Error vs. Year',
-        xaxis: { title: 'Year' },
+        title: {
+            text: 'Entangled State Error vs. Year',
+            font: { size: isMobile ? 14 : 18 }
+        },
+        xaxis: { 
+            title: 'Year',
+            titlefont: { size: isMobile ? 12 : 14 },
+            tickfont: { size: isMobile ? 10 : 12 }
+        },
         yaxis: { 
             title: 'Entangled State Error',
-            type: 'log'
+            type: 'log',
+            titlefont: { size: isMobile ? 12 : 14 },
+            tickfont: { size: isMobile ? 10 : 12 }
         },
         hovermode: 'closest',
         showlegend: true,
         legend: {
             x: 0,
-            y: 1
-        }
+            y: 1,
+            font: { size: isMobile ? 9 : 12 }
+        },
+        margin: {
+            l: isMobile ? 60 : 80,
+            r: isMobile ? 20 : 80,
+            t: isMobile ? 60 : 80,
+            b: isMobile ? 50 : 80
+        },
+        autosize: true
     };
 
     const config = {
         responsive: true,
-        displayModeBar: true,
+        displayModeBar: !isMobile,
         modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
     };
 
@@ -197,29 +278,275 @@ function createCoherenceTimesPlot(data) {
         }
     });
 
+    const isMobile = window.innerWidth < 768;
+
     const layout = {
-        title: 'Evolution of Qubit Coherence Times',
+        title: {
+            text: 'Evolution of Qubit Coherence Times',
+            font: { size: isMobile ? 14 : 18 }
+        },
         xaxis: { 
             title: 'Year',
-            dtick: 1  // Force integer ticks
+            dtick: 1,
+            titlefont: { size: isMobile ? 12 : 14 },
+            tickfont: { size: isMobile ? 10 : 12 }
         },
         yaxis: { 
             title: 'Coherence Time (s)',
-            type: 'log'
+            type: 'log',
+            titlefont: { size: isMobile ? 12 : 14 },
+            tickfont: { size: isMobile ? 10 : 12 }
         },
         hovermode: 'closest',
         showlegend: true,
         legend: {
             x: 0,
-            y: 1
-        }
+            y: 1,
+            font: { size: isMobile ? 9 : 12 }
+        },
+        margin: {
+            l: isMobile ? 60 : 80,
+            r: isMobile ? 20 : 80,
+            t: isMobile ? 60 : 80,
+            b: isMobile ? 50 : 80
+        },
+        autosize: true
     };
 
     const config = {
         responsive: true,
-        displayModeBar: true,
+        displayModeBar: !isMobile,
         modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
     };
 
     Plotly.newPlot('coherence-times-plot', traces, layout, config);
 }
+
+// Window resize handler for mobile responsiveness
+window.addEventListener('resize', function() {
+    // Debounce resize events
+    clearTimeout(window.resizeTimer);
+    window.resizeTimer = setTimeout(function() {
+        // List of all plot element IDs
+        const plotIds = [
+            'coherence-times-plot',
+            'entangled-error-plot', 
+            'qubit-count-plot',
+            'experiment-counts',
+            'nkd-plot-aggregated',
+            'experiment-counts-yearly',
+            'qec-cumulative-growth',
+            'qec-timeline-aggregated-scatter',
+            'qec-platform-sunburst',
+            'qec-data-qubit-count-plot'
+        ];
+        
+        // Properly resize all existing plots
+        plotIds.forEach(plotId => {
+            const plotDiv = document.getElementById(plotId);
+            if (plotDiv && plotDiv.data && plotDiv.layout) {
+                // Use Plotly's responsive resize which respects autosize
+                Plotly.Plots.resize(plotId);
+            }
+        });
+    }, 150); // Slightly longer debounce for better performance
+});
+
+// Mobile modal functionality
+function openPlotModal(plotId) {
+    console.log('Opening modal for plot:', plotId);
+    
+    const modal = document.getElementById('plot-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalPlotContainer = document.getElementById('modal-plot-container');
+    const originalPlotDiv = document.getElementById(plotId);
+    
+    if (!modal || !modalTitle || !modalPlotContainer) {
+        console.error('Modal elements not found');
+        alert('Modal elements not found. Please check the page setup.');
+        return;
+    }
+    
+    if (!originalPlotDiv) {
+        console.error('Original plot div not found:', plotId);
+        alert('Plot not found: ' + plotId);
+        return;
+    }
+    
+    // Reset modal to clean state first
+    resetModalState(modal, modalPlotContainer);
+    
+    // Set modal title based on plot
+    const plotTitles = {
+        'coherence-times-plot': 'Physical Qubit Coherence Times',
+        'entangled-error-plot': 'Entangled State Error Progress',
+        'qubit-count-plot': 'Qubit Count Evolution',
+        'experiment-counts': 'Experiment Counts by Platform',
+        'nkd-plot-aggregated': '[[n,k,d]] Distribution',
+        'experiment-counts-yearly': 'Yearly Experiment Trends',
+        'qec-cumulative-growth': 'QEC Growth Over Time',
+        'qec-timeline-aggregated-scatter': 'QEC Implementation Timeline',
+        'qec-platform-sunburst': 'Platform Distribution'
+    };
+    
+    modalTitle.textContent = plotTitles[plotId] || 'Interactive Plot';
+    
+    // Show loading indicator immediately
+    modalPlotContainer.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column; color: #666;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">Loading interactive plot...</div>
+            <div style="font-size: 0.9rem;">Please wait a moment</div>
+        </div>
+    `;
+    
+    // Show modal using CSS classes
+    modal.classList.remove('hidden');
+    modal.classList.add('show');
+    modal.style.display = 'block';
+    modal.style.visibility = 'visible';
+    modal.style.opacity = '1';
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
+    
+    console.log('Modal should now be visible. Classes:', modal.className);
+    console.log('Modal computed style display:', window.getComputedStyle(modal).display);
+    
+    // Wait for plot data to be available
+    const waitForPlotData = () => {
+        if (!originalPlotDiv.data || !originalPlotDiv.layout) {
+            console.log('Waiting for plot data to load...', plotId);
+            setTimeout(waitForPlotData, 100);
+            return;
+        }
+        
+        console.log('Plot data found, creating mobile plot');
+        
+        // Clear loading and create plot container
+        modalPlotContainer.innerHTML = '<div id="modal-plot" style="width:100%; height:100%;"></div>';
+        
+        // Clone the plot data and layout for mobile optimization
+        const mobileLayout = {
+            ...originalPlotDiv.layout,
+            autosize: true,
+            margin: { l: 50, r: 20, t: 40, b: 40 },
+            font: { size: 12 },
+            title: {
+                ...originalPlotDiv.layout.title,
+                font: { size: 16 }
+            },
+            legend: {
+                ...originalPlotDiv.layout.legend,
+                font: { size: 10 }
+            }
+        };
+        
+        // Create mobile-optimized plot in modal
+        const config = {
+            responsive: true,
+            displayModeBar: false,
+            doubleClick: 'reset',
+            scrollZoom: true,
+            touchmove: true,
+            // Enable better touch interaction
+            showTips: false,
+            staticPlot: false,
+            // Allow plot interaction on touch devices
+            modeBarButtonsToRemove: [],
+            dragmode: 'pan'
+        };
+        
+        try {
+            Plotly.newPlot('modal-plot', originalPlotDiv.data, mobileLayout, config);
+            console.log('Plot successfully created in modal for', plotId);
+        } catch (error) {
+            console.error('Error creating plot in modal:', error);
+            modalPlotContainer.innerHTML = '<div style="padding: 2rem; text-align: center; color: #666;">Error loading plot. Please try again.</div>';
+        }
+    };
+    
+    // Start waiting for plot data
+    waitForPlotData();
+}
+
+function resetModalState(modal, modalPlotContainer) {
+    console.log('Resetting modal state');
+    
+    // Clear any existing content
+    if (modalPlotContainer) {
+        modalPlotContainer.innerHTML = '';
+    }
+    
+    // Reset all CSS properties to initial state
+    modal.classList.remove('show', 'hidden');
+    modal.style.display = '';
+    modal.style.visibility = '';
+    modal.style.opacity = '';
+    
+    // Ensure body scroll is restored
+    document.body.style.overflow = 'auto';
+    document.body.classList.remove('modal-open');
+    
+    console.log('Modal state reset complete');
+}
+
+function closePlotModal() {
+    console.log('Attempting to close modal');
+    
+    const modal = document.getElementById('plot-modal');
+    const modalPlotContainer = document.getElementById('modal-plot-container');
+    
+    if (!modal) {
+        console.error('Modal not found for closing');
+        return;
+    }
+    
+    console.log('Modal before closing. Classes:', modal.className);
+    console.log('Modal computed style before closing:', window.getComputedStyle(modal).display);
+    
+    // Reset modal to clean state
+    resetModalState(modal, modalPlotContainer);
+    
+    // Hide modal using CSS class
+    modal.classList.add('hidden');
+    modal.style.display = 'none';
+    
+    console.log('Modal after closing. Classes:', modal.className);
+    console.log('Modal computed style after closing:', window.getComputedStyle(modal).display);
+    console.log('Modal closed successfully');
+    
+    // Force a reflow to ensure changes are applied
+    modal.offsetHeight;
+}
+
+// Make closePlotModal globally available
+window.closePlotModal = closePlotModal;
+window.openPlotModal = openPlotModal;
+
+// Close modal when clicking outside content or pressing escape
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Setting up modal event listeners');
+    
+    const modal = document.getElementById('plot-modal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                console.log('Clicked outside modal, closing');
+                closePlotModal();
+            }
+        });
+        console.log('Modal click listener added');
+    } else {
+        console.error('Modal element not found during setup');
+    }
+    
+    // Handle escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            console.log('Escape key pressed, closing modal');
+            closePlotModal();
+        }
+    });
+    
+    console.log('Modal setup complete');
+});
