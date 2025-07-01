@@ -1,6 +1,6 @@
 title: "AQCE"
 description: "Awesome Quantum Computing Experiments: A curated collection of notable quantum computing experiments"
-remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs
 baseurl: "/awesome-quantum-computing-experiments"
 url: "https://francoismarieleregent.xyz"
 
@@ -29,11 +29,8 @@ markdown: kramdown
 sass:
   style: compressed
   sourcemap: never
-  implementation: sassc
 
-# Ensure Jekyll processes all necessary files
 plugins:
-  - jekyll-remote-theme
   - jekyll-include-cache
   - jekyll-feed
 
