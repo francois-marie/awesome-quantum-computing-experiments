@@ -94,23 +94,21 @@ For more detailed information:
 1. Set up Ruby environment using rbenv:
 ```bash
 eval "$(rbenv init -)"
-rbenv shell 2.7.8
-gem install bundler -v 2.4.22
+rbenv shell 3.1.0
 ```
 
 2. Install Ruby dependencies:
 ```bash
-rm -rf vendor/ .bundle/ Gemfile.lock
-bundle _2.4.22_ install
+bundle install
 ```
 
 3. Run Jekyll server:
 ```bash
 bundle exec jekyll clean
-bundle exec jekyll serve
+bundle exec jekyll serve --baseurl="/awesome-quantum-computing-experiments" --livereload
 ```
 
-The site will be available at `http://localhost:4000`.
+The site will be available at `http://localhost:4000/awesome-quantum-computing-experiments/`.
 </div>
 
 <hr style="margin: 30px 0;">
