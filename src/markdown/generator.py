@@ -139,23 +139,23 @@ After generation, plots will be available in multiple formats:
 
 The following PNG files are included in the repository to display in this README:
 
-![Cumulative Experiment Counts by Platform]({{ '/out/png/experiment_counts.png' | relative_url }})
+![Cumulative Experiment Counts by Platform](out/png/experiment_counts.png)
 
-![Yearly Experiment Counts]({{ '/out/png/experiment_counts_yearly.png' | relative_url }})
+![Yearly Experiment Counts](out/png/experiment_counts_yearly.png)
 
-![QEC Platform Distribution]({{ '/out/png/qec_platform_sunburst.png' | relative_url }})
+![QEC Platform Distribution](out/png/qec_platform_sunburst.png)
 
-![Timeline of QEC Implementations]({{ '/out/png/qec_timeline.png' | relative_url }})
+![Timeline of QEC Implementations](out/png/qec_timeline.png)
 
-![[[n, k, d]] Distribution]({{ '/out/png/nkd_plot.png' | relative_url }})
+![[[n, k, d]] Distribution](out/png/nkd_plot.png)
 
-![Entangled State Error Progress]({{ '/out/png/entangled_error_plot.png' | relative_url }})
+![Entangled State Error Progress](out/png/entangled_error_plot.png)
 
-![Qubit Count Evolution]({{ '/out/png/qubit_count_plot.png' | relative_url }})
+![Qubit Count Evolution](out/png/qubit_count_plot.png)
 
-![Physical Qubit Coherence Times]({{ '/out/png/coherence_times_plot.png' | relative_url }})
+![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)
 
-![Cumulative Experiment Counts by QEC code]({{ '/out/png/qec_cumulative_growth.png' | relative_url }})
+![Cumulative Experiment Counts by QEC code](out/png/qec_cumulative_growth.png)
 
 </div>
 
