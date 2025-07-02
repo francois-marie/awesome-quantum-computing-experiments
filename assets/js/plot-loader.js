@@ -425,11 +425,15 @@ window.openPlotModal = function(plotId) {
     console.log('Modal should now be visible. Classes:', modal.className);
     
     // Create image element and load the PNG
-    const baseUrl = window.location.pathname.includes('/awesome-quantum-computing-experiments') 
-        ? '/awesome-quantum-computing-experiments' 
-        : '';
+    // Use a more robust base URL detection
+    const baseUrl = document.querySelector('base')?.getAttribute('href') || 
+                    (window.location.pathname.includes('/awesome-quantum-computing-experiments') 
+                        ? '/awesome-quantum-computing-experiments' 
+                        : '');
     const imageUrl = `${baseUrl}/out/png/${imageName}`;
     console.log('Loading image:', imageUrl);
+    console.log('Current pathname:', window.location.pathname);
+    console.log('Detected baseUrl:', baseUrl);
     
     const img = new Image();
     img.onload = function() {
@@ -445,14 +449,62 @@ window.openPlotModal = function(plotId) {
     
     img.onerror = function() {
         console.error('Failed to load image:', imageUrl);
-        modalPlotContainer.innerHTML = `
-            <div style="padding: 2rem; text-align: center; color: #666;">
-                <p>Failed to load plot image.</p>
-                <p><small>Image path: ${imageUrl}</small></p>
-                <button onclick="closePlotModal()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
-            </div>
-        `;
+        
+        // Try alternative paths as fallback
+        const fallbackPaths = [
+            `/out/png/${imageName}`,  // Without base URL
+            `./out/png/${imageName}`, // Relative path
+            `out/png/${imageName}`    // Direct relative path
+        ];
+        
+        function tryFallback(index) {
+            if (index >= fallbackPaths.length) {
+                // All fallbacks failed
+                modalPlotContainer.innerHTML = `
+                    <div style="padding: 2rem; text-align: center; color: #666;">
+                        <p>Failed to load plot image.</p>
+                        <p><small>Tried paths:</small></p>
+                        <p><small>${imageUrl}</small></p>
+                        ${fallbackPaths.map(path => `<p><small>${path}</small></p>`).join('')}
+                        <button onclick="closePlotModal()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+                    </div>
+                `;
+                return;
+            }
+            
+            const fallbackImg = new Image();
+            const fallbackPath = fallbackPaths[index];
+            console.log(`Trying fallback path ${index + 1}:`, fallbackPath);
+            
+            fallbackImg.onload = function() {
+                console.log('Fallback image loaded successfully:', fallbackPath);
+                modalPlotContainer.innerHTML = `
+                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box;">
+                        <img src="${fallbackPath}" 
+                             alt="${plotTitles[plotId] || 'Plot'}" 
+                             style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    </div>
+                `;
+            };
+            
+            fallbackImg.onerror = function() {
+                console.error('Fallback failed:', fallbackPath);
+                tryFallback(index + 1);
+            };
+            
+            fallbackImg.src = fallbackPath;
+        }
+        
+        // Start trying fallbacks
+        tryFallback(0);
     };
+    
+    // Add timeout to handle slow networks (common on mobile)
+    setTimeout(function() {
+        if (!img.complete) {
+            console.warn('Image taking too long to load, may have failed silently');
+        }
+    }, 10000);
     
     // Start loading the image
     img.src = imageUrl;
