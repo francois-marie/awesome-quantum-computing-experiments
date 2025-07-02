@@ -55,7 +55,10 @@ function createQubitCountPlot(data) {
     const config = {
         responsive: true,
         displayModeBar: !isMobile,
-        modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
+        modeBarButtons: isMobile ? [] : [['zoom2d', 'pan2d', 'resetScale2d']],
+        scrollZoom: !isMobile, // Disable scroll zoom on mobile to prevent conflicts with page scrolling
+        doubleClick: 'reset', // Double click to reset zoom
+        showTips: !isMobile // Hide tips on mobile to save space
     };
 
     Plotly.newPlot('qubit-count-plot', traces, layout, config);
@@ -101,10 +104,15 @@ function createQECTimelinePlot(data) {
         }
     };
 
+    const isMobile = window.innerWidth < 768;
+    
     const config = {
         responsive: true,
-        displayModeBar: window.innerWidth >= 768,
-        modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
+        displayModeBar: !isMobile,
+        modeBarButtons: isMobile ? [] : [['zoom2d', 'pan2d', 'resetScale2d']],
+        scrollZoom: !isMobile, // Disable scroll zoom on mobile to prevent conflicts with page scrolling
+        doubleClick: 'reset', // Double click to reset zoom
+        showTips: !isMobile // Hide tips on mobile to save space
     };
 
     Plotly.newPlot('qec-timeline-plot', traces, layout, config);
@@ -158,10 +166,15 @@ function createNKDPlot(data) {
         }
     };
 
+    const isMobile = window.innerWidth < 768;
+    
     const config = {
         responsive: true,
-        displayModeBar: window.innerWidth >= 768,
-        modeBarButtons: [['zoom3d', 'pan3d', 'resetCameraDefault3d', 'toImage']]
+        displayModeBar: !isMobile,
+        modeBarButtons: isMobile ? [] : [['zoom3d', 'pan3d', 'resetCameraDefault3d']],
+        scrollZoom: !isMobile, // Disable scroll zoom on mobile to prevent conflicts with page scrolling
+        doubleClick: 'reset', // Double click to reset zoom
+        showTips: !isMobile // Hide tips on mobile to save space
     };
 
     Plotly.newPlot('nkd-plot', [trace], layout, config);
@@ -224,7 +237,10 @@ function createEntangledErrorPlot(data) {
     const config = {
         responsive: true,
         displayModeBar: !isMobile,
-        modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
+        modeBarButtons: isMobile ? [] : [['zoom2d', 'pan2d', 'resetScale2d']],
+        scrollZoom: !isMobile, // Disable scroll zoom on mobile to prevent conflicts with page scrolling
+        doubleClick: 'reset', // Double click to reset zoom
+        showTips: !isMobile // Hide tips on mobile to save space
     };
 
     Plotly.newPlot('entangled-error-plot', traces, layout, config);
@@ -316,7 +332,10 @@ function createCoherenceTimesPlot(data) {
     const config = {
         responsive: true,
         displayModeBar: !isMobile,
-        modeBarButtons: [['zoom2d', 'pan2d', 'resetScale2d', 'toImage']]
+        modeBarButtons: isMobile ? [] : [['zoom2d', 'pan2d', 'resetScale2d']],
+        scrollZoom: !isMobile, // Disable scroll zoom on mobile to prevent conflicts with page scrolling
+        doubleClick: 'reset', // Double click to reset zoom
+        showTips: !isMobile // Hide tips on mobile to save space
     };
 
     Plotly.newPlot('coherence-times-plot', traces, layout, config);
@@ -345,196 +364,37 @@ window.addEventListener('resize', function() {
         plotIds.forEach(plotId => {
             const plotDiv = document.getElementById(plotId);
             if (plotDiv && plotDiv.data && plotDiv.layout) {
-                // Use Plotly's responsive resize which respects autosize
-                Plotly.Plots.resize(plotId);
+                // Check if the plot div is actually visible and has dimensions
+                const style = window.getComputedStyle(plotDiv);
+                const isVisible = style.display !== 'none' && 
+                                style.visibility !== 'hidden' && 
+                                plotDiv.offsetWidth > 0 && 
+                                plotDiv.offsetHeight > 0;
+                
+                if (isVisible) {
+                    try {
+                        // Use Plotly's responsive resize which respects autosize
+                        Plotly.Plots.resize(plotId);
+                    } catch (e) {
+                        console.warn(`Failed to resize plot ${plotId}:`, e);
+                    }
+                } else {
+                    console.log(`Skipping resize for hidden plot: ${plotId}`);
+                }
             }
         });
     }, 150); // Slightly longer debounce for better performance
 });
 
-// Make functions globally available immediately
+// Remove modal functionality - no longer needed since we show JS plots on mobile
 window.openPlotModal = function(plotId) {
-    console.log('Opening modal for plot:', plotId);
-    
-    const modal = document.getElementById('plot-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalPlotContainer = document.getElementById('modal-plot-container');
-    
-    if (!modal || !modalTitle || !modalPlotContainer) {
-        console.error('Modal elements not found');
-        alert('Modal elements not found. Please check the page setup.');
-        return;
-    }
-    
-    // Reset modal to clean state first
-    resetModalState(modal, modalPlotContainer);
-    
-    // Set modal title based on plot
-    const plotTitles = {
-        'coherence-times-plot': 'Physical Qubit Coherence Times',
-        'entangled-error-plot': 'Entangled State Error Progress',
-        'qubit-count-plot': 'Qubit Count Evolution',
-        'experiment-counts': 'Experiment Counts by Platform',
-        'nkd-plot-aggregated': '[[n,k,d]] Distribution',
-        'experiment-counts-yearly': 'Yearly Experiment Trends',
-        'qec-cumulative-growth': 'QEC Growth Over Time',
-        'qec-timeline-aggregated-scatter': 'QEC Implementation Timeline',
-        'qec-platform-sunburst': 'Platform Distribution'
-    };
-    
-    modalTitle.textContent = plotTitles[plotId] || 'Interactive Plot';
-    
-    // Map plot IDs to PNG file names
-    const plotImageMap = {
-        'coherence-times-plot': 'coherence_times_plot.png',
-        'entangled-error-plot': 'entangled_error_plot.png',
-        'qubit-count-plot': 'qubit_count_plot.png',
-        'experiment-counts': 'experiment_counts.png',
-        'nkd-plot-aggregated': 'nkd_plot_aggregated.png',
-        'experiment-counts-yearly': 'experiment_counts_yearly.png',
-        'qec-cumulative-growth': 'qec_cumulative_growth.png',
-        'qec-timeline-aggregated-scatter': 'qec_timeline_aggregated.png',
-        'qec-platform-sunburst': 'qec_platform_sunburst.png'
-    };
-    
-    const imageName = plotImageMap[plotId];
-    if (!imageName) {
-        console.error('No image mapping found for plot:', plotId);
-        modalPlotContainer.innerHTML = '<div style="padding: 2rem; text-align: center; color: #666;">Plot image not found.</div>';
-        return;
-    }
-    
-    // Show loading indicator immediately
-    modalPlotContainer.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column; color: #666;">
-            <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
-            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">Loading plot...</div>
-            <div style="font-size: 0.9rem;">Please wait a moment</div>
-        </div>
-    `;
-    
-    // Show modal using CSS classes
-    modal.classList.remove('hidden');
-    modal.classList.add('show');
-    modal.style.display = 'flex';
-    modal.style.visibility = 'visible';
-    modal.style.opacity = '1';
-    document.body.style.overflow = 'hidden';
-    document.body.classList.add('modal-open');
-    
-    console.log('Modal should now be visible. Classes:', modal.className);
-    
-    // Create image element and load the PNG
-    // Use a more robust base URL detection
-    const baseUrl = document.querySelector('base')?.getAttribute('href') || 
-                    (window.location.pathname.includes('/awesome-quantum-computing-experiments') 
-                        ? '/awesome-quantum-computing-experiments' 
-                        : '');
-    const imageUrl = `${baseUrl}/out/png/${imageName}`;
-    console.log('Loading image:', imageUrl);
-    console.log('Current pathname:', window.location.pathname);
-    console.log('Detected baseUrl:', baseUrl);
-    
-    const img = new Image();
-    img.onload = function() {
-        console.log('Image loaded successfully');
-        modalPlotContainer.innerHTML = `
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box;">
-                <img src="${imageUrl}" 
-                     alt="${plotTitles[plotId] || 'Plot'}" 
-                     style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            </div>
-        `;
-    };
-    
-    img.onerror = function() {
-        console.error('Failed to load image:', imageUrl);
-        
-        // Try alternative paths as fallback
-        const fallbackPaths = [
-            `/out/png/${imageName}`,  // Without base URL
-            `./out/png/${imageName}`, // Relative path
-            `out/png/${imageName}`    // Direct relative path
-        ];
-        
-        function tryFallback(index) {
-            if (index >= fallbackPaths.length) {
-                // All fallbacks failed
-                modalPlotContainer.innerHTML = `
-                    <div style="padding: 2rem; text-align: center; color: #666;">
-                        <p>Failed to load plot image.</p>
-                        <p><small>Tried paths:</small></p>
-                        <p><small>${imageUrl}</small></p>
-                        ${fallbackPaths.map(path => `<p><small>${path}</small></p>`).join('')}
-                        <button onclick="closePlotModal()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
-                    </div>
-                `;
-                return;
-            }
-            
-            const fallbackImg = new Image();
-            const fallbackPath = fallbackPaths[index];
-            console.log(`Trying fallback path ${index + 1}:`, fallbackPath);
-            
-            fallbackImg.onload = function() {
-                console.log('Fallback image loaded successfully:', fallbackPath);
-                modalPlotContainer.innerHTML = `
-                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box;">
-                        <img src="${fallbackPath}" 
-                             alt="${plotTitles[plotId] || 'Plot'}" 
-                             style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    </div>
-                `;
-            };
-            
-            fallbackImg.onerror = function() {
-                console.error('Fallback failed:', fallbackPath);
-                tryFallback(index + 1);
-            };
-            
-            fallbackImg.src = fallbackPath;
-        }
-        
-        // Start trying fallbacks
-        tryFallback(0);
-    };
-    
-    // Add timeout to handle slow networks (common on mobile)
-    setTimeout(function() {
-        if (!img.complete) {
-            console.warn('Image taking too long to load, may have failed silently');
-        }
-    }, 10000);
-    
-    // Start loading the image
-    img.src = imageUrl;
+    console.log('Modal functionality disabled - showing interactive plots directly');
+    return;
 };
 
 window.closePlotModal = function() {
-    console.log('Attempting to close modal');
-    
-    const modal = document.getElementById('plot-modal');
-    const modalPlotContainer = document.getElementById('modal-plot-container');
-    
-    if (!modal) {
-        console.error('Modal not found for closing');
-        return;
-    }
-    
-    console.log('Modal before closing. Classes:', modal.className);
-    
-    // Reset modal to clean state
-    resetModalState(modal, modalPlotContainer);
-    
-    // Hide modal using CSS class
-    modal.classList.add('hidden');
-    modal.style.display = 'none';
-    
-    console.log('Modal after closing. Classes:', modal.className);
-    console.log('Modal closed successfully');
-    
-    // Force a reflow to ensure changes are applied
-    modal.offsetHeight;
+    console.log('Modal functionality disabled - no longer needed');
+    return;
 };
 
 function resetModalState(modal, modalPlotContainer) {
