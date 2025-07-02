@@ -14,11 +14,12 @@
 [[build.cache]]
   paths = ["vendor/bundle", "_site", "venv", "__pycache__", ".sass-cache"]
 
-# Redirect for the app subfolder
-[[redirects]]
-  from = "/awesome-quantum-computing-experiments/*"
-  to = "/awesome-quantum-computing-experiments/index.html"
-  status = 404
+# Ensure assets are served correctly with proper headers  
+[[headers]]
+  for = "/awesome-quantum-computing-experiments/out/png/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "image/png"
 
 # Headers for better performance and security
 [[headers]]
@@ -43,4 +44,5 @@
 [[headers]]
   for = "/out/png/*"
   [headers.values]
-    Cache-Control = "public, max-age=86400" 
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "image/png" 
