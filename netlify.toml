@@ -14,13 +14,6 @@
 [[build.cache]]
   paths = ["vendor/bundle", "_site", "venv", "__pycache__", ".sass-cache"]
 
-# Ensure assets are served correctly with proper headers  
-[[headers]]
-  for = "/awesome-quantum-computing-experiments/out/png/*"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-    Content-Type = "image/png"
-
 # Headers for better performance and security
 [[headers]]
   for = "/*"
@@ -39,10 +32,4 @@
   for = "/out/js/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
-    Content-Type = "application/javascript"
-
-[[headers]]
-  for = "/out/png/*"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-    Content-Type = "image/png" 
+    Content-Type = "application/javascript" 
