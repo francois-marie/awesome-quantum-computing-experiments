@@ -130,56 +130,27 @@
 /* Mobile-specific plot adjustments */
 @media (max-width: 768px) {
     .plot-container {
-        /* Hide plot containers completely on mobile since we show PNG images in modal */
-        display: none !important;
-    }
-    
-    /* Show thumbnails on mobile */
-    .plot-thumbnail {
+        /* Show plot containers on mobile - make them responsive */
         display: block !important;
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        border: 2px solid #dee2e6;
-        border-radius: 12px;
-        padding: 1.5rem;
+        width: 100%;
+        min-height: 300px; /* Smaller height for mobile */
         margin: 1rem 0;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        overflow-x: auto; /* Allow horizontal scrolling if needed */
     }
     
-    .plot-thumbnail:hover {
-        border-color: #007bff;
-        box-shadow: 0 4px 12px rgba(0,123,255,0.15);
-        transform: translateY(-2px);
-    }
-    
-    .plot-thumbnail h4 {
-        margin: 0 0 0.5rem 0;
-        color: #2c3e50;
-        font-size: 1.1rem;
-    }
-    
-    .plot-thumbnail p {
-        margin: 0.5rem 0;
-        color: #6c757d;
-        font-size: 0.9rem;
-    }
-    
-    .preview-stats {
-        background: rgba(0,123,255,0.1);
-        border-radius: 6px;
-        padding: 0.5rem;
-        margin-top: 0.75rem;
-        font-size: 0.85rem;
-        color: #0056b3;
+    /* Hide thumbnails on mobile since we're showing actual plots */
+    .plot-thumbnail {
+        display: none !important;
     }
 }
 
 @media (max-width: 480px) {
     .plot-container {
-        /* Hide plot containers completely on mobile */
-        display: none !important;
+        /* Show plot containers on small mobile screens too */
+        display: block !important;
+        min-height: 250px; /* Even smaller height for very small screens */
     }
 }
 
