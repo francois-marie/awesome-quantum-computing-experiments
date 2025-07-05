@@ -70,30 +70,30 @@
                 ...originalLayout.legend,
                 font: {
                     ...originalLayout.legend?.font,
-                    size: mobile ? 8 : (originalLayout.legend?.font?.size || 12)
+                    size: mobile ? 10 : (originalLayout.legend?.font?.size || 12)
                 },
-                x: mobile ? 0.5 : (originalLayout.legend?.x || 1),
-                y: mobile ? -0.15 : (originalLayout.legend?.y || 1),
+                x: mobile ? 0.5 : (originalLayout.legend?.x !== undefined ? originalLayout.legend.x : 1.02),
+                y: mobile ? -0.1 : (originalLayout.legend?.y !== undefined ? originalLayout.legend.y : 1),
                 xanchor: mobile ? 'center' : 'left',
                 yanchor: mobile ? 'top' : 'top',
                 orientation: mobile ? 'h' : 'v',
-                // Ensure legend doesn't cause overflow on mobile
-                bgcolor: mobile ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0)',
+                // Ensure legend is visible
+                bgcolor: mobile ? 'rgba(255,255,255,0.9)' : 'rgba(0,0,0,0)',
                 bordercolor: mobile ? 'rgba(0,0,0,0.1)' : 'rgba(0,0,0,0)',
                 borderwidth: mobile ? 1 : 0
             },
             
             // Mobile-specific margin adjustments
             margin: {
-                l: mobile ? 45 : 80,
-                r: mobile ? 10 : 80,
-                t: mobile ? 45 : 80,
-                b: mobile ? (originalLayout.legend && mobile ? 80 : 40) : 80
+                l: mobile ? 50 : 80,
+                r: mobile ? 20 : 120, // More space for desktop legends
+                t: mobile ? 50 : 80,
+                b: mobile ? (originalLayout.legend && mobile ? 100 : 50) : 80
             },
             
-            // Force full width on mobile
-            width: mobile ? undefined : originalLayout.width,
-            height: mobile ? undefined : originalLayout.height
+            // Force responsive sizing
+            width: undefined, // Let plot auto-size to container
+            height: undefined // Let plot auto-size to container
         };
 
         // Special handling for 3D plots
