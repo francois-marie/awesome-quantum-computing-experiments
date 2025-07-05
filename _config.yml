@@ -5,7 +5,7 @@ baseurl: "/awesome-quantum-computing-experiments"
 url: "https://francoismarieleregent.xyz"
 
 # Theme settings
-color_scheme: custom
+color_scheme: light
 search_enabled: true
 heading_anchors: true
 aux_links:
