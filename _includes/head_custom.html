@@ -1,11 +1,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 
+<!-- Basic SEO meta tags -->
+<meta name="description" content="{{ site.description | default: 'A curated collection of notable quantum computing experiments' }}">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+
 <!-- Open Graph / Facebook -->
 <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ site.title | default: 'Awesome Quantum Computing Experiments' }}">
 <meta property="og:description" content="{{ site.description | default: 'A curated collection of notable quantum computing experiments' }}">
 <meta property="og:image" content="{{ site.url }}{{ '/assets/social_image.png' | relative_url }}">
+<meta property="og:site_name" content="{{ site.title }}">
 
 <!-- Twitter Card meta tags -->
 <meta name="twitter:card" content="summary_large_image">
@@ -15,6 +20,27 @@
 <meta name="twitter:creator" content="@fm_leregent">
 <meta name="twitter:site" content="@fm_leregent">
 <meta name="twitter:image" content="{{ site.url }}{{ '/assets/social_image.png' | relative_url }}">
+<meta name="twitter:image:alt" content="Awesome Quantum Computing Experiments - Explore Notable Trends in Quantum Computing with visualization of QEC implementations">
+
+<!-- JSON-LD structured data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.title }}",
+  "description": "{{ site.description }}",
+  "url": "{{ site.url }}{{ site.baseurl }}/",
+  "image": "{{ site.url }}{{ '/assets/social_image.png' | relative_url }}",
+  "author": {
+    "@type": "Person",
+    "name": "François-Marie Le Régent",
+    "sameAs": [
+      "https://twitter.com/fm_leregent",
+      "https://github.com/francois-marie"
+    ]
+  }
+}
+</script>
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="{{ '/assets/atom-emoji.png' | relative_url }}">
