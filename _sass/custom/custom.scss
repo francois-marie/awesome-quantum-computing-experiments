@@ -116,15 +116,39 @@
 /* Responsive plot containers */
 .plot-container {
     width: 100%;
-    min-height: 400px;
+    min-height: 1000px; /* Twofold increase: 500px × 2 = 1000px for desktop */
     margin: 1rem 0;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden; /* Prevent any overflow */
+    
+    /* Ensure plotly plots are properly sized */
+    .js-plotly-plot {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Style plotly plots */
+    .plotly-graph-div {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Ensure SVG elements don't overflow */
+    .main-svg {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 }
 
 /* Plot section wrapper */
 .plot-section {
     margin: 2rem 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 /* Mobile-specific plot adjustments */
@@ -133,16 +157,56 @@
         /* Show plot containers on mobile - make them responsive */
         display: block !important;
         width: 100%;
-        min-height: 300px; /* Smaller height for mobile */
+        max-width: 100%;
+        min-height: 800px; /* Twofold increase: 400px × 2 = 800px for mobile */
         margin: 1rem 0;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        overflow-x: auto; /* Allow horizontal scrolling if needed */
+        overflow: hidden; /* Prevent horizontal scrolling */
+        
+        /* Ensure plots fit properly in containers */
+        .js-plotly-plot {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        /* Handle plotly toolbar on mobile */
+        .modebar {
+            display: none !important;
+        }
+        
+        /* Ensure plotly divs don't overflow */
+        .plotly-graph-div {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        /* Force SVG to respect container width */
+        .main-svg {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        /* Ensure legends don't cause overflow */
+        .legend {
+            max-width: 100% !important;
+        }
     }
     
     /* Hide thumbnails on mobile since we're showing actual plots */
     .plot-thumbnail {
         display: none !important;
+    }
+    
+    /* Modal functionality removed - no longer needed */
+    
+    /* Plot section adjustments for mobile */
+    .plot-section {
+        margin: 1rem 0;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 }
 
@@ -150,7 +214,8 @@
     .plot-container {
         /* Show plot containers on small mobile screens too */
         display: block !important;
-        min-height: 250px; /* Even smaller height for very small screens */
+        min-height: 700px; /* Twofold increase: 350px × 2 = 700px for small mobile */
+        margin: 0.5rem 0; /* Tighter margins for small screens */
     }
 }
 
@@ -161,137 +226,30 @@
         display: none !important;
     }
     
-    /* Show plot containers on desktop */
-    .plot-container {
-        display: block !important;
-        width: 100%;
-        min-height: 400px;
-        margin: 1rem 0;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+    /* Plot container rules are already defined in the main CSS block above */
 }
 
-/* Modal styles - unified and fixed */
-.plot-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.8);
-    z-index: 10000;
-    display: none !important;
-    backdrop-filter: blur(4px);
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-.plot-modal.show {
-    display: flex !important;
-}
-
-.plot-modal.hidden {
-    display: none !important;
-}
-
-.modal-content {
-    background: white;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
-    flex-shrink: 0;
-    min-height: 60px;
-}
-
-.modal-header h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #2c3e50;
-    flex-grow: 1;
-}
-
-.close-btn {
-    background: #ff4757;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
-    padding: 0.5rem 0.75rem;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1rem;
-    flex-shrink: 0;
-    z-index: 10001;
-}
-
-.close-btn:hover {
-    background: #ff3838;
-    transform: scale(1.1);
-}
-
-.close-btn:active {
-    background: #ff2222;
-    transform: scale(0.95);
-}
-
-.modal-plot-container {
-    width: 100%;
-    flex-grow: 1;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    background: white;
-    min-height: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-instructions {
-    background: #f8f9fa;
-    padding: 0.75rem;
-    text-align: center;
-    border-top: 1px solid #dee2e6;
-    font-size: 0.8rem;
-    color: #6c757d;
-    flex-shrink: 0;
-}
-
-.modal-instructions p {
-    margin: 0;
-}
+/* Modal styles removed - plots are now shown directly on all devices */
 
 /* Mobile-specific improvements */
 @media (max-width: 768px) {
+    /* Prevent horizontal scrolling on mobile */
+    body {
+        font-size: 16px; /* Prevents zoom on iOS */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        max-width: 100vw; /* Ensure body doesn't exceed viewport width */
+    }
+    
+    /* Ensure main content doesn't cause overflow */
+    .main-content {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
     /* Make tables horizontally scrollable on mobile */
     .table-wrapper {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-    }
-    
-    /* Improve readability on mobile */
-    body {
-        font-size: 16px; /* Prevents zoom on iOS */
     }
     
     /* Better button spacing on mobile */
@@ -352,25 +310,12 @@
         color: var(--body-text-color, #27262b) !important;
     }
     
-    /* Mobile: Show thumbnails, hide plot containers */
+    /* Mobile: Show responsive plots directly, hide thumbnails */
     .plot-thumbnail {
-        display: block;
-        background: white;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        cursor: pointer;
-        transition: transform 0.2s ease;
+        display: none !important;
     }
     
-    .plot-thumbnail:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
-    
-    .plot-container {
-        display: none;
-    }
+    /* Plot container rules are already defined in the first @media block above */
 }
 
 /* Desktop: Show plot containers, hide thumbnails */
