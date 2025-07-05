@@ -22,6 +22,7 @@ group :jekyll_plugins do
   gem "jekyll-remote-theme"
   gem "jekyll-include-cache"
   gem "jekyll-feed", "~> 0.15"
+  gem "jekyll-seo-tag"
 end
 
 # Compatible versions for Ruby 3.1
