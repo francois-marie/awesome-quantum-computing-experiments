@@ -4,6 +4,20 @@ theme: just-the-docs
 baseurl: "/awesome-quantum-computing-experiments"
 url: "https://francoismarieleregent.xyz"
 
+# Social media settings (keep for schema.org)
+social:
+  name: François-Marie Le Régent
+  links:
+    - https://twitter.com/fm_leregent
+    - https://github.com/francois-marie
+
+# Default social image for Open Graph
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/social_image.png
+
 # Theme settings
 color_scheme: custom
 search_enabled: true
@@ -33,6 +47,7 @@ sass:
 plugins:
   - jekyll-include-cache
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Include generated plot files in the site
 include:
