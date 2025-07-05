@@ -116,11 +116,11 @@
 /* Responsive plot containers */
 .plot-container {
     width: 100%;
-    min-height: 1000px; /* Twofold increase: 500px × 2 = 1000px for desktop */
+    min-height: 800px; /* Increased to accommodate legends and full plot content */
     margin: 1rem 0;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    overflow: hidden; /* Prevent any overflow */
+    overflow: visible; /* Allow plots to show legends and full content */
     
     /* Ensure plotly plots are properly sized */
     .js-plotly-plot {
@@ -148,7 +148,7 @@
     margin: 2rem 0;
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible; /* Allow legends to show outside container if needed */
 }
 
 /* Mobile-specific plot adjustments */
@@ -158,11 +158,11 @@
         display: block !important;
         width: 100%;
         max-width: 100%;
-        min-height: 800px; /* Twofold increase: 400px × 2 = 800px for mobile */
+        min-height: 900px; /* Increased to accommodate legends on mobile */
         margin: 1rem 0;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        overflow: hidden; /* Prevent horizontal scrolling */
+        overflow: visible; /* Allow legends and full plot content to show */
         
         /* Ensure plots fit properly in containers */
         .js-plotly-plot {
@@ -206,7 +206,7 @@
         margin: 1rem 0;
         width: 100%;
         max-width: 100%;
-        overflow: hidden;
+        overflow: visible; /* Allow legends to show */
     }
 }
 
@@ -214,7 +214,7 @@
     .plot-container {
         /* Show plot containers on small mobile screens too */
         display: block !important;
-        min-height: 700px; /* Twofold increase: 350px × 2 = 700px for small mobile */
+        min-height: 800px; /* Increased to accommodate legends on small mobile */
         margin: 0.5rem 0; /* Tighter margins for small screens */
     }
 }
@@ -224,6 +224,18 @@
     /* Hide thumbnails on desktop */
     .plot-thumbnail {
         display: none !important;
+    }
+    
+    /* Ensure main content has maximum width for plots */
+    .main-content {
+        max-width: none !important;
+        width: 100% !important;
+    }
+    
+    /* Optimize plot section spacing on desktop */
+    .plot-section {
+        margin: 2rem 0;
+        width: 100%;
     }
     
     /* Plot container rules are already defined in the main CSS block above */
@@ -236,14 +248,14 @@
     /* Prevent horizontal scrolling on mobile */
     body {
         font-size: 16px; /* Prevents zoom on iOS */
-        overflow-x: hidden; /* Prevent horizontal scrolling */
+        overflow-x: auto; /* Allow minimal horizontal scrolling if needed for plots */
         max-width: 100vw; /* Ensure body doesn't exceed viewport width */
     }
     
-    /* Ensure main content doesn't cause overflow */
+    /* Ensure main content can show plot legends */
     .main-content {
         max-width: 100%;
-        overflow-x: hidden;
+        overflow-x: visible; /* Allow plot legends to show */
     }
     
     /* Make tables horizontally scrollable on mobile */
@@ -326,6 +338,21 @@
     }
 }
 
+/* Large screen optimizations for plots */
+@media (min-width: 1200px) {
+    /* Give even more space to content on large screens */
+    .main-content {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Optimize plot containers for large screens */
+    .plot-container {
+        margin: 2rem auto;
+        max-width: 100%;
+    }
+}
+
 /* Touch-friendly hover effects */
 @media (hover: none) and (pointer: coarse) {
     .metric-card:hover {
@@ -401,6 +428,141 @@
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+}
+
+/* Override sidebar width with your custom formula */
+@media (min-width: 66.5rem) {
+    .side-bar {
+        width: calc((100% - 50.5rem) / 3 + 10.5rem) !important;
+        min-width: 1.5rem !important;
+    }
+    
+    .side-bar+.main {
+        margin-left: Max(1.5rem, calc((100% - 50.5rem) / 3 + 10.5rem)) !important;
+    }
+}
+
+/* Make plots wider on big screens */
+@media (min-width: 1200px) {
+    /* Increase main container width to give more space for plots */
+    .main {
+        max-width: 1400px !important;
+    }
+    
+    .plot-container {
+        width: 95% !important;
+        max-width: 1300px !important;
+        margin: 2rem auto !important;
+    }
+    
+    /* Force child plotly elements to fill parent container completely */
+    .plot-container .js-plotly-plot {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .plotly-graph-div {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .main-svg {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    /* Fix nested plotly container width */
+    .plot-container .plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container.plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+}
+
+/* Make plots even wider on very large screens */
+@media (min-width: 1600px) {
+    /* Increase main container width to give more space for plots */
+    .main {
+        max-width: 1700px !important;
+    }
+    
+    .plot-container {
+        width: 95% !important;
+        max-width: 1600px !important;
+        margin: 2rem auto !important;
+    }
+    
+    /* Force child plotly elements to fill parent container completely */
+    .plot-container .js-plotly-plot {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .plotly-graph-div {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .main-svg {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    /* Fix nested plotly container width */
+    .plot-container .plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container.plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+}
+
+/* Make plots extra wide on ultra-wide screens */
+@media (min-width: 2000px) {
+    /* Increase main container width to give more space for plots */
+    .main {
+        max-width: 2000px !important;
+    }
+    
+    .plot-container {
+        width: 95% !important;
+        max-width: 1900px !important;
+        margin: 2rem auto !important;
+    }
+    
+    /* Force child plotly elements to fill parent container completely */
+    .plot-container .js-plotly-plot {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .plotly-graph-div {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .main-svg {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    /* Fix nested plotly container width */
+    .plot-container .plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container.plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
 }
 
  
