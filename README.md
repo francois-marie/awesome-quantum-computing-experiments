@@ -101,9 +101,9 @@ The following PNG files are included in the repository to display in this README
 
 ![QEC Platform Distribution](out/png/qec_platform_sunburst.png)
 
-![Timeline of QEC Implementations](out/png/qec_timeline.png)
+![Timeline of QEC Implementations](out/png/qec_timeline_aggregated.png)
 
-![[[n, k, d]] Distribution](out/png/nkd_plot.png)
+![[[n, k, d]] Distribution](out/png/nkd_plot_aggregated.png)
 
 ![Entangled State Error Progress](out/png/entangled_error_plot.png)
 
@@ -387,6 +387,20 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 ## Contributing
 
 Contributions are welcome! If you have suggestions for new entries, please submit a pull request or open an issue.
+
+## Citation
+
+If you use this dataset in your research, please cite:
+
+```bibtex
+@unpublished{leregentAwesomeQuantumComputing2025,
+  title = {Awesome Quantum Computing Experiments: Benchmarking Experimental Progress Towards Fault-Tolerant Quantum Computation},
+  author = {Le Régent, François-Marie},
+  date = {2025-07-04},
+  doi = {10.48550/arXiv.2507.03678},
+  url = {http://arxiv.org/abs/2507.03678},
+}
+```
 
 ## License
 
