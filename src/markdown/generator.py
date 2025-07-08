@@ -145,9 +145,9 @@ The following PNG files are included in the repository to display in this README
 
 ![QEC Platform Distribution](out/png/qec_platform_sunburst.png)
 
-![Timeline of QEC Implementations](out/png/qec_timeline.png)
+![Timeline of QEC Implementations](out/png/qec_timeline_aggregated.png)
 
-![[[n, k, d]] Distribution](out/png/nkd_plot.png)
+![[[n, k, d]] Distribution](out/png/nkd_plot_aggregated.png)
 
 ![Entangled State Error Progress](out/png/entangled_error_plot.png)
 
@@ -197,6 +197,20 @@ The following PNG files are included in the repository to display in this README
 
 Contributions are welcome! If you have suggestions for new entries, please submit a pull request or open an issue.
 
+## Citation
+
+If you use this dataset in your research, please cite:
+
+```bibtex
+@unpublished{leregentAwesomeQuantumComputing2025,
+  title = {Awesome Quantum Computing Experiments: Benchmarking Experimental Progress Towards Fault-Tolerant Quantum Computation},
+  author = {Le Régent, François-Marie},
+  date = {2025-07-04},
+  doi = {10.48550/arXiv.2507.03678},
+  url = {http://arxiv.org/abs/2507.03678},
+}
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -204,15 +218,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
     def generate_plots_section(self) -> str:
         return "\n".join([
-            "![Cumulative Experiment Counts](out/plots/experiment_counts.png)",
-            "![Yearly Experiment Counts](out/plots/experiment_counts_yearly.png)",
-            "![QEC Platform Distribution](out/plots/qec_platform_sunburst.png)",
-            "![Timeline of QEC Implementations](out/plots/qec_timeline_aggregated.png)",
-            "![[[n, k, d]] Distribution](out/plots/nkd_plot_aggregated.png)",
-            "![Entangled State Error Progress](out/plots/entangled_error_plot.png)",
-            "![Qubit Count Evolution](out/plots/qubit_count_plot.png)",
-            "![Physical Qubit Coherence Times](out/plots/coherence_times_plot.png)",
-            "![QEC Code Parameters](out/plots/qec_code_params_bubble.png)"
+            "![Cumulative Experiment Counts](out/png/experiment_counts.png)",
+            "![Yearly Experiment Counts](out/png/experiment_counts_yearly.png)",
+            "![QEC Platform Distribution](out/png/qec_platform_sunburst.png)",
+            "![Timeline of QEC Implementations](out/png/qec_timeline_aggregated.png)",
+            "![[[n, k, d]] Distribution](out/png/nkd_plot_aggregated.png)",
+            "![Entangled State Error Progress](out/png/entangled_error_plot.png)",
+            "![Qubit Count Evolution](out/png/qubit_count_plot.png)",
+            "![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)",
+            "![QEC Code Parameters](out/png/qec_code_params_bubble.png)"
         ])
 
 def main():
