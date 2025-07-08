@@ -197,6 +197,20 @@ The following PNG files are included in the repository to display in this README
 
 Contributions are welcome! If you have suggestions for new entries, please submit a pull request or open an issue.
 
+## Citation
+
+If you use this dataset in your research, please cite:
+
+```bibtex
+@unpublished{leregentAwesomeQuantumComputing2025,
+  title = {Awesome Quantum Computing Experiments: Benchmarking Experimental Progress Towards Fault-Tolerant Quantum Computation},
+  author = {Le Régent, François-Marie},
+  date = {2025-07-04},
+  doi = {10.48550/arXiv.2507.03678},
+  url = {http://arxiv.org/abs/2507.03678},
+}
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
