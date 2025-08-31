@@ -127,6 +127,7 @@ The following PNG files are included in the repository to display in this README
 	- [Bacon-Shor Code](#bacon-shor-code)
 	- [Cluster State](#cluster-state)
 - [Magic State Distillation](#magic-state-distillation)
+	- [4 to 2](#4-to-2)
 	- [5 to 1](#5-to-1)
 	- [1 to 1](#1-to-1)
 - [Entangled State Error](#entangled-state-error)
@@ -233,6 +234,10 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 - [A quantum processor based on coherent transport of entangled atom arrays](https://arxiv.org/abs/2112.03923) (2021) - 1D with 12 qubits on Neutral atoms
 
 ## Magic State Distillation
+
+### 4 to 2
+
+- [Experimental purification of two-atom entanglement](https://doi.org/10.1038/nature05146) (2006) - on Ion traps, 9Be+ atomic ion qubits. Distillation: Two noisy entangled pairs were created and distilled into one higher-fidelity pair available for further use. Unpurified fidelity of 0.614 +- 0.0015, and a purified fidelity of 0.629 +- 0.0015
 
 ### 5 to 1
 
