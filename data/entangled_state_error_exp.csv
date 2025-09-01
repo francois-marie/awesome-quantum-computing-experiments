@@ -28,3 +28,4 @@
 "0.006","High-fidelity universal gates in the 171Yb ground state nuclear spin qubit","https://doi.org/10.48550/arXiv.2411.11708","2024","Neutral atoms","Yb, CZ gate"
 "0.0066","A universal neutral-atom quantum computer with individual optical addressing and non-destructive readout","https://doi.org/10.48550/arXiv.2408.08288","2025","Neutral atoms","Cs, CZ gate"
 "0.02","Fidelity benchmarks for two-qubit gates in silicon","https://doi.org/10.1038/s41586-019-1197-0","2019","Semiconductor spins","average controlled-rotation gate error"
+"0.0006","24 days-stable CNOT-gate on fluxonium qubits with over 99.9% fidelity","https://doi.org/10.48550/arXiv.2407.15783","2024","Superconducting circuits","CNOT-phase gate error between two fluxonium qubits"
