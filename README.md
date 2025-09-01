@@ -269,6 +269,7 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 - [Logic gates at the surface code threshold: Superconducting qubits poised for fault-tolerant quantum computing](https://arxiv.org/abs/1402.4848) (2014) - 0.006 on Superconducting circuits, CZ gate error
 - [Procedure for systematically tuning up crosstalk in the cross resonance gate](https://arxiv.org/abs/1603.04821) (2016) - 0.009 on Superconducting circuits, cross resonance gate error
 - [Programming a quantum computer with quantum instructions](https://arxiv.org/abs/2001.08838) (2020) - 0.003 on Superconducting circuits, controlled-phase gate error
+- [24 days-stable CNOT-gate on fluxonium qubits with over 99.9% fidelity](https://doi.org/10.48550/arXiv.2407.15783) (2024) - 0.0006 on Superconducting circuits, CNOT-phase gate error between two fluxonium qubits
 
 ### Neutral atoms
 

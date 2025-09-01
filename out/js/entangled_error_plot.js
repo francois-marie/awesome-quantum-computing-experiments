@@ -440,7 +440,8 @@ const entangled_error_plotData = [
       "https://arxiv.org/abs/1202.5344",
       "https://arxiv.org/abs/1402.4848",
       "https://arxiv.org/abs/1603.04821",
-      "https://arxiv.org/abs/2001.08838"
+      "https://arxiv.org/abs/2001.08838",
+      "https://doi.org/10.48550/arXiv.2407.15783"
     ],
     "hovertemplate": "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "legendgroup": "Superconducting circuits",
@@ -461,6 +462,7 @@ const entangled_error_plotData = [
         "square",
         "square",
         "square",
+        "square",
         "square"
       ]
     },
@@ -473,7 +475,8 @@ const entangled_error_plotData = [
       "Complete universal quantum gate set approaching fault-tolerant thresholds with superconducting qubits",
       "Logic gates at the surface code threshold: Superconducting qubits poised for fault-tolerant quantum computing",
       "Procedure for systematically tuning up crosstalk in the cross resonance gate",
-      "Programming a quantum computer with quantum instructions"
+      "Programming a quantum computer with quantum instructions",
+      "24 days-stable CNOT-gate on fluxonium qubits with over 99.9% fidelity"
     ],
     "x": [
       2006,
@@ -481,7 +484,8 @@ const entangled_error_plotData = [
       2012,
       2014,
       2016,
-      2020
+      2020,
+      2024
     ],
     "y": [
       0.13,
@@ -489,7 +493,8 @@ const entangled_error_plotData = [
       0.02,
       0.006,
       0.009,
-      0.003
+      0.003,
+      0.0006
     ],
     "type": "scatter",
     "textfont": {
@@ -540,15 +545,15 @@ const entangled_error_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuits fit (\u00d72 every 2.6y)",
+    "name": "Superconducting circuits fit (\u00d72 every 2.4y)",
     "showlegend": true,
     "x": [
       2006,
-      2020
+      2024
     ],
     "y": [
-      0.10589551902840368,
-      0.0023825443923432836
+      0.11250518337369265,
+      0.0006875355258752272
     ],
     "type": "scatter",
     "textfont": {
