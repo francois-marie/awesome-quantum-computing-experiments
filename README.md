@@ -290,6 +290,7 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 - [Fidelity benchmarks for two-qubit gates in silicon](https://doi.org/10.1038/s41586-019-1197-0) (2019) - 0.02 on Semiconductor spins, average controlled-rotation gate error
 - [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Semiconductor spins, CNOT gate
 - [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.0035 on Semiconductor spins, CZ gate
+- [An 11-qubit atom processor in silicon](https://doi.org/10.48550/arXiv.2506.03567) (2025) - 0.001 on Semiconductor spins, Phosphorus atoms, nuclear CZ gate fidelity of 99.90(4)%
 
 ## Qubit Count
 
@@ -326,6 +327,7 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 - [A programmable two-qubit quantum processor in silicon](https://arxiv.org/abs/1708.04214) (2018) - 2 qubits on Semiconductor spins
 - [A four-qubit germanium quantum processor](https://doi.org/10.1038/s41586-021-03332-6) (2021) - 4 qubits on Semiconductor spins
 - [Universal control of a six-qubit quantum processor in silicon](https://arxiv.org/abs/2202.09252) (2022) - 6 qubits on Semiconductor spins
+- [An 11-qubit atom processor in silicon](https://doi.org/10.48550/arXiv.2506.03567) (2025) - 11 qubits on Semiconductor spins, Phosphorus atoms
 
 ### NV centers
 

@@ -220,7 +220,8 @@ const qubit_count_plotData = [
     "customdata": [
       "https://arxiv.org/abs/1708.04214",
       "https://doi.org/10.1038/s41586-021-03332-6",
-      "https://arxiv.org/abs/2202.09252"
+      "https://arxiv.org/abs/2202.09252",
+      "https://doi.org/10.48550/arXiv.2506.03567"
     ],
     "hovertemplate": "<b>%{text}</b><br>Qubits: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "line": {
@@ -240,17 +241,20 @@ const qubit_count_plotData = [
     "text": [
       "A programmable two-qubit quantum processor in silicon",
       "A four-qubit germanium quantum processor",
-      "Universal control of a six-qubit quantum processor in silicon"
+      "Universal control of a six-qubit quantum processor in silicon",
+      "An 11-qubit atom processor in silicon"
     ],
     "x": [
       2018,
       2021,
-      2022
+      2022,
+      2025
     ],
     "y": [
       2,
       4,
-      6
+      6,
+      11
     ],
     "type": "scatter",
     "textfont": {
@@ -269,15 +273,15 @@ const qubit_count_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Semiconductor spins fit (\u00d72 every 2.6y)",
+    "name": "Semiconductor spins fit (\u00d72 every 2.8y)",
     "showlegend": true,
     "x": [
       2018,
-      2022
+      2025
     ],
     "y": [
-      1.9601524522027287,
-      5.648469838357207
+      2.020944442949474,
+      11.370055553142787
     ],
     "type": "scatter",
     "textfont": {

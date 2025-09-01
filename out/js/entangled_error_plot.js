@@ -325,7 +325,8 @@ const entangled_error_plotData = [
     "customdata": [
       "https://doi.org/10.1038/s41586-019-1197-0",
       "https://arxiv.org/abs/2108.02626",
-      "https://www.nature.com/articles/s41586-021-04273-w"
+      "https://www.nature.com/articles/s41586-021-04273-w",
+      "https://doi.org/10.48550/arXiv.2506.03567"
     ],
     "hovertemplate": "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "legendgroup": "Semiconductor spins",
@@ -343,6 +344,7 @@ const entangled_error_plotData = [
       "symbol": [
         "square",
         "square",
+        "square",
         "square"
       ]
     },
@@ -352,17 +354,20 @@ const entangled_error_plotData = [
     "text": [
       "Fidelity benchmarks for two-qubit gates in silicon",
       "Fast universal quantum control above the fault-tolerance threshold in silicon",
-      "Quantum logic with spin qubits crossing the surface code threshold"
+      "Quantum logic with spin qubits crossing the surface code threshold",
+      "An 11-qubit atom processor in silicon"
     ],
     "x": [
       2019,
       2021,
-      2022
+      2022,
+      2025
     ],
     "y": [
       0.02,
       0.005,
-      0.0035
+      0.0035,
+      0.001
     ],
     "type": "scatter",
     "textfont": {
@@ -413,15 +418,15 @@ const entangled_error_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Semiconductor spins fit (\u00f72 every 1.2y)",
+    "name": "Semiconductor spins fit (\u00f72 every 1.4y)",
     "showlegend": true,
     "x": [
       2019,
-      2022
+      2025
     ],
     "y": [
-      0.019061389771559925,
-      0.003179195075203871
+      0.01650833657822222,
+      0.0008883202476538361
     ],
     "type": "scatter",
     "textfont": {
