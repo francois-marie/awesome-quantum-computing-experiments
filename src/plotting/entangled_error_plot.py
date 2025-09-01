@@ -131,7 +131,7 @@ class EntangledErrorPlot(BasePlot):
                     'type': 'scatter',
                     'x': x_fit.tolist(),
                     'y': y_fit.tolist(),
-                    'name': f'{platform} fit (×2 every {doubling_time:.1f}y)',
+                    'name': f'{platform} fit (÷2 every {doubling_time:.1f}y)',
                     'mode': 'lines',
                     'line': {
                         'color': self.PLATFORM_COLORS.get(platform),
