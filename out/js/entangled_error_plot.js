@@ -149,7 +149,7 @@ const entangled_error_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Ion traps fit (\u00d72 every 2.4y)",
+    "name": "Ion traps fit (\u00f72 every 2.4y)",
     "showlegend": true,
     "x": [
       1998,
@@ -301,7 +301,7 @@ const entangled_error_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Neutral atoms fit (\u00d72 every 2.3y)",
+    "name": "Neutral atoms fit (\u00f72 every 2.3y)",
     "showlegend": true,
     "x": [
       2010,
@@ -413,7 +413,7 @@ const entangled_error_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Semiconductor spins fit (\u00d72 every 1.2y)",
+    "name": "Semiconductor spins fit (\u00f72 every 1.2y)",
     "showlegend": true,
     "x": [
       2019,
@@ -545,7 +545,7 @@ const entangled_error_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuits fit (\u00d72 every 2.4y)",
+    "name": "Superconducting circuits fit (\u00f72 every 2.4y)",
     "showlegend": true,
     "x": [
       2006,
