@@ -15,6 +15,9 @@ dependencies = [
     "seaborn>=0.12.0",
     "pandas>=2.0.0",
     "pyyaml",
+    "plotly>=5.12.0",
+    "scipy>=1.10.0",
+    "kaleido>=0.2.1",
 ]
 
 [project.optional-dependencies]
@@ -30,4 +33,9 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.pytest.ini_options]
-pythonpath = ["."] 
+pythonpath = ["."]
+testpaths = ["tests"]
+norecursedirs = ["_site", "venv", ".git"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"] 

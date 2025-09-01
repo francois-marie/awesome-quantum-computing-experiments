@@ -111,4 +111,458 @@
     margin-top: 0;
     margin-bottom: 1rem;
     color: #27262b;
-} 
+}
+
+/* Responsive plot containers */
+.plot-container {
+    width: 100%;
+    min-height: 800px; /* Increased to accommodate legends and full plot content */
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: visible; /* Allow plots to show legends and full content */
+    
+    /* Ensure plotly plots are properly sized */
+    .js-plotly-plot {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Style plotly plots */
+    .plotly-graph-div {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Ensure SVG elements don't overflow */
+    .main-svg {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Plot section wrapper */
+.plot-section {
+    margin: 2rem 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible; /* Allow legends to show outside container if needed */
+}
+
+/* Mobile-specific plot adjustments */
+@media (max-width: 768px) {
+    .plot-container {
+        /* Show plot containers on mobile - make them responsive */
+        display: block !important;
+        width: 100%;
+        max-width: 100%;
+        min-height: 900px; /* Increased to accommodate legends on mobile */
+        margin: 1rem 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        overflow: visible; /* Allow legends and full plot content to show */
+        
+        /* Ensure plots fit properly in containers */
+        .js-plotly-plot {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        /* Handle plotly toolbar on mobile */
+        .modebar {
+            display: none !important;
+        }
+        
+        /* Ensure plotly divs don't overflow */
+        .plotly-graph-div {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        /* Force SVG to respect container width */
+        .main-svg {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        /* Ensure legends don't cause overflow */
+        .legend {
+            max-width: 100% !important;
+        }
+    }
+    
+    /* Hide thumbnails on mobile since we're showing actual plots */
+    .plot-thumbnail {
+        display: none !important;
+    }
+    
+    /* Modal functionality removed - no longer needed */
+    
+    /* Plot section adjustments for mobile */
+    .plot-section {
+        margin: 1rem 0;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible; /* Allow legends to show */
+    }
+}
+
+@media (max-width: 480px) {
+    .plot-container {
+        /* Show plot containers on small mobile screens too */
+        display: block !important;
+        min-height: 800px; /* Increased to accommodate legends on small mobile */
+        margin: 0.5rem 0; /* Tighter margins for small screens */
+    }
+}
+
+/* Desktop: Hide thumbnails, show plot containers */
+@media (min-width: 769px) {
+    /* Hide thumbnails on desktop */
+    .plot-thumbnail {
+        display: none !important;
+    }
+    
+    /* Ensure main content has maximum width for plots */
+    .main-content {
+        max-width: none !important;
+        width: 100% !important;
+    }
+    
+    /* Optimize plot section spacing on desktop */
+    .plot-section {
+        margin: 2rem 0;
+        width: 100%;
+    }
+    
+    /* Plot container rules are already defined in the main CSS block above */
+}
+
+/* Modal styles removed - plots are now shown directly on all devices */
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+    /* Prevent horizontal scrolling on mobile */
+    body {
+        font-size: 16px; /* Prevents zoom on iOS */
+        overflow-x: auto; /* Allow minimal horizontal scrolling if needed for plots */
+        max-width: 100vw; /* Ensure body doesn't exceed viewport width */
+    }
+    
+    /* Ensure main content can show plot legends */
+    .main-content {
+        max-width: 100%;
+        overflow-x: visible; /* Allow plot legends to show */
+    }
+    
+    /* Make tables horizontally scrollable on mobile */
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Better button spacing on mobile */
+    .button {
+        padding: 0.75rem 1rem;
+        margin: 0.5rem 0;
+        display: inline-block;
+    }
+    
+    /* Ensure metrics grid is mobile-friendly */
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .metric-card {
+        padding: 1rem;
+    }
+    
+    /* Better spacing for headings on mobile */
+    h1, h2, h3 {
+        line-height: 1.3;
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Ensure content doesn't get cut off */
+    .main-content {
+        padding: 1rem;
+    }
+    
+    #menu-button {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0.5rem !important;
+        cursor: pointer !important;
+        z-index: 1000 !important;
+    }
+    
+    #menu-button .icon {
+        display: block !important;
+        width: 24px !important;
+        height: 24px !important;
+        fill: currentColor !important;
+        stroke: currentColor !important;
+        color: var(--body-text-color, #27262b) !important;
+    }
+    
+    /* Ensure SVG icons are visible */
+    #menu-button svg {
+        display: block !important;
+        width: 24px !important;
+        height: 24px !important;
+        fill: currentColor !important;
+        stroke: currentColor !important;
+        color: var(--body-text-color, #27262b) !important;
+    }
+    
+    /* Mobile: Show responsive plots directly, hide thumbnails */
+    .plot-thumbnail {
+        display: none !important;
+    }
+    
+    /* Plot container rules are already defined in the first @media block above */
+}
+
+/* Desktop: Show plot containers, hide thumbnails */
+@media (min-width: 769px) {
+    /* Ensure hamburger menu is hidden on desktop (theme handles this) */
+    #menu-button {
+        /* Let the theme handle desktop visibility */
+    }
+}
+
+/* Large screen optimizations for plots */
+@media (min-width: 1200px) {
+    /* Give even more space to content on large screens */
+    .main-content {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Optimize plot containers for large screens */
+    .plot-container {
+        margin: 2rem auto;
+        max-width: 100%;
+    }
+}
+
+/* Touch-friendly hover effects */
+@media (hover: none) and (pointer: coarse) {
+    .metric-card:hover {
+        transform: none;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+}
+
+/* Plot thumbnail styles are now handled in media queries above */
+
+/* Mobile plot interaction improvements */
+@media (max-width: 768px) {
+    .modal-plot-container {
+        /* Ensure smooth scrolling and proper touch handling */
+        overflow: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior: contain;
+        /* Allow pinch-to-zoom within the plot area */
+        touch-action: manipulation;
+    }
+    
+    /* Prevent body scroll when interacting with plots */
+    body.modal-open {
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100% !important;
+    }
+    
+    /* Ensure plot containers allow horizontal scrolling on mobile when shown */
+    .plot-container {
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    /* Ensure plot sections have proper spacing */
+    .plot-section {
+        margin: 1.5rem 0;
+    }
+    
+    /* Make sure text in thumbnails is readable */
+    .plot-thumbnail h4,
+    .plot-thumbnail p {
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+/* Ensure modal works on very small screens */
+@media (max-width: 360px) {
+    .modal-header {
+        padding: 0.75rem;
+    }
+    
+    .modal-header h3 {
+        font-size: 1rem;
+    }
+    
+    .close-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.25rem;
+    }
+    
+    .plot-modal {
+        padding: 0.5rem;
+    }
+}
+
+/* Ensure modal displays properly */
+.plot-modal.show {
+    /* Ensure it's actually visible when shown */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* Override sidebar width with your custom formula */
+@media (min-width: 66.5rem) {
+    .side-bar {
+        width: calc((100% - 50.5rem) / 3 + 10.5rem) !important;
+        min-width: 1.5rem !important;
+    }
+    
+    .side-bar+.main {
+        margin-left: Max(1.5rem, calc((100% - 50.5rem) / 3 + 10.5rem)) !important;
+    }
+}
+
+/* Make plots wider on big screens */
+@media (min-width: 1200px) {
+    /* Increase main container width to give more space for plots */
+    .main {
+        max-width: 1400px !important;
+    }
+    
+    .plot-container {
+        width: 95% !important;
+        max-width: 1300px !important;
+        margin: 2rem auto !important;
+    }
+    
+    /* Force child plotly elements to fill parent container completely */
+    .plot-container .js-plotly-plot {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .plotly-graph-div {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .main-svg {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    /* Fix nested plotly container width */
+    .plot-container .plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container.plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+}
+
+/* Make plots even wider on very large screens */
+@media (min-width: 1600px) {
+    /* Increase main container width to give more space for plots */
+    .main {
+        max-width: 1700px !important;
+    }
+    
+    .plot-container {
+        width: 95% !important;
+        max-width: 1600px !important;
+        margin: 2rem auto !important;
+    }
+    
+    /* Force child plotly elements to fill parent container completely */
+    .plot-container .js-plotly-plot {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .plotly-graph-div {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .main-svg {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    /* Fix nested plotly container width */
+    .plot-container .plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container.plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+}
+
+/* Make plots extra wide on ultra-wide screens */
+@media (min-width: 2000px) {
+    /* Increase main container width to give more space for plots */
+    .main {
+        max-width: 2000px !important;
+    }
+    
+    .plot-container {
+        width: 95% !important;
+        max-width: 1900px !important;
+        margin: 2rem auto !important;
+    }
+    
+    /* Force child plotly elements to fill parent container completely */
+    .plot-container .js-plotly-plot {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .plotly-graph-div {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container .main-svg {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    /* Fix nested plotly container width */
+    .plot-container .plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .plot-container.plotly {
+        width: 100% !important;
+        max-width: none !important;
+    }
+}
+
+ 

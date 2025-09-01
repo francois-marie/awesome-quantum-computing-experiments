@@ -14,20 +14,71 @@ A comprehensive collection of notable quantum computing experiments, focusing on
 
 ## Visualizations
 
-### Quantum Error Correction Timeline
-![QEC Timeline](out/plots/qec_time_evolution.png){: .plot}
+<!-- Include Plotly library -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-### [[n, k, d]] Distribution
-![NKD Plot](out/plots/nkd_plot.png){: .plot}
+<!-- Mobile-friendly plot sections -->
+### Physical Qubit Coherence Times
+<div class="plot-section">
+    <div id="coherence-times-plot" class="plot-container"></div>
+</div>
 
 ### Entangled State Error Progress
-<div id="entangled-error-plot" style="width:100%; height:500px;"></div>
+<div class="plot-section">
+    <div id="entangled-error-plot" class="plot-container"></div>
+</div>
 
 ### Qubit Count Evolution
-<div id="qubit-count-plot" style="width:100%; height:500px;"></div>
+<div class="plot-section">
+    <div id="qubit-count-plot" class="plot-container"></div>
+</div>
 
-### Physical Qubit Coherence Times
-<div id="coherence-times-plot" style="width:100%; height:500px;"></div>
+<!-- High-level visualizations -->
+### Cumulative Experiment Counts by Platform
+<div class="plot-section">
+    <div id="experiment-counts" class="plot-container"></div>
+</div>
+
+### [[n, k, d]] Distribution
+<div class="plot-section">
+    <div id="nkd-plot-aggregated" class="plot-container"></div>
+</div>
+
+### Yearly Experiment Counts by Platform
+<div class="plot-section">
+    <div id="experiment-counts-yearly" class="plot-container"></div>
+</div>
+
+### Cumulative Growth of QEC Implementations Over Time
+<div class="plot-section">
+    <div id="qec-cumulative-growth" class="plot-container"></div>
+</div>
+
+### Aggregated Timeline of Quantum Error Correction Implementations
+<div class="plot-section">
+    <div id="qec-timeline-aggregated-scatter" class="plot-container"></div>
+</div>
+
+### Distribution of QEC Implementations Across Platforms
+<div class="plot-section">
+    <div id="qec-platform-sunburst" class="plot-container"></div>
+</div>
+
+
+
+<!-- Load plot scripts -->
+<script src="{{ '/out/js/coherence_times_plot.js' | relative_url }}"></script>
+<script src="{{ '/out/js/entangled_error_plot.js' | relative_url }}"></script>
+<script src="{{ '/out/js/qubit_count_plot.js' | relative_url }}"></script>
+<script src="{{ '/out/js/experiment_counts.js' | relative_url }}"></script>
+<script src="{{ '/out/js/nkd_plot_aggregated.js' | relative_url }}"></script>
+<script src="{{ '/out/js/experiment_counts_yearly.js' | relative_url }}"></script>
+<script src="{{ '/out/js/qec_cumulative_growth.js' | relative_url }}"></script>
+<script src="{{ '/out/js/qec_timeline_aggregated.js' | relative_url }}"></script>
+<script src="{{ '/out/js/qec_platform_sunburst.js' | relative_url }}"></script>
+
+<!-- Load responsive plot enhancement script -->
+<script src="{{ '/assets/js/responsive-plots.js' | relative_url }}"></script>
 
 ## About
 

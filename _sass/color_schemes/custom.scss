@@ -6,9 +6,9 @@ $body-text-color: #1e293b;
 $nav-child-link-color: $body-text-color;
 $table-background-color: #ffffff;
 
-// Navigation
-$nav-width: 264px;
-$nav-width-md: 248px;
+// Navigation - Reduced width to give more space for plots
+$nav-width: 200px;
+$nav-width-md: 180px;
 $nav-list-item-height: 2rem;
 $nav-list-item-height-sm: 1.5rem;
 $nav-list-expander-right: true;
@@ -50,9 +50,9 @@ $spacers: (
 // Grid system
 $gutter-spacing: $spacing-unit * 1;
 $gutter-spacing-sm: $spacing-unit * 0.5;
-$nav-width: 264px;
-$nav-width-md: 248px;
-$content-width: 1200px;
+$nav-width: 200px;
+$nav-width-md: 180px;
+$content-width: 1400px; // Increased to give more space for plots
 $header-height: 60px;
 $search-results-width: 500px;
 
@@ -67,4 +67,5 @@ $media-queries: (
 
 // Border radius
 $border-radius: 4px;
-$btn-border-radius: $border-radius; 
+$btn-border-radius: $border-radius;
+

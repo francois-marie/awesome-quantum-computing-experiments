@@ -41,28 +41,32 @@ class MarkdownGenerator:
         readme_path.write_text(content)
     
     def _generate_header(self) -> str:
-        plots_dir = self.config['paths']['output']['plots']
-        plots = self.config['plots']
+        """Generate the header section of the README."""
         return f"""# Awesome Quantum Computing Experiments
 
-A curated list of notable quantum computing experiments, focused primarily on the implementation of quantum error correction codes.
+<div style="text-align: center; font-style: italic; margin: 20px 0;">
+A comprehensive database of notable quantum computing experiments, with emphasis on quantum error correction implementations
+</div>
 
-![Plot]({plots_dir}/{plots['nkd']})
-![Plot]({plots_dir}/{plots['qec_time']})
-![Plot]({plots_dir}/{plots['entangled']})
-![Plot]({plots_dir}/{plots['qubit_count']})
-![Plot]({plots_dir}/{plots['coherence_times']})
+<hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);">
 
 ## Overview
 
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 3px solid #007bff;">
 This repository maintains a comprehensive database of quantum computing experiments, with a focus on:
+
 - Quantum Error Correction (QEC) implementations
 - Magic State Distillation (MSD) experiments
 - Entangled State Error measurements
 - Physical Qubit Count evolution
-- Relaxation and Coherence Times (see [Superconducting Qubits: Current State of Play](https://arxiv.org/abs/1905.13641) for more details)
+- Relaxation and Coherence Times (see [Superconducting Qubits: Current State of Play](https://arxiv.org/abs/1905.13641))
+</div>
+
+<hr style="margin: 30px 0;">
 
 ## Quick Start
+
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
 
 1. Clone the repository and install dependencies:
 ```bash
@@ -79,6 +83,81 @@ make all
 For more detailed information:
 - See [Documentation](docs/DOCUMENTATION.md) for usage and data format details
 - See [Contributing Guide](docs/CONTRIBUTING.md) for how to add new experiments
+</div>
+
+<hr style="margin: 30px 0;">
+
+## Local Development
+
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+
+1. Set up Ruby environment using rbenv:
+```bash
+eval "$(rbenv init -)"
+rbenv shell 3.1.0
+```
+
+2. Install Ruby dependencies:
+```bash
+bundle install
+```
+
+3. Run Jekyll server:
+```bash
+bundle exec jekyll clean
+bundle exec jekyll serve --baseurl="/awesome-quantum-computing-experiments" --livereload
+```
+
+The site will be available at `http://localhost:4000/awesome-quantum-computing-experiments/`.
+</div>
+
+<hr style="margin: 30px 0;">
+
+## Visualizations
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
+
+<h4>Generating Visualizations</h4>
+All visualizations can be regenerated at any time using:
+
+```bash
+# Generate all plots
+make plots
+
+# Or use the consolidated generation script
+make generate_all
+```
+
+<h4>Available Visualizations</h4>
+After generation, plots will be available in multiple formats:
+
+- PNG format in the `out/png` directory (for web display)
+- PDF format in the `out/pdf` directory (for publication)
+- JavaScript in the `out/js` directory (for interactive web display)
+
+<h4>Plot Gallery</h4>
+
+The following PNG files are included in the repository to display in this README:
+
+![Cumulative Experiment Counts by Platform](out/png/experiment_counts.png)
+
+![Yearly Experiment Counts](out/png/experiment_counts_yearly.png)
+
+![QEC Platform Distribution](out/png/qec_platform_sunburst.png)
+
+![Timeline of QEC Implementations](out/png/qec_timeline_aggregated.png)
+
+![[[n, k, d]] Distribution](out/png/nkd_plot_aggregated.png)
+
+![Entangled State Error Progress](out/png/entangled_error_plot.png)
+
+![Qubit Count Evolution](out/png/qubit_count_plot.png)
+
+![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)
+
+![Cumulative Experiment Counts by QEC code](out/png/qec_cumulative_growth.png)
+
+</div>
 
 """
     
@@ -118,20 +197,36 @@ For more detailed information:
 
 Contributions are welcome! If you have suggestions for new entries, please submit a pull request or open an issue.
 
+## Citation
+
+If you use this dataset in your research, please cite:
+
+```bibtex
+@unpublished{leregentAwesomeQuantumComputing2025,
+  title = {Awesome Quantum Computing Experiments: Benchmarking Experimental Progress Towards Fault-Tolerant Quantum Computation},
+  author = {Le Régent, François-Marie},
+  date = {2025-07-04},
+  doi = {10.48550/arXiv.2507.03678},
+  url = {http://arxiv.org/abs/2507.03678},
+}
+```
+
 ## License
 
-This work is licensed under a [CC0 1.0 Universal (Public Domain Dedication)](LICENSE).
-To the extent possible under law, the authors have dedicated all copyright and related and neighboring rights to this work to the public domain worldwide.
-For more information, see [Creative Commons CC0 1.0 Legal Code](https://creativecommons.org/publicdomain/zero/1.0/).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 """
 
     def generate_plots_section(self) -> str:
         return "\n".join([
-            "![Plot](out/plots/nkd_plot.png)",
-            "![Plot](out/plots/qec_time_evolution.png)",
-            "![Plot](out/plots/entangled_state_error_vs_year.png)",
-            "![Plot](out/plots/qubit_count_vs_year.png)",
-            "![Plot](out/plots/coherence_times.png)"
+            "![Cumulative Experiment Counts](out/png/experiment_counts.png)",
+            "![Yearly Experiment Counts](out/png/experiment_counts_yearly.png)",
+            "![QEC Platform Distribution](out/png/qec_platform_sunburst.png)",
+            "![Timeline of QEC Implementations](out/png/qec_timeline_aggregated.png)",
+            "![[[n, k, d]] Distribution](out/png/nkd_plot_aggregated.png)",
+            "![Entangled State Error Progress](out/png/entangled_error_plot.png)",
+            "![Qubit Count Evolution](out/png/qubit_count_plot.png)",
+            "![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)",
+            "![QEC Code Parameters](out/png/qec_code_params_bubble.png)"
         ])
 
 def main():
@@ -140,4 +235,4 @@ def main():
     generator.generate()
 
 if __name__ == "__main__":
-    main() 
+    main()

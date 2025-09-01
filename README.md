@@ -1,23 +1,28 @@
 # Awesome Quantum Computing Experiments
 
-A curated list of notable quantum computing experiments, focused primarily on the implementation of quantum error correction codes.
+<div style="text-align: center; font-style: italic; margin: 20px 0;">
+A comprehensive database of notable quantum computing experiments, with emphasis on quantum error correction implementations
+</div>
 
-![Plot](out/plots/nkd_plot.png)
-![Plot](out/plots/qec_time_evolution.png)
-![Plot](out/plots/entangled_state_error_vs_year.png)
-![Plot](out/plots/qubit_count_vs_year.png)
-![Plot](out/plots/coherence_times.png)
+<hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);">
 
 ## Overview
 
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 3px solid #007bff;">
 This repository maintains a comprehensive database of quantum computing experiments, with a focus on:
+
 - Quantum Error Correction (QEC) implementations
 - Magic State Distillation (MSD) experiments
 - Entangled State Error measurements
 - Physical Qubit Count evolution
-- Relaxation and Coherence Times (see [Superconducting Qubits: Current State of Play](https://arxiv.org/abs/1905.13641) for more details)
+- Relaxation and Coherence Times (see [Superconducting Qubits: Current State of Play](https://arxiv.org/abs/1905.13641))
+</div>
+
+<hr style="margin: 30px 0;">
 
 ## Quick Start
+
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
 
 1. Clone the repository and install dependencies:
 ```bash
@@ -34,6 +39,81 @@ make all
 For more detailed information:
 - See [Documentation](docs/DOCUMENTATION.md) for usage and data format details
 - See [Contributing Guide](docs/CONTRIBUTING.md) for how to add new experiments
+</div>
+
+<hr style="margin: 30px 0;">
+
+## Local Development
+
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+
+1. Set up Ruby environment using rbenv:
+```bash
+eval "$(rbenv init -)"
+rbenv shell 3.1.0
+```
+
+2. Install Ruby dependencies:
+```bash
+bundle install
+```
+
+3. Run Jekyll server:
+```bash
+bundle exec jekyll clean
+bundle exec jekyll serve --baseurl="/awesome-quantum-computing-experiments" --livereload
+```
+
+The site will be available at `http://localhost:4000/awesome-quantum-computing-experiments/`.
+</div>
+
+<hr style="margin: 30px 0;">
+
+## Visualizations
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
+
+<h4>Generating Visualizations</h4>
+All visualizations can be regenerated at any time using:
+
+```bash
+# Generate all plots
+make plots
+
+# Or use the consolidated generation script
+make generate_all
+```
+
+<h4>Available Visualizations</h4>
+After generation, plots will be available in multiple formats:
+
+- PNG format in the `out/png` directory (for web display)
+- PDF format in the `out/pdf` directory (for publication)
+- JavaScript in the `out/js` directory (for interactive web display)
+
+<h4>Plot Gallery</h4>
+
+The following PNG files are included in the repository to display in this README:
+
+![Cumulative Experiment Counts by Platform](out/png/experiment_counts.png)
+
+![Yearly Experiment Counts](out/png/experiment_counts_yearly.png)
+
+![QEC Platform Distribution](out/png/qec_platform_sunburst.png)
+
+![Timeline of QEC Implementations](out/png/qec_timeline_aggregated.png)
+
+![[[n, k, d]] Distribution](out/png/nkd_plot_aggregated.png)
+
+![Entangled State Error Progress](out/png/entangled_error_plot.png)
+
+![Qubit Count Evolution](out/png/qubit_count_plot.png)
+
+![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)
+
+![Cumulative Experiment Counts by QEC code](out/png/qec_cumulative_growth.png)
+
+</div>
 
 ## Table of Contents
 
@@ -47,13 +127,13 @@ For more detailed information:
 	- [Bacon-Shor Code](#bacon-shor-code)
 	- [Cluster State](#cluster-state)
 - [Magic State Distillation](#magic-state-distillation)
+	- [4 to 2](#4-to-2)
 	- [5 to 1](#5-to-1)
 	- [1 to 1](#1-to-1)
 - [Entangled State Error](#entangled-state-error)
 	- [Ion traps](#ion-traps)
 	- [Superconducting circuits](#superconducting-circuits)
 	- [Neutral atoms](#neutral-atoms)
-	- [NV centers](#nv-centers)
 	- [Semiconductor spins](#semiconductor-spins)
 - [Qubit Count](#qubit-count)
 	- [Ion traps](#ion-traps)
@@ -138,7 +218,8 @@ For more detailed information:
 - [Comparative analysis of error mitigation techniques for variational quantum eigensolver implementations on IBM quantum system](https://arxiv.org/abs/2206.07907) (2022) - [[4,2,2]] on Superconducting circuit
 - [Optical demonstration of quantum fault-tolerant threshold](https://arxiv.org/abs/2012.08927) (2022) - [[4,2,2]] on Photons
 - [Encoding a magic state with beyond break-even fidelity](https://arxiv.org/abs/2305.13581) (2024) - [[4,2,2]] on Superconducting circuit
-- [End-to-End Quantum Simulation of a Chemical System](https://arxiv.org/abs/2409.05835) (2024) - [[4,2,2]] on Ion traps
+- [End-to-End Quantum Simulation of a Chemical System](https://arxiv.org/abs/2409.05835) (2024) - [[4,2,2]] on Ion traps, Error detection yielded a 3% rejection
+rate and the use of teleportation flags was responsible for the additional 50% rejection rate.
 - [Fault-Tolerant Operation and Materials Science with Neutral Atom Logical Qubits](https://arxiv.org/abs/2412.07670) (2024) - [[4,2,2]] on Neutral atoms
 - [Logical computation demonstrated with a neutral atom quantum processor](https://arxiv.org/abs/2411.11822) (2024) - [[4,1,2]], [[4,2,2]] on Neutral atoms
 
@@ -154,6 +235,10 @@ For more detailed information:
 
 ## Magic State Distillation
 
+### 4 to 2
+
+- [Experimental purification of two-atom entanglement](https://doi.org/10.1038/nature05146) (2006) - on Ion traps, 9Be+ atomic ion qubits. Distillation: Two noisy entangled pairs were created and distilled into one higher-fidelity pair available for further use. Unpurified fidelity of 0.614 +- 0.0015, and a purified fidelity of 0.629 +- 0.0015
+
 ### 5 to 1
 
 - [Experimental Demonstration of Logical Magic State Distillation](https://arxiv.org/abs/2412.15165) (2024) - on Neutral atoms, Injection and distillation
@@ -166,47 +251,45 @@ For more detailed information:
 
 ### Ion traps
 
-- [Deterministic entanglement of two trapped ions](https://arxiv.org/abs/quant-ph/9806012) (1998) - 0.3 on Ion traps
-- [Experimental Entanglement of Four Particles](https://www.nature.com/articles/35005011) (2000) - 0.2 on Ion traps
-- [Experimental Violation of a Bell's Inequality with Efficient Detection](https://www.nature.com/articles/35057215) (2001) - 0.1 on Ion traps
-- [Experimental demonstration of a robust, high-fidelity geometric two ion-qubit phase gate](https://www.nature.com/articles/nature01492) (2003) - 0.03 on Ion traps
-- [Robust entanglement](https://doi.org/10.1007/s00340-005-1917-z) (2005) - 0.04 on Ion traps, Entangled states of two trapped Ca+ ions with robust entanglement lasting for more than 20 s.
-- [Towards Fault-Tolerant Quantum Computing with Trapped Ions](https://arxiv.org/abs/0803.2798) (2008) - 0.007 on Ion traps
-- [High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps
-- [High-fidelity quantum logic gates using trapped-ion hyperfine qubits](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps
-- [Scalable, high-fidelity all-electronic control of trapped-ion qubits](https://arxiv.org/abs/2407.07694) (2024) - 0.0003 on Ion traps
+- [Deterministic entanglement of two trapped ions](https://arxiv.org/abs/quant-ph/9806012) (1998) - 0.3 on Ion traps, Bell state error
+- [Experimental Entanglement of Four Particles](https://www.nature.com/articles/35005011) (2000) - 0.17 on Ion traps, entangled state error
+- [Experimental Violation of a Bell's Inequality with Efficient Detection](https://www.nature.com/articles/35057215) (2001) - 0.1 on Ion traps, Bell state error
+- [Experimental demonstration of a robust, high-fidelity geometric two ion-qubit phase gate](https://www.nature.com/articles/nature01492) (2003) - 0.03 on Ion traps, Bell state error
+- [Robust entanglement](https://doi.org/10.1007/s00340-005-1917-z) (2005) - 0.04 on Ion traps, Bell state error
+- [Towards Fault-Tolerant Quantum Computing with Trapped Ions](https://arxiv.org/abs/0803.2798) (2008) - 0.007 on Ion traps, Mølmer-Sørensen gate error
+- [High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps, two-qubit gate error
+- [High-fidelity quantum logic gates using trapped-ion hyperfine qubits](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps, two-qubit gate error
+- [Scalable, high-fidelity all-electronic control of trapped-ion qubits](https://arxiv.org/abs/2407.07694) (2024) - 0.0003 on Ion traps, Two-qubit maximally entangled states
 
 ### Superconducting circuits
 
-- [Measurement of the Entanglement of Two Superconducting Qubits via State Tomography](https://www.science.org/doi/10.1126/science.1130886) (2006) - 0.3 on Superconducting circuits
-- [Demonstration of Two-Qubit Algorithms with a Superconducting Quantum Processor](https://arxiv.org/abs/0903.2030) (2009) - 0.05 on Superconducting circuits
-- [Complete universal quantum gate set approaching fault-tolerant thresholds with superconducting qubits](https://arxiv.org/abs/1202.5344) (2012) - 0.02 on Superconducting circuits
-- [Logic gates at the surface code threshold: Superconducting qubits poised for fault-tolerant quantum computing](https://arxiv.org/abs/1402.4848) (2014) - 0.006 on Superconducting circuits
-- [Procedure for systematically tuning up crosstalk in the cross resonance gate](https://arxiv.org/abs/1603.04821) (2016) - 0.004 on Superconducting circuits
-- [Programming a quantum computer with quantum instructions](https://arxiv.org/abs/2001.08838) (2020) - 0.003 on Superconducting circuits
+- [Measurement of the Entanglement of Two Superconducting Qubits via State Tomography](https://www.science.org/doi/10.1126/science.1130886) (2006) - 0.13 on Superconducting circuits, entangled Bell state error
+- [Demonstration of Two-Qubit Algorithms with a Superconducting Quantum Processor](https://arxiv.org/abs/0903.2030) (2009) - 0.05 on Superconducting circuits, entangled state error
+- [Complete universal quantum gate set approaching fault-tolerant thresholds with superconducting qubits](https://arxiv.org/abs/1202.5344) (2012) - 0.02 on Superconducting circuits, CNOT gate error
+- [Logic gates at the surface code threshold: Superconducting qubits poised for fault-tolerant quantum computing](https://arxiv.org/abs/1402.4848) (2014) - 0.006 on Superconducting circuits, CZ gate error
+- [Procedure for systematically tuning up crosstalk in the cross resonance gate](https://arxiv.org/abs/1603.04821) (2016) - 0.009 on Superconducting circuits, cross resonance gate error
+- [Programming a quantum computer with quantum instructions](https://arxiv.org/abs/2001.08838) (2020) - 0.003 on Superconducting circuits, controlled-phase gate error
+- [24 days-stable CNOT-gate on fluxonium qubits with over 99.9% fidelity](https://doi.org/10.48550/arXiv.2407.15783) (2024) - 0.0006 on Superconducting circuits, CNOT-phase gate error between two fluxonium qubits
 
 ### Neutral atoms
 
-- [Demonstration of a neutral atom controlled-NOT quantum gate](https://arxiv.org/abs/0907.5552) (2010) - 0.3 on Neutral atoms
-- [Entanglement of two individual neutral atoms using Rydberg blockade](https://arxiv.org/abs/0908.0454) (2010) - 0.5 on Neutral atoms
-- [Rydberg-blockade controlled-not gate and entanglement in a two-dimensional array of neutral-atom qubits](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.92.022336) (2015) - 0.2 on Neutral atoms
-- [Parallel implementation of high-fidelity multi-qubit gates with neutral atoms](https://arxiv.org/abs/1908.06101) (2019) - 0.03 on Neutral atoms
-- [High-Fidelity Entanglement and Detection of Alkaline-Earth Rydberg Atoms](https://arxiv.org/abs/2001.04455) (2020) - 0.01 on Neutral atoms
-- [Erasure conversion in a high-fidelity Rydberg quantum simulator](https://arxiv.org/abs/2305.03406) (2023) - 0.002 on Neutral atoms
-- [High-fidelity parallel entangling gates on a neutral-atom quantum computer](https://doi.org/10.1038/s41586-023-06481-y) (2023) - 0.005 on Neutral atoms, Rb
-- [High-fidelity universal gates in the 171Yb ground state nuclear spin qubit](https://doi.org/10.48550/arXiv.2411.11708) (2024) - 0.006 on Neutral atoms, Yb
-- [A universal neutral-atom quantum computer with individual optical addressing and non-destructive readout](https://doi.org/10.48550/arXiv.2408.08288) (2025) - 0.0066 on Neutral atoms, Cs
-- [Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates](https://doi.org/10.1103/PRXQuantum.6.010331) (2025) - 0.0029 on Neutral atoms, Sr
-- [Spectroscopy and Modeling of 171Yb Rydberg States for High-Fidelity Two-Qubit Gates](https://doi.org/10.1103/PhysRevX.15.011009) (2025) - 0.006 on Neutral atoms, Yb
-
-### NV centers
-
-- [Strongly coupled diamond spin qubits by molecular nitrogen implantation](https://doi.org/10.1103/PhysRevB.88.201201) (2013) - 0.03 on NV centers
+- [Demonstration of a neutral atom controlled-NOT quantum gate](https://arxiv.org/abs/0907.5552) (2010) - 0.27 on Neutral atoms, CNOT gate error
+- [Entanglement of two individual neutral atoms using Rydberg blockade](https://arxiv.org/abs/0908.0454) (2010) - 0.25 on Neutral atoms, entangled state error
+- [Rydberg-blockade controlled-not gate and entanglement in a two-dimensional array of neutral-atom qubits](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.92.022336) (2015) - 0.21 on Neutral atoms, post-selected entanglement error on X operation conditioned on the control qubit being in state |0〉
+- [Parallel implementation of high-fidelity multi-qubit gates with neutral atoms](https://arxiv.org/abs/1908.06101) (2019) - 0.03 on Neutral atoms, CZ gate error
+- [High-Fidelity Entanglement and Detection of Alkaline-Earth Rydberg Atoms](https://arxiv.org/abs/2001.04455) (2020) - 0.01 on Neutral atoms, Bell state error, SPAM-corrected
+- [Erasure conversion in a high-fidelity Rydberg quantum simulator](https://arxiv.org/abs/2305.03406) (2023) - 0.002 on Neutral atoms, Rydberg entangling operation error
+- [High-fidelity parallel entangling gates on a neutral-atom quantum computer](https://doi.org/10.1038/s41586-023-06481-y) (2023) - 0.005 on Neutral atoms, Rb, CZ gate
+- [High-fidelity universal gates in the 171Yb ground state nuclear spin qubit](https://doi.org/10.48550/arXiv.2411.11708) (2024) - 0.006 on Neutral atoms, Yb, CZ gate
+- [A universal neutral-atom quantum computer with individual optical addressing and non-destructive readout](https://doi.org/10.48550/arXiv.2408.08288) (2025) - 0.0066 on Neutral atoms, Cs, CZ gate
+- [Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates](https://doi.org/10.1103/PRXQuantum.6.010331) (2025) - 0.0029 on Neutral atoms, Sr, CZ gate
+- [Spectroscopy and Modeling of 171Yb Rydberg States for High-Fidelity Two-Qubit Gates](https://doi.org/10.1103/PhysRevX.15.011009) (2025) - 0.006 on Neutral atoms, Yb, CZ gate
 
 ### Semiconductor spins
 
-- [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Semiconductor spins
-- [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.0035 on Semiconductor spins
+- [Fidelity benchmarks for two-qubit gates in silicon](https://doi.org/10.1038/s41586-019-1197-0) (2019) - 0.02 on Semiconductor spins, average controlled-rotation gate error
+- [Fast universal quantum control above the fault-tolerance threshold in silicon](https://arxiv.org/abs/2108.02626) (2021) - 0.005 on Semiconductor spins, CNOT gate
+- [Quantum logic with spin qubits crossing the surface code threshold](https://www.nature.com/articles/s41586-021-04273-w) (2022) - 0.0035 on Semiconductor spins, CZ gate
 
 ## Qubit Count
 
@@ -241,6 +324,7 @@ For more detailed information:
 ### Semiconductor spins
 
 - [A programmable two-qubit quantum processor in silicon](https://arxiv.org/abs/1708.04214) (2018) - 2 qubits on Semiconductor spins
+- [A four-qubit germanium quantum processor](https://doi.org/10.1038/s41586-021-03332-6) (2021) - 4 qubits on Semiconductor spins
 - [Universal control of a six-qubit quantum processor in silicon](https://arxiv.org/abs/2202.09252) (2022) - 6 qubits on Semiconductor spins
 
 ### NV centers
@@ -286,6 +370,9 @@ For more detailed information:
 ### Neutral atoms
 
 - [Fast Quantum State Control of a Single Trapped Neutral Atom](https://doi.org/10.1103/PhysRevA.75.040301) (2007) - Hyperfine, T1: 3.0s, T2: 0.034s on Neutral atoms, Spin-echo, dephasing time of 370µs. T1=trap lifetime in the absence of any near-resonant light
+- [2000-times repeated imaging of strontium atoms in clock-magic tweezer arrays](https://doi.org/10.1103/PhysRevLett.122.173201) (2019) - Hyperfine, T1: 420.0s on Neutral atoms
+- [A quantum processor based on coherent transport of entangled atom arrays](https://doi.org/10.1038/s41586-022-04592-6) (2022) - Hyperfine, T1: 4.0s, T2: 1.5s on Neutral atoms
+- [Multi-qubit entanglement and algorithms on a neutral-atom quantum computer](https://doi.org/10.1038/s41586-022-04603-6) (2022) - Hyperfine, T1: 4.0s, T2: 1.0s on Neutral atoms, T2 using a XY8 pulse
 - [A tweezer array with 6100 highly coherent atomic qubits](https://doi.org/10.48550/arXiv.2403.12021) (2024) - Hyperfine, T1: 119.0s, T2: 12.6s on Neutral atoms
 
 ### Semiconductor
@@ -307,8 +394,20 @@ For more detailed information:
 
 Contributions are welcome! If you have suggestions for new entries, please submit a pull request or open an issue.
 
+## Citation
+
+If you use this dataset in your research, please cite:
+
+```bibtex
+@unpublished{leregentAwesomeQuantumComputing2025,
+  title = {Awesome Quantum Computing Experiments: Benchmarking Experimental Progress Towards Fault-Tolerant Quantum Computation},
+  author = {Le Régent, François-Marie},
+  date = {2025-07-04},
+  doi = {10.48550/arXiv.2507.03678},
+  url = {http://arxiv.org/abs/2507.03678},
+}
+```
+
 ## License
 
-This work is licensed under a [CC0 1.0 Universal (Public Domain Dedication)](LICENSE).
-To the extent possible under law, the authors have dedicated all copyright and related and neighboring rights to this work to the public domain worldwide.
-For more information, see [Creative Commons CC0 1.0 Legal Code](https://creativecommons.org/publicdomain/zero/1.0/).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

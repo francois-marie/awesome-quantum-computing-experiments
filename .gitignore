@@ -63,7 +63,12 @@ coverage.xml
 # Pytest
 .pytest_cache/
 
-# !out/plots/*.png  # Uncomment this if plots are being ignored
+!out/png/*
+!out/png/*.png
+!out/js/*
+!out/js/*.js
+!out/pdf/*
+!out/pdf/*.pdf
 
 _site/
 .sass-cache/
