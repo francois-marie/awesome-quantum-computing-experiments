@@ -123,13 +123,33 @@ class MSDSection(ExperimentSection):
         has_value = data[data[column].notna() & (data[column].astype(str).str.strip() != "")]
         no_value = data[data[column].isna() | (data[column].astype(str).str.strip() == "")]
         return has_value, no_value
+
     def generate_toc(self) -> str:
         toc = ""
-        for code_name in self.data.sort_values(by=["Year", "Article Title"])["Code Name"].unique():
-            anchor = self.format_anchor(code_name)
-            toc += f"\t- [{code_name}](#{anchor})\n"
+        
+        preparation_data = self.data[self.data['Is_Preparation']]
+        distillation_data = self.data[self.data['Is_Distillation']]
+        code_switching_data = self.data[self.data['Is_Code_Switching']]
+
+        if not preparation_data.empty:
+            toc += "\t- [Preparation](#preparation)\n"
+            magic_states = self._get_non_empty_values(preparation_data, "Magic State")
+            for magic_state in magic_states:
+                header = f"Magic State: {magic_state}"
+                anchor = self.format_anchor(header)
+                toc += f"\t\t- [{magic_state}](#{anchor})\n"
+
+        if not distillation_data.empty:
+            toc += "\t- [Distillation](#distillation)\n"
+            protocols = self._get_non_empty_values(distillation_data, "MSD Protocol")
+            for protocol in protocols:
+                header = f"Protocol: {protocol}"
+                anchor = self.format_anchor(header)
+                toc += f"\t\t- [{protocol}](#{anchor})\n"
+
+        if not code_switching_data.empty:
+            toc += "\t- [Code Switching](#code-switching)\n"
         return toc
-    
     def generate_content(self) -> str:
         content = "## Magic State Distillation\n\n"
         for code_name, group in self.data.sort_values(
