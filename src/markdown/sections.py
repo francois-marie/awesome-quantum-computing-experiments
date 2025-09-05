@@ -190,6 +190,49 @@ class MSDSection(ExperimentSection):
 
         return content
 
+    def _generate_list_items(self, group: pd.DataFrame) -> str:
+        items = ""
+        for _, row in group.iterrows():
+            details = []
+            
+            # Only add protocol for distillation experiments
+            if (row.get('Experiment Type') == 'Distillation' and 
+                "MSD Protocol" in row and pd.notna(row["MSD Protocol"])):
+                details.append(f"protocol: {row['MSD Protocol']}")
+
+            # Only add QEC code if it's actually present in the original data
+            if "QEC Code" in row and pd.notna(row["QEC Code"]) and row["QEC Code"].strip():
+                qec_code = row["QEC Code"]
+                if 'code switching' in row['Article Title'].lower() and ',' in qec_code:
+                    qec_code = qec_code.replace(',', ' ->', 1)
+                details.append(f"QEC code: {qec_code}")
+
+            # Only add magic state if it's actually present in the original data
+            if "Magic State" in row and pd.notna(row["Magic State"]) and row["Magic State"].strip():
+                details.append(f"magic state: {row['Magic State']}")
+            
+            # Only add fidelity if it's actually present in the original data
+            if "Fidelity" in row and pd.notna(row["Fidelity"]) and row["Fidelity"].strip():
+                details.append(f"fidelity: {row['Fidelity']}")
+            
+            # Only add acceptance rate if it's actually present in the original data
+            if "Acceptance Rate (%)" in row and pd.notna(row["Acceptance Rate (%)"]) and str(row["Acceptance Rate (%)"]).strip():
+                details.append(f"acceptance rate: {row['Acceptance Rate (%)']}%")
+            
+            # Only add post selection if it's explicitly "Yes"
+            if "Post selection" in row and row["Post selection"] == "Yes":
+                details.append("post-selected")
+
+            details_str = ", ".join(details)
+            notes = f", {row['Notes']}" if "Notes" in row and pd.notna(row["Notes"]) and row["Notes"].strip() else ""
+
+            line = f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - on {row['Platform']}"
+            if details_str:
+                line += f", {details_str}"
+            line += f"{notes}\n"
+            items += line
+        return items
+
 class EntangledSection(ExperimentSection):
     """Generator for Entangled State Error section."""
     
