@@ -49,6 +49,13 @@ class MSDSection(ExperimentSection):
         
         self._setup_experiment_types()
 
+    def _setup_experiment_types(self):
+        """Set up experiment type classifications."""
+        if "Experiment Type" in self.data.columns and not self.data["Experiment Type"].isna().all():
+            self._setup_from_existing_types()
+        else:
+            self._setup_from_title_classification()
+
     def generate_toc(self) -> str:
         toc = ""
         for code_name in self.data.sort_values(by=["Year", "Article Title"])["Code Name"].unique():
