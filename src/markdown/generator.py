@@ -170,7 +170,7 @@ The following PNG files are included in the repository to display in this README
         content += self.sections[0].generate_toc()
         
         # MSD section
-        content += "- [Magic State Distillation](#magic-state-distillation)\n"
+        content += "- [Magic State](#magic-state)\n"
         content += self.sections[1].generate_toc()
         
         # Entangled section
