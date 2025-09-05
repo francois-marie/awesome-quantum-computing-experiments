@@ -170,16 +170,24 @@ class MSDSection(ExperimentSection):
         return content
 
     def generate_content(self) -> str:
-        content = "## Magic State Distillation\n\n"
-        for code_name, group in self.data.sort_values(
-            by=["Year", "Article Title"]
-        ).groupby("Code Name", sort=False):
-            content += f"### {code_name}\n\n"
-            for _, row in group.iterrows():
-                suffix = f", {row['Notes']}" if not pd.isna(row.get('Notes')) else ""
-                content += (f"- [{row['Article Title']}]({row['Link']}) ({row['Year']}) - "
-                          f"on {row['Platform']}{suffix}\n")
-            content += "\n"
+        content = "## Magic State\n\n"
+        
+        preparation_data = self.data[self.data['Is_Preparation']]
+        if not preparation_data.empty:
+            content += "### Preparation\n\n"
+            content += self._generate_grouped_content(preparation_data, "Magic State", "Magic State")
+        
+        distillation_data = self.data[self.data['Is_Distillation']]
+        if not distillation_data.empty:
+            content += "### Distillation\n\n"
+            content += self._generate_grouped_content(distillation_data, "MSD Protocol", "Protocol")
+
+        code_switching_data = self.data[self.data['Is_Code_Switching']]
+        if not code_switching_data.empty:
+            content += "### Code Switching\n\n"
+            sorted_code_switching_data = code_switching_data.sort_values(by=["Year", "Article Title"])
+            content += self._generate_list_items(sorted_code_switching_data)
+
         return content
 
 class EntangledSection(ExperimentSection):
