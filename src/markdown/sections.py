@@ -86,6 +86,15 @@ class MSDSection(ExperimentSection):
             return [self._classify_from_title(row['Article Title'])]
         
         self._create_boolean_columns(get_experiment_types)
+
+    def _classify_from_title(self, title):
+        """Classify experiment type from article title."""
+        title = title.lower()
+        if 'code switching' in title:
+            return 'Code Switching'
+        if 'distillation' in title or 'purification' in title:
+            return 'Distillation'
+        return 'Preparation'
     def generate_toc(self) -> str:
         toc = ""
         for code_name in self.data.sort_values(by=["Year", "Article Title"])["Code Name"].unique():
