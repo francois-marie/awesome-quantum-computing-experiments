@@ -150,6 +150,25 @@ class MSDSection(ExperimentSection):
         if not code_switching_data.empty:
             toc += "\t- [Code Switching](#code-switching)\n"
         return toc
+
+    def _generate_grouped_content(self, data, group_column, header_prefix):
+        """Generate content for data grouped by a specific column."""
+        content = ""
+        grouped_data, ungrouped_data = self._split_by_column_presence(data, group_column)
+        
+        # Add grouped experiments
+        for value, group in grouped_data.sort_values(by=["Year", "Article Title"]).groupby(group_column, sort=False):
+            header = f"{header_prefix}: {value}"
+            content += f"#### {header}\n\n"
+            content += self._generate_list_items(group)
+        
+        # Add ungrouped experiments
+        if not ungrouped_data.empty:
+            sorted_ungrouped = ungrouped_data.sort_values(by=["Year", "Article Title"])
+            content += self._generate_list_items(sorted_ungrouped)
+        
+        return content
+
     def generate_content(self) -> str:
         content = "## Magic State Distillation\n\n"
         for code_name, group in self.data.sort_values(
