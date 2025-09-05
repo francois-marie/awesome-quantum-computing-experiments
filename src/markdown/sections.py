@@ -56,6 +56,29 @@ class MSDSection(ExperimentSection):
         else:
             self._setup_from_title_classification()
 
+    def _setup_from_existing_types(self):
+        """Setup experiment types from existing CSV column."""
+        def get_experiment_types(row):
+            exp_type = row.get("Experiment Type", "")
+            if pd.isna(exp_type):
+                return self._classify_from_title(row['Article Title'])
+            
+            # Handle compound types - experiments can belong to multiple categories
+            exp_type = str(exp_type).strip().lower()
+            types = []
+            
+            if 'preparation' in exp_type:
+                types.append('Preparation')
+            if 'distillation' in exp_type:
+                types.append('Distillation')
+            if 'code switching' in exp_type:
+                types.append('Code Switching')
+            if 'injection' in exp_type:
+                types.append('Preparation')  # Treat injection as preparation
+            
+            return types if types else ['Preparation']
+        
+        self._create_boolean_columns(get_experiment_types)
     def generate_toc(self) -> str:
         toc = ""
         for code_name in self.data.sort_values(by=["Year", "Article Title"])["Code Name"].unique():
