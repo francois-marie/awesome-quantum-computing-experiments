@@ -38,8 +38,17 @@ class QECSection(ExperimentSection):
         return content
 
 class MSDSection(ExperimentSection):
-    """Generator for Magic State Distillation section."""
-    
+    """Generator for Magic State section."""
+
+    def __init__(self, data: pd.DataFrame):
+        super().__init__(data)
+        # Clean all columns - replace empty strings with NaN but don't forward fill
+        for col in self.data.columns:
+            if self.data[col].dtype == 'object':  # Only for string columns
+                self.data[col] = self.data[col].replace("", pd.NA)
+        
+        self._setup_experiment_types()
+
     def generate_toc(self) -> str:
         toc = ""
         for code_name in self.data.sort_values(by=["Year", "Article Title"])["Code Name"].unique():
