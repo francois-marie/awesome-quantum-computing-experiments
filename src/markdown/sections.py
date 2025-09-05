@@ -95,6 +95,34 @@ class MSDSection(ExperimentSection):
         if 'distillation' in title or 'purification' in title:
             return 'Distillation'
         return 'Preparation'
+
+    def _create_boolean_columns(self, get_experiment_types_func):
+        """Create boolean columns for experiment types."""
+        self.data['Is_Preparation'] = False
+        self.data['Is_Distillation'] = False
+        self.data['Is_Code_Switching'] = False
+        
+        for idx, row in self.data.iterrows():
+            types = get_experiment_types_func(row)
+            self.data.loc[idx, 'Is_Preparation'] = 'Preparation' in types
+            self.data.loc[idx, 'Is_Distillation'] = 'Distillation' in types
+            self.data.loc[idx, 'Is_Code_Switching'] = 'Code Switching' in types
+            
+        # Keep the primary experiment type for backward compatibility
+        self.data['Experiment Type'] = self.data.apply(
+            lambda row: get_experiment_types_func(row)[0], axis=1
+        )
+
+    def _get_non_empty_values(self, data, column):
+        """Get sorted list of non-empty values from a column."""
+        return sorted([val for val in data[column].unique() 
+                      if pd.notna(val) and str(val).strip()])
+
+    def _split_by_column_presence(self, data, column):
+        """Split data into groups with and without values in specified column."""
+        has_value = data[data[column].notna() & (data[column].astype(str).str.strip() != "")]
+        no_value = data[data[column].isna() | (data[column].astype(str).str.strip() == "")]
+        return has_value, no_value
     def generate_toc(self) -> str:
         toc = ""
         for code_name in self.data.sort_values(by=["Year", "Article Title"])["Code Name"].unique():
