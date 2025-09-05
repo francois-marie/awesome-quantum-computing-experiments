@@ -79,6 +79,13 @@ class MSDSection(ExperimentSection):
             return types if types else ['Preparation']
         
         self._create_boolean_columns(get_experiment_types)
+
+    def _setup_from_title_classification(self):
+        """Setup experiment types from article titles."""
+        def get_experiment_types(row):
+            return [self._classify_from_title(row['Article Title'])]
+        
+        self._create_boolean_columns(get_experiment_types)
     def generate_toc(self) -> str:
         toc = ""
         for code_name in self.data.sort_values(by=["Year", "Article Title"])["Code Name"].unique():
