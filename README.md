@@ -111,6 +111,10 @@ The following PNG files are included in the repository to display in this README
 
 ![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)
 
+![Magic State Preparation: Error vs Acceptance Rate](out/png/msd_plot.png)
+
+![Magic State Error Evolution Over Time](out/png/msd_error_evolution_plot.png)
+
 ![Cumulative Experiment Counts by QEC code](out/png/qec_cumulative_growth.png)
 
 </div>
@@ -241,6 +245,13 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 
 ## Magic State
 
+Magic states are crucial non-Clifford quantum states that enable universal fault-tolerant quantum computation. The main magic states used in experiments are:
+
+- T-gate: $T = \frac{1}{\sqrt{2}}\left(|0\rangle + e^{i\pi/4}|1\rangle\right)$
+- Hadamard: $H = \cos(\pi/8)|0\rangle + \sin(\pi/8)|1\rangle$
+- M: $M = \cos(\theta/2)|0\rangle + e^{i\pi/4}\sin(\theta/2)|1\rangle$ with $\theta = \cos^{-1}(1/\sqrt{3})$
+- CZ: $CZ = \frac{1}{\sqrt{3}}\left(|00\rangle + |10\rangle + |01\rangle\right)$
+
 ### Preparation
 
 #### Magic State: |H>
@@ -266,7 +277,7 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 
 #### Protocol: 4 to 2
 
-- [Experimental purification of two-atom entanglement](https://doi.org/10.1038/nature05146) (2006) - on Ion traps, protocol: 4 to 2, 9Be+ atomic ion qubits. Distillation: Two noisy entangled pairs were created and distilled into one higher-fidelity pair available for further use. Unpurified fidelity of 0.614 +- 0.0015, and a purified fidelity of 0.629 +- 0.0015
+- [Experimental purification of two-atom entanglement](https://doi.org/10.1038/nature05146) (2006) - on Ion traps, protocol: 4 to 2, fidelity: 0.629-15+15, 9Be+ atomic ion qubits. Distillation: Two noisy entangled pairs were created and distilled into one higher-fidelity pair available for further use. Unpurified fidelity of 0.614 +- 0.0015, and a purified fidelity of 0.629 +- 0.0015
 #### Protocol: 5 to 1
 
 - [Experimental Demonstration of Logical Magic State Distillation](https://arxiv.org/abs/2412.15165) (2024) - on Neutral atoms, QEC code: Steane, magic state: |M>, fidelity: 0.994-4+3, acceptance rate: 1%
