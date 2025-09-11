@@ -2,8 +2,14 @@ function loadCSV(url, tableId) {
     Papa.parse(url, {
         download: true,
         header: true,
+        skipEmptyLines: true,
         complete: function(results) {
             console.log(`Loading table ${tableId}`);
+            console.log('Papa parse results:', results);
+            
+            if (results.errors && results.errors.length > 0) {
+                console.warn('CSV parsing errors:', results.errors);
+            }
             
             if (results.data.length === 0 || !results.data[0]) {
                 console.warn(`No data found for ${tableId}`);
@@ -129,22 +135,87 @@ function loadCSV(url, tableId) {
                     ];
                     break;
                 case 'msd-table':
+                    console.log('Raw MSD data length:', results.data.length);
+                    console.log('First few rows:', results.data.slice(0, 3));
+                    
+                    // Filter out any empty rows or rows with missing essential data
+                    results.data = results.data.filter(row => {
+                        // Check if row has essential data
+                        const hasYear = row['Year'] && row['Year'].toString().trim() !== '';
+                        const hasTitle = row['Article Title'] && row['Article Title'].toString().trim() !== '';
+                        const hasPlatform = row['Platform'] && row['Platform'].toString().trim() !== '';
+                        
+                        // Log problematic rows for debugging
+                        if (!hasYear || !hasTitle || !hasPlatform) {
+                            console.log('Filtering out row:', row);
+                        }
+                        
+                        return hasYear && hasTitle && hasPlatform;
+                    });
+                    
+                    console.log('Filtered MSD data length:', results.data.length);
+                    console.log('MSD table headers:', Object.keys(results.data[0] || {}));
+                    console.log('Sample filtered row:', results.data[0]);
+                    
                     columnDefs = [
                         { 
                             title: "Year",
-                            data: findColumn(headers, ["Year", "year", "Date", "date"]) || "Year"
+                            data: "Year",
+                            type: "num"
                         },
                         { 
                             title: "Platform",
-                            data: findColumn(headers, ["Platform", "platform", "Implementation"]) || "Platform"
+                            data: "Platform"
                         },
                         {
-                            title: "Code Name",
-                            data: findColumn(headers, ["Code Name", "code_name", "Code", "code"]) || "Code Name"
+                            title: "Magic State",
+                            data: "Magic State",
+                            render: function(data) {
+                                return data && data.toString().trim() !== '' ? data : '';
+                            }
+                        },
+                        {
+                            title: "Experiment Type",
+                            data: "Experiment Type",
+                            render: function(data) {
+                                return data && data.toString().trim() !== '' ? data : '';
+                            }
+                        },
+                        {
+                            title: "Fidelity",
+                            data: "Fidelity",
+                            render: function(data) {
+                                return data && data.toString().trim() !== '' ? data : '';
+                            }
+                        },
+                        {
+                            title: "Acceptance Rate (%)",
+                            data: "Acceptance Rate (%)",
+                            render: function(data) {
+                                return data && data.toString().trim() !== '' ? data : '';
+                            }
+                        },
+                        {
+                            title: "QEC Code",
+                            data: "QEC Code",
+                            render: function(data) {
+                                return data && data.toString().trim() !== '' ? data : '';
+                            }
+                        },
+                        {
+                            title: "MSD Protocol",
+                            data: "MSD Protocol",
+                            render: function(data) {
+                                return data && data.toString().trim() !== '' ? data : '';
+                            }
+                        },
+                        { 
+                            title: "Article Title",
+                            data: "Article Title"
                         },
                         { 
                             title: "Link",
-                            data: findColumn(headers, ["Link", "URL", "DOI", "link"]) || "Link",
+                            data: "Link",
                             render: function(data) {
                                 return data ? `<a href="${data}" target="_blank">Link</a>` : '';
                             }
@@ -190,6 +261,12 @@ function loadCSV(url, tableId) {
             }
 
             try {
+                console.log(`Initializing DataTable for ${tableId} with ${results.data.length} rows`);
+                if (results.data.length > 0) {
+                    console.log('Sample data keys:', Object.keys(results.data[0]));
+                    console.log('Column definitions:', columnDefs.map(col => ({ title: col.title, data: col.data })));
+                }
+                
                 const table = $(`#${tableId}`).DataTable({
                     data: results.data,
                     columns: columnDefs,
@@ -201,13 +278,19 @@ function loadCSV(url, tableId) {
                     language: {
                         emptyTable: "No data available in table",
                         zeroRecords: "No matching records found"
-                    }
+                    },
+                    columnDefs: [{
+                        targets: '_all',
+                        defaultContent: ''
+                    }]
                 });
                 
                 updateMetricsGrid(tableId, results.data);
                 
             } catch (error) {
                 console.error('Error initializing DataTable:', error);
+                console.error('Data sample:', results.data.slice(0, 2));
+                console.error('Column definitions:', columnDefs);
                 $(`#${tableId}`).after(`<div class="error-message">Error loading table: ${error.message}</div>`);
             }
         },
@@ -269,7 +352,15 @@ function updateMetricsGrid(tableId, data) {
             break;
             
         case 'msd-table':
-            $('#msd-metric .msd-code-name').text(latest['Code Name'] || '');
+            console.log('Latest MSD data:', latest);
+            const magicState = latest['Magic State'] || '';
+            const fidelity = latest['Fidelity'] || '';
+            const acceptanceRate = latest['Acceptance Rate (%)'] || '';
+            const experimentType = latest['Experiment Type'] || '';
+            $('#msd-metric .magic-state').text(magicState);
+            $('#msd-metric .fidelity').text(fidelity);
+            $('#msd-metric .acceptance-rate').text(acceptanceRate ? `${acceptanceRate}%` : '');
+            $('#msd-metric .experiment-type').text(experimentType);
             $('#msd-metric .platform').text(latest.Platform || '');
             $('#msd-metric .year').text(latest.Year || '');
             updateLink('#msd-metric', latest.Link);
