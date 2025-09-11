@@ -155,6 +155,10 @@ The following PNG files are included in the repository to display in this README
 
 ![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)
 
+![Magic State Preparation: Error vs Acceptance Rate](out/png/msd_plot.png)
+
+![Magic State Error Evolution Over Time](out/png/msd_error_evolution_plot.png)
+
 ![Cumulative Experiment Counts by QEC code](out/png/qec_cumulative_growth.png)
 
 </div>
