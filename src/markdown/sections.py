@@ -170,7 +170,15 @@ class MSDSection(ExperimentSection):
         return content
 
     def generate_content(self) -> str:
+        """Generate the complete Magic State section content."""
         content = "## Magic State\n\n"
+        
+        # Add detailed explanation of magic states
+        content += "Magic states are crucial non-Clifford quantum states that enable universal fault-tolerant quantum computation. The main magic states used in experiments are:\n\n"
+        content += "- T-gate: $T = \\frac{1}{\\sqrt{2}}\\left(|0\\rangle + e^{i\\pi/4}|1\\rangle\\right)$\n"
+        content += "- Hadamard: $H = \\cos(\\pi/8)|0\\rangle + \\sin(\\pi/8)|1\\rangle$\n"
+        content += "- M: $M = \\cos(\\theta/2)|0\\rangle + e^{i\\pi/4}\\sin(\\theta/2)|1\\rangle$ with $\\theta = \\cos^{-1}(1/\\sqrt{3})$\n"
+        content += "- CZ: $CZ = \\frac{1}{\\sqrt{3}}\\left(|00\\rangle + |10\\rangle + |01\\rangle\\right)$\n\n"
         
         preparation_data = self.data[self.data['Is_Preparation']]
         if not preparation_data.empty:
