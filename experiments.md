@@ -17,11 +17,15 @@ The QEC database tracks implementations of quantum error correction codes across
 <table id="qec-table" class="display responsive nowrap" width="100%"></table>
 
 ## Magic State Distillation (MSD)
-Magic state distillation is crucial for fault-tolerant quantum computation, enabling high-fidelity T gates for instance.
+Magic state distillation is crucial for fault-tolerant quantum computation, enabling high-fidelity implementation of non-Clifford gates like the T gate.
 
 ### Tracked Metrics:
 - Implementation Platform
 - Distillation Protocol
+- Magic State Type (|H>, |T>, |M>, |CZ>)
+- Fidelity and Confidence Intervals
+- Acceptance Rate (%)
+- QEC Code Implementation
 - Year
 
 <table id="msd-table" class="display responsive nowrap" width="100%"></table>
