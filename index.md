@@ -33,6 +33,16 @@ A comprehensive collection of notable quantum computing experiments, focusing on
     <div id="qubit-count-plot" class="plot-container"></div>
 </div>
 
+### Magic State Preparation: Error vs Acceptance Rate
+<div class="plot-section">
+    <div id="msd-plot" class="plot-container"></div>
+</div>
+
+### Magic State Error Evolution Over Time
+<div class="plot-section">
+    <div id="msd-error-evolution-plot" class="plot-container"></div>
+</div>
+
 <!-- High-level visualizations -->
 ### Cumulative Experiment Counts by Platform
 <div class="plot-section">
@@ -70,6 +80,8 @@ A comprehensive collection of notable quantum computing experiments, focusing on
 <script src="{{ '/out/js/coherence_times_plot.js' | relative_url }}"></script>
 <script src="{{ '/out/js/entangled_error_plot.js' | relative_url }}"></script>
 <script src="{{ '/out/js/qubit_count_plot.js' | relative_url }}"></script>
+<script src="{{ '/out/js/msd_plot.js' | relative_url }}"></script>
+<script src="{{ '/out/js/msd_error_evolution_plot.js' | relative_url }}"></script>
 <script src="{{ '/out/js/experiment_counts.js' | relative_url }}"></script>
 <script src="{{ '/out/js/nkd_plot_aggregated.js' | relative_url }}"></script>
 <script src="{{ '/out/js/experiment_counts_yearly.js' | relative_url }}"></script>
