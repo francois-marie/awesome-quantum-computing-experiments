@@ -30,3 +30,4 @@
 "0.02","Fidelity benchmarks for two-qubit gates in silicon","https://doi.org/10.1038/s41586-019-1197-0","2019","Semiconductor spins","average controlled-rotation gate error"
 "0.0006","24 days-stable CNOT-gate on fluxonium qubits with over 99.9% fidelity","https://doi.org/10.48550/arXiv.2407.15783","2024","Superconducting circuits","CNOT-phase gate error between two fluxonium qubits"
 "0.001","An 11-qubit atom processor in silicon","https://doi.org/10.48550/arXiv.2506.03567","2025","Semiconductor spins","Phosphorus atoms, nuclear CZ gate fidelity of 99.90(4)%"
+"0.000084","Trapped-ion two-qubit gates with > 99.99% fidelity without ground-state cooling","https://doi.org/10.48550/arXiv.2510.17286","2025","Ion traps","8.4(7)e−5, without the use of ground-state cooling%. <=5e−4 for ions with average phonon occupation numbers of up to n = 9.4(3) on the gate mode"
