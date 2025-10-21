@@ -37,7 +37,8 @@ const entangled_error_plotData = [
       "https://arxiv.org/abs/0803.2798",
       "https://arxiv.org/abs/1512.04600",
       "https://arxiv.org/abs/1604.00032",
-      "https://arxiv.org/abs/2407.07694"
+      "https://arxiv.org/abs/2407.07694",
+      "https://doi.org/10.48550/arXiv.2510.17286"
     ],
     "hovertemplate": "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "legendgroup": "Ion traps",
@@ -61,7 +62,8 @@ const entangled_error_plotData = [
         "square",
         "square",
         "square",
-        "circle"
+        "circle",
+        "square"
       ]
     },
     "mode": "markers",
@@ -76,7 +78,8 @@ const entangled_error_plotData = [
       "Towards Fault-Tolerant Quantum Computing with Trapped Ions",
       "High-fidelity quantum logic gates using trapped-ion hyperfine qubits",
       "High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits",
-      "Scalable, high-fidelity all-electronic control of trapped-ion qubits"
+      "Scalable, high-fidelity all-electronic control of trapped-ion qubits",
+      "Trapped-ion two-qubit gates with > 99.99% fidelity without ground-state cooling"
     ],
     "x": [
       1998,
@@ -87,7 +90,8 @@ const entangled_error_plotData = [
       2008,
       2016,
       2016,
-      2024
+      2024,
+      2025
     ],
     "y": [
       0.3,
@@ -98,7 +102,8 @@ const entangled_error_plotData = [
       0.007,
       0.0008,
       0.0005,
-      0.0003
+      0.0003,
+      8.4e-05
     ],
     "type": "scatter",
     "textfont": {
@@ -153,11 +158,11 @@ const entangled_error_plotData = [
     "showlegend": true,
     "x": [
       1998,
-      2024
+      2025
     ],
     "y": [
-      0.20971814182403678,
-      0.00011336778029454369
+      0.209937425994841,
+      8.456065989061743e-05
     ],
     "type": "scatter",
     "textfont": {

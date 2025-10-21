@@ -260,6 +260,7 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 - [High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps, two-qubit gate error
 - [High-fidelity quantum logic gates using trapped-ion hyperfine qubits](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps, two-qubit gate error
 - [Scalable, high-fidelity all-electronic control of trapped-ion qubits](https://arxiv.org/abs/2407.07694) (2024) - 0.0003 on Ion traps, Two-qubit maximally entangled states
+- [Trapped-ion two-qubit gates with > 99.99% fidelity without ground-state cooling](https://doi.org/10.48550/arXiv.2510.17286) (2025) - 8.4e-05 on Ion traps, 8.4(7)e−5, without the use of ground-state cooling%. <=5e−4 for ions with average phonon occupation numbers of up to n = 9.4(3) on the gate mode
 
 ### Superconducting circuits
 
