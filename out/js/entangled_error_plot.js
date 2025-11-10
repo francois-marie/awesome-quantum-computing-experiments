@@ -38,7 +38,8 @@ const entangled_error_plotData = [
       "https://arxiv.org/abs/1512.04600",
       "https://arxiv.org/abs/1604.00032",
       "https://arxiv.org/abs/2407.07694",
-      "https://doi.org/10.48550/arXiv.2510.17286"
+      "https://doi.org/10.48550/arXiv.2510.17286",
+      "https://doi.org/10.48550/arXiv.2511.05465"
     ],
     "hovertemplate": "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "legendgroup": "Ion traps",
@@ -63,6 +64,7 @@ const entangled_error_plotData = [
         "square",
         "square",
         "circle",
+        "square",
         "square"
       ]
     },
@@ -79,7 +81,8 @@ const entangled_error_plotData = [
       "High-fidelity quantum logic gates using trapped-ion hyperfine qubits",
       "High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits",
       "Scalable, high-fidelity all-electronic control of trapped-ion qubits",
-      "Trapped-ion two-qubit gates with > 99.99% fidelity without ground-state cooling"
+      "Trapped-ion two-qubit gates with > 99.99% fidelity without ground-state cooling",
+      "Helios: A 98-qubit trapped-ion quantum computer"
     ],
     "x": [
       1998,
@@ -91,6 +94,7 @@ const entangled_error_plotData = [
       2016,
       2016,
       2024,
+      2025,
       2025
     ],
     "y": [
@@ -103,7 +107,8 @@ const entangled_error_plotData = [
       0.0008,
       0.0005,
       0.0003,
-      8.4e-05
+      8.4e-05,
+      0.00079
     ],
     "type": "scatter",
     "textfont": {
@@ -154,15 +159,15 @@ const entangled_error_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Ion traps fit (\u00f72 every 2.4y)",
+    "name": "Ion traps fit (\u00f72 every 2.7y)",
     "showlegend": true,
     "x": [
       1998,
       2025
     ],
     "y": [
-      0.209937425994841,
-      8.456065989061743e-05
+      0.17831715600306292,
+      0.0001537277122125627
     ],
     "type": "scatter",
     "textfont": {

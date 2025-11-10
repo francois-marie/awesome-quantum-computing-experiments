@@ -260,6 +260,7 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 - [High-Fidelity Universal Gate Set for $^9$Be$^+$ Ion Qubits](https://arxiv.org/abs/1604.00032) (2016) - 0.0005 on Ion traps, two-qubit gate error
 - [High-fidelity quantum logic gates using trapped-ion hyperfine qubits](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps, two-qubit gate error
 - [Scalable, high-fidelity all-electronic control of trapped-ion qubits](https://arxiv.org/abs/2407.07694) (2024) - 0.0003 on Ion traps, Two-qubit maximally entangled states
+- [Helios: A 98-qubit trapped-ion quantum computer](https://doi.org/10.48550/arXiv.2511.05465) (2025) - 0.00079 on Ion traps, 2.5(1)×10−5  for single-qubit gates, 7.9(2)×10−4 for two-qubit gates, and 4.8(6)×10−4 for state preparation and measurement
 - [Trapped-ion two-qubit gates with > 99.99% fidelity without ground-state cooling](https://doi.org/10.48550/arXiv.2510.17286) (2025) - 8.4e-05 on Ion traps, 8.4(7)e−5, without the use of ground-state cooling%. <=5e−4 for ions with average phonon occupation numbers of up to n = 9.4(3) on the gate mode
 
 ### Superconducting circuits
@@ -302,6 +303,7 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 - [14-qubit entanglement: creation and coherence](https://arxiv.org/abs/1009.6126) (2011) - 14 qubits on Ion traps
 - [Observation of Entangled States of a Fully Controlled 20-Qubit System](https://arxiv.org/abs/1711.11092) (2017) - 20 qubits on Ion traps
 - [Controlling two-dimensional Coulomb crystals of more than 100 ions in a monolithic radio-frequency trap](https://arxiv.org/abs/2302.00565) (2023) - 100 qubits on Ion traps
+- [Helios: A 98-qubit trapped-ion quantum computer](https://doi.org/10.48550/arXiv.2511.05465) (2025) - 98 qubits on Ion traps, Barium hyperfine qubits
 
 ### Superconducting circuit
 

@@ -6,7 +6,8 @@ const qubit_count_plotData = [
       "https://www.nature.com/articles/35005011",
       "https://arxiv.org/abs/1009.6126",
       "https://arxiv.org/abs/1711.11092",
-      "https://arxiv.org/abs/2302.00565"
+      "https://arxiv.org/abs/2302.00565",
+      "https://doi.org/10.48550/arXiv.2511.05465"
     ],
     "hovertemplate": "<b>%{text}</b><br>Qubits: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "line": {
@@ -28,21 +29,24 @@ const qubit_count_plotData = [
       "Experimental Entanglement of Four Particles",
       "14-qubit entanglement: creation and coherence",
       "Observation of Entangled States of a Fully Controlled 20-Qubit System",
-      "Controlling two-dimensional Coulomb crystals of more than 100 ions in a monolithic radio-frequency trap"
+      "Controlling two-dimensional Coulomb crystals of more than 100 ions in a monolithic radio-frequency trap",
+      "Helios: A 98-qubit trapped-ion quantum computer"
     ],
     "x": [
       1998,
       2000,
       2011,
       2017,
-      2023
+      2023,
+      2025
     ],
     "y": [
       2,
       4,
       14,
       20,
-      100
+      100,
+      98
     ],
     "type": "scatter",
     "textfont": {
@@ -65,11 +69,11 @@ const qubit_count_plotData = [
     "showlegend": true,
     "x": [
       1998,
-      2023
+      2025
     ],
     "y": [
-      2.312210991968367,
-      72.41642562019827
+      2.305331498075388,
+      96.45534926518835
     ],
     "type": "scatter",
     "textfont": {
