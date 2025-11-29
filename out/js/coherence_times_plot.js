@@ -266,7 +266,7 @@ const coherence_times_plotData = [
       2024
     ],
     "y": [
-      4.713383552745194,
+      4.713383552745039,
       34.80109955052615
     ],
     "type": "scatter",
@@ -494,6 +494,7 @@ const coherence_times_plotData = [
       "https://arxiv.org/abs/1810.11006",
       "https://arxiv.org/abs/1805.09072",
       "https://doi.org/10.1038/s41567-020-0824-x",
+      "https://doi.org/10.48550/arXiv.1901.08042",
       "https://doi.org/10.1103/PRXQuantum.4.020350",
       "https://doi.org/10.1038/s41586-024-07294-3",
       "https://doi.org/10.1103/PhysRevX.14.021019"
@@ -535,6 +536,7 @@ const coherence_times_plotData = [
       "The high-coherence fluxonium qubit",
       "Demonstration of quantum error correction and universal gate set on a binomial bosonic logical qubit",
       "Exponential suppression of bit-flips in a qubit encoded in an oscillator",
+      "Manufacturing low dissipation superconducting quantum processors",
       "One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator",
       "Quantum control of a cat-qubit with bit-flip times exceeding ten seconds",
       "Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s"
@@ -558,6 +560,7 @@ const coherence_times_plotData = [
       2016,
       2018,
       2018,
+      2019,
       2019,
       2019,
       2023,
@@ -585,6 +588,7 @@ const coherence_times_plotData = [
       0.0002,
       0.0001,
       0.001,
+      7.6e-05,
       127.0,
       15.0,
       0.3
@@ -613,8 +617,8 @@ const coherence_times_plotData = [
       2024
     ],
     "y": [
-      8.009912253684141e-09,
-      0.33034829847588365
+      9.183346664879572e-09,
+      0.2053884451636374
     ],
     "type": "scatter",
     "textfont": {
