@@ -101,13 +101,17 @@ class MSDSection(ExperimentSection):
         self.data['Is_Preparation'] = False
         self.data['Is_Distillation'] = False
         self.data['Is_Code_Switching'] = False
-        
+
+        if self.data.empty:
+            self.data['Experiment Type'] = pd.Series(dtype='object')
+            return
+
         for idx, row in self.data.iterrows():
             types = get_experiment_types_func(row)
             self.data.loc[idx, 'Is_Preparation'] = 'Preparation' in types
             self.data.loc[idx, 'Is_Distillation'] = 'Distillation' in types
             self.data.loc[idx, 'Is_Code_Switching'] = 'Code Switching' in types
-            
+
         # Keep the primary experiment type for backward compatibility
         self.data['Experiment Type'] = self.data.apply(
             lambda row: get_experiment_types_func(row)[0], axis=1
