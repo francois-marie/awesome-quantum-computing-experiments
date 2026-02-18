@@ -4,15 +4,7 @@ function loadCSV(url, tableId) {
         header: true,
         skipEmptyLines: true,
         complete: function(results) {
-            console.log(`Loading table ${tableId}`);
-            console.log('Papa parse results:', results);
-            
-            if (results.errors && results.errors.length > 0) {
-                console.warn('CSV parsing errors:', results.errors);
-            }
-            
             if (results.data.length === 0 || !results.data[0]) {
-                console.warn(`No data found for ${tableId}`);
                 $(`#${tableId}`).after(`<div class="info-message">No data available yet. Please contribute by adding entries!</div>`);
                 return;
 }
@@ -77,13 +69,6 @@ function loadCSV(url, tableId) {
                     const qubitCol = findColumn(headers, ["Qubit Count", "qubit_count", "Qubits", "Number of Qubits", "qubits", "count"]);
                     const linkCol = findColumn(headers, ["Link", "URL", "DOI", "link", "doi", "url"]);
                     
-                    console.log('Column matches for qubit-count-table:', {
-                        yearCol,
-                        platformCol,
-                        qubitCol,
-                        linkCol
-                    });
-
                     columnDefs = [
                         { 
                             title: "Year",
@@ -135,27 +120,13 @@ function loadCSV(url, tableId) {
                     ];
                     break;
                 case 'msd-table':
-                    console.log('Raw MSD data length:', results.data.length);
-                    console.log('First few rows:', results.data.slice(0, 3));
-                    
                     // Filter out any empty rows or rows with missing essential data
                     results.data = results.data.filter(row => {
-                        // Check if row has essential data
                         const hasYear = row['Year'] && row['Year'].toString().trim() !== '';
                         const hasTitle = row['Article Title'] && row['Article Title'].toString().trim() !== '';
                         const hasPlatform = row['Platform'] && row['Platform'].toString().trim() !== '';
-                        
-                        // Log problematic rows for debugging
-                        if (!hasYear || !hasTitle || !hasPlatform) {
-                            console.log('Filtering out row:', row);
-                        }
-                        
                         return hasYear && hasTitle && hasPlatform;
                     });
-                    
-                    console.log('Filtered MSD data length:', results.data.length);
-                    console.log('MSD table headers:', Object.keys(results.data[0] || {}));
-                    console.log('Sample filtered row:', results.data[0]);
                     
                     columnDefs = [
                         { 
@@ -261,12 +232,6 @@ function loadCSV(url, tableId) {
             }
 
             try {
-                console.log(`Initializing DataTable for ${tableId} with ${results.data.length} rows`);
-                if (results.data.length > 0) {
-                    console.log('Sample data keys:', Object.keys(results.data[0]));
-                    console.log('Column definitions:', columnDefs.map(col => ({ title: col.title, data: col.data })));
-                }
-                
                 const table = $(`#${tableId}`).DataTable({
                     data: results.data,
                     columns: columnDefs,
@@ -288,9 +253,7 @@ function loadCSV(url, tableId) {
                 updateMetricsGrid(tableId, results.data);
                 
             } catch (error) {
-                console.error('Error initializing DataTable:', error);
-                console.error('Data sample:', results.data.slice(0, 2));
-                console.error('Column definitions:', columnDefs);
+                console.error(`Error initializing DataTable for ${tableId}:`, error);
                 $(`#${tableId}`).after(`<div class="error-message">Error loading table: ${error.message}</div>`);
             }
         },
@@ -313,8 +276,6 @@ function updateMetricsGrid(tableId, data) {
         return yearB - yearA;
     });
     const latest = sortedData[0];
-    
-    console.log(`Updating metrics for ${tableId}:`, latest); // Debug log
     
     // Helper function to update link
     function updateLink(selector, url) {
@@ -352,7 +313,6 @@ function updateMetricsGrid(tableId, data) {
             break;
             
         case 'msd-table':
-            console.log('Latest MSD data:', latest);
             const magicState = latest['Magic State'] || '';
             const fidelity = latest['Fidelity'] || '';
             const acceptanceRate = latest['Acceptance Rate (%)'] || '';
