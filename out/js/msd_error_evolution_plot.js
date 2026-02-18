@@ -30,95 +30,6 @@ const msd_error_evolution_plotData = [
   {
     "customdata": [
       [
-        "",
-        "",
-        "Distillation",
-        "",
-        "https://doi.org/10.1038/nature05146"
-      ]
-    ],
-    "error_y": {
-      "array": [
-        0.015000000000000013
-      ],
-      "arrayminus": [
-        0.015000000000000013
-      ],
-      "color": "#FFC107",
-      "symmetric": false,
-      "thickness": 2,
-      "type": "data",
-      "width": 4
-    },
-    "hovertemplate": "<b>%{text}</b><br>Error: %{y:.4f}<br>Year: %{x}<br>Magic State: %{customdata[0]}<br>QEC Code: %{customdata[1]}<br>Experiment Type: %{customdata[2]}<br>Acceptance Rate: %{customdata[3]}%<br><a href='%{customdata[4]}' target='_blank'>Link</a><extra></extra>",
-    "legendgroup": "Ion traps",
-    "marker": {
-      "color": "#FFC107",
-      "line": {
-        "color": "white",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": [
-        "circle"
-      ]
-    },
-    "mode": "markers",
-    "name": "Ion traps",
-    "showlegend": false,
-    "text": [
-      "Experimental purification of two-atom entanglement"
-    ],
-    "x": [
-      2006
-    ],
-    "y": [
-      0.371
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "legendgroup": "Ion traps",
-    "legendrank": 1,
-    "marker": {
-      "color": "#FFC107",
-      "line": {
-        "color": "white",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle"
-    },
-    "mode": "markers",
-    "name": "Ion traps",
-    "showlegend": true,
-    "x": [
-      null
-    ],
-    "y": [
-      null
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      [
         "|M>",
         "Steane",
         "Preparation and Distillation",
@@ -176,7 +87,7 @@ const msd_error_evolution_plotData = [
   },
   {
     "legendgroup": "Neutral atoms",
-    "legendrank": 2,
+    "legendrank": 1,
     "marker": {
       "color": "#95A5A6",
       "line": {
@@ -343,7 +254,7 @@ const msd_error_evolution_plotData = [
   },
   {
     "legendgroup": "Superconducting qubits",
-    "legendrank": 3,
+    "legendrank": 2,
     "marker": {
       "color": "#2ECC71",
       "line": {
@@ -373,7 +284,7 @@ const msd_error_evolution_plotData = [
     }
   },
   {
-    "legendrank": 4,
+    "legendrank": 3,
     "line": {
       "color": "#2ECC71",
       "dash": "dot",
@@ -512,7 +423,7 @@ const msd_error_evolution_plotData = [
   },
   {
     "legendgroup": "Trapped-ion",
-    "legendrank": 5,
+    "legendrank": 4,
     "marker": {
       "color": "#FFC107",
       "line": {
@@ -542,7 +453,7 @@ const msd_error_evolution_plotData = [
     }
   },
   {
-    "legendrank": 6,
+    "legendrank": 5,
     "line": {
       "color": "#FFC107",
       "dash": "dot",

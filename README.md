@@ -260,13 +260,13 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [Demonstration of fault-tolerant universal quantum gate operations](https://doi.org/10.1038/s41586-022-04721-1) (2021) - on Trapped-ion, QEC code: Steane, magic state: |H>, fidelity: 0.994-14+5, acceptance rate: 13.7%
 - [Logical Magic State Preparation with Fidelity beyond the Distillation Threshold on a Superconducting Quantum Processor](https://doi.org/10.1103/PhysRevLett.131.210603) (2023) - on Superconducting qubits, QEC code: Surface code, magic state: |H>, fidelity: 0.9090-9+9, acceptance rate: 73.41%
 - [Magic State Injection on IBM Quantum Processors Above the Distillation Threshold](https://arxiv.org/abs/2412.01446) (2024) - on Superconducting qubits, QEC code: Surface code, magic state: |H>, fidelity: 0.8806-2+2, acceptance rate: 36.3%
-- [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting qubits, QEC code: Steane, magic state: |H>, fidelity: 0.9959-37+38, acceptance rate: 74.6%, Post-selected logical state tomography measurements
+- [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting qubits, QEC code: Steane, magic state: |H>, fidelity: 0.9959-37+38, acceptance rate: 74.6%, post-selected, Post-selected logical state tomography measurements
 #### Magic State: |T>
 
 - [Logical-qubit operations in an error-detecting surface code](https://doi.org/10.1038/s41567-021-01423-9) (2021) - on Superconducting qubits, QEC code: Surface code, magic state: |T>, fidelity: 0.966, acceptance rate: <25%
 - [Realization of real-time fault-tolerant quantum error correction](https://doi.org/10.1103/PhysRevX.11.041058) (2021) - on Trapped-ion, QEC code: Steane, magic state: |T>, fidelity: 0.978-6+6, acceptance rate: 100%
 - [Logical Magic State Preparation with Fidelity beyond the Distillation Threshold on a Superconducting Quantum Processor](https://doi.org/10.1103/PhysRevLett.131.210603) (2023) - on Superconducting qubits, QEC code: Surface code, magic state: |T>, fidelity: 0.8771-9+9, acceptance rate: 73.41%
-- [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting qubits, QEC code: Steane, magic state: |T>, fidelity: 0.9992-15+3, acceptance rate: 75.2%, Post-selected logical state tomography measurements
+- [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting qubits, QEC code: Steane, magic state: |T>, fidelity: 0.9992-15+3, acceptance rate: 75.2%, post-selected, Post-selected logical state tomography measurements
 #### Magic State: |CZ>
 
 - [Encoding a magic state with beyond break-even fidelity](https://doi.org/10.1038/s41586-023-06846-3) (2023) - on Superconducting qubits, QEC code: Surface code, magic state: |CZ>, fidelity: 0.9877-11+11, acceptance rate: 17%
@@ -277,13 +277,13 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 
 #### Protocol: 4 to 2
 
-- [Experimental purification of two-atom entanglement](https://doi.org/10.1038/nature05146) (2006) - on Ion traps, protocol: 4 to 2, fidelity: 0.629-15+15, 9Be+ atomic ion qubits. Distillation: Two noisy entangled pairs were created and distilled into one higher-fidelity pair available for further use. Unpurified fidelity of 0.614 +- 0.0015, and a purified fidelity of 0.629 +- 0.0015
+- [Experimental purification of two-atom entanglement](https://doi.org/10.1038/nature05146) (2006) - on Ion traps, protocol: 4 to 2, 9Be+ atomic ion qubits. Distillation: Two noisy entangled pairs were created and distilled into one higher-fidelity pair available for further use. Unpurified fidelity of 0.614 +- 0.0015, and a purified fidelity of 0.629 +- 0.0015
 #### Protocol: 5 to 1
 
 - [Experimental Demonstration of Logical Magic State Distillation](https://arxiv.org/abs/2412.15165) (2024) - on Neutral atoms, QEC code: Steane, magic state: |M>, fidelity: 0.994-4+3, acceptance rate: 1%
 ### Code Switching
 
-- [Experimental fault-tolerant code switching](https://doi.org/10.1038/s41567-024-02727-2) (2024) - on Trapped-ion, QEC code: Steane -> [[10,1,2]], magic state: |T>, fidelity: 0.963-4+4, acceptance rate: 19%
+- [Experimental fault-tolerant code switching](https://doi.org/10.1038/s41567-024-02727-2) (2024) - on Trapped-ion, QEC code: Steane -> [[10,1,2]], magic state: |T>, fidelity: 0.963-4+4, acceptance rate: 19%, post-selected
 - [Experimental demonstration of high-fidelity logical magic states from code switching](https://doi.org/10.48550/arXiv.2506.14169) (2025) - on Trapped-ion, QEC code: [[15 ->1,3]], Steane, magic state: |T>, fidelity: 0.99949-27+27, acceptance rate: 82.58%
 ## Entangled State Error
 
