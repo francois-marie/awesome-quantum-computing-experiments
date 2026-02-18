@@ -1,112 +1,21 @@
-// Coherence Times Plot Plot
-const coherence_times_plotData = [
+// Msd Error Evolution Plot Plot
+const msd_error_evolution_plotData = [
   {
-    "customdata": [
-      "https://arxiv.org/abs/1809.05215"
-    ],
-    "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "color": "#867BFA",
-      "width": 3
-    },
+    "legendgroup": "header_platform",
+    "legendrank": 0,
     "marker": {
-      "color": "#867BFA",
-      "line": {
-        "color": "white",
-        "width": 2
-      },
-      "size": 12,
+      "color": "rgba(0,0,0,0)",
+      "size": 0,
       "symbol": "circle"
     },
     "mode": "markers",
-    "name": "Graphene (T1)",
-    "text": [
-      "Quantum coherent control of a hybrid superconducting circuit made with graphene-based van der Waals heterostructures"
-    ],
-    "x": [
-      2018
-    ],
-    "y": [
-      5e-08
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      "https://doi.org/10.1103/PhysRevLett.95.060502",
-      "https://doi.org/10.1103/PhysRevLett.113.220501",
-      "https://doi.org/10.1038/s41566-017-0007-1",
-      "https://doi.org/10.1038/s41467-020-20330-w"
-    ],
-    "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "color": "#FFC107",
-      "dash": "dash",
-      "width": 3
-    },
-    "marker": {
-      "color": "#FFC107",
-      "line": {
-        "color": "#FFC107",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle-open"
-    },
-    "mode": "markers",
-    "name": "Ion traps (T2)",
-    "text": [
-      "Long-Lived Qubit Memory Using Atomic Ions",
-      "High-Fidelity Preparation, Gates, Memory, and Readout of a Trapped-Ion Quantum Bit",
-      "Single-qubit quantum memory exceeding ten-minute coherence time",
-      "Single ion qubit with estimated coherence time exceeding one hour"
-    ],
-    "x": [
-      2005,
-      2014,
-      2017,
-      2021
-    ],
-    "y": [
-      14.7,
-      50.0,
-      667.0,
-      5500.0
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "line": {
-      "color": "#FFC107",
-      "dash": "dashdot",
-      "width": 2
-    },
-    "mode": "lines",
-    "name": "Ion traps T2 fit (\u00d72 every 1.9y)",
+    "name": "\ud835\udc0f\ud835\udc25\ud835\udc1a\ud835\udc2d\ud835\udc1f\ud835\udc28\ud835\udc2b\ud835\udc26",
     "showlegend": true,
     "x": [
-      2005,
-      2021
+      null
     ],
     "y": [
-      8.034081054958786,
-      2617.064887994298
+      null
     ],
     "type": "scatter",
     "textfont": {
@@ -120,32 +29,51 @@ const coherence_times_plotData = [
   },
   {
     "customdata": [
-      "https://doi.org/10.1038/s41467-018-04916-z"
+      [
+        "|M>",
+        "Steane",
+        "Preparation and Distillation",
+        "1",
+        "https://arxiv.org/abs/2412.15165"
+      ]
     ],
-    "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "color": "#E74C3C",
-      "width": 3
+    "error_y": {
+      "array": [
+        0.0040000000000000036
+      ],
+      "arrayminus": [
+        0.0030000000000000027
+      ],
+      "color": "#95A5A6",
+      "symmetric": false,
+      "thickness": 2,
+      "type": "data",
+      "width": 4
     },
+    "hovertemplate": "<b>%{text}</b><br>Error: %{y:.4f}<br>Year: %{x}<br>Magic State: %{customdata[0]}<br>QEC Code: %{customdata[1]}<br>Experiment Type: %{customdata[2]}<br>Acceptance Rate: %{customdata[3]}%<br><a href='%{customdata[4]}' target='_blank'>Link</a><extra></extra>",
+    "legendgroup": "Neutral atoms",
     "marker": {
-      "color": "#E74C3C",
+      "color": "#95A5A6",
       "line": {
         "color": "white",
         "width": 2
       },
       "size": 12,
-      "symbol": "circle"
+      "symbol": [
+        "diamond"
+      ]
     },
     "mode": "markers",
-    "name": "NV centers (T1)",
+    "name": "Neutral atoms",
+    "showlegend": false,
     "text": [
-      "One-second coherence for a single electron spin coupled to a multi-qubit nuclear-spin environment"
+      "Experimental Demonstration of Logical Magic State Distillation"
     ],
     "x": [
-      2018
+      2024
     ],
     "y": [
-      3600.0
+      0.006000000000000005
     ],
     "type": "scatter",
     "textfont": {
@@ -158,58 +86,8 @@ const coherence_times_plotData = [
     }
   },
   {
-    "customdata": [
-      "https://doi.org/10.1038/s41467-018-04916-z"
-    ],
-    "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "color": "#E74C3C",
-      "dash": "dash",
-      "width": 3
-    },
-    "marker": {
-      "color": "#E74C3C",
-      "line": {
-        "color": "#E74C3C",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle-open"
-    },
-    "mode": "markers",
-    "name": "NV centers (T2)",
-    "text": [
-      "One-second coherence for a single electron spin coupled to a multi-qubit nuclear-spin environment"
-    ],
-    "x": [
-      2018
-    ],
-    "y": [
-      1.58
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      "https://doi.org/10.1103/PhysRevA.75.040301",
-      "https://doi.org/10.1103/PhysRevLett.122.173201",
-      "https://doi.org/10.1038/s41586-022-04592-6",
-      "https://doi.org/10.1038/s41586-022-04603-6",
-      "https://doi.org/10.48550/arXiv.2403.12021"
-    ],
-    "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "color": "#95A5A6",
-      "width": 3
-    },
+    "legendgroup": "Neutral atoms",
+    "legendrank": 1,
     "marker": {
       "color": "#95A5A6",
       "line": {
@@ -220,54 +98,13 @@ const coherence_times_plotData = [
       "symbol": "circle"
     },
     "mode": "markers",
-    "name": "Neutral atoms (T1)",
-    "text": [
-      "Fast Quantum State Control of a Single Trapped Neutral Atom",
-      "2000-times repeated imaging of strontium atoms in clock-magic tweezer arrays",
-      "A quantum processor based on coherent transport of entangled atom arrays",
-      "Multi-qubit entanglement and algorithms on a neutral-atom quantum computer",
-      "A tweezer array with 6100 highly coherent atomic qubits"
-    ],
-    "x": [
-      2007,
-      2019,
-      2022,
-      2022,
-      2024
-    ],
-    "y": [
-      3.0,
-      420.0,
-      4.0,
-      4.0,
-      119.0
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "line": {
-      "color": "#95A5A6",
-      "dash": "dot",
-      "width": 2
-    },
-    "mode": "lines",
-    "name": "Neutral atoms T1 fit (\u00d72 every 5.9y)",
+    "name": "Neutral atoms",
     "showlegend": true,
     "x": [
-      2007,
-      2024
+      null
     ],
     "y": [
-      4.713383552745194,
-      34.80109955052615
+      null
     ],
     "type": "scatter",
     "textfont": {
@@ -281,229 +118,83 @@ const coherence_times_plotData = [
   },
   {
     "customdata": [
-      "https://doi.org/10.1103/PhysRevA.75.040301",
-      "https://doi.org/10.1038/s41586-022-04592-6",
-      "https://doi.org/10.1038/s41586-022-04603-6",
-      "https://doi.org/10.48550/arXiv.2403.12021"
+      [
+        "|T>",
+        "Surface code",
+        "Preparation",
+        "<25",
+        "https://doi.org/10.1038/s41567-021-01423-9"
+      ],
+      [
+        "|CZ>",
+        "Surface code",
+        "Preparation",
+        "17",
+        "https://doi.org/10.1038/s41586-023-06846-3"
+      ],
+      [
+        "|T>",
+        "Surface code",
+        "Preparation",
+        "73.41",
+        "https://doi.org/10.1103/PhysRevLett.131.210603"
+      ],
+      [
+        "|H>",
+        "Surface code",
+        "Preparation",
+        "73.41",
+        "https://doi.org/10.1103/PhysRevLett.131.210603"
+      ],
+      [
+        "|H>",
+        "Surface code",
+        "Injection",
+        "36.3",
+        "https://arxiv.org/abs/2412.01446"
+      ],
+      [
+        "|T>",
+        "Steane",
+        "Preparation and Injection",
+        "75.2",
+        "https://arxiv.org/abs/2412.14256"
+      ],
+      [
+        "|H>",
+        "Steane",
+        "Preparation and Injection",
+        "74.6",
+        "https://arxiv.org/abs/2412.14256"
+      ]
     ],
-    "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "color": "#95A5A6",
-      "dash": "dash",
-      "width": 3
-    },
-    "marker": {
-      "color": "#95A5A6",
-      "line": {
-        "color": "#95A5A6",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle-open"
-    },
-    "mode": "markers",
-    "name": "Neutral atoms (T2)",
-    "text": [
-      "Fast Quantum State Control of a Single Trapped Neutral Atom",
-      "A quantum processor based on coherent transport of entangled atom arrays",
-      "Multi-qubit entanglement and algorithms on a neutral-atom quantum computer",
-      "A tweezer array with 6100 highly coherent atomic qubits"
-    ],
-    "x": [
-      2007,
-      2022,
-      2022,
-      2024
-    ],
-    "y": [
-      0.034,
-      1.5,
-      1.0,
-      12.6
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "line": {
-      "color": "#95A5A6",
-      "dash": "dashdot",
-      "width": 2
-    },
-    "mode": "lines",
-    "name": "Neutral atoms T2 fit (\u00d72 every 2.4y)",
-    "showlegend": true,
-    "x": [
-      2007,
-      2024
-    ],
-    "y": [
-      0.02929798398979105,
-      4.12630852714783
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      "https://arxiv.org/abs/1503.08339",
-      "https://arxiv.org/abs/1512.09195",
-      "https://arxiv.org/abs/1711.07961"
-    ],
-    "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "color": "#92DCE5",
-      "width": 3
-    },
-    "marker": {
-      "color": "#92DCE5",
-      "line": {
-        "color": "white",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle"
-    },
-    "mode": "markers",
-    "name": "Semiconductor (T1)",
-    "text": [
-      "A Semiconductor Nanowire-Based Superconducting Qubit",
-      "Gatemon Benchmarking and Two-Qubit Operation",
-      "Evolution of Nanowire Transmons and Their Quantum Coherence in Magnetic Field"
-    ],
-    "x": [
-      2015,
-      2016,
-      2018
-    ],
-    "y": [
-      8e-07,
-      3e-06,
-      1e-05
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "line": {
-      "color": "#92DCE5",
-      "dash": "dot",
-      "width": 2
-    },
-    "mode": "lines",
-    "name": "Semiconductor T1 fit (\u00d72 every 0.9y)",
-    "showlegend": true,
-    "x": [
-      2015,
-      2018
-    ],
-    "y": [
-      9.826570108668322e-07,
-      1.1082965594026632e-05
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      "https://arxiv.org/abs/1503.08339"
-    ],
-    "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "color": "#92DCE5",
-      "dash": "dash",
-      "width": 3
-    },
-    "marker": {
-      "color": "#92DCE5",
-      "line": {
-        "color": "#92DCE5",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle-open"
-    },
-    "mode": "markers",
-    "name": "Semiconductor (T2)",
-    "text": [
-      "A Semiconductor Nanowire-Based Superconducting Qubit"
-    ],
-    "x": [
-      2015
-    ],
-    "y": [
-      1e-06
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      "https://arxiv.org/abs/cond-mat/9904003v1",
-      "https://arxiv.org/abs/cond-mat/0111402",
-      "https://arxiv.org/abs/cond-mat/0205343",
-      "https://arxiv.org/abs/cond-mat/0305461",
-      "https://arxiv.org/abs/cond-mat/0512428",
-      "https://arxiv.org/abs/0803.4490",
-      "https://arxiv.org/abs/0808.3279",
-      "https://arxiv.org/abs/1101.4707",
-      "https://arxiv.org/abs/1105.4652",
-      "https://arxiv.org/abs/1202.5533",
-      "https://arxiv.org/abs/1303.4071",
-      "https://www.nature.com/articles/nature13017",
-      "https://arxiv.org/abs/1412.2772",
-      "https://arxiv.org/abs/1508.06299",
-      "https://arxiv.org/abs/1601.05505",
-      "https://arxiv.org/abs/1602.04768v1",
-      "https://arxiv.org/abs/1803.00102",
-      "https://arxiv.org/abs/1810.11006",
-      "https://arxiv.org/abs/1805.09072",
-      "https://doi.org/10.1038/s41567-020-0824-x",
-      "https://doi.org/10.48550/arXiv.1901.08042",
-      "https://doi.org/10.1103/PRXQuantum.4.020350",
-      "https://doi.org/10.1038/s41586-024-07294-3",
-      "https://doi.org/10.1103/PhysRevX.14.021019"
-    ],
-    "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
+    "error_y": {
+      "array": [
+        0.0,
+        0.0010999999999999899,
+        0.0009000000000000119,
+        0.009000000000000008,
+        0.00019999999999997797,
+        0.0014999999999999458,
+        0.0037000000000000366
+      ],
+      "arrayminus": [
+        0.0,
+        0.0010999999999999899,
+        0.0009000000000000119,
+        0.009000000000000008,
+        0.00019999999999997797,
+        0.00029999999999996696,
+        0.0038000000000000256
+      ],
       "color": "#2ECC71",
-      "width": 3
+      "symmetric": false,
+      "thickness": 2,
+      "type": "data",
+      "width": 4
     },
+    "hovertemplate": "<b>%{text}</b><br>Error: %{y:.4f}<br>Year: %{x}<br>Magic State: %{customdata[0]}<br>QEC Code: %{customdata[1]}<br>Experiment Type: %{customdata[2]}<br>Acceptance Rate: %{customdata[3]}%<br><a href='%{customdata[4]}' target='_blank'>Link</a><extra></extra>",
+    "legendgroup": "Superconducting qubits",
     "marker": {
       "color": "#2ECC71",
       "line": {
@@ -511,87 +202,45 @@ const coherence_times_plotData = [
         "width": 2
       },
       "size": 12,
-      "symbol": "circle"
+      "symbol": [
+        "square",
+        "triangle-up",
+        "square",
+        "circle",
+        "circle",
+        "square",
+        "circle"
+      ]
     },
     "mode": "markers",
-    "name": "Superconducting circuit (T1)",
+    "name": "Superconducting qubits",
+    "showlegend": false,
     "text": [
-      "Coherent control of macroscopic quantum states in a single-Cooper-pair box",
-      "Charge echo in a Cooper-pair box",
-      "Manipulating the Quantum State of an Electrical Circuit",
-      "Coherent Quantum Dynamics of a Superconducting Flux Qubit",
-      "Dephasing of a superconducting qubit induced by photon noise",
-      "Controlling the spontaneous emission of a superconducting transmon qubit",
-      "Measurement of the decay of Fock states in a superconducting quantum circuit",
-      "Dynamical decoupling and noise spectroscopy with a superconducting flux qubit",
-      "Observation of high coherence in Josephson junction qubits measured in a three-dimensional circuit QED architecture",
-      "Superconducting qubit in waveguide cavity with coherence time approaching 0.1ms",
-      "Improved superconducting qubit coherence using titanium nitride",
-      "Coherent suppression of electromagnetic dissipation due to superconducting quasiparticles",
-      "Thermal and Residual Excited-State Population in a 3D Transmon Qubit",
-      "The Flux Qubit Revisited to Enhance Coherence and Reproducibility",
-      "A Schrodinger Cat Living in Two Boxes",
-      "Demonstrating Quantum Error Correction that Extends the Lifetime of Quantum Information",
-      "Fault-tolerant detection of a quantum error",
-      "The high-coherence fluxonium qubit",
-      "Demonstration of quantum error correction and universal gate set on a binomial bosonic logical qubit",
-      "Exponential suppression of bit-flips in a qubit encoded in an oscillator",
-      "Manufacturing low dissipation superconducting quantum processors",
-      "One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator",
-      "Quantum control of a cat-qubit with bit-flip times exceeding ten seconds",
-      "Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s"
+      "Logical-qubit operations in an error-detecting surface code",
+      "Encoding a magic state with beyond break-even fidelity",
+      "Logical Magic State Preparation with Fidelity beyond the Distillation Threshold on a Superconducting Quantum Processor",
+      "Logical Magic State Preparation with Fidelity beyond the Distillation Threshold on a Superconducting Quantum Processor",
+      "Magic State Injection on IBM Quantum Processors Above the Distillation Threshold",
+      "Scaling and logic in the color code on a superconducting quantum processor",
+      "Scaling and logic in the color code on a superconducting quantum processor"
     ],
     "x": [
-      1999,
-      2001,
-      2002,
-      2003,
-      2005,
-      2007,
-      2008,
-      2010,
-      2011,
-      2012,
-      2013,
-      2014,
-      2014,
-      2015,
-      2015,
-      2016,
-      2018,
-      2018,
-      2019,
-      2019,
-      2019,
+      2021,
       2023,
+      2023,
+      2023,
+      2024,
       2024,
       2024
     ],
     "y": [
-      2e-09,
-      9e-09,
-      1e-06,
-      1e-06,
-      5e-06,
-      4e-06,
-      3e-06,
-      1.2e-05,
-      7e-05,
-      7e-05,
-      7e-05,
-      0.001,
-      0.0001,
-      4e-05,
-      0.004,
-      0.00015,
-      0.0011,
-      0.0002,
-      0.0001,
-      0.001,
-      7.6e-05,
-      127.0,
-      15.0,
-      0.3
+      0.03400000000000003,
+      0.012299999999999978,
+      0.12290000000000001,
+      0.09099999999999997,
+      0.11939999999999995,
+      0.0008000000000000229,
+      0.0040999999999999925
     ],
     "type": "scatter",
     "textfont": {
@@ -604,21 +253,53 @@ const coherence_times_plotData = [
     }
   },
   {
+    "legendgroup": "Superconducting qubits",
+    "legendrank": 2,
+    "marker": {
+      "color": "#2ECC71",
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "circle"
+    },
+    "mode": "markers",
+    "name": "Superconducting qubits",
+    "showlegend": true,
+    "x": [
+      null
+    ],
+    "y": [
+      null
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "legendrank": 3,
     "line": {
       "color": "#2ECC71",
       "dash": "dot",
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuit T1 fit (\u00d72 every 1.0y)",
+    "name": "Superconducting qubits fit (\u00f72 every 1.2y)",
     "showlegend": true,
     "x": [
-      1999,
+      2021,
       2024
     ],
     "y": [
-      9.183346664879572e-09,
-      0.2053884451636374
+      0.07650420319941338,
+      0.012563104617845952
     ],
     "type": "scatter",
     "textfont": {
@@ -632,105 +313,103 @@ const coherence_times_plotData = [
   },
   {
     "customdata": [
-      "https://arxiv.org/abs/cond-mat/0111402",
-      "https://arxiv.org/abs/cond-mat/0205343",
-      "https://arxiv.org/abs/cond-mat/0305461",
-      "https://arxiv.org/abs/cond-mat/0512428",
-      "https://arxiv.org/abs/0803.4490",
-      "https://arxiv.org/abs/0808.3279",
-      "https://arxiv.org/abs/0906.0831",
-      "https://arxiv.org/abs/1101.4707",
-      "https://arxiv.org/abs/1105.4652",
-      "https://arxiv.org/abs/1202.5533",
-      "https://arxiv.org/abs/1303.4071",
-      "https://www.nature.com/articles/nature13017",
-      "https://arxiv.org/abs/1412.2772",
-      "https://arxiv.org/abs/1508.06299",
-      "https://arxiv.org/abs/1601.05505",
-      "https://arxiv.org/abs/1803.00102",
-      "https://arxiv.org/abs/1810.11006",
-      "https://arxiv.org/abs/1805.09072",
-      "https://doi.org/10.1038/s41586-024-07294-3"
+      [
+        "|H>",
+        "Bacon-Shor",
+        "Preparation",
+        "100",
+        "https://doi.org/10.1038/s41586-021-03928-y"
+      ],
+      [
+        "|T>",
+        "Steane",
+        "Preparation",
+        "100",
+        "https://doi.org/10.1103/PhysRevX.11.041058"
+      ],
+      [
+        "|H>",
+        "Steane",
+        "Preparation",
+        "13.7",
+        "https://doi.org/10.1038/s41586-022-04721-1"
+      ],
+      [
+        "|T>",
+        "Steane, [[10,1,2]]",
+        "Code Switching",
+        "19",
+        "https://doi.org/10.1038/s41567-024-02727-2"
+      ],
+      [
+        "|T>",
+        "[[15,1,3]], Steane",
+        "Code Switching",
+        "82.58",
+        "https://doi.org/10.48550/arXiv.2506.14169"
+      ]
     ],
-    "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "color": "#2ECC71",
-      "dash": "dash",
-      "width": 3
+    "error_y": {
+      "array": [
+        0.01200000000000001,
+        0.006000000000000005,
+        0.014000000000000012,
+        0.0040000000000000036,
+        0.00026999999999999247
+      ],
+      "arrayminus": [
+        0.01200000000000001,
+        0.006000000000000005,
+        0.0050000000000000044,
+        0.0040000000000000036,
+        0.00026999999999999247
+      ],
+      "color": "#FFC107",
+      "symmetric": false,
+      "thickness": 2,
+      "type": "data",
+      "width": 4
     },
+    "hovertemplate": "<b>%{text}</b><br>Error: %{y:.4f}<br>Year: %{x}<br>Magic State: %{customdata[0]}<br>QEC Code: %{customdata[1]}<br>Experiment Type: %{customdata[2]}<br>Acceptance Rate: %{customdata[3]}%<br><a href='%{customdata[4]}' target='_blank'>Link</a><extra></extra>",
+    "legendgroup": "Trapped-ion",
     "marker": {
-      "color": "#2ECC71",
+      "color": "#FFC107",
       "line": {
-        "color": "#2ECC71",
+        "color": "white",
         "width": 2
       },
       "size": 12,
-      "symbol": "circle-open"
+      "symbol": [
+        "circle",
+        "square",
+        "circle",
+        "square",
+        "square"
+      ]
     },
     "mode": "markers",
-    "name": "Superconducting circuit (T2)",
+    "name": "Trapped-ion",
+    "showlegend": false,
     "text": [
-      "Charge echo in a Cooper-pair box",
-      "Manipulating the Quantum State of an Electrical Circuit",
-      "Coherent Quantum Dynamics of a Superconducting Flux Qubit",
-      "Dephasing of a superconducting qubit induced by photon noise",
-      "Controlling the spontaneous emission of a superconducting transmon qubit",
-      "Measurement of the decay of Fock states in a superconducting quantum circuit",
-      "Fluxonium: single Cooper pair circuit free of charge offsets",
-      "Dynamical decoupling and noise spectroscopy with a superconducting flux qubit",
-      "Observation of high coherence in Josephson junction qubits measured in a three-dimensional circuit QED architecture",
-      "Superconducting qubit in waveguide cavity with coherence time approaching 0.1ms",
-      "Improved superconducting qubit coherence using titanium nitride",
-      "Coherent suppression of electromagnetic dissipation due to superconducting quasiparticles",
-      "Thermal and Residual Excited-State Population in a 3D Transmon Qubit",
-      "The Flux Qubit Revisited to Enhance Coherence and Reproducibility",
-      "A Schrodinger Cat Living in Two Boxes",
-      "Fault-tolerant detection of a quantum error",
-      "The high-coherence fluxonium qubit",
-      "Demonstration of quantum error correction and universal gate set on a binomial bosonic logical qubit",
-      "Quantum control of a cat-qubit with bit-flip times exceeding ten seconds"
+      "Fault-tolerant control of an error-corrected qubit",
+      "Realization of real-time fault-tolerant quantum error correction",
+      "Demonstration of fault-tolerant universal quantum gate operations",
+      "Experimental fault-tolerant code switching",
+      "Experimental demonstration of high-fidelity logical magic states from code switching"
     ],
     "x": [
-      2001,
-      2002,
-      2003,
-      2005,
-      2007,
-      2008,
-      2009,
-      2010,
-      2011,
-      2012,
-      2013,
-      2014,
-      2014,
-      2015,
-      2015,
-      2018,
-      2018,
-      2019,
-      2024
+      2020,
+      2021,
+      2021,
+      2024,
+      2025
     ],
     "y": [
-      5e-09,
-      8e-07,
-      2e-08,
-      5e-06,
-      2e-06,
-      6e-06,
-      3.5e-07,
-      2.3e-05,
-      1.5e-05,
-      9.5e-05,
-      7e-05,
-      2e-05,
-      0.0002,
-      8.5e-05,
-      0.001,
-      0.0014,
-      0.0003,
-      0.0001,
-      5e-07
+      0.028000000000000025,
+      0.02200000000000002,
+      0.006000000000000005,
+      0.03700000000000003,
+      0.0005100000000000104
     ],
     "type": "scatter",
     "textfont": {
@@ -743,21 +422,204 @@ const coherence_times_plotData = [
     }
   },
   {
+    "legendgroup": "Trapped-ion",
+    "legendrank": 4,
+    "marker": {
+      "color": "#FFC107",
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "circle"
+    },
+    "mode": "markers",
+    "name": "Trapped-ion",
+    "showlegend": true,
+    "x": [
+      null
+    ],
+    "y": [
+      null
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "legendrank": 5,
     "line": {
-      "color": "#2ECC71",
-      "dash": "dashdot",
+      "color": "#FFC107",
+      "dash": "dot",
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuit T2 fit (\u00d72 every 1.9y)",
+    "name": "Trapped-ion fit (\u00f72 every 1.5y)",
     "showlegend": true,
     "x": [
-      2001,
-      2024
+      2020,
+      2025
     ],
     "y": [
-      2.4797998637960684e-07,
-      0.000935532868334199
+      0.02538304976083794,
+      0.0025941283707452663
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "legendgroup": "header_magic_state",
+    "legendrank": 100,
+    "marker": {
+      "color": "rgba(0,0,0,0)",
+      "size": 0,
+      "symbol": "circle"
+    },
+    "mode": "markers",
+    "name": "\ud835\udc0c\ud835\udc1a\ud835\udc20\ud835\udc22\ud835\udc1c \ud835\udc12\ud835\udc2d\ud835\udc1a\ud835\udc2d\ud835\udc1e",
+    "showlegend": true,
+    "x": [
+      null
+    ],
+    "y": [
+      null
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "legendgroup": "magic_state_legend",
+    "legendrank": 101,
+    "marker": {
+      "color": "gray",
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "triangle-up"
+    },
+    "mode": "markers",
+    "name": "CZ",
+    "showlegend": true,
+    "x": [
+      null
+    ],
+    "y": [
+      null
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "legendgroup": "magic_state_legend",
+    "legendrank": 102,
+    "marker": {
+      "color": "gray",
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "circle"
+    },
+    "mode": "markers",
+    "name": "H",
+    "showlegend": true,
+    "x": [
+      null
+    ],
+    "y": [
+      null
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "legendgroup": "magic_state_legend",
+    "legendrank": 103,
+    "marker": {
+      "color": "gray",
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "diamond"
+    },
+    "mode": "markers",
+    "name": "M",
+    "showlegend": true,
+    "x": [
+      null
+    ],
+    "y": [
+      null
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "legendgroup": "magic_state_legend",
+    "legendrank": 104,
+    "marker": {
+      "color": "gray",
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "square"
+    },
+    "mode": "markers",
+    "name": "T",
+    "showlegend": true,
+    "x": [
+      null
+    ],
+    "y": [
+      null
     ],
     "type": "scatter",
     "textfont": {
@@ -771,7 +633,7 @@ const coherence_times_plotData = [
   }
 ];
 
-const coherence_times_plotLayout = {
+const msd_error_evolution_plotLayout = {
   "font": {
     "color": "#2F3136",
     "family": "Arial",
@@ -804,7 +666,7 @@ const coherence_times_plotLayout = {
       "size": 16,
       "family": "Arial"
     },
-    "text": "Physical Qubit Coherence Times Evolution"
+    "text": "Magic State Error Evolution Over Time"
   },
   "width": 1000,
   "xaxis": {
@@ -828,23 +690,23 @@ const coherence_times_plotLayout = {
     }
   },
   "yaxis": {
+    "dtick": "D1",
     "gridcolor": "#E5E5E5",
-    "gridwidth": 1,
     "linecolor": "#2F3136",
-    "linewidth": 1,
-    "minor": {
-      "tickcolor": "#2F3136",
-      "ticklen": 3,
-      "ticks": "outside",
-      "tickwidth": 1
-    },
     "showgrid": true,
-    "tickcolor": "#2F3136",
-    "ticklen": 5,
-    "ticks": "outside",
-    "tickwidth": 1,
+    "showline": true,
+    "tickfont": {
+      "color": "#2F3136",
+      "family": "Arial, Helvetica, sans-serif",
+      "size": 14
+    },
     "title": {
-      "text": "Coherence Time (s)"
+      "font": {
+        "color": "#2F3136",
+        "family": "Arial, Helvetica, sans-serif",
+        "size": 14
+      },
+      "text": "Error (1 - Fidelity)"
     },
     "type": "log"
   },
@@ -1637,4 +1499,4 @@ const coherence_times_plotLayout = {
   "separators": ". "
 };
 
-Plotly.newPlot('coherence-times-plot', coherence_times_plotData, coherence_times_plotLayout);
+Plotly.newPlot('msd-error-evolution-plot', msd_error_evolution_plotData, msd_error_evolution_plotLayout);

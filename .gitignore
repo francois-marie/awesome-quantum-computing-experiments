@@ -81,3 +81,5 @@ vendor/
 
 # Ruby
 Gemfile.lock
+
+tmp/
