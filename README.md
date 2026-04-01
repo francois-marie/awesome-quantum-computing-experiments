@@ -158,6 +158,7 @@ The following PNG files are included in the repository to display in this README
 	- [Semiconductor](#semiconductor)
 	- [NV centers](#nv-centers)
 	- [Graphene](#graphene)
+	- [Superconducting](#superconducting)
 
 ## Quantum Error Correction
 
@@ -403,6 +404,7 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator](https://doi.org/10.1103/PRXQuantum.4.020350) (2023) - Cat encoding, T1: 127.0s on Superconducting circuit
 - [Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s](https://doi.org/10.1103/PhysRevX.14.021019) (2024) - Cat encoding, T1: 0.3s on Superconducting circuit
 - [Quantum control of a cat-qubit with bit-flip times exceeding ten seconds](https://doi.org/10.1038/s41586-024-07294-3) (2024) - Cat encoding, T1: 15.0s, T2: 5e-07s on Superconducting circuit
+- [High-coherence fluxonium qubits manufactured with a wafer-scale-uniformity process](https://doi.org/10.1103/PhysRevApplied.23.044064) (2025) - Fluxonium, T1: 0.001168s, T2: 0.000943s on Superconducting circuit, T1 & T2 for their best device, with a qubit frequency f01 = 197 MHz
 
 ### Ion traps
 
@@ -432,6 +434,10 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 ### Graphene
 
 - [Quantum coherent control of a hybrid superconducting circuit made with graphene-based van der Waals heterostructures](https://arxiv.org/abs/1809.05215) (2018) - Gatemon, T1: 5e-08s on Graphene
+
+### Superconducting
+
+- [Methods to achieve near-millisecond energy relaxation and dephasing times for a superconducting transmon qubit](https://doi.org/10.48550/arXiv.2407.18778) (2024) - Transmon, T1: 0.000425s, T2: 0.000541s on Superconducting, Qubit frequency 2.9 GHz; T1 median 425 us, max 666 +/- 33 us; T2echo median 541 us, max 1057 +/- 138 us
 
 
 ## Contributing
