@@ -38,3 +38,4 @@
 "Hyperfine","Multi-qubit entanglement and algorithms on a neutral-atom quantum computer","https://doi.org/10.1038/s41586-022-04603-6","2022","Neutral atoms","Cesium","T2 using a XY8 pulse","4","1"
 "Hyperfine","2000-times repeated imaging of strontium atoms in clock-magic tweezer arrays","https://doi.org/10.1103/PhysRevLett.122.173201","2019","Neutral atoms","Strontium","","420",""
 "Transmon","Manufacturing low dissipation superconducting quantum processors","https://doi.org/10.48550/arXiv.1901.08042","2019","Superconducting circuit","Josephson junction","an average T_1=76+/-13 μs across 24 qubits with the best qubits having T1>=110 μs","0.000076",""
+"Fluxonium","High-coherence fluxonium qubits manufactured with a wafer-scale-uniformity process","https://doi.org/10.1103/PhysRevApplied.23.044064","2025","Superconducting circuit","Josephson junction","T1 & T2 for their best device, with a qubit frequency f01 = 197 MHz","0.001168","0.000943"
