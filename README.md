@@ -403,6 +403,7 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator](https://doi.org/10.1103/PRXQuantum.4.020350) (2023) - Cat encoding, T1: 127.0s on Superconducting circuit
 - [Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s](https://doi.org/10.1103/PhysRevX.14.021019) (2024) - Cat encoding, T1: 0.3s on Superconducting circuit
 - [Quantum control of a cat-qubit with bit-flip times exceeding ten seconds](https://doi.org/10.1038/s41586-024-07294-3) (2024) - Cat encoding, T1: 15.0s, T2: 5e-07s on Superconducting circuit
+- [High-coherence fluxonium qubits manufactured with a wafer-scale-uniformity process](https://doi.org/10.1103/PhysRevApplied.23.044064) (2025) - Fluxonium, T1: 0.001168s, T2: 0.000943s on Superconducting circuit, T1 & T2 for their best device, with a qubit frequency f01 = 197 MHz
 
 ### Ion traps
 
