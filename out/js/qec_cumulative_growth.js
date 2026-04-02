@@ -38,7 +38,8 @@ const qec_cumulative_growthData = [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "y": [
       0,
@@ -67,6 +68,7 @@ const qec_cumulative_growthData = [
       2,
       2,
       2,
+      3,
       3
     ],
     "type": "scatter",
@@ -117,7 +119,8 @@ const qec_cumulative_growthData = [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "y": [
       0,
@@ -142,6 +145,7 @@ const qec_cumulative_growthData = [
       1,
       1,
       2,
+      3,
       3,
       3,
       3,
@@ -196,7 +200,8 @@ const qec_cumulative_growthData = [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "y": [
       0,
@@ -222,6 +227,7 @@ const qec_cumulative_growthData = [
       0,
       0,
       0,
+      1,
       1,
       1,
       1,
@@ -275,7 +281,8 @@ const qec_cumulative_growthData = [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "y": [
       0,
@@ -304,6 +311,7 @@ const qec_cumulative_growthData = [
       4,
       4,
       5,
+      7,
       7
     ],
     "type": "scatter",
@@ -354,7 +362,8 @@ const qec_cumulative_growthData = [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "y": [
       0,
@@ -383,7 +392,8 @@ const qec_cumulative_growthData = [
       10,
       12,
       12,
-      16
+      16,
+      17
     ],
     "type": "scatter",
     "textfont": {
@@ -433,7 +443,8 @@ const qec_cumulative_growthData = [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "y": [
       1,
@@ -462,6 +473,7 @@ const qec_cumulative_growthData = [
       13,
       13,
       14,
+      16,
       16
     ],
     "type": "scatter",
@@ -512,7 +524,8 @@ const qec_cumulative_growthData = [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "y": [
       0,
@@ -541,6 +554,7 @@ const qec_cumulative_growthData = [
       4,
       4,
       6,
+      8,
       8
     ],
     "type": "scatter",
@@ -591,7 +605,8 @@ const qec_cumulative_growthData = [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "y": [
       0,
@@ -615,6 +630,7 @@ const qec_cumulative_growthData = [
       2,
       2,
       2,
+      3,
       3,
       3,
       3,

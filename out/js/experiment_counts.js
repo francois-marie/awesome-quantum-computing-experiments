@@ -34,7 +34,8 @@ const experiment_countsData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -52,6 +53,7 @@ const experiment_countsData = [
       2,
       2,
       4,
+      5,
       5,
       5,
       5,
@@ -110,7 +112,8 @@ const experiment_countsData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -140,6 +143,7 @@ const experiment_countsData = [
       6,
       6,
       6,
+      7,
       7
     ],
     "type": "bar",
@@ -186,7 +190,8 @@ const experiment_countsData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -216,6 +221,7 @@ const experiment_countsData = [
       23,
       24,
       26,
+      32,
       32
     ],
     "type": "bar",
@@ -262,7 +268,8 @@ const experiment_countsData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -282,6 +289,7 @@ const experiment_countsData = [
       0,
       0,
       0,
+      1,
       1,
       1,
       1,
@@ -338,7 +346,8 @@ const experiment_countsData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -366,6 +375,7 @@ const experiment_countsData = [
       1,
       2,
       2,
+      3,
       3,
       3,
       3
@@ -414,7 +424,8 @@ const experiment_countsData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -444,7 +455,83 @@ const experiment_countsData = [
       3,
       3,
       5,
+      9,
       9
+    ],
+    "type": "bar",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "hovertemplate": "<b>%{x}</b><br>%{y} %{fullData.name} experiments<extra></extra>",
+    "name": "Trapped ions",
+    "x": [
+      "1997",
+      "1998",
+      "1999",
+      "2000",
+      "2001",
+      "2002",
+      "2003",
+      "2004",
+      "2005",
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010",
+      "2011",
+      "2012",
+      "2013",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ],
+    "y": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
     ],
     "type": "bar",
     "textfont": {

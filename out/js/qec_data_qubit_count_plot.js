@@ -372,6 +372,36 @@ const qec_data_qubit_count_plotData = [
         "family": "Arial"
       }
     }
+  },
+  {
+    "hovertemplate": "<b>%{y}</b> data qubits<br>Year: %{x}<br>Platform: Trapped ions<extra></extra>",
+    "line": {
+      "width": 3
+    },
+    "marker": {
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12
+    },
+    "mode": "lines+markers",
+    "name": "Trapped ions",
+    "x": [
+      2025
+    ],
+    "y": [
+      4.0
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
   }
 ];
 
