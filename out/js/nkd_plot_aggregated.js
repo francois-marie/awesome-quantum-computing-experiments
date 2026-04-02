@@ -33,7 +33,7 @@ const nkd_plot_aggregatedData = [
   },
   {
     "customdata": [
-      "<b>15 experiment(s) with [[4,2,2]]</b><br>Aggregated across all code types.<br><br><b>Sources:</b><br><b>Experimental demonstration of fault-tolerant state preparation with superconducting qubits (2017)</b><br>Code: Color Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Fault-tolerant quantum error detection (2017)</b><br>Code: Color Code [[4,2,2]]<br>Platform: Ion traps<br>---<br><b>Logical computation demonstrated with a neutral atom quantum processor (2024)</b><br>Code: Four-qubit Code [[4,1,2]], [[4,2,2]]<br>Platform: Neutral atoms<br>---<br><b>Protecting quantum memories using coherent parity check codes (2018)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Is error detection helpful on IBM 5Q chips ? (2018)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Testing quantum fault tolerance on small systems (2018)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Fault-Tolerant Logical Gates in the IBM Quantum Experience (2019)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Resource Optimal Realization of Fault-Tolerant Quantum Circuit (2020)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Error detection on quantum computers improves accuracy of chemical calculations (2020)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Experimental Characterization of Fault-Tolerant Circuits in Small-Scale Quantum Processors (2021)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Comparative analysis of error mitigation techniques for variational quantum eigensolver implementations on IBM quantum system (2022)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Optical demonstration of quantum fault-tolerant threshold (2022)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Photons<br>---<br><b>Encoding a magic state with beyond break-even fidelity (2024)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>End-to-End Quantum Simulation of a Chemical System (2024)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Ion traps<br>---<br><b>Fault-Tolerant Operation and Materials Science with Neutral Atom Logical Qubits (2024)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Neutral atoms",
+      "<b>16 experiment(s) with [[4,2,2]]</b><br>Aggregated across all code types.<br><br><b>Sources:</b><br><b>Experimental demonstration of fault-tolerant state preparation with superconducting qubits (2017)</b><br>Code: Color Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Fault-tolerant quantum error detection (2017)</b><br>Code: Color Code [[4,2,2]]<br>Platform: Ion traps<br>---<br><b>Logical computation demonstrated with a neutral atom quantum processor (2024)</b><br>Code: Four-qubit Code [[4,1,2]], [[4,2,2]]<br>Platform: Neutral atoms<br>---<br><b>Protecting quantum memories using coherent parity check codes (2018)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Is error detection helpful on IBM 5Q chips ? (2018)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Testing quantum fault tolerance on small systems (2018)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Fault-Tolerant Logical Gates in the IBM Quantum Experience (2019)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Resource Optimal Realization of Fault-Tolerant Quantum Circuit (2020)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Error detection on quantum computers improves accuracy of chemical calculations (2020)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Experimental Characterization of Fault-Tolerant Circuits in Small-Scale Quantum Processors (2021)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Comparative analysis of error mitigation techniques for variational quantum eigensolver implementations on IBM quantum system (2022)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>Optical demonstration of quantum fault-tolerant threshold (2022)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Photons<br>---<br><b>Encoding a magic state with beyond break-even fidelity (2024)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Superconducting circuit<br>---<br><b>End-to-End Quantum Simulation of a Chemical System (2024)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Ion traps<br>---<br><b>Fault-Tolerant Operation and Materials Science with Neutral Atom Logical Qubits (2024)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Neutral atoms<br>---<br><b>Error detection without post-selection in adaptive quantum circuits (2025)</b><br>Code: Four-qubit Code [[4,2,2]]<br>Platform: Trapped ions",
       "<b>1 experiment(s) with [[16,2,2]]</b><br>Aggregated across all code types.<br><br><b>Sources:</b><br><b>A quantum processor based on coherent transport of entangled atom arrays (2021)</b><br>Code: Surface Code [[13,1,3]] surface code, [[16,2,2]] toric code<br>Platform: Neutral atoms"
     ],
     "hovertemplate": "%{customdata}<extra></extra>",
@@ -41,7 +41,7 @@ const nkd_plot_aggregatedData = [
       "color": "#E74C3C",
       "opacity": 1,
       "size": [
-        58.09475019311125,
+        60.0,
         15.0
       ],
       "symbol": "circle"
@@ -288,7 +288,7 @@ const nkd_plot_aggregatedData = [
         "width": 1
       },
       "opacity": 0.7,
-      "size": 58.09475019311125
+      "size": 60.0
     },
     "mode": "markers",
     "showlegend": false,
@@ -1211,7 +1211,7 @@ const nkd_plot_aggregatedLayout = {
         "size": 10
       },
       "showarrow": false,
-      "text": "15 exps",
+      "text": "16 exps",
       "x": 44.300000000000004,
       "xanchor": "left",
       "y": 0.16000000000000014,
