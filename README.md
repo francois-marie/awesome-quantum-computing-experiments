@@ -233,6 +233,7 @@ The following PNG files are included in the repository to display in this README
 rate and the use of teleportation flags was responsible for the additional 50% rejection rate.
 - [Fault-Tolerant Operation and Materials Science with Neutral Atom Logical Qubits](https://arxiv.org/abs/2412.07670) (2024) - [[4,2,2]] on Neutral atoms
 - [Logical computation demonstrated with a neutral atom quantum processor](https://arxiv.org/abs/2411.11822) (2024) - [[4,1,2]], [[4,2,2]] on Neutral atoms
+- [Error detection without post-selection in adaptive quantum circuits](https://doi.org/10.48550/arXiv.2509.25326) (2025) - [[4,2,2]] on Trapped ions, Quantinuum H2-2, adaptive logical simulation, detected errors converted into random resets instead of post-selection, 4 ancilla qubits reused, qubit-reuse compilation, break-even for t<=6; 1000 shots
 
 ### Bacon-Shor Code
 

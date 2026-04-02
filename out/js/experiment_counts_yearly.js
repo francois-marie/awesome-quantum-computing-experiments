@@ -33,7 +33,8 @@ const experiment_counts_yearlyData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -62,7 +63,8 @@ const experiment_counts_yearlyData = [
       0,
       0,
       0,
-      1
+      1,
+      0
     ],
     "type": "bar",
     "textfont": {
@@ -107,7 +109,8 @@ const experiment_counts_yearlyData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       1,
@@ -125,6 +128,7 @@ const experiment_counts_yearlyData = [
       0,
       2,
       1,
+      0,
       0,
       0,
       0,
@@ -181,7 +185,8 @@ const experiment_counts_yearlyData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -201,6 +206,7 @@ const experiment_counts_yearlyData = [
       0,
       0,
       1,
+      0,
       0,
       0,
       0,
@@ -255,7 +261,8 @@ const experiment_counts_yearlyData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -284,7 +291,8 @@ const experiment_counts_yearlyData = [
       3,
       0,
       2,
-      4
+      4,
+      0
     ],
     "type": "bar",
     "textfont": {
@@ -329,7 +337,8 @@ const experiment_counts_yearlyData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -357,6 +366,7 @@ const experiment_counts_yearlyData = [
       1,
       0,
       1,
+      0,
       0,
       0
     ],
@@ -403,7 +413,8 @@ const experiment_counts_yearlyData = [
       "2021",
       "2022",
       "2023",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       0,
@@ -432,7 +443,81 @@ const experiment_counts_yearlyData = [
       2,
       1,
       2,
-      6
+      6,
+      0
+    ],
+    "type": "bar",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "hovertemplate": "<b>%{x}</b><br>%{y} %{fullData.name} experiments<extra></extra>",
+    "name": "Trapped ions",
+    "x": [
+      "1998",
+      "1999",
+      "2000",
+      "2001",
+      "2002",
+      "2003",
+      "2004",
+      "2005",
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010",
+      "2011",
+      "2012",
+      "2013",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ],
+    "y": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
     ],
     "type": "bar",
     "textfont": {
