@@ -201,8 +201,8 @@ const coherence_times_plotData = [
     "customdata": [
       "https://doi.org/10.1103/PhysRevA.75.040301",
       "https://doi.org/10.1103/PhysRevLett.122.173201",
-      "https://doi.org/10.1038/s41586-022-04592-6",
       "https://doi.org/10.1038/s41586-022-04603-6",
+      "https://doi.org/10.1038/s41586-022-04592-6",
       "https://doi.org/10.48550/arXiv.2403.12021"
     ],
     "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
@@ -224,8 +224,8 @@ const coherence_times_plotData = [
     "text": [
       "Fast Quantum State Control of a Single Trapped Neutral Atom",
       "2000-times repeated imaging of strontium atoms in clock-magic tweezer arrays",
-      "A quantum processor based on coherent transport of entangled atom arrays",
       "Multi-qubit entanglement and algorithms on a neutral-atom quantum computer",
+      "A quantum processor based on coherent transport of entangled atom arrays",
       "A tweezer array with 6100 highly coherent atomic qubits"
     ],
     "x": [
@@ -266,7 +266,7 @@ const coherence_times_plotData = [
       2024
     ],
     "y": [
-      4.713383552745194,
+      4.713383552745039,
       34.80109955052615
     ],
     "type": "scatter",
@@ -282,8 +282,8 @@ const coherence_times_plotData = [
   {
     "customdata": [
       "https://doi.org/10.1103/PhysRevA.75.040301",
-      "https://doi.org/10.1038/s41586-022-04592-6",
       "https://doi.org/10.1038/s41586-022-04603-6",
+      "https://doi.org/10.1038/s41586-022-04592-6",
       "https://doi.org/10.48550/arXiv.2403.12021"
     ],
     "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
@@ -305,8 +305,8 @@ const coherence_times_plotData = [
     "name": "Neutral atoms (T2)",
     "text": [
       "Fast Quantum State Control of a Single Trapped Neutral Atom",
-      "A quantum processor based on coherent transport of entangled atom arrays",
       "Multi-qubit entanglement and algorithms on a neutral-atom quantum computer",
+      "A quantum processor based on coherent transport of entangled atom arrays",
       "A tweezer array with 6100 highly coherent atomic qubits"
     ],
     "x": [
@@ -317,8 +317,8 @@ const coherence_times_plotData = [
     ],
     "y": [
       0.034,
-      1.5,
       1.0,
+      1.5,
       12.6
     ],
     "type": "scatter",
@@ -474,6 +474,80 @@ const coherence_times_plotData = [
   },
   {
     "customdata": [
+      "https://doi.org/10.48550/arXiv.2407.18778"
+    ],
+    "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+    "line": {
+      "width": 3
+    },
+    "marker": {
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "circle"
+    },
+    "mode": "markers",
+    "name": "Superconducting (T1)",
+    "text": [
+      "Methods to achieve near-millisecond energy relaxation and dephasing times for a superconducting transmon qubit"
+    ],
+    "x": [
+      2024
+    ],
+    "y": [
+      0.000425
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "customdata": [
+      "https://doi.org/10.48550/arXiv.2407.18778"
+    ],
+    "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+    "line": {
+      "dash": "dash",
+      "width": 3
+    },
+    "marker": {
+      "line": {
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "circle-open"
+    },
+    "mode": "markers",
+    "name": "Superconducting (T2)",
+    "text": [
+      "Methods to achieve near-millisecond energy relaxation and dephasing times for a superconducting transmon qubit"
+    ],
+    "x": [
+      2024
+    ],
+    "y": [
+      0.000541
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "customdata": [
       "https://arxiv.org/abs/cond-mat/9904003v1",
       "https://arxiv.org/abs/cond-mat/0111402",
       "https://arxiv.org/abs/cond-mat/0205343",
@@ -497,7 +571,8 @@ const coherence_times_plotData = [
       "https://doi.org/10.48550/arXiv.1901.08042",
       "https://doi.org/10.1103/PRXQuantum.4.020350",
       "https://doi.org/10.1038/s41586-024-07294-3",
-      "https://doi.org/10.1103/PhysRevX.14.021019"
+      "https://doi.org/10.1103/PhysRevX.14.021019",
+      "https://doi.org/10.1103/PhysRevApplied.23.044064"
     ],
     "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "line": {
@@ -539,7 +614,8 @@ const coherence_times_plotData = [
       "Manufacturing low dissipation superconducting quantum processors",
       "One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator",
       "Quantum control of a cat-qubit with bit-flip times exceeding ten seconds",
-      "Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s"
+      "Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s",
+      "High-coherence fluxonium qubits manufactured with a wafer-scale-uniformity process"
     ],
     "x": [
       1999,
@@ -565,7 +641,8 @@ const coherence_times_plotData = [
       2019,
       2023,
       2024,
-      2024
+      2024,
+      2025
     ],
     "y": [
       2e-09,
@@ -591,7 +668,8 @@ const coherence_times_plotData = [
       7.6e-05,
       127.0,
       15.0,
-      0.3
+      0.3,
+      0.001168
     ],
     "type": "scatter",
     "textfont": {
@@ -610,15 +688,15 @@ const coherence_times_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuit T1 fit (\u00d72 every 1.0y)",
+    "name": "Superconducting circuit T1 fit (\u00d72 every 1.1y)",
     "showlegend": true,
     "x": [
       1999,
-      2024
+      2025
     ],
     "y": [
-      9.183346664879572e-09,
-      0.2053884451636374
+      1.4912853058393696e-08,
+      0.1786450606340429
     ],
     "type": "scatter",
     "textfont": {
@@ -650,7 +728,8 @@ const coherence_times_plotData = [
       "https://arxiv.org/abs/1803.00102",
       "https://arxiv.org/abs/1810.11006",
       "https://arxiv.org/abs/1805.09072",
-      "https://doi.org/10.1038/s41586-024-07294-3"
+      "https://doi.org/10.1038/s41586-024-07294-3",
+      "https://doi.org/10.1103/PhysRevApplied.23.044064"
     ],
     "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "line": {
@@ -688,7 +767,8 @@ const coherence_times_plotData = [
       "Fault-tolerant detection of a quantum error",
       "The high-coherence fluxonium qubit",
       "Demonstration of quantum error correction and universal gate set on a binomial bosonic logical qubit",
-      "Quantum control of a cat-qubit with bit-flip times exceeding ten seconds"
+      "Quantum control of a cat-qubit with bit-flip times exceeding ten seconds",
+      "High-coherence fluxonium qubits manufactured with a wafer-scale-uniformity process"
     ],
     "x": [
       2001,
@@ -709,7 +789,8 @@ const coherence_times_plotData = [
       2018,
       2018,
       2019,
-      2024
+      2024,
+      2025
     ],
     "y": [
       5e-09,
@@ -730,7 +811,8 @@ const coherence_times_plotData = [
       0.0014,
       0.0003,
       0.0001,
-      5e-07
+      5e-07,
+      0.000943
     ],
     "type": "scatter",
     "textfont": {
@@ -749,15 +831,15 @@ const coherence_times_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuit T2 fit (\u00d72 every 1.9y)",
+    "name": "Superconducting circuit T2 fit (\u00d72 every 2.0y)",
     "showlegend": true,
     "x": [
       2001,
-      2024
+      2025
     ],
     "y": [
-      2.4797998637960684e-07,
-      0.000935532868334199
+      2.581991812311537e-07,
+      0.001230236238843136
     ],
     "type": "scatter",
     "textfont": {

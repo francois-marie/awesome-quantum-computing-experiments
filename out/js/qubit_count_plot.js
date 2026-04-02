@@ -133,7 +133,8 @@ const qubit_count_plotData = [
       "https://arxiv.org/abs/2207.06500",
       "https://arxiv.org/abs/2403.12021",
       "https://doi.org/10.48550/arXiv.2412.14647",
-      "https://doi.org/10.1103/PhysRevApplied.22.024073"
+      "https://doi.org/10.1103/PhysRevApplied.22.024073",
+      "https://doi.org/10.48550/arXiv.2512.19795"
     ],
     "hovertemplate": "<b>%{text}</b><br>Qubits: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "line": {
@@ -159,7 +160,8 @@ const qubit_count_plotData = [
       "In-situ equalization of single-atom loading in large-scale optical tweezers arrays",
       "A tweezer array with 6100 highly coherent atomic qubits",
       "AI-Enabled Rapid Assembly of Thousands of Defect-Free Neutral Atom Arrays with Constant-time-overhead",
-      "Rearrangement of individual atoms in a 2000-site optical-tweezer array at cryogenic temperatures"
+      "Rearrangement of individual atoms in a 2000-site optical-tweezer array at cryogenic temperatures",
+      "High-efficiency loading of 2,400 Ytterbium atoms in optical tweezer arrays"
     ],
     "x": [
       2010,
@@ -170,7 +172,8 @@ const qubit_count_plotData = [
       2022,
       2024,
       2024,
-      2024
+      2024,
+      2025
     ],
     "y": [
       2,
@@ -181,7 +184,8 @@ const qubit_count_plotData = [
       324,
       6100,
       2024,
-      2088
+      2088,
+      2400
     ],
     "type": "scatter",
     "textfont": {
@@ -204,11 +208,11 @@ const qubit_count_plotData = [
     "showlegend": true,
     "x": [
       2010,
-      2024
+      2025
     ],
     "y": [
-      1.650552029845658,
-      1972.8793579052046
+      1.7240583060258385,
+      3063.409084549272
     ],
     "type": "scatter",
     "textfont": {
