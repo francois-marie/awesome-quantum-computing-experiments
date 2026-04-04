@@ -34,17 +34,13 @@ plugins:
   - jekyll-include-cache
   - jekyll-feed
 
-# Include generated plot files in the site
+# Include site asset files
 include:
-  - out/js
-  - out/png
-  - out/plots
   - assets/js
   - assets/css
 
-# Keep the generated files during Jekyll build
+# Keep asset files during Jekyll build
 keep_files:
-  - out
   - assets
 
 # Exclude development files from build
