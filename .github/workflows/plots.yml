@@ -56,6 +56,8 @@ jobs:
 
     - name: Generate affected plots only
       if: steps.filter.outputs.shared != 'true'
+      env:
+        PYTHONPATH: ${{ github.workspace }}
       run: |
         CSV_ARGS=""
         if [ "${{ steps.filter.outputs.qec_exp }}" = "true" ]; then
