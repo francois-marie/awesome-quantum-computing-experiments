@@ -2,6 +2,7 @@ import json
 import os
 import re
 from .base import BasePlot
+from .highlight import add_highlight_trace
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -9,9 +10,30 @@ import numpy as np
 class MSDPlot(BasePlot):
     """Creates the Magic State Distillation fidelity vs acceptance rate plot."""
     
-    def __init__(self):
+    def __init__(self, highlight_rows=None):
         super().__init__()
         self.data = self.load_data(self.config['paths']['data']['msd'])
+        self.highlight_rows = self._preprocess_rows(highlight_rows)
+
+    def _preprocess_rows(self, df):
+        if df is None:
+            return None
+        if isinstance(df, list):
+            df = pd.DataFrame(df)
+        if df.empty:
+            return None
+        data = df.copy()
+        data['Fidelity_Value'] = data['Fidelity'].apply(self._parse_fidelity)
+        data['Fidelity_Lower'] = data['Fidelity'].apply(self._parse_fidelity_lower)
+        data['Fidelity_Upper'] = data['Fidelity'].apply(self._parse_fidelity_upper)
+        data['Error_Value'] = 1 - data['Fidelity_Value']
+        data['Error_Lower'] = 1 - data['Fidelity_Upper']
+        data['Error_Upper'] = 1 - data['Fidelity_Lower']
+        data["Acceptance Rate (%)"] = pd.to_numeric(
+            data["Acceptance Rate (%)"], errors="coerce"
+        )
+        data = data.dropna(subset=['Error_Value', 'Acceptance Rate (%)'])
+        return data if not data.empty else None
         
     def load_data(self, csv_path: str):
         """Load and preprocess MSD data."""
@@ -345,8 +367,20 @@ class MSDPlot(BasePlot):
         
         # Create a Plotly figure for export
         self.fig = go.Figure(data=traces, layout=layout)
-        
-        self.export_to_multiple(export_name="msd_plot")
+
+        if self.highlight_rows is not None and not self.highlight_rows.empty:
+            add_highlight_trace(
+                self.fig,
+                self.highlight_rows,
+                'Acceptance Rate (%)',
+                'Error_Value',
+                ['Article Title', 'Link'],
+                "<b>%{text}</b><br>Error: %{y:.4f}<br>Acceptance Rate: %{x}%<br>"
+                "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+            )
+
+        if not getattr(self, '_skip_export', False):
+            self.export_to_multiple(export_name="msd_plot")
 
 def main():
     """Main function to create and save the plot."""

@@ -1,4 +1,5 @@
 from .base import BasePlot
+from .highlight import add_highlight_trace
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -8,9 +9,23 @@ import re
 class QECQubitCountPlot(BasePlot):
     """Creates the QEC experiment qubit count evolution plot."""
     
-    def __init__(self):
+    def __init__(self, highlight_rows=None):
         super().__init__()
         self.data = self.load_data(self.config['paths']['data']['qec'])
+        self.highlight_rows = highlight_rows
+
+    def _prepare_highlight_rows(self) -> pd.DataFrame:
+        if self.highlight_rows is None:
+            return pd.DataFrame()
+        hl = self.highlight_rows
+        if isinstance(hl, list):
+            hl = pd.DataFrame(hl)
+        if hl.empty:
+            return pd.DataFrame()
+        hl = hl.copy()
+        hl['Year'] = pd.to_numeric(hl['Year'], errors='coerce')
+        hl['Data Qubits'] = hl['Code Parameters'].apply(self._extract_max_n)
+        return hl.dropna(subset=['Year', 'Data Qubits'])
         
     def _extract_max_n(self, code_params):
         """Extract the maximum n value from code parameters string."""
@@ -141,7 +156,21 @@ class QECQubitCountPlot(BasePlot):
         
         # Create a Plotly figure for export
         self.fig = go.Figure(data=traces, layout=layout)
-        self.export_to_multiple(export_name="qec_data_qubit_count_plot")
+
+        highlight_df = self._prepare_highlight_rows()
+        if not highlight_df.empty:
+            add_highlight_trace(
+                self.fig,
+                highlight_df,
+                'Year',
+                'Data Qubits',
+                ['Article Title', 'Link'],
+                "<b>%{text}</b><br>%{y} data qubits<br>Year: %{x}<br>"
+                "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+            )
+
+        if not getattr(self, '_skip_export', False):
+            self.export_to_multiple(export_name="qec_data_qubit_count_plot")
 
 def main():
     """Main function to create and save the plot."""
