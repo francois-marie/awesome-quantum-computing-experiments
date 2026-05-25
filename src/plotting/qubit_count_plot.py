@@ -1,6 +1,7 @@
 import json
 import os
 from .base import BasePlot
+from .highlight import add_highlight_trace
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -9,10 +10,25 @@ from scipy import stats
 class QubitCountPlot(BasePlot):
     """Creates the physical qubit count evolution plot."""
     
-    def __init__(self):
+    def __init__(self, highlight_rows=None):
         super().__init__()
         self.data = self.load_data(self.config['paths']['data']['qubit_count'])
         self.fitting_stats = []
+        self.highlight_rows = self._preprocess_rows(highlight_rows)
+
+    def _preprocess_rows(self, df):
+        if df is None:
+            return None
+        if isinstance(df, list):
+            df = pd.DataFrame(df)
+        if df.empty:
+            return None
+        data = df.copy()
+        data["Year"] = pd.to_numeric(data["Year"], errors="coerce")
+        data["Number of qubits"] = pd.to_numeric(
+            data["Number of qubits"], errors="coerce"
+        )
+        return data
         
     def load_data(self, csv_path: str):
         """Load and preprocess qubit count data."""
@@ -132,7 +148,20 @@ class QubitCountPlot(BasePlot):
         
         # Create a Plotly figure for export
         self.fig = go.Figure(data=traces, layout=layout)
-        self.export_to_multiple(export_name="qubit_count_plot")
+
+        if self.highlight_rows is not None and not self.highlight_rows.empty:
+            add_highlight_trace(
+                self.fig,
+                self.highlight_rows,
+                'Year',
+                'Number of qubits',
+                ['Article Title', 'Link'],
+                "<b>%{text}</b><br>Qubits: %{y}<br>Year: %{x}<br>"
+                "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+            )
+
+        if not getattr(self, '_skip_export', False):
+            self.export_to_multiple(export_name="qubit_count_plot")
 
     def save_fitting_stats(self, output_dir: str):
         """Save fitting statistics to a JSON file."""

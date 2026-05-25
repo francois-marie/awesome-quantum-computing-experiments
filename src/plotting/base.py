@@ -285,18 +285,21 @@ Plotly.newPlot('{element_id}', {filename.replace('-', '_')}Data, {filename.repla
             scale=self.plot_settings['export']['scale']
         ) 
             
-    def export_to_png(self, fig, filename):
+    def export_to_png(self, fig, filename, output_dir=None):
         """
         Export a Plotly figure to PNG.
         
         Args:
             fig: A Plotly figure object
             filename: The output filename (without extension)
+            output_dir: Directory for the PNG file (defaults to out/png)
         """
+        if output_dir is None:
+            output_dir = 'out/png'
         return export_figure_to_png(
             fig, 
             filename, 
-            output_dir='out/png',
+            output_dir=output_dir,
             width=self.plot_settings['export']['width'],
             height=self.plot_settings['export']['height'],
             scale=self.plot_settings['export']['scale']

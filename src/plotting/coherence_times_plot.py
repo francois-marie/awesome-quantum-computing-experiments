@@ -1,4 +1,5 @@
 from .base import BasePlot
+from .highlight import add_highlight_trace
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -9,10 +10,24 @@ import os
 class CoherenceTimesPlot(BasePlot):
     """Creates the physical qubit coherence times plot."""
     
-    def __init__(self):
+    def __init__(self, highlight_rows=None):
         super().__init__()
         self.data = self.load_data(self.config['paths']['data']['physical_qubits'])
         self.fitting_stats = []
+        self.highlight_rows = self._preprocess_rows(highlight_rows)
+
+    def _preprocess_rows(self, df):
+        if df is None:
+            return None
+        if isinstance(df, list):
+            df = pd.DataFrame(df)
+        if df.empty:
+            return None
+        data = df.copy()
+        data["Year"] = pd.to_numeric(data["Year"], errors="coerce")
+        data["T1"] = pd.to_numeric(data["T1"], errors="coerce")
+        data["T2"] = pd.to_numeric(data["T2"], errors="coerce")
+        return data
         
     def load_data(self, csv_path: str):
         """Load and preprocess coherence times data."""
@@ -177,7 +192,33 @@ class CoherenceTimesPlot(BasePlot):
         
         # Create a Plotly figure for export
         self.fig = go.Figure(data=traces, layout=layout)
-        self.export_to_multiple(export_name="coherence_times_plot")
+
+        if self.highlight_rows is not None and not self.highlight_rows.empty:
+            t1_highlight = self.highlight_rows[self.highlight_rows['T1'].notna()]
+            if not t1_highlight.empty:
+                add_highlight_trace(
+                    self.fig,
+                    t1_highlight,
+                    'Year',
+                    'T1',
+                    ['Article Title', 'Link'],
+                    "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br>"
+                    "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+                )
+            t2_highlight = self.highlight_rows[self.highlight_rows['T2'].notna()]
+            if not t2_highlight.empty:
+                add_highlight_trace(
+                    self.fig,
+                    t2_highlight,
+                    'Year',
+                    'T2',
+                    ['Article Title', 'Link'],
+                    "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br>"
+                    "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+                )
+
+        if not getattr(self, '_skip_export', False):
+            self.export_to_multiple(export_name="coherence_times_plot")
 
     def save_fitting_stats(self, output_dir: str):
         """Save fitting statistics to a JSON file."""

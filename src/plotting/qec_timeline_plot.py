@@ -1,4 +1,5 @@
 from .base import BasePlot
+from .highlight import add_highlight_trace
 import plotly.express as px
 import plotly.utils
 import json
@@ -10,9 +11,60 @@ import numpy as np
 class QECTimelineScatterPlot(BasePlot):
     """Creates a scatter plot showing aggregated QEC implementations over time."""
     
-    def __init__(self, double_column=False):
+    def __init__(self, double_column=False, highlight_rows=None):
         super().__init__(double_column)
         self.data = self.load_data(self.config['paths']['data']['qec'])
+        self.highlight_rows = highlight_rows
+
+    def _add_row_highlights(self, unique_codes: list, platform_jitter: dict) -> None:
+        """Overlay red stars for individual papers added in the PR."""
+        if self.highlight_rows is None:
+            return
+        hl = self.highlight_rows
+        if isinstance(hl, list):
+            hl = pd.DataFrame(hl)
+        if hl.empty:
+            return
+
+        code_to_numeric = {code: i for i, code in enumerate(unique_codes)}
+        hl = hl.copy()
+        hl['Year'] = pd.to_numeric(hl['Year'], errors='coerce')
+
+        x_vals: list = []
+        y_vals: list = []
+        texts: list = []
+        links: list = []
+
+        for _, row in hl.iterrows():
+            code = row.get('Code Name', '')
+            platform = row.get('Platform', '')
+            if code not in code_to_numeric or pd.isna(row.get('Year')):
+                continue
+            year_str = str(int(row['Year']))
+            y_pos = code_to_numeric[code] + platform_jitter.get(platform, 0)
+            x_vals.append(year_str)
+            y_vals.append(y_pos)
+            texts.append(row.get('Article Title', ''))
+            links.append(row.get('Link', ''))
+
+        if not x_vals:
+            return
+
+        highlight_df = pd.DataFrame({
+            'Year_str': x_vals,
+            'Code_Numeric_Jittered': y_vals,
+            'Article Title': texts,
+            'Link': links,
+        })
+        add_highlight_trace(
+            self.fig,
+            highlight_df,
+            'Year_str',
+            'Code_Numeric_Jittered',
+            ['Article Title', 'Link'],
+            "<b>%{text}</b><br>Year: %{x}<br>"
+            "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+        )
         
     def create_plot(self):
         """Create an interactive scatter plot of aggregated QEC implementations."""
@@ -113,8 +165,14 @@ class QECTimelineScatterPlot(BasePlot):
         
         # Add size reference legend
         self.add_size_reference()
+
+        self._add_row_highlights(unique_codes, platform_jitter)
         
-        self.export_to_multiple(export_name="qec_timeline_aggregated", element_id="qec-timeline-aggregated-scatter")
+        if not getattr(self, '_skip_export', False):
+            self.export_to_multiple(
+                export_name="qec_timeline_aggregated",
+                element_id="qec-timeline-aggregated-scatter",
+            )
 
     def add_size_reference(self):
         """Add a size reference to show marker size vs experiment count."""

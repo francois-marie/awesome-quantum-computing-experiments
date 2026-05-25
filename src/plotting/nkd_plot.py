@@ -1,4 +1,5 @@
 from .base import BasePlot
+from .highlight import add_highlight_trace
 import numpy as np
 import plotly.graph_objects as go
 import pandas as pd
@@ -8,9 +9,34 @@ from typing import Tuple, List
 class NKDPlot(BasePlot):
     """Creates the [n,k,d] parameter space plot, aggregated across all code types."""
 
-    def __init__(self):
+    def __init__(self, highlight_rows=None):
         super().__init__()
         self.data = self.load_data(self.config['paths']['data']['qec'])
+        self.highlight_rows = highlight_rows
+
+    def _expand_highlight_points(self) -> pd.DataFrame:
+        """Expand raw highlight rows into (n, d) coordinates for overlay."""
+        if self.highlight_rows is None:
+            return pd.DataFrame()
+        hl = self.highlight_rows
+        if isinstance(hl, list):
+            hl = pd.DataFrame(hl)
+        if hl.empty:
+            return pd.DataFrame()
+
+        points: list[dict] = []
+        for _, row in hl.iterrows():
+            n_values, k_values, d_values = self.parse_code_parameters(
+                row.get('Code Parameters')
+            )
+            for n_val, d_val in zip(n_values, d_values):
+                points.append({
+                    'n': n_val,
+                    'd': d_val,
+                    'Article Title': row.get('Article Title', ''),
+                    'Link': row.get('Link', ''),
+                })
+        return pd.DataFrame(points)
 
     def parse_code_parameters(self, params: str) -> Tuple[List[int], List[int], List[int]]:
         """
@@ -184,8 +210,21 @@ class NKDPlot(BasePlot):
         # Add size reference annotation
         self.add_size_reference()
 
+        highlight_points = self._expand_highlight_points()
+        if not highlight_points.empty:
+            add_highlight_trace(
+                self.fig,
+                highlight_points,
+                'n',
+                'd',
+                ['Article Title', 'Link'],
+                "<b>%{text}</b><br>n=%{x}, d=%{y}<br>"
+                "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+            )
+
         # Export to multiple formats
-        self.export_to_multiple(export_name="nkd_plot_aggregated")
+        if not getattr(self, '_skip_export', False):
+            self.export_to_multiple(export_name="nkd_plot_aggregated")
 
     def add_size_reference(self):
         """Add a size reference to show marker size vs experiment count."""
