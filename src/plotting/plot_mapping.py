@@ -31,25 +31,26 @@ SHARED_PLOT_TRIGGER_PATHS: list[str] = [
     "src/plotting/export_utils.py",
 ]
 
-# (module_name, class_name, png_export_name)
-HIGHLIGHT_PLOT_SPECS: dict[str, list[tuple[str, str, str]]] = {
+# (module_name, class_name, png_export_name, match_strategy)
+# match_strategy: "raw" uses diff rows as-is; "processed_match" joins on plot.data
+HIGHLIGHT_PLOT_SPECS: dict[str, list[tuple[str, str, str, str]]] = {
     "data/qec_exp.csv": [
-        ("qec_timeline_plot", "QECTimelineScatterPlot", "qec_timeline_aggregated"),
-        ("nkd_plot", "NKDPlot", "nkd_plot_aggregated"),
-        ("qec_qubit_count_plot", "QECQubitCountPlot", "qec_data_qubit_count_plot"),
+        ("qec_timeline_plot", "QECTimelineScatterPlot", "qec_timeline_aggregated", "raw"),
+        ("nkd_plot", "NKDPlot", "nkd_plot_aggregated", "raw"),
+        ("qec_qubit_count_plot", "QECQubitCountPlot", "qec_data_qubit_count_plot", "raw"),
     ],
     "data/msd_exp.csv": [
-        ("msd_plot", "MSDPlot", "msd_plot"),
-        ("msd_error_evolution_plot", "MSDErrorEvolutionPlot", "msd_error_evolution_plot"),
+        ("msd_plot", "MSDPlot", "msd_plot", "processed_match"),
+        ("msd_error_evolution_plot", "MSDErrorEvolutionPlot", "msd_error_evolution_plot", "processed_match"),
     ],
     "data/entangled_state_error_exp.csv": [
-        ("entangled_error_plot", "EntangledErrorPlot", "entangled_error_plot"),
+        ("entangled_error_plot", "EntangledErrorPlot", "entangled_error_plot", "processed_match"),
     ],
     "data/qubit_count.csv": [
-        ("qubit_count_plot", "QubitCountPlot", "qubit_count_plot"),
+        ("qubit_count_plot", "QubitCountPlot", "qubit_count_plot", "processed_match"),
     ],
     "data/physical_qubits.csv": [
-        ("coherence_times_plot", "CoherenceTimesPlot", "coherence_times_plot"),
+        ("coherence_times_plot", "CoherenceTimesPlot", "coherence_times_plot", "processed_match"),
     ],
 }
 

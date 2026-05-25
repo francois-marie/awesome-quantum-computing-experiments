@@ -9,8 +9,8 @@ import re
 class QECQubitCountPlot(BasePlot):
     """Creates the QEC experiment qubit count evolution plot."""
     
-    def __init__(self, highlight_rows=None):
-        super().__init__()
+    def __init__(self, highlight_rows=None, skip_export=False):
+        super().__init__(skip_export=skip_export)
         self.data = self.load_data(self.config['paths']['data']['qec'])
         self.highlight_rows = highlight_rows
 
@@ -169,7 +169,7 @@ class QECQubitCountPlot(BasePlot):
                 "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
             )
 
-        if not getattr(self, '_skip_export', False):
+        if not self.skip_export:
             self.export_to_multiple(export_name="qec_data_qubit_count_plot")
 
 def main():

@@ -9,8 +9,8 @@ from typing import Tuple, List
 class NKDPlot(BasePlot):
     """Creates the [n,k,d] parameter space plot, aggregated across all code types."""
 
-    def __init__(self, highlight_rows=None):
-        super().__init__()
+    def __init__(self, highlight_rows=None, skip_export=False):
+        super().__init__(skip_export=skip_export)
         self.data = self.load_data(self.config['paths']['data']['qec'])
         self.highlight_rows = highlight_rows
 
@@ -223,7 +223,7 @@ class NKDPlot(BasePlot):
             )
 
         # Export to multiple formats
-        if not getattr(self, '_skip_export', False):
+        if not self.skip_export:
             self.export_to_multiple(export_name="nkd_plot_aggregated")
 
     def add_size_reference(self):

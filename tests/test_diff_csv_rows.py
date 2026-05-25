@@ -7,12 +7,17 @@ from pathlib import Path
 
 import pytest
 
-from scripts.diff_csv_rows import _added_rows, _row_key, diff_csv_rows
+from scripts.diff_csv_rows import _added_rows, _is_missing_path_at_ref, diff_csv_rows
 
 
-def test_row_key_uses_title_and_year():
-    row = {"Article Title": "My Paper", "Year": "2024", "Link": "http://x"}
-    assert _row_key(row) == ("My Paper", "2024")
+def test_is_missing_path_at_ref_detects_absent_file():
+    stderr = "fatal: path 'data/foo.csv' does not exist in 'abc123'"
+    assert _is_missing_path_at_ref(stderr, "data/foo.csv") is True
+
+
+def test_is_missing_path_at_ref_rejects_invalid_ref_message():
+    stderr = "fatal: Invalid object name 'not-a-ref'"
+    assert _is_missing_path_at_ref(stderr, "data/foo.csv") is False
 
 
 def test_added_rows_finds_new_rows():
@@ -176,3 +181,16 @@ def test_diff_csv_rows_cli_stdout(tmp_path):
     output = json.loads(proc.stdout)
     assert "data/sample.csv" in output
     assert output["data/sample.csv"][0]["Article Title"] == "Second"
+
+
+def test_diff_csv_rows_raises_on_invalid_base_ref(tmp_path):
+    repo = tmp_path / "repo3"
+    repo.mkdir()
+    subprocess.run(["git", "init"], cwd=repo, check=True, capture_output=True)
+    with pytest.raises(subprocess.CalledProcessError):
+        diff_csv_rows(
+            "not-a-valid-ref",
+            "HEAD",
+            ["data/sample.csv"],
+            repo_root=str(repo),
+        )
