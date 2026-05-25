@@ -7,7 +7,7 @@ on:
       - 'data/*.csv'
 
 concurrency:
-  group: pr-highlight-${{ github.event.pull_request.number }}
+  group: pr-highlight-${{ github.event.pull_request.number }}-${{ github.event.action }}
   cancel-in-progress: true
 
 permissions:
@@ -16,7 +16,9 @@ permissions:
 
 jobs:
   highlight:
-    if: github.event.action != 'closed'
+    if: >-
+      github.event.action != 'closed' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
 
     steps:
@@ -38,8 +40,11 @@ jobs:
     - name: Diff added CSV rows
       id: diff
       run: |
-        python scripts/diff_csv_rows.py \
+        MERGE_BASE=$(git merge-base \
           "${{ github.event.pull_request.base.sha }}" \
+          "${{ github.event.pull_request.head.sha }}")
+        python scripts/diff_csv_rows.py \
+          "$MERGE_BASE" \
           "${{ github.event.pull_request.head.sha }}" \
           data/qec_exp.csv \
           data/msd_exp.csv \
@@ -87,7 +92,9 @@ jobs:
         path: /tmp/comment_body.md
 
   cleanup:
-    if: github.event.action == 'closed'
+    if: >-
+      github.event.action == 'closed' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -101,12 +108,23 @@ jobs:
     - name: Remove PR preview folder
       run: |
         PREVIEW_DIR="previews/pr-${{ github.event.pull_request.number }}"
-        if [ -d "$PREVIEW_DIR" ]; then
-          git rm -rf "$PREVIEW_DIR"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Remove preview for closed PR #${{ github.event.pull_request.number }}"
-          git push
-        else
+        if [ ! -d "$PREVIEW_DIR" ]; then
           echo "No preview folder to remove."
+          exit 0
         fi
+        git rm -rf "$PREVIEW_DIR"
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        if git diff --cached --quiet; then
+          echo "Nothing staged after git rm."
+          exit 0
+        fi
+        git commit -m "Remove preview for closed PR #${{ github.event.pull_request.number }}"
+        for attempt in 1 2 3; do
+          if git pull --rebase origin gh-pages-assets && git push origin gh-pages-assets; then
+            exit 0
+          fi
+          sleep 5
+        done
+        echo "Failed to push cleanup after 3 attempts."
+        exit 1

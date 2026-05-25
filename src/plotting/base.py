@@ -13,11 +13,12 @@ from .export_utils import export_figure_to_pdf, ensure_directory_exists, export_
 class BasePlot(ABC):
     """Base class for all plotting classes."""
     
-    def __init__(self, double_column=False):
+    def __init__(self, double_column=False, skip_export=False):
         """Initialize plot settings and load config."""
         self.config = self.load_config()
         self.plot_settings = self.config['plot_settings']
         self.double_column = double_column
+        self.skip_export = skip_export
         self.fig = None  # Will store the Plotly figure for export
         
         # Load colors from config

@@ -9,36 +9,50 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROW_KEY_COLUMNS = ("Article Title", "Year")
+
+def _is_missing_path_at_ref(stderr: str, csv_path: str) -> bool:
+    """True when git show failed because the path is absent at that ref."""
+    return (
+        f"path '{csv_path}' does not exist in" in stderr
+        or f"path '{csv_path}' exists on disk, but not in" in stderr
+    )
 
 
 def _run_git_show(ref: str, csv_path: str, repo_root: str | None) -> str | None:
-    """Return file contents at ref, or None if the file did not exist."""
+    """
+    Return file contents at ref, or None if the path did not exist at that ref.
+
+    Raises:
+        subprocess.CalledProcessError: For invalid refs or other git failures.
+    """
     cmd = ["git"]
     if repo_root is not None:
         cmd.extend(["-C", repo_root])
     cmd.extend(["show", f"{ref}:{csv_path}"])
-    try:
-        result = subprocess.run(
-            cmd,
-            check=True,
-            capture_output=True,
-            text=True,
-        )
+    result = subprocess.run(
+        cmd,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode == 0:
         return result.stdout
-    except subprocess.CalledProcessError:
+
+    stderr = result.stderr or ""
+    if _is_missing_path_at_ref(stderr, csv_path):
         return None
+
+    raise subprocess.CalledProcessError(
+        result.returncode,
+        cmd,
+        output=result.stdout,
+        stderr=stderr,
+    )
 
 
 def _read_csv_rows(content: str) -> list[dict[str, str]]:
     reader = csv.DictReader(io.StringIO(content))
     return [dict(row) for row in reader]
-
-
-def _row_key(row: dict[str, str]) -> tuple[str, str]:
-    title = row.get("Article Title", "").strip()
-    year = str(row.get("Year", "")).strip()
-    return (title, year)
 
 
 def _row_tuple(row: dict[str, str]) -> tuple[tuple[str, str], ...]:

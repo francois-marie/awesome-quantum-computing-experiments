@@ -10,8 +10,8 @@ from scipy import stats
 class MSDErrorEvolutionPlot(BasePlot):
     """Creates the Magic State error evolution over time plot."""
     
-    def __init__(self, highlight_rows=None):
-        super().__init__()
+    def __init__(self, highlight_rows=None, skip_export=False):
+        super().__init__(skip_export=skip_export)
         self.data = self.load_data(self.config['paths']['data']['msd'])
         self.fitting_stats = []
         self.highlight_rows = self._preprocess_rows(highlight_rows)
@@ -405,7 +405,7 @@ class MSDErrorEvolutionPlot(BasePlot):
                 "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
             )
 
-        if not getattr(self, '_skip_export', False):
+        if not self.skip_export:
             self.export_to_multiple(export_name="msd_error_evolution_plot")
 
     def save_fitting_stats(self, output_dir: str):
