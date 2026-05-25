@@ -3,6 +3,12 @@
   publish = "_site"
   ignore = "git diff --quiet HEAD^ HEAD -- _layouts/ _includes/ _sass/ index.md experiments.md _config.yml assets/ Gemfile"
 
+[context.deploy-preview]
+  ignore = "git diff --quiet HEAD^ HEAD -- _layouts/ _includes/ _sass/ index.md experiments.md _config.yml assets/ Gemfile"
+
+[context.branch-deploy]
+  ignore = "git diff --quiet HEAD^ HEAD -- _layouts/ _includes/ _sass/ index.md experiments.md _config.yml assets/ Gemfile"
+
 [build.environment]
   RUBY_VERSION = "3.1.0"
   JEKYLL_ENV = "production"

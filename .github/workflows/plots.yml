@@ -19,6 +19,26 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Detect changed paths
+      uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          qec_exp:
+            - 'data/qec_exp.csv'
+          msd_exp:
+            - 'data/msd_exp.csv'
+          entangled:
+            - 'data/entangled_state_error_exp.csv'
+          qubit_count:
+            - 'data/qubit_count.csv'
+          physical_qubits:
+            - 'data/physical_qubits.csv'
+          shared:
+            - 'config.yaml'
+            - 'src/plotting/base.py'
+            - 'src/plotting/export_utils.py'
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -30,9 +50,34 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e ".[test]"
 
-    - name: Generate plots
+    - name: Generate all plots (shared code changed)
+      if: steps.filter.outputs.shared == 'true'
+      run: make plots
+
+    - name: Generate affected plots only
+      if: steps.filter.outputs.shared != 'true'
       run: |
-        make plots
+        CSV_ARGS=""
+        if [ "${{ steps.filter.outputs.qec_exp }}" = "true" ]; then
+          CSV_ARGS="$CSV_ARGS data/qec_exp.csv"
+        fi
+        if [ "${{ steps.filter.outputs.msd_exp }}" = "true" ]; then
+          CSV_ARGS="$CSV_ARGS data/msd_exp.csv"
+        fi
+        if [ "${{ steps.filter.outputs.entangled }}" = "true" ]; then
+          CSV_ARGS="$CSV_ARGS data/entangled_state_error_exp.csv"
+        fi
+        if [ "${{ steps.filter.outputs.qubit_count }}" = "true" ]; then
+          CSV_ARGS="$CSV_ARGS data/qubit_count.csv"
+        fi
+        if [ "${{ steps.filter.outputs.physical_qubits }}" = "true" ]; then
+          CSV_ARGS="$CSV_ARGS data/physical_qubits.csv"
+        fi
+        if [ -z "$CSV_ARGS" ]; then
+          echo "No data CSV changes detected; skipping plot generation."
+          exit 0
+        fi
+        python scripts/run_plot_modules.py --csv $CSV_ARGS
 
     - name: Deploy plot JS to gh-pages-assets branch
       uses: peaceiris/actions-gh-pages@v4
@@ -41,5 +86,5 @@ jobs:
         publish_dir: ./out/js
         publish_branch: gh-pages-assets
         destination_dir: js
-        keep_files: false
+        keep_files: true
         commit_message: "Update plot JS assets"
