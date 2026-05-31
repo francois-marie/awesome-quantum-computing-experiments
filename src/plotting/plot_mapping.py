@@ -50,7 +50,8 @@ HIGHLIGHT_PLOT_SPECS: dict[str, list[tuple[str, str, str, str]]] = {
         ("qubit_count_plot", "QubitCountPlot", "qubit_count_plot", "processed_match"),
     ],
     "data/physical_qubits.csv": [
-        ("coherence_times_plot", "CoherenceTimesPlot", "coherence_times_plot", "processed_match"),
+        ("coherence_times_plot", "CoherenceTimesT1Plot", "coherence_times_t1_plot", "processed_match"),
+        ("coherence_times_plot", "CoherenceTimesT2Plot", "coherence_times_t2_plot", "processed_match"),
     ],
 }
 

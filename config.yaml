@@ -67,8 +67,30 @@ plot_settings:
       bg_color: "rgba(255, 255, 255, 0.8)"
       border_color: "#E5E5E5"
       font_size: 12
+    highlight_margin:
+      top: 54
+      bottom: 12
+      left: 54
+      right: 12
+      pad: 10
+    highlight_legend:
+      columns: 2
+      column_x_left: 0.04
+      column_x_right: 0.56
+      bg_color: "rgba(255, 255, 255, 0.9)"
+      border_color: "#E5E5E5"
+      font_size: 18
+    highlight_font:
+      size: 23
+      title_size: 27
+      tick_size: 20
+      legend_size: 18
   export:
     width: 1000
     height: 800
     scale: 2
     dpi: 300
+  highlight_export:
+    width: 780
+    height: 1040
+    scale: 2
