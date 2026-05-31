@@ -98,7 +98,7 @@ const coherence_times_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Ion traps T2 fit (\u00d72 every 1.9y)",
+    "name": "Ion traps T2 fit (x2 every 1.9y)",
     "showlegend": true,
     "x": [
       2005,
@@ -259,7 +259,7 @@ const coherence_times_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Neutral atoms T1 fit (\u00d72 every 5.9y)",
+    "name": "Neutral atoms T1 fit (x2 every 5.9y)",
     "showlegend": true,
     "x": [
       2007,
@@ -338,7 +338,7 @@ const coherence_times_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Neutral atoms T2 fit (\u00d72 every 2.4y)",
+    "name": "Neutral atoms T2 fit (x2 every 2.4y)",
     "showlegend": true,
     "x": [
       2007,
@@ -412,7 +412,7 @@ const coherence_times_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Semiconductor T1 fit (\u00d72 every 0.9y)",
+    "name": "Semiconductor T1 fit (x2 every 0.9y)",
     "showlegend": true,
     "x": [
       2015,
@@ -618,7 +618,7 @@ const coherence_times_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuit T1 fit (\u00d72 every 1.2y)",
+    "name": "Superconducting circuit T1 fit (x2 every 1.2y)",
     "showlegend": true,
     "x": [
       1999,
@@ -765,7 +765,7 @@ const coherence_times_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuit T2 fit (\u00d72 every 2.0y)",
+    "name": "Superconducting circuit T2 fit (x2 every 2.0y)",
     "showlegend": true,
     "x": [
       2001,
