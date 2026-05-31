@@ -474,80 +474,6 @@ const coherence_times_plotData = [
   },
   {
     "customdata": [
-      "https://doi.org/10.48550/arXiv.2407.18778"
-    ],
-    "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "width": 3
-    },
-    "marker": {
-      "line": {
-        "color": "white",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle"
-    },
-    "mode": "markers",
-    "name": "Superconducting (T1)",
-    "text": [
-      "Methods to achieve near-millisecond energy relaxation and dephasing times for a superconducting transmon qubit"
-    ],
-    "x": [
-      2024
-    ],
-    "y": [
-      0.000425
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      "https://doi.org/10.48550/arXiv.2407.18778"
-    ],
-    "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
-    "line": {
-      "dash": "dash",
-      "width": 3
-    },
-    "marker": {
-      "line": {
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle-open"
-    },
-    "mode": "markers",
-    "name": "Superconducting (T2)",
-    "text": [
-      "Methods to achieve near-millisecond energy relaxation and dephasing times for a superconducting transmon qubit"
-    ],
-    "x": [
-      2024
-    ],
-    "y": [
-      0.000541
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
       "https://arxiv.org/abs/cond-mat/9904003v1",
       "https://arxiv.org/abs/cond-mat/0111402",
       "https://arxiv.org/abs/cond-mat/0205343",
@@ -572,6 +498,7 @@ const coherence_times_plotData = [
       "https://doi.org/10.1103/PRXQuantum.4.020350",
       "https://doi.org/10.1038/s41586-024-07294-3",
       "https://doi.org/10.1103/PhysRevX.14.021019",
+      "https://doi.org/10.48550/arXiv.2407.18778",
       "https://doi.org/10.1103/PhysRevApplied.23.044064"
     ],
     "hovertemplate": "<b>%{text}</b><br>T1: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
@@ -615,6 +542,7 @@ const coherence_times_plotData = [
       "One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator",
       "Quantum control of a cat-qubit with bit-flip times exceeding ten seconds",
       "Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s",
+      "Methods to achieve near-millisecond energy relaxation and dephasing times for a superconducting transmon qubit",
       "High-coherence fluxonium qubits manufactured with a wafer-scale-uniformity process"
     ],
     "x": [
@@ -640,6 +568,7 @@ const coherence_times_plotData = [
       2019,
       2019,
       2023,
+      2024,
       2024,
       2024,
       2025
@@ -669,6 +598,7 @@ const coherence_times_plotData = [
       127.0,
       15.0,
       0.3,
+      0.000425,
       0.001168
     ],
     "type": "scatter",
@@ -688,15 +618,15 @@ const coherence_times_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuit T1 fit (\u00d72 every 1.1y)",
+    "name": "Superconducting circuit T1 fit (\u00d72 every 1.2y)",
     "showlegend": true,
     "x": [
       1999,
       2025
     ],
     "y": [
-      1.4912853058393696e-08,
-      0.1786450606340429
+      2.1137153957221258e-08,
+      0.09497130262943058
     ],
     "type": "scatter",
     "textfont": {
@@ -729,6 +659,7 @@ const coherence_times_plotData = [
       "https://arxiv.org/abs/1810.11006",
       "https://arxiv.org/abs/1805.09072",
       "https://doi.org/10.1038/s41586-024-07294-3",
+      "https://doi.org/10.48550/arXiv.2407.18778",
       "https://doi.org/10.1103/PhysRevApplied.23.044064"
     ],
     "hovertemplate": "<b>%{text}</b><br>T2: %{y} s<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
@@ -768,6 +699,7 @@ const coherence_times_plotData = [
       "The high-coherence fluxonium qubit",
       "Demonstration of quantum error correction and universal gate set on a binomial bosonic logical qubit",
       "Quantum control of a cat-qubit with bit-flip times exceeding ten seconds",
+      "Methods to achieve near-millisecond energy relaxation and dephasing times for a superconducting transmon qubit",
       "High-coherence fluxonium qubits manufactured with a wafer-scale-uniformity process"
     ],
     "x": [
@@ -789,6 +721,7 @@ const coherence_times_plotData = [
       2018,
       2018,
       2019,
+      2024,
       2024,
       2025
     ],
@@ -812,6 +745,7 @@ const coherence_times_plotData = [
       0.0003,
       0.0001,
       5e-07,
+      0.000541,
       0.000943
     ],
     "type": "scatter",
@@ -838,8 +772,8 @@ const coherence_times_plotData = [
       2025
     ],
     "y": [
-      2.581991812311537e-07,
-      0.001230236238843136
+      2.686356211585792e-07,
+      0.0011274123294286627
     ],
     "type": "scatter",
     "textfont": {
