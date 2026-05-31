@@ -1,4 +1,4 @@
-.PHONY: all plots readme test clean setup
+.PHONY: all plots readme test clean setup authors
 
 all: setup plots readme
 
@@ -29,6 +29,9 @@ readme:
 
 test:
 	pytest tests/
+
+authors:
+	python scripts/fetch_first_authors.py
 
 clean:
 	rm -rf out/js/*.js

@@ -54,6 +54,10 @@ function loadCSV(url, tableId) {
                             title: "Code Parameters",
                             data: "Code Parameters"
                         },
+                        {
+                            title: "First Author",
+                            data: "First Author"
+                        },
                         { 
                             title: "Link",
                             data: "Link",
@@ -78,11 +82,15 @@ function loadCSV(url, tableId) {
                             title: "Platform",
                             data: platformCol || "type"
                         },
-                        { 
+                        {
                             title: "Qubit Count",
                             data: qubitCol || "qubits"
                         },
-                        { 
+                        {
+                            title: "First Author",
+                            data: "First Author"
+                        },
+                        {
                             title: "Link",
                             data: linkCol || "doi",
                             render: function(data) {
@@ -110,7 +118,11 @@ function loadCSV(url, tableId) {
                             title: "Entangled State Error",
                             data: findColumn(headers, ["Entangled State Error", "entangled_state_error", "State Error"]) || "Entangled State Error"
                         },
-                        { 
+                        {
+                            title: "First Author",
+                            data: "First Author"
+                        },
+                        {
                             title: "Link",
                             data: findColumn(headers, ["Link", "URL", "DOI", "link"]) || "Link",
                             render: function(data) {
@@ -184,6 +196,10 @@ function loadCSV(url, tableId) {
                             title: "Article Title",
                             data: "Article Title"
                         },
+                        {
+                            title: "First Author",
+                            data: "First Author"
+                        },
                         { 
                             title: "Link",
                             data: "Link",
@@ -220,7 +236,11 @@ function loadCSV(url, tableId) {
                             title: "T2",
                             data: findColumn(headers, ["T2", "t2", "T2 Time"]) || "T2"
                         },
-                        { 
+                        {
+                            title: "First Author",
+                            data: "First Author"
+                        },
+                        {
                             title: "Link",
                             data: findColumn(headers, ["Link", "URL", "DOI", "link"]) || "Link",
                             render: function(data) {
