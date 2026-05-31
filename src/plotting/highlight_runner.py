@@ -8,6 +8,10 @@ from pathlib import Path
 
 import pandas as pd
 
+from src.plotting.highlight_layout import (
+    apply_highlight_portrait_layout,
+    highlight_export_settings,
+)
 from src.plotting.plot_mapping import HIGHLIGHT_PLOT_SPECS
 
 HIGHLIGHT_OUTPUT_DIR = "out/png/highlights"
@@ -72,6 +76,109 @@ def _resolve_highlight_rows(
     raise ValueError(f"Unknown highlight match_strategy: {match_strategy}")
 
 
+def _render_highlight_png(
+    module_name: str,
+    class_name: str,
+    export_name: str,
+    match_strategy: str,
+    row_identifiers: list[dict],
+) -> tuple[str, str] | None:
+    """Build one highlight PNG for the given plot spec and row identifiers."""
+    raw_highlight = pd.DataFrame(row_identifiers)
+    probe = _instantiate_plot(
+        module_name,
+        class_name,
+        highlight_rows=None,
+        skip_export=False,
+    )
+    matched = _match_processed_rows(probe.data, row_identifiers, module_name)
+    highlight_rows = _resolve_highlight_rows(
+        match_strategy,
+        raw_highlight,
+        matched,
+    )
+
+    if highlight_rows is None or highlight_rows.empty:
+        return None
+
+    plot = _instantiate_plot(
+        module_name,
+        class_name,
+        highlight_rows=highlight_rows,
+        skip_export=True,
+    )
+    plot.create_plot()
+
+    if plot.fig is None:
+        return None
+
+    plot.fig = apply_highlight_portrait_layout(
+        plot.fig,
+        plot.plot_settings,
+    )
+    export_dims = highlight_export_settings(plot.plot_settings)
+    output_path = plot.export_to_png(
+        plot.fig,
+        export_name,
+        output_dir=HIGHLIGHT_OUTPUT_DIR,
+        width=export_dims["width"],
+        height=export_dims["height"],
+        scale=export_dims["scale"],
+    )
+    if not output_path:
+        return None
+    return (export_name, str(output_path))
+
+
+def generate_single_highlight_plot(
+    module_name: str,
+    class_name: str,
+    export_name: str,
+    row: dict,
+    match_strategy: str,
+) -> tuple[str, str] | None:
+    """Generate one highlight PNG for a single paper row."""
+    Path(HIGHLIGHT_OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
+    return _render_highlight_png(
+        module_name,
+        class_name,
+        export_name,
+        match_strategy,
+        [row],
+    )
+
+
+def generate_highlights_from_payload(
+    diff_data: dict[str, list[dict]],
+) -> list[tuple[str, str]]:
+    """
+    Generate highlight PNGs from a CSV-path-to-rows payload.
+
+    Returns:
+        List of (export_name, output_path) tuples for generated PNGs.
+    """
+    if not diff_data:
+        return []
+
+    Path(HIGHLIGHT_OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
+    generated: list[tuple[str, str]] = []
+
+    for csv_path, row_identifiers in diff_data.items():
+        specs = HIGHLIGHT_PLOT_SPECS.get(csv_path, [])
+        for module_name, class_name, export_name, match_strategy in specs:
+            result = _render_highlight_png(
+                module_name,
+                class_name,
+                export_name,
+                match_strategy,
+                row_identifiers,
+            )
+            if result is not None:
+                generated.append(result)
+
+    return generated
+
+
 def generate_highlights(diff_json_path: str) -> list[tuple[str, str]]:
     """
     Generate highlight PNGs from a diff JSON file.
@@ -82,53 +189,7 @@ def generate_highlights(diff_json_path: str) -> list[tuple[str, str]]:
     with open(diff_json_path, encoding="utf-8") as handle:
         diff_data: dict[str, list[dict]] = json.load(handle)
 
-    if not diff_data:
-        return []
-
-    Path(HIGHLIGHT_OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
-    generated: list[tuple[str, str]] = []
-
-    for csv_path, row_identifiers in diff_data.items():
-        specs = HIGHLIGHT_PLOT_SPECS.get(csv_path, [])
-        raw_highlight = pd.DataFrame(row_identifiers)
-
-        for module_name, class_name, export_name, match_strategy in specs:
-            probe = _instantiate_plot(
-                module_name,
-                class_name,
-                highlight_rows=None,
-                skip_export=False,
-            )
-            matched = _match_processed_rows(probe.data, row_identifiers, module_name)
-            highlight_rows = _resolve_highlight_rows(
-                match_strategy,
-                raw_highlight,
-                matched,
-            )
-
-            if highlight_rows is None or highlight_rows.empty:
-                continue
-
-            plot = _instantiate_plot(
-                module_name,
-                class_name,
-                highlight_rows=highlight_rows,
-                skip_export=True,
-            )
-            plot.create_plot()
-
-            if plot.fig is None:
-                continue
-
-            output_path = plot.export_to_png(
-                plot.fig,
-                export_name,
-                output_dir=HIGHLIGHT_OUTPUT_DIR,
-            )
-            if output_path:
-                generated.append((export_name, str(output_path)))
-
-    return generated
+    return generate_highlights_from_payload(diff_data)
 
 
 def main() -> None:
