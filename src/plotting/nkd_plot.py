@@ -34,6 +34,7 @@ class NKDPlot(BasePlot):
                     'n': n_val,
                     'd': d_val,
                     'Article Title': row.get('Article Title', ''),
+                    'First Author': row.get('First Author', ''),
                     'Link': row.get('Link', ''),
                 })
         return pd.DataFrame(points)

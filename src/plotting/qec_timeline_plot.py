@@ -34,6 +34,7 @@ class QECTimelineScatterPlot(BasePlot):
         y_vals: list = []
         texts: list = []
         links: list = []
+        authors: list = []
 
         for _, row in hl.iterrows():
             code = row.get('Code Name', '')
@@ -46,6 +47,7 @@ class QECTimelineScatterPlot(BasePlot):
             y_vals.append(y_pos)
             texts.append(row.get('Article Title', ''))
             links.append(row.get('Link', ''))
+            authors.append(row.get('First Author', ''))
 
         if not x_vals:
             return
@@ -54,6 +56,7 @@ class QECTimelineScatterPlot(BasePlot):
             'Year_str': x_vals,
             'Code_Numeric_Jittered': y_vals,
             'Article Title': texts,
+            'First Author': authors,
             'Link': links,
         })
         add_highlight_trace(
