@@ -22,7 +22,8 @@ const qec_data_qubit_count_plotData = [
       2014,
       2017,
       2020,
-      2024
+      2024,
+      2025
     ],
     "y": [
       3.0,
@@ -30,6 +31,7 @@ const qec_data_qubit_count_plotData = [
       7.0,
       4.0,
       9.0,
+      4.0,
       4.0
     ],
     "type": "scatter",
@@ -49,15 +51,15 @@ const qec_data_qubit_count_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Ion traps fit (\u00d72 every 22.0y)",
+    "name": "Ion traps fit (\u00d72 every 34.7y)",
     "showlegend": true,
     "x": [
       2004,
-      2024
+      2025
     ],
     "y": [
-      3.229739763566537,
-      6.063345784406207
+      3.494953587510834,
+      5.319187201694884
     ],
     "type": "scatter",
     "textfont": {
@@ -362,36 +364,6 @@ const qec_data_qubit_count_plotData = [
     "y": [
       2.129724418691146,
       21.02967787014283
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "hovertemplate": "<b>%{y}</b> data qubits<br>Year: %{x}<br>Platform: Trapped ions<extra></extra>",
-    "line": {
-      "width": 3
-    },
-    "marker": {
-      "line": {
-        "color": "white",
-        "width": 2
-      },
-      "size": 12
-    },
-    "mode": "lines+markers",
-    "name": "Trapped ions",
-    "x": [
-      2025
-    ],
-    "y": [
-      4.0
     ],
     "type": "scatter",
     "textfont": {

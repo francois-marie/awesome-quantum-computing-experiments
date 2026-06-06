@@ -8,7 +8,8 @@ const qec_timeline_aggregatedData = [
       "<b>Platform: Ion traps</b><br>Year: 2017<br>Experiments: 1",
       "<b>Platform: Ion traps</b><br>Year: 2017<br>Experiments: 1",
       "<b>Platform: Ion traps</b><br>Year: 2020<br>Experiments: 1",
-      "<b>Platform: Ion traps</b><br>Year: 2024<br>Experiments: 1"
+      "<b>Platform: Ion traps</b><br>Year: 2024<br>Experiments: 1",
+      "<b>Platform: Ion traps</b><br>Year: 2025<br>Experiments: 1"
     ],
     "hovertemplate": "%{customdata}<extra></extra>",
     "marker": {
@@ -19,6 +20,7 @@ const qec_timeline_aggregatedData = [
       },
       "opacity": 0.8,
       "size": [
+        20.0,
         20.0,
         20.0,
         20.0,
@@ -37,7 +39,8 @@ const qec_timeline_aggregatedData = [
       "2017",
       "2017",
       "2020",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
       4.7,
@@ -46,6 +49,7 @@ const qec_timeline_aggregatedData = [
       2.7,
       3.7,
       -0.3,
+      3.7,
       3.7
     ],
     "type": "scatter",
@@ -89,10 +93,10 @@ const qec_timeline_aggregatedData = [
       "2012"
     ],
     "y": [
-      4.8,
-      6.8,
-      4.8,
-      6.8
+      4.82,
+      6.82,
+      4.82,
+      6.82
     ],
     "type": "scatter",
     "textfont": {
@@ -126,7 +130,7 @@ const qec_timeline_aggregatedData = [
       "2014"
     ],
     "y": [
-      4.9
+      4.94
     ],
     "type": "scatter",
     "textfont": {
@@ -181,14 +185,14 @@ const qec_timeline_aggregatedData = [
       "2024"
     ],
     "y": [
-      2.0,
-      3.0,
-      6.0,
-      3.0,
-      6.0,
-      0.0,
-      3.0,
-      4.0
+      2.06,
+      3.06,
+      6.06,
+      3.06,
+      6.06,
+      0.06,
+      3.06,
+      4.06
     ],
     "type": "scatter",
     "textfont": {
@@ -228,9 +232,9 @@ const qec_timeline_aggregatedData = [
       "2022"
     ],
     "y": [
-      6.1,
-      0.09999999999999998,
-      4.1
+      6.18,
+      0.18,
+      4.18
     ],
     "type": "scatter",
     "textfont": {
@@ -336,65 +340,31 @@ const qec_timeline_aggregatedData = [
       "2024"
     ],
     "y": [
-      5.2,
-      5.2,
-      1.2,
-      5.2,
-      5.2,
-      3.2,
-      4.2,
-      4.2,
-      5.2,
-      1.2,
-      4.2,
-      7.2,
-      1.2,
-      4.2,
-      5.2,
-      6.2,
-      4.2,
-      6.2,
-      4.2,
-      5.2,
-      6.2,
-      3.2,
-      4.2,
-      5.2,
-      6.2
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      "<b>Platform: Trapped ions</b><br>Year: 2025<br>Experiments: 1"
-    ],
-    "hovertemplate": "%{customdata}<extra></extra>",
-    "marker": {
-      "color": "#636EFA",
-      "line": {
-        "color": "white",
-        "width": 1.5
-      },
-      "opacity": 0.8,
-      "size": [
-        20.0
-      ]
-    },
-    "mode": "markers",
-    "name": "Trapped ions",
-    "x": [
-      "2025"
-    ],
-    "y": [
-      4.3
+      5.3,
+      5.3,
+      1.3,
+      5.3,
+      5.3,
+      3.3,
+      4.3,
+      4.3,
+      5.3,
+      1.3,
+      4.3,
+      7.3,
+      1.3,
+      4.3,
+      5.3,
+      6.3,
+      4.3,
+      6.3,
+      4.3,
+      5.3,
+      6.3,
+      3.3,
+      4.3,
+      5.3,
+      6.3
     ],
     "type": "scatter",
     "textfont": {

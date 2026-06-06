@@ -31,6 +31,37 @@ const msd_plotData = [
     "legendgroup": "platform_legend",
     "legendrank": 1,
     "marker": {
+      "color": "#FFC107",
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "circle"
+    },
+    "mode": "markers",
+    "name": "Ion traps",
+    "showlegend": true,
+    "x": [
+      null
+    ],
+    "y": [
+      null
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "legendgroup": "platform_legend",
+    "legendrank": 2,
+    "marker": {
       "color": "#95A5A6",
       "line": {
         "color": "white",
@@ -60,7 +91,7 @@ const msd_plotData = [
   },
   {
     "legendgroup": "platform_legend",
-    "legendrank": 2,
+    "legendrank": 3,
     "marker": {
       "color": "#2ECC71",
       "line": {
@@ -72,37 +103,6 @@ const msd_plotData = [
     },
     "mode": "markers",
     "name": "Superconducting qubits",
-    "showlegend": true,
-    "x": [
-      null
-    ],
-    "y": [
-      null
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "legendgroup": "platform_legend",
-    "legendrank": 3,
-    "marker": {
-      "color": "#FFC107",
-      "line": {
-        "color": "white",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle"
-    },
-    "mode": "markers",
-    "name": "Trapped-ion",
     "showlegend": true,
     "x": [
       null
@@ -260,6 +260,208 @@ const msd_plotData = [
     ],
     "y": [
       null
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "customdata": [
+      [
+        "|H>",
+        "Bacon-Shor",
+        "Preparation",
+        2020,
+        "https://doi.org/10.1038/s41586-021-03928-y"
+      ],
+      [
+        "|H>",
+        "Steane",
+        "Preparation",
+        2021,
+        "https://doi.org/10.1038/s41586-022-04721-1"
+      ]
+    ],
+    "hovertemplate": "<b>%{text}</b><br>Error: %{y:.4f}<br>Acceptance Rate: %{x}%<br>Magic State: %{customdata[0]}<br>QEC Code: %{customdata[1]}<br>Experiment Type: %{customdata[2]}<br>Year: %{customdata[3]}<br><a href='%{customdata[4]}' target='_blank'>Link</a><extra></extra>",
+    "legendgroup": "data_Ion traps_|H>",
+    "marker": {
+      "color": "#FFC107",
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "circle"
+    },
+    "mode": "markers",
+    "name": "Ion traps (|H>)",
+    "showlegend": false,
+    "text": [
+      "Fault-tolerant control of an error-corrected qubit",
+      "Demonstration of fault-tolerant universal quantum gate operations"
+    ],
+    "x": [
+      100.0,
+      13.7
+    ],
+    "y": [
+      0.028000000000000025,
+      0.006000000000000005
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "error_y": {
+      "array": [
+        0.01200000000000001,
+        0.014000000000000012
+      ],
+      "arrayminus": [
+        0.01200000000000001,
+        0.0050000000000000044
+      ],
+      "color": "#FFC107",
+      "symmetric": false,
+      "thickness": 2,
+      "type": "data",
+      "width": 4
+    },
+    "hoverinfo": "skip",
+    "marker": {
+      "color": "#FFC107",
+      "opacity": 0
+    },
+    "mode": "markers",
+    "showlegend": false,
+    "x": [
+      100.0,
+      13.7
+    ],
+    "y": [
+      0.028000000000000025,
+      0.006000000000000005
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "customdata": [
+      [
+        "|T>",
+        "Steane",
+        "Preparation",
+        2021,
+        "https://doi.org/10.1103/PhysRevX.11.041058"
+      ],
+      [
+        "|T>",
+        "Steane, [[10,1,2]]",
+        "Code Switching",
+        2024,
+        "https://doi.org/10.1038/s41567-024-02727-2"
+      ],
+      [
+        "|T>",
+        "[[15,1,3]], Steane",
+        "Code Switching",
+        2025,
+        "https://doi.org/10.48550/arXiv.2506.14169"
+      ]
+    ],
+    "hovertemplate": "<b>%{text}</b><br>Error: %{y:.4f}<br>Acceptance Rate: %{x}%<br>Magic State: %{customdata[0]}<br>QEC Code: %{customdata[1]}<br>Experiment Type: %{customdata[2]}<br>Year: %{customdata[3]}<br><a href='%{customdata[4]}' target='_blank'>Link</a><extra></extra>",
+    "legendgroup": "data_Ion traps_|T>",
+    "marker": {
+      "color": "#FFC107",
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12,
+      "symbol": "square"
+    },
+    "mode": "markers",
+    "name": "Ion traps (|T>)",
+    "showlegend": false,
+    "text": [
+      "Realization of real-time fault-tolerant quantum error correction",
+      "Experimental fault-tolerant code switching",
+      "Experimental demonstration of high-fidelity logical magic states from code switching"
+    ],
+    "x": [
+      100.0,
+      19.0,
+      82.58
+    ],
+    "y": [
+      0.02200000000000002,
+      0.03700000000000003,
+      0.0005100000000000104
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "error_y": {
+      "array": [
+        0.006000000000000005,
+        0.0040000000000000036,
+        0.00026999999999999247
+      ],
+      "arrayminus": [
+        0.006000000000000005,
+        0.0040000000000000036,
+        0.00026999999999999247
+      ],
+      "color": "#FFC107",
+      "symmetric": false,
+      "thickness": 2,
+      "type": "data",
+      "width": 4
+    },
+    "hoverinfo": "skip",
+    "marker": {
+      "color": "#FFC107",
+      "opacity": 0
+    },
+    "mode": "markers",
+    "showlegend": false,
+    "x": [
+      100.0,
+      19.0,
+      82.58
+    ],
+    "y": [
+      0.02200000000000002,
+      0.03700000000000003,
+      0.0005100000000000104
     ],
     "type": "scatter",
     "textfont": {
@@ -622,208 +824,6 @@ const msd_plotData = [
       0.09099999999999997,
       0.11939999999999995,
       0.0040999999999999925
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      [
-        "|H>",
-        "Bacon-Shor",
-        "Preparation",
-        2020,
-        "https://doi.org/10.1038/s41586-021-03928-y"
-      ],
-      [
-        "|H>",
-        "Steane",
-        "Preparation",
-        2021,
-        "https://doi.org/10.1038/s41586-022-04721-1"
-      ]
-    ],
-    "hovertemplate": "<b>%{text}</b><br>Error: %{y:.4f}<br>Acceptance Rate: %{x}%<br>Magic State: %{customdata[0]}<br>QEC Code: %{customdata[1]}<br>Experiment Type: %{customdata[2]}<br>Year: %{customdata[3]}<br><a href='%{customdata[4]}' target='_blank'>Link</a><extra></extra>",
-    "legendgroup": "data_Trapped-ion_|H>",
-    "marker": {
-      "color": "#FFC107",
-      "line": {
-        "color": "white",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "circle"
-    },
-    "mode": "markers",
-    "name": "Trapped-ion (|H>)",
-    "showlegend": false,
-    "text": [
-      "Fault-tolerant control of an error-corrected qubit",
-      "Demonstration of fault-tolerant universal quantum gate operations"
-    ],
-    "x": [
-      100.0,
-      13.7
-    ],
-    "y": [
-      0.028000000000000025,
-      0.006000000000000005
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "error_y": {
-      "array": [
-        0.01200000000000001,
-        0.014000000000000012
-      ],
-      "arrayminus": [
-        0.01200000000000001,
-        0.0050000000000000044
-      ],
-      "color": "#FFC107",
-      "symmetric": false,
-      "thickness": 2,
-      "type": "data",
-      "width": 4
-    },
-    "hoverinfo": "skip",
-    "marker": {
-      "color": "#FFC107",
-      "opacity": 0
-    },
-    "mode": "markers",
-    "showlegend": false,
-    "x": [
-      100.0,
-      13.7
-    ],
-    "y": [
-      0.028000000000000025,
-      0.006000000000000005
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "customdata": [
-      [
-        "|T>",
-        "Steane",
-        "Preparation",
-        2021,
-        "https://doi.org/10.1103/PhysRevX.11.041058"
-      ],
-      [
-        "|T>",
-        "Steane, [[10,1,2]]",
-        "Code Switching",
-        2024,
-        "https://doi.org/10.1038/s41567-024-02727-2"
-      ],
-      [
-        "|T>",
-        "[[15,1,3]], Steane",
-        "Code Switching",
-        2025,
-        "https://doi.org/10.48550/arXiv.2506.14169"
-      ]
-    ],
-    "hovertemplate": "<b>%{text}</b><br>Error: %{y:.4f}<br>Acceptance Rate: %{x}%<br>Magic State: %{customdata[0]}<br>QEC Code: %{customdata[1]}<br>Experiment Type: %{customdata[2]}<br>Year: %{customdata[3]}<br><a href='%{customdata[4]}' target='_blank'>Link</a><extra></extra>",
-    "legendgroup": "data_Trapped-ion_|T>",
-    "marker": {
-      "color": "#FFC107",
-      "line": {
-        "color": "white",
-        "width": 2
-      },
-      "size": 12,
-      "symbol": "square"
-    },
-    "mode": "markers",
-    "name": "Trapped-ion (|T>)",
-    "showlegend": false,
-    "text": [
-      "Realization of real-time fault-tolerant quantum error correction",
-      "Experimental fault-tolerant code switching",
-      "Experimental demonstration of high-fidelity logical magic states from code switching"
-    ],
-    "x": [
-      100.0,
-      19.0,
-      82.58
-    ],
-    "y": [
-      0.02200000000000002,
-      0.03700000000000003,
-      0.0005100000000000104
-    ],
-    "type": "scatter",
-    "textfont": {
-      "family": "Arial"
-    },
-    "hoverlabel": {
-      "font": {
-        "family": "Arial"
-      }
-    }
-  },
-  {
-    "error_y": {
-      "array": [
-        0.006000000000000005,
-        0.0040000000000000036,
-        0.00026999999999999247
-      ],
-      "arrayminus": [
-        0.006000000000000005,
-        0.0040000000000000036,
-        0.00026999999999999247
-      ],
-      "color": "#FFC107",
-      "symmetric": false,
-      "thickness": 2,
-      "type": "data",
-      "width": 4
-    },
-    "hoverinfo": "skip",
-    "marker": {
-      "color": "#FFC107",
-      "opacity": 0
-    },
-    "mode": "markers",
-    "showlegend": false,
-    "x": [
-      100.0,
-      19.0,
-      82.58
-    ],
-    "y": [
-      0.02200000000000002,
-      0.03700000000000003,
-      0.0005100000000000104
     ],
     "type": "scatter",
     "textfont": {
