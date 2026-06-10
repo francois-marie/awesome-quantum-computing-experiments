@@ -212,28 +212,24 @@
         }
     }
 
+    // Discover all plot containers on the page (avoids hardcoded ID lists)
+    function getPlotIds() {
+        return Array.from(document.querySelectorAll('.plot-container[id]'))
+            .map(function(el) { return el.id; })
+            .filter(function(id) { return id; });
+    }
+
     // Function to enhance all plots on the page
     function enhanceAllPlots() {
-        const plotIds = [
-            'coherence-times-plot',
-            'entangled-error-plot', 
-            'qubit-count-plot',
-            'experiment-counts',
-            'nkd-plot-aggregated',
-            'experiment-counts-yearly',
-            'qec-cumulative-growth',
-            'qec-timeline-aggregated-scatter',
-            'qec-platform-sunburst',
-            'qec-data-qubit-count-plot'
-        ];
-        
+        const plotIds = getPlotIds();
+
         let enhancedCount = 0;
-        plotIds.forEach(plotId => {
+        plotIds.forEach(function(plotId) {
             if (enhancePlot(plotId)) {
                 enhancedCount++;
             }
         });
-        
+
         console.log(`Enhanced ${enhancedCount} plots with responsive configuration`);
     }
 
@@ -247,21 +243,7 @@
             
             // Additional mobile-specific resize handling
             if (isMobile()) {
-                const plotIds = [
-                    'coherence-times-plot',
-                    'entangled-error-plot', 
-                    'qubit-count-plot',
-                    'experiment-counts',
-                    'nkd-plot-aggregated',
-                    'experiment-counts-yearly',
-                    'qec-cumulative-growth',
-                    'qec-timeline-aggregated-scatter',
-                    'qec-platform-sunburst',
-                    'qec-data-qubit-count-plot'
-                ];
-                
-                // Force resize for each plot on mobile
-                plotIds.forEach(plotId => {
+                getPlotIds().forEach(function(plotId) {
                     const plotDiv = document.getElementById(plotId);
                     if (plotDiv && plotDiv.data) {
                         try {

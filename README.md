@@ -158,7 +158,6 @@ The following PNG files are included in the repository to display in this README
 	- [Semiconductor](#semiconductor)
 	- [NV centers](#nv-centers)
 	- [Graphene](#graphene)
-	- [Superconducting](#superconducting)
 
 ## Quantum Error Correction
 
@@ -233,7 +232,7 @@ The following PNG files are included in the repository to display in this README
 rate and the use of teleportation flags was responsible for the additional 50% rejection rate.
 - [Fault-Tolerant Operation and Materials Science with Neutral Atom Logical Qubits](https://arxiv.org/abs/2412.07670) (2024) - [[4,2,2]] on Neutral atoms
 - [Logical computation demonstrated with a neutral atom quantum processor](https://arxiv.org/abs/2411.11822) (2024) - [[4,1,2]], [[4,2,2]] on Neutral atoms
-- [Error detection without post-selection in adaptive quantum circuits](https://doi.org/10.48550/arXiv.2509.25326) (2025) - [[4,2,2]] on Trapped ions, Quantinuum H2-2, adaptive logical simulation, detected errors converted into random resets instead of post-selection, 4 ancilla qubits reused, qubit-reuse compilation, break-even for t<=6; 1000 shots
+- [Error detection without post-selection in adaptive quantum circuits](https://doi.org/10.48550/arXiv.2509.25326) (2025) - [[4,2,2]] on Ion traps, Quantinuum H2-2, adaptive logical simulation, detected errors converted into random resets instead of post-selection, 4 ancilla qubits reused, qubit-reuse compilation, break-even for t<=6; 1000 shots
 
 ### Bacon-Shor Code
 
@@ -258,15 +257,15 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 
 #### Magic State: |H>
 
-- [Fault-tolerant control of an error-corrected qubit](https://doi.org/10.1038/s41586-021-03928-y) (2020) - on Trapped-ion, QEC code: Bacon-Shor, magic state: |H>, fidelity: 0.972-12+12, acceptance rate: 100%
-- [Demonstration of fault-tolerant universal quantum gate operations](https://doi.org/10.1038/s41586-022-04721-1) (2021) - on Trapped-ion, QEC code: Steane, magic state: |H>, fidelity: 0.994-14+5, acceptance rate: 13.7%
+- [Fault-tolerant control of an error-corrected qubit](https://doi.org/10.1038/s41586-021-03928-y) (2020) - on Ion traps, QEC code: Bacon-Shor, magic state: |H>, fidelity: 0.972-12+12, acceptance rate: 100%
+- [Demonstration of fault-tolerant universal quantum gate operations](https://doi.org/10.1038/s41586-022-04721-1) (2021) - on Ion traps, QEC code: Steane, magic state: |H>, fidelity: 0.994-14+5, acceptance rate: 13.7%
 - [Logical Magic State Preparation with Fidelity beyond the Distillation Threshold on a Superconducting Quantum Processor](https://doi.org/10.1103/PhysRevLett.131.210603) (2023) - on Superconducting qubits, QEC code: Surface code, magic state: |H>, fidelity: 0.9090-9+9, acceptance rate: 73.41%
 - [Magic State Injection on IBM Quantum Processors Above the Distillation Threshold](https://arxiv.org/abs/2412.01446) (2024) - on Superconducting qubits, QEC code: Surface code, magic state: |H>, fidelity: 0.8806-2+2, acceptance rate: 36.3%
 - [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting qubits, QEC code: Steane, magic state: |H>, fidelity: 0.9959-37+38, acceptance rate: 74.6%, Post-selected logical state tomography measurements
 #### Magic State: |T>
 
 - [Logical-qubit operations in an error-detecting surface code](https://doi.org/10.1038/s41567-021-01423-9) (2021) - on Superconducting qubits, QEC code: Surface code, magic state: |T>, fidelity: 0.966, acceptance rate: <25%
-- [Realization of real-time fault-tolerant quantum error correction](https://doi.org/10.1103/PhysRevX.11.041058) (2021) - on Trapped-ion, QEC code: Steane, magic state: |T>, fidelity: 0.978-6+6, acceptance rate: 100%
+- [Realization of real-time fault-tolerant quantum error correction](https://doi.org/10.1103/PhysRevX.11.041058) (2021) - on Ion traps, QEC code: Steane, magic state: |T>, fidelity: 0.978-6+6, acceptance rate: 100%
 - [Logical Magic State Preparation with Fidelity beyond the Distillation Threshold on a Superconducting Quantum Processor](https://doi.org/10.1103/PhysRevLett.131.210603) (2023) - on Superconducting qubits, QEC code: Surface code, magic state: |T>, fidelity: 0.8771-9+9, acceptance rate: 73.41%
 - [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting qubits, QEC code: Steane, magic state: |T>, fidelity: 0.9992-15+3, acceptance rate: 75.2%, Post-selected logical state tomography measurements
 #### Magic State: |CZ>
@@ -285,8 +284,8 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [Experimental Demonstration of Logical Magic State Distillation](https://arxiv.org/abs/2412.15165) (2024) - on Neutral atoms, QEC code: Steane, magic state: |M>, fidelity: 0.994-4+3, acceptance rate: 1%
 ### Code Switching
 
-- [Experimental fault-tolerant code switching](https://doi.org/10.1038/s41567-024-02727-2) (2024) - on Trapped-ion, QEC code: Steane -> [[10,1,2]], magic state: |T>, fidelity: 0.963-4+4, acceptance rate: 19%
-- [Experimental demonstration of high-fidelity logical magic states from code switching](https://doi.org/10.48550/arXiv.2506.14169) (2025) - on Trapped-ion, QEC code: [[15 ->1,3]], Steane, magic state: |T>, fidelity: 0.99949-27+27, acceptance rate: 82.58%
+- [Experimental fault-tolerant code switching](https://doi.org/10.1038/s41567-024-02727-2) (2024) - on Ion traps, QEC code: Steane -> [[10,1,2]], magic state: |T>, fidelity: 0.963-4+4, acceptance rate: 19%
+- [Experimental demonstration of high-fidelity logical magic states from code switching](https://doi.org/10.48550/arXiv.2506.14169) (2025) - on Ion traps, QEC code: [[15 ->1,3]], Steane, magic state: |T>, fidelity: 0.99949-27+27, acceptance rate: 82.58%
 ## Entangled State Error
 
 ### Ion traps
@@ -405,6 +404,7 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [Manufacturing low dissipation superconducting quantum processors](https://doi.org/10.48550/arXiv.1901.08042) (2019) - Transmon, T1: 7.6e-05s on Superconducting circuit, an average T_1=76+/-13 μs across 24 qubits with the best qubits having T1>=110 μs
 - [One Hundred Second Bit-Flip Time in a Two-Photon Dissipative Oscillator](https://doi.org/10.1103/PRXQuantum.4.020350) (2023) - Cat encoding, T1: 127.0s on Superconducting circuit
 - [Autoparametric resonance extending the bit-flip time of a cat qubit up to 0.3 s](https://doi.org/10.1103/PhysRevX.14.021019) (2024) - Cat encoding, T1: 0.3s on Superconducting circuit
+- [Methods to achieve near-millisecond energy relaxation and dephasing times for a superconducting transmon qubit](https://doi.org/10.48550/arXiv.2407.18778) (2024) - Transmon, T1: 0.000425s, T2: 0.000541s on Superconducting circuit, Qubit frequency 2.9 GHz; T1 median 425 us, max 666 +/- 33 us; T2echo median 541 us, max 1057 +/- 138 us
 - [Quantum control of a cat-qubit with bit-flip times exceeding ten seconds](https://doi.org/10.1038/s41586-024-07294-3) (2024) - Cat encoding, T1: 15.0s, T2: 5e-07s on Superconducting circuit
 - [High-coherence fluxonium qubits manufactured with a wafer-scale-uniformity process](https://doi.org/10.1103/PhysRevApplied.23.044064) (2025) - Fluxonium, T1: 0.001168s, T2: 0.000943s on Superconducting circuit, T1 & T2 for their best device, with a qubit frequency f01 = 197 MHz
 
@@ -436,10 +436,6 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 ### Graphene
 
 - [Quantum coherent control of a hybrid superconducting circuit made with graphene-based van der Waals heterostructures](https://arxiv.org/abs/1809.05215) (2018) - Gatemon, T1: 5e-08s on Graphene
-
-### Superconducting
-
-- [Methods to achieve near-millisecond energy relaxation and dephasing times for a superconducting transmon qubit](https://doi.org/10.48550/arXiv.2407.18778) (2024) - Transmon, T1: 0.000425s, T2: 0.000541s on Superconducting, Qubit frequency 2.9 GHz; T1 median 425 us, max 666 +/- 33 us; T2echo median 541 us, max 1057 +/- 138 us
 
 
 ## Contributing

@@ -13,11 +13,12 @@ from .export_utils import export_figure_to_pdf, ensure_directory_exists, export_
 class BasePlot(ABC):
     """Base class for all plotting classes."""
     
-    def __init__(self, double_column=False):
+    def __init__(self, double_column=False, skip_export=False):
         """Initialize plot settings and load config."""
         self.config = self.load_config()
         self.plot_settings = self.config['plot_settings']
         self.double_column = double_column
+        self.skip_export = skip_export
         self.fig = None  # Will store the Plotly figure for export
         
         # Load colors from config
@@ -285,21 +286,36 @@ Plotly.newPlot('{element_id}', {filename.replace('-', '_')}Data, {filename.repla
             scale=self.plot_settings['export']['scale']
         ) 
             
-    def export_to_png(self, fig, filename):
+    def export_to_png(
+        self,
+        fig,
+        filename,
+        output_dir=None,
+        width=None,
+        height=None,
+        scale=None,
+    ):
         """
         Export a Plotly figure to PNG.
         
         Args:
             fig: A Plotly figure object
             filename: The output filename (without extension)
+            output_dir: Directory for the PNG file (defaults to out/png)
+            width: Optional override width in pixels
+            height: Optional override height in pixels
+            scale: Optional override scale factor
         """
+        if output_dir is None:
+            output_dir = 'out/png'
+        export = self.plot_settings['export']
         return export_figure_to_png(
-            fig, 
-            filename, 
-            output_dir='out/png',
-            width=self.plot_settings['export']['width'],
-            height=self.plot_settings['export']['height'],
-            scale=self.plot_settings['export']['scale']
+            fig,
+            filename,
+            output_dir=output_dir,
+            width=width if width is not None else export['width'],
+            height=height if height is not None else export['height'],
+            scale=scale if scale is not None else export['scale'],
         ) 
 
     def export_to_multiple(self, export_name:str, element_id=None):
