@@ -348,6 +348,13 @@ const msd_error_evolution_plotData = [
         "Preparation and Injection",
         "74.6",
         "https://arxiv.org/abs/2412.14256"
+      ],
+      [
+        "|T>",
+        "Steane code to d=5 (grafted) Surface code",
+        "Cultivation + Grafting",
+        "8",
+        "https://doi.org/10.48550/arXiv.2512.13908"
       ]
     ],
     "error_y": {
@@ -358,7 +365,8 @@ const msd_error_evolution_plotData = [
         0.009000000000000008,
         0.00019999999999997797,
         0.0014999999999999458,
-        0.0037000000000000366
+        0.0037000000000000366,
+        9.999999999998899e-05
       ],
       "arrayminus": [
         0.0,
@@ -367,7 +375,8 @@ const msd_error_evolution_plotData = [
         0.009000000000000008,
         0.00019999999999997797,
         0.00029999999999996696,
-        0.0038000000000000256
+        0.0038000000000000256,
+        9.999999999998899e-05
       ],
       "color": "#2ECC71",
       "symmetric": false,
@@ -391,7 +400,8 @@ const msd_error_evolution_plotData = [
         "circle",
         "circle",
         "square",
-        "circle"
+        "circle",
+        "square"
       ]
     },
     "mode": "markers",
@@ -404,7 +414,8 @@ const msd_error_evolution_plotData = [
       "Logical Magic State Preparation with Fidelity beyond the Distillation Threshold on a Superconducting Quantum Processor",
       "Magic State Injection on IBM Quantum Processors Above the Distillation Threshold",
       "Scaling and logic in the color code on a superconducting quantum processor",
-      "Scaling and logic in the color code on a superconducting quantum processor"
+      "Scaling and logic in the color code on a superconducting quantum processor",
+      "Magic state cultivation on a superconducting quantum processor"
     ],
     "x": [
       2021,
@@ -413,7 +424,8 @@ const msd_error_evolution_plotData = [
       2023,
       2024,
       2024,
-      2024
+      2024,
+      2025
     ],
     "y": [
       0.03400000000000003,
@@ -422,7 +434,8 @@ const msd_error_evolution_plotData = [
       0.09099999999999997,
       0.11939999999999995,
       0.0008000000000000229,
-      0.0040999999999999925
+      0.0040999999999999925,
+      9.999999999998899e-05
     ],
     "type": "scatter",
     "textfont": {
@@ -473,15 +486,15 @@ const msd_error_evolution_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting qubits fit (\u00f72 every 1.2y)",
+    "name": "Superconducting qubits fit (\u00f72 every 0.5y)",
     "showlegend": true,
     "x": [
       2021,
-      2024
+      2025
     ],
     "y": [
-      0.07650420319941338,
-      0.012563104617845952
+      0.23558770206847096,
+      0.0013076656957128562
     ],
     "type": "scatter",
     "textfont": {

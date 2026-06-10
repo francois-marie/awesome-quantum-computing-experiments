@@ -648,6 +648,13 @@ const msd_plotData = [
         "Preparation and Injection",
         2024,
         "https://arxiv.org/abs/2412.14256"
+      ],
+      [
+        "|T>",
+        "Steane code to d=5 (grafted) Surface code",
+        "Cultivation + Grafting",
+        2025,
+        "https://doi.org/10.48550/arXiv.2512.13908"
       ]
     ],
     "hovertemplate": "<b>%{text}</b><br>Error: %{y:.4f}<br>Acceptance Rate: %{x}%<br>Magic State: %{customdata[0]}<br>QEC Code: %{customdata[1]}<br>Experiment Type: %{customdata[2]}<br>Year: %{customdata[3]}<br><a href='%{customdata[4]}' target='_blank'>Link</a><extra></extra>",
@@ -666,15 +673,18 @@ const msd_plotData = [
     "showlegend": false,
     "text": [
       "Logical Magic State Preparation with Fidelity beyond the Distillation Threshold on a Superconducting Quantum Processor",
-      "Scaling and logic in the color code on a superconducting quantum processor"
+      "Scaling and logic in the color code on a superconducting quantum processor",
+      "Magic state cultivation on a superconducting quantum processor"
     ],
     "x": [
       73.41,
-      75.2
+      75.2,
+      8.0
     ],
     "y": [
       0.12290000000000001,
-      0.0008000000000000229
+      0.0008000000000000229,
+      9.999999999998899e-05
     ],
     "type": "scatter",
     "textfont": {
@@ -690,11 +700,13 @@ const msd_plotData = [
     "error_y": {
       "array": [
         0.0009000000000000119,
-        0.0014999999999999458
+        0.0014999999999999458,
+        9.999999999998899e-05
       ],
       "arrayminus": [
         0.0009000000000000119,
-        0.00029999999999996696
+        0.00029999999999996696,
+        9.999999999998899e-05
       ],
       "color": "#2ECC71",
       "symmetric": false,
@@ -711,11 +723,13 @@ const msd_plotData = [
     "showlegend": false,
     "x": [
       73.41,
-      75.2
+      75.2,
+      8.0
     ],
     "y": [
       0.12290000000000001,
-      0.0008000000000000229
+      0.0008000000000000229,
+      9.999999999998899e-05
     ],
     "type": "scatter",
     "textfont": {

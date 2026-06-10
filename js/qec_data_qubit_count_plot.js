@@ -58,7 +58,7 @@ const qec_data_qubit_count_plotData = [
       2025
     ],
     "y": [
-      3.494953587510834,
+      3.4949535875108335,
       5.319187201694884
     ],
     "type": "scatter",
@@ -295,6 +295,36 @@ const qec_data_qubit_count_plotData = [
     }
   },
   {
+    "hovertemplate": "<b>%{y}</b> data qubits<br>Year: %{x}<br>Platform: Superconducting<extra></extra>",
+    "line": {
+      "width": 3
+    },
+    "marker": {
+      "line": {
+        "color": "white",
+        "width": 2
+      },
+      "size": 12
+    },
+    "mode": "lines+markers",
+    "name": "Superconducting",
+    "x": [
+      2025
+    ],
+    "y": [
+      25.0
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
     "hovertemplate": "<b>%{y}</b> data qubits<br>Year: %{x}<br>Platform: Superconducting circuit<extra></extra>",
     "line": {
       "color": "#2ECC71",
@@ -322,7 +352,8 @@ const qec_data_qubit_count_plotData = [
       2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "y": [
       3.0,
@@ -336,7 +367,8 @@ const qec_data_qubit_count_plotData = [
       9.0,
       4.0,
       25.0,
-      49.0
+      49.0,
+      7.0
     ],
     "type": "scatter",
     "textfont": {
@@ -355,15 +387,15 @@ const qec_data_qubit_count_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Superconducting circuit fit (\u00d72 every 3.6y)",
+    "name": "Superconducting circuit fit (\u00d72 every 4.6y)",
     "showlegend": true,
     "x": [
       2012,
-      2024
+      2025
     ],
     "y": [
-      2.129724418691146,
-      21.02967787014283
+      2.5479931114697285,
+      18.045733286971767
     ],
     "type": "scatter",
     "textfont": {

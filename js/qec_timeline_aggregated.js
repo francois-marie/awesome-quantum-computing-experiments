@@ -43,14 +43,14 @@ const qec_timeline_aggregatedData = [
       "2025"
     ],
     "y": [
-      4.7,
-      4.7,
+      5.7,
+      5.7,
       2.7,
       2.7,
-      3.7,
+      4.7,
       -0.3,
-      3.7,
-      3.7
+      4.7,
+      4.7
     ],
     "type": "scatter",
     "textfont": {
@@ -93,10 +93,10 @@ const qec_timeline_aggregatedData = [
       "2012"
     ],
     "y": [
-      4.82,
-      6.82,
-      4.82,
-      6.82
+      5.8,
+      8.8,
+      5.8,
+      8.8
     ],
     "type": "scatter",
     "textfont": {
@@ -130,7 +130,7 @@ const qec_timeline_aggregatedData = [
       "2014"
     ],
     "y": [
-      4.94
+      5.9
     ],
     "type": "scatter",
     "textfont": {
@@ -185,14 +185,14 @@ const qec_timeline_aggregatedData = [
       "2024"
     ],
     "y": [
-      2.06,
-      3.06,
-      6.06,
-      3.06,
-      6.06,
-      0.06,
-      3.06,
-      4.06
+      2.0,
+      3.0,
+      7.0,
+      3.0,
+      7.0,
+      0.0,
+      3.0,
+      5.0
     ],
     "type": "scatter",
     "textfont": {
@@ -232,9 +232,43 @@ const qec_timeline_aggregatedData = [
       "2022"
     ],
     "y": [
-      6.18,
-      0.18,
-      4.18
+      7.1,
+      0.09999999999999998,
+      5.1
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "customdata": [
+      "<b>Platform: Superconducting</b><br>Year: 2025<br>Experiments: 1"
+    ],
+    "hovertemplate": "%{customdata}<extra></extra>",
+    "marker": {
+      "color": "#636EFA",
+      "line": {
+        "color": "white",
+        "width": 1.5
+      },
+      "opacity": 0.8,
+      "size": [
+        20.0
+      ]
+    },
+    "mode": "markers",
+    "name": "Superconducting",
+    "x": [
+      "2025"
+    ],
+    "y": [
+      8.2
     ],
     "type": "scatter",
     "textfont": {
@@ -272,7 +306,8 @@ const qec_timeline_aggregatedData = [
       "<b>Platform: Superconducting circuit</b><br>Year: 2024<br>Experiments: 1",
       "<b>Platform: Superconducting circuit</b><br>Year: 2024<br>Experiments: 1",
       "<b>Platform: Superconducting circuit</b><br>Year: 2024<br>Experiments: 2",
-      "<b>Platform: Superconducting circuit</b><br>Year: 2024<br>Experiments: 2"
+      "<b>Platform: Superconducting circuit</b><br>Year: 2024<br>Experiments: 2",
+      "<b>Platform: Superconducting circuit</b><br>Year: 2025<br>Experiments: 1"
     ],
     "hovertemplate": "%{customdata}<extra></extra>",
     "marker": {
@@ -307,7 +342,8 @@ const qec_timeline_aggregatedData = [
         20.0,
         20.0,
         28.284271247461902,
-        28.284271247461902
+        28.284271247461902,
+        20.0
       ]
     },
     "mode": "markers",
@@ -337,34 +373,36 @@ const qec_timeline_aggregatedData = [
       "2024",
       "2024",
       "2024",
-      "2024"
+      "2024",
+      "2025"
     ],
     "y": [
-      5.3,
-      5.3,
+      6.3,
+      6.3,
       1.3,
-      5.3,
-      5.3,
+      6.3,
+      6.3,
       3.3,
-      4.3,
-      4.3,
       5.3,
+      5.3,
+      6.3,
       1.3,
-      4.3,
+      5.3,
+      9.3,
+      1.3,
+      5.3,
+      6.3,
       7.3,
-      1.3,
-      4.3,
+      5.3,
+      7.3,
       5.3,
       6.3,
-      4.3,
-      6.3,
-      4.3,
-      5.3,
-      6.3,
+      7.3,
       3.3,
-      4.3,
       5.3,
-      6.3
+      6.3,
+      7.3,
+      4.3
     ],
     "type": "scatter",
     "textfont": {
@@ -1310,16 +1348,20 @@ const qec_timeline_aggregatedLayout = {
       4,
       5,
       6,
-      7
+      7,
+      8,
+      9
     ],
     "ticktext": [
       "Bacon-Shor Code",
       "Bell State",
       "Cluster State",
       "Color Code",
+      "Color code",
       "Four-qubit Code",
       "Repetition Code",
       "Surface Code",
+      "Surface code",
       "[[5,1,3]] Perfect Code"
     ],
     "showgrid": true,
