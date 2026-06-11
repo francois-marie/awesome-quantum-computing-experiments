@@ -35,7 +35,8 @@ const experiment_countsData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -53,6 +54,7 @@ const experiment_countsData = [
       2,
       2,
       4,
+      5,
       5,
       5,
       5,
@@ -113,7 +115,8 @@ const experiment_countsData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -144,7 +147,8 @@ const experiment_countsData = [
       6,
       6,
       7,
-      8
+      8,
+      10
     ],
     "type": "bar",
     "textfont": {
@@ -191,7 +195,8 @@ const experiment_countsData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -222,6 +227,7 @@ const experiment_countsData = [
       24,
       26,
       32,
+      33,
       33
     ],
     "type": "bar",
@@ -269,7 +275,8 @@ const experiment_countsData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -289,6 +296,7 @@ const experiment_countsData = [
       0,
       0,
       0,
+      1,
       1,
       1,
       1,
@@ -347,7 +355,8 @@ const experiment_countsData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -375,6 +384,7 @@ const experiment_countsData = [
       1,
       2,
       2,
+      3,
       3,
       3,
       3,
@@ -425,7 +435,8 @@ const experiment_countsData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -455,6 +466,7 @@ const experiment_countsData = [
       3,
       3,
       5,
+      9,
       9,
       9
     ],
@@ -500,7 +512,8 @@ const experiment_countsData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -531,6 +544,7 @@ const experiment_countsData = [
       0,
       0,
       0,
+      1,
       1
     ],
     "type": "bar",

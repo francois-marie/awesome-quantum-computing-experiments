@@ -23,7 +23,8 @@ const qec_data_qubit_count_plotData = [
       2017,
       2020,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       3.0,
@@ -32,7 +33,8 @@ const qec_data_qubit_count_plotData = [
       4.0,
       9.0,
       4.0,
-      4.0
+      4.0,
+      16.0
     ],
     "type": "scatter",
     "textfont": {
@@ -51,15 +53,15 @@ const qec_data_qubit_count_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Ion traps fit (\u00d72 every 34.7y)",
+    "name": "Ion traps fit (\u00d72 every 16.6y)",
     "showlegend": true,
     "x": [
       2004,
-      2025
+      2026
     ],
     "y": [
-      3.4949535875108335,
-      5.319187201694884
+      2.9694074797627024,
+      7.46126360985949
     ],
     "type": "scatter",
     "textfont": {

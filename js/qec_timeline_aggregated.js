@@ -9,7 +9,9 @@ const qec_timeline_aggregatedData = [
       "<b>Platform: Ion traps</b><br>Year: 2017<br>Experiments: 1",
       "<b>Platform: Ion traps</b><br>Year: 2020<br>Experiments: 1",
       "<b>Platform: Ion traps</b><br>Year: 2024<br>Experiments: 1",
-      "<b>Platform: Ion traps</b><br>Year: 2025<br>Experiments: 1"
+      "<b>Platform: Ion traps</b><br>Year: 2025<br>Experiments: 1",
+      "<b>Platform: Ion traps</b><br>Year: 2026<br>Experiments: 1",
+      "<b>Platform: Ion traps</b><br>Year: 2026<br>Experiments: 1"
     ],
     "hovertemplate": "%{customdata}<extra></extra>",
     "marker": {
@@ -20,6 +22,8 @@ const qec_timeline_aggregatedData = [
       },
       "opacity": 0.8,
       "size": [
+        20.0,
+        20.0,
         20.0,
         20.0,
         20.0,
@@ -40,17 +44,21 @@ const qec_timeline_aggregatedData = [
       "2017",
       "2020",
       "2024",
-      "2025"
+      "2025",
+      "2026",
+      "2026"
     ],
     "y": [
+      6.7,
+      6.7,
+      3.7,
+      3.7,
       5.7,
-      5.7,
-      2.7,
-      2.7,
-      4.7,
       -0.3,
-      4.7,
-      4.7
+      5.7,
+      5.7,
+      1.7,
+      3.7
     ],
     "type": "scatter",
     "textfont": {
@@ -93,10 +101,10 @@ const qec_timeline_aggregatedData = [
       "2012"
     ],
     "y": [
-      5.8,
-      8.8,
-      5.8,
-      8.8
+      6.8,
+      9.8,
+      6.8,
+      9.8
     ],
     "type": "scatter",
     "textfont": {
@@ -130,7 +138,7 @@ const qec_timeline_aggregatedData = [
       "2014"
     ],
     "y": [
-      5.9
+      6.9
     ],
     "type": "scatter",
     "textfont": {
@@ -185,14 +193,14 @@ const qec_timeline_aggregatedData = [
       "2024"
     ],
     "y": [
-      2.0,
       3.0,
-      7.0,
-      3.0,
-      7.0,
+      4.0,
+      8.0,
+      4.0,
+      8.0,
       0.0,
-      3.0,
-      5.0
+      4.0,
+      6.0
     ],
     "type": "scatter",
     "textfont": {
@@ -232,9 +240,9 @@ const qec_timeline_aggregatedData = [
       "2022"
     ],
     "y": [
-      7.1,
+      8.1,
       0.09999999999999998,
-      5.1
+      6.1
     ],
     "type": "scatter",
     "textfont": {
@@ -268,7 +276,7 @@ const qec_timeline_aggregatedData = [
       "2025"
     ],
     "y": [
-      8.2
+      9.2
     ],
     "type": "scatter",
     "textfont": {
@@ -377,32 +385,32 @@ const qec_timeline_aggregatedData = [
       "2025"
     ],
     "y": [
+      7.3,
+      7.3,
+      1.3,
+      7.3,
+      7.3,
+      4.3,
       6.3,
       6.3,
+      7.3,
       1.3,
       6.3,
-      6.3,
-      3.3,
-      5.3,
-      5.3,
-      6.3,
+      10.3,
       1.3,
-      5.3,
-      9.3,
-      1.3,
-      5.3,
       6.3,
       7.3,
-      5.3,
-      7.3,
-      5.3,
+      8.3,
+      6.3,
+      8.3,
       6.3,
       7.3,
-      3.3,
-      5.3,
+      8.3,
+      4.3,
       6.3,
       7.3,
-      4.3
+      8.3,
+      5.3
     ],
     "type": "scatter",
     "textfont": {
@@ -1317,7 +1325,8 @@ const qec_timeline_aggregatedLayout = {
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "showgrid": true,
     "gridcolor": "#E5E5E5",
@@ -1350,11 +1359,13 @@ const qec_timeline_aggregatedLayout = {
       6,
       7,
       8,
-      9
+      9,
+      10
     ],
     "ticktext": [
       "Bacon-Shor Code",
       "Bell State",
+      "Carbon Code",
       "Cluster State",
       "Color Code",
       "Color code",

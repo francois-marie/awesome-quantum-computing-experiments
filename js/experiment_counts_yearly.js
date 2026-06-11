@@ -34,7 +34,8 @@ const experiment_counts_yearlyData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -64,7 +65,8 @@ const experiment_counts_yearlyData = [
       0,
       0,
       1,
-      1
+      1,
+      2
     ],
     "type": "bar",
     "textfont": {
@@ -110,7 +112,8 @@ const experiment_counts_yearlyData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       1,
@@ -128,6 +131,7 @@ const experiment_counts_yearlyData = [
       0,
       2,
       1,
+      0,
       0,
       0,
       0,
@@ -186,7 +190,8 @@ const experiment_counts_yearlyData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -206,6 +211,7 @@ const experiment_counts_yearlyData = [
       0,
       0,
       1,
+      0,
       0,
       0,
       0,
@@ -262,7 +268,8 @@ const experiment_counts_yearlyData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -292,6 +299,7 @@ const experiment_counts_yearlyData = [
       0,
       2,
       4,
+      0,
       0
     ],
     "type": "bar",
@@ -338,7 +346,8 @@ const experiment_counts_yearlyData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -366,6 +375,7 @@ const experiment_counts_yearlyData = [
       1,
       0,
       1,
+      0,
       0,
       0,
       0
@@ -411,7 +421,8 @@ const experiment_counts_yearlyData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -441,7 +452,8 @@ const experiment_counts_yearlyData = [
       0,
       0,
       0,
-      1
+      1,
+      0
     ],
     "type": "bar",
     "textfont": {
@@ -487,7 +499,8 @@ const experiment_counts_yearlyData = [
       "2022",
       "2023",
       "2024",
-      "2025"
+      "2025",
+      "2026"
     ],
     "y": [
       0,
@@ -517,7 +530,8 @@ const experiment_counts_yearlyData = [
       1,
       2,
       6,
-      1
+      1,
+      0
     ],
     "type": "bar",
     "textfont": {

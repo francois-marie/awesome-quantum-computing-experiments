@@ -39,7 +39,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0,
@@ -68,6 +69,7 @@ const qec_cumulative_growthData = [
       2,
       2,
       2,
+      3,
       3,
       3
     ],
@@ -120,7 +122,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0,
@@ -150,7 +153,91 @@ const qec_cumulative_growthData = [
       3,
       3,
       3,
+      3,
       3
+    ],
+    "type": "scatter",
+    "textfont": {
+      "family": "Arial"
+    },
+    "hoverlabel": {
+      "font": {
+        "family": "Arial"
+      }
+    }
+  },
+  {
+    "fillcolor": "rgba(128, 128, 128, 0.5)",
+    "hoverinfo": "x+y+name",
+    "hovertemplate": "%{y} %{fullData.name} experiments in %{x}<extra></extra>",
+    "line": {
+      "color": "rgba(128, 128, 128, 0.8)"
+    },
+    "mode": "lines",
+    "name": "Carbon Code",
+    "showlegend": true,
+    "stackgroup": "one",
+    "x": [
+      1998,
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "y": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
     ],
     "type": "scatter",
     "textfont": {
@@ -201,7 +288,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0,
@@ -227,6 +315,7 @@ const qec_cumulative_growthData = [
       0,
       0,
       0,
+      1,
       1,
       1,
       1,
@@ -282,7 +371,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0,
@@ -312,7 +402,8 @@ const qec_cumulative_growthData = [
       4,
       5,
       7,
-      7
+      7,
+      8
     ],
     "type": "scatter",
     "textfont": {
@@ -363,7 +454,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0,
@@ -393,6 +485,7 @@ const qec_cumulative_growthData = [
       0,
       0,
       0,
+      1,
       1
     ],
     "type": "scatter",
@@ -444,7 +537,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0,
@@ -474,6 +568,7 @@ const qec_cumulative_growthData = [
       12,
       12,
       16,
+      17,
       17
     ],
     "type": "scatter",
@@ -525,7 +620,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       1,
@@ -554,6 +650,7 @@ const qec_cumulative_growthData = [
       13,
       13,
       14,
+      16,
       16,
       16
     ],
@@ -606,7 +703,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0,
@@ -635,6 +733,7 @@ const qec_cumulative_growthData = [
       4,
       4,
       6,
+      8,
       8,
       8
     ],
@@ -687,7 +786,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0,
@@ -717,6 +817,7 @@ const qec_cumulative_growthData = [
       0,
       0,
       0,
+      1,
       1
     ],
     "type": "scatter",
@@ -768,7 +869,8 @@ const qec_cumulative_growthData = [
       2022,
       2023,
       2024,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0,
@@ -792,6 +894,7 @@ const qec_cumulative_growthData = [
       2,
       2,
       2,
+      3,
       3,
       3,
       3,
