@@ -65,8 +65,7 @@ coverage.xml
 
 !out/png/*
 !out/png/*.png
-!out/js/*
-!out/js/*.js
+out/js/
 !out/pdf/*
 !out/pdf/*.pdf
 
@@ -83,3 +82,4 @@ vendor/
 Gemfile.lock
 
 tmp/
+.vault

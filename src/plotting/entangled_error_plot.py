@@ -1,4 +1,5 @@
 from .base import BasePlot
+from .highlight import add_highlight_trace
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -9,10 +10,26 @@ import os
 class EntangledErrorPlot(BasePlot):
     """Creates the entangled state error evolution plot."""
     
-    def __init__(self):
-        super().__init__()
+    def __init__(self, highlight_rows=None, skip_export=False):
+        super().__init__(skip_export=skip_export)
         self.data = self.load_data(self.config['paths']['data']['entangled'])
         self.fitting_stats = []
+        self.highlight_rows = self._preprocess_rows(highlight_rows)
+        
+    def _preprocess_rows(self, df):
+        """Apply the same transforms as load_data to a dataframe subset."""
+        if df is None:
+            return None
+        if isinstance(df, list):
+            df = pd.DataFrame(df)
+        if df.empty:
+            return None
+        data = df.copy()
+        data["Year"] = pd.to_numeric(data["Year"], errors="coerce")
+        data["Entangled State Error"] = pd.to_numeric(
+            data["Entangled State Error"], errors="coerce"
+        )
+        return data
         
     def load_data(self, csv_path: str):
         """Load and preprocess entangled error data."""
@@ -222,7 +239,20 @@ class EntangledErrorPlot(BasePlot):
         
         # Create a Plotly figure for export
         self.fig = go.Figure(data=traces, layout=layout)
-        self.export_to_multiple(export_name="entangled_error_plot")
+
+        if self.highlight_rows is not None and not self.highlight_rows.empty:
+            add_highlight_trace(
+                self.fig,
+                self.highlight_rows,
+                'Year',
+                'Entangled State Error',
+                ['Article Title', 'Link'],
+                "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br>"
+                "<a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+            )
+
+        if not self.skip_export:
+            self.export_to_multiple(export_name="entangled_error_plot")
 
     def save_fitting_stats(self, output_dir: str):
         """Save fitting statistics to a JSON file."""
