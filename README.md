@@ -317,7 +317,7 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [High-fidelity quantum logic gates using trapped-ion hyperfine qubits](https://arxiv.org/abs/1512.04600) (2016) - 0.0008 on Ion traps, two-qubit gate error
 - [Scalable, high-fidelity all-electronic control of trapped-ion qubits](https://arxiv.org/abs/2407.07694) (2024) - 0.0003 on Ion traps, Two-qubit maximally entangled states
 - [Helios: A 98-qubit trapped-ion quantum computer](https://doi.org/10.48550/arXiv.2511.05465) (2025) - 0.00079 on Ion traps, 2.5(1)×10−5  for single-qubit gates, 7.9(2)×10−4 for two-qubit gates, and 4.8(6)×10−4 for state preparation and measurement
-- [Trapped-ion two-qubit gates with > 99.99% fidelity without ground-state cooling](https://doi.org/10.48550/arXiv.2510.17286) (2025) - 8.4e-05 on Ion traps, 8.4(7)e−5, without the use of ground-state cooling%. <=5e−4 for ions with average phonon occupation numbers of up to n = 9.4(3) on the gate mode
+- [Trapped-ion two-qubit gates with > 99.99% fidelity without ground-state cooling](https://doi.org/10.48550/arXiv.2510.17286) (2025) - 0.000084 on Ion traps, 8.4(7)e−5, without the use of ground-state cooling%. <=5e−4 for ions with average phonon occupation numbers of up to n = 9.4(3) on the gate mode
 
 ### Superconducting circuits
 
@@ -342,6 +342,7 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [A universal neutral-atom quantum computer with individual optical addressing and non-destructive readout](https://doi.org/10.48550/arXiv.2408.08288) (2025) - 0.0066 on Neutral atoms, Cs, CZ gate
 - [Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates](https://doi.org/10.1103/PRXQuantum.6.010331) (2025) - 0.0029 on Neutral atoms, Sr, CZ gate
 - [Spectroscopy and Modeling of 171Yb Rydberg States for High-Fidelity Two-Qubit Gates](https://doi.org/10.1103/PhysRevX.15.011009) (2025) - 0.006 on Neutral atoms, Yb, CZ gate
+- [High-fidelity entangling gates and nonlocal circuits with neutral atoms](https://arxiv.org/abs/2604.25987) (2026) - 0.00146(4) on Neutral atoms, Rb, CZ gate, 99.854(4)% raw / 99.941(3)% loss-postselected, stable >10h
 
 ### Semiconductor spins
 
