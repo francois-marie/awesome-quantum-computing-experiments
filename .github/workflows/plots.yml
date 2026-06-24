@@ -90,3 +90,14 @@ jobs:
         destination_dir: js
         keep_files: true
         commit_message: "Update plot JS assets"
+
+    - name: Purge jsDelivr cache for plot JS
+      run: |
+        for f in coherence_times_plot entangled_error_plot qubit_count_plot \
+                 msd_plot msd_error_evolution_plot experiment_counts \
+                 nkd_plot_aggregated experiment_counts_yearly \
+                 qec_cumulative_growth qec_timeline_aggregated qec_platform_sunburst; do
+          url="https://purge.jsdelivr.net/gh/${{ github.repository }}@gh-pages-assets/js/$f.js"
+          echo "Purging $f.js"
+          curl -sf "$url" > /dev/null || echo "::warning::purge failed for $f.js"
+        done

@@ -76,18 +76,8 @@ A comprehensive collection of notable quantum computing experiments, focusing on
 
 
 
-<!-- Load plot scripts from gh-pages-assets branch via jsDelivr CDN -->
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/coherence_times_plot.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/entangled_error_plot.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/qubit_count_plot.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/msd_plot.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/msd_error_evolution_plot.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/experiment_counts.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/nkd_plot_aggregated.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/experiment_counts_yearly.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/qec_cumulative_growth.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/qec_timeline_aggregated.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/francois-marie/awesome-quantum-computing-experiments@gh-pages-assets/js/qec_platform_sunburst.js"></script>
+<!-- Load plot scripts from gh-pages-assets via jsDelivr (commit pinned in _data/plot_assets.yml) -->
+{% include plot_scripts.html %}
 
 <!-- Load responsive plot enhancement script -->
 <script src="{{ '/assets/js/responsive-plots.js' | relative_url }}"></script>
