@@ -191,7 +191,8 @@ const entangled_error_plotData = [
       "https://doi.org/10.48550/arXiv.2411.11708",
       "https://doi.org/10.1103/PRXQuantum.6.010331",
       "https://doi.org/10.1103/PhysRevX.15.011009",
-      "https://doi.org/10.48550/arXiv.2408.08288"
+      "https://doi.org/10.48550/arXiv.2408.08288",
+      "https://arxiv.org/abs/2604.25987"
     ],
     "hovertemplate": "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
     "legendgroup": "Neutral atoms",
@@ -217,6 +218,7 @@ const entangled_error_plotData = [
         "square",
         "square",
         "square",
+        "square",
         "square"
       ]
     },
@@ -234,7 +236,8 @@ const entangled_error_plotData = [
       "High-fidelity universal gates in the 171Yb ground state nuclear spin qubit",
       "Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates",
       "Spectroscopy and Modeling of 171Yb Rydberg States for High-Fidelity Two-Qubit Gates",
-      "A universal neutral-atom quantum computer with individual optical addressing and non-destructive readout"
+      "A universal neutral-atom quantum computer with individual optical addressing and non-destructive readout",
+      "High-fidelity entangling gates and nonlocal circuits with neutral atoms"
     ],
     "x": [
       2010,
@@ -247,7 +250,8 @@ const entangled_error_plotData = [
       2024,
       2025,
       2025,
-      2025
+      2025,
+      2026
     ],
     "y": [
       0.25,
@@ -260,7 +264,8 @@ const entangled_error_plotData = [
       0.006,
       0.0029,
       0.006,
-      0.0066
+      0.0066,
+      NaN
     ],
     "type": "scatter",
     "textfont": {
@@ -311,15 +316,15 @@ const entangled_error_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Neutral atoms fit (\u00f72 every 2.3y)",
+    "name": "Neutral atoms fit (\u00f72 every nany)",
     "showlegend": true,
     "x": [
       2010,
-      2025
+      2026
     ],
     "y": [
-      0.33001353196937183,
-      0.0036250750659909754
+      NaN,
+      NaN
     ],
     "type": "scatter",
     "textfont": {
