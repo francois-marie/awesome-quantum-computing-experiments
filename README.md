@@ -130,6 +130,9 @@ The following PNG files are included in the repository to display in this README
 	- [Four-qubit Code](#four-qubit-code)
 	- [Bacon-Shor Code](#bacon-shor-code)
 	- [Cluster State](#cluster-state)
+	- [Color code](#color-code)
+	- [Surface code](#surface-code)
+	- [Carbon Code](#carbon-code)
 - [Magic State](#magic-state)
 	- [Preparation](#preparation)
 		- [|CZ>](#magic-state:-|cz>)
@@ -195,6 +198,7 @@ The following PNG files are included in the repository to display in this README
 - [Logical quantum processor based on reconfigurable atom arrays](https://arxiv.org/abs/2312.03982) (2023) - [[7,1,3]], [[8,3,2]] on Neutral atoms
 - [Experimental Demonstration of Logical Magic State Distillation](https://arxiv.org/abs/2412.15165) (2024) - [[7, 1, 3]], [[17,1,5]] on Neutral atoms
 - [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - [[7, 1, 3]], [[17,1,5]] on Superconducting circuit
+- [Improved quantum processor logical error rates via correction and detection](https://www.nature.com/articles/s41586-026-10628-y) (2026) - [[16,4,4]] on Ion traps, Tesseract subsystem colour code from self-dual [[16,6,4]] tesseract code (2 encoded qubits sacrificed as gauge qubits), distance 4, 4 logical qubits; one code block = 18 physical qubits (16 data + 2 reused ancillae); X and Z stabilisers measured in parallel, 8 CNOTs per weight-4 measurement pair = 64 CNOTs/round; Quantinuum H2; up to 5 rounds of post-selected fault-tolerant EC; graph states up to 12 logical qubits (cube graph = 12 logical CNOTs, 12-qubit cat = 11 logical CNOTs); acceptance >=50% (50-90%); logical error ~0.02% per round (2.1e-4/round fit); two-qubit gate count reported only per round (64 CNOTs/round), no per-experiment total tabulated; tesseract experiments from arXiv:2409.04628
 
 ### Surface Code
 
@@ -244,6 +248,18 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 
 - [A quantum processor based on coherent transport of entangled atom arrays](https://arxiv.org/abs/2112.03923) (2021) - 1D with 12 qubits on Neutral atoms
 
+### Color code
+
+- [Magic state cultivation on a superconducting quantum processor](https://doi.org/10.48550/arXiv.2512.13908) (2025) - [[7,1,3]] on Superconducting circuit, Willow processor. Magic state cultivation via fault-tolerant logical H_L measurement + postselection, kickback tomography (KT) characterization, |T> fidelity 0.9999(1); 40x improvement over injection; fault distance 3; error scales as p^3, RL-calibrated control, each QEC cycle = 30 two-qubit gates + 6 measurements
+
+### Surface code
+
+- [Magic state cultivation on a superconducting quantum processor](https://doi.org/10.48550/arXiv.2512.13908) (2025) - [[25, 1, 5]] on Superconducting, Willow processor, cultivated |T> state grafted from d=3 color code into d=5 surface-code-compatible encoding, proof-of-principle code switching, 1 extension cycle + N-1 grafted-code cycles, decoded with Tesseract (A* most-likely-error decoder), LER ~7x higher than SI1000 simulation (leakage suspected), memory experiment up to N=9 QEC cycles
+
+### Carbon Code
+
+- [Improved quantum processor logical error rates via correction and detection](https://www.nature.com/articles/s41586-026-10628-y) (2026) - [[12,2,4]] on Ion traps, Carbon = [[12,2,4]] self-dual CSS code, concatenation of [[4,2,2]] and [[6,2,2]] (Knill C4/C6 scheme); threshold ~3%, rate 1/6 at d=4; Quantinuum H2 trapped-ion QCCD; repeated error correction (up to 3 rounds) combining correction + detection with pre- and post-selection; measured logical error 0.017% (1 round), 0.3% (2 rounds), 0.5% (3 rounds), ~0.006% per-round fit in Table 1; 4.7x-800x gain over physical baselines; two-qubit gate count is reported only per round (98 CNOTs/round, >100 physical CNOTs per EC cycle), no per-experiment total tabulated; carbon experiments from arXiv:2404.02280
+
 ## Magic State
 
 Magic states are crucial non-Clifford quantum states that enable universal fault-tolerant quantum computation. The main magic states used in experiments are:
@@ -268,6 +284,7 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [Realization of real-time fault-tolerant quantum error correction](https://doi.org/10.1103/PhysRevX.11.041058) (2021) - on Ion traps, QEC code: Steane, magic state: |T>, fidelity: 0.978-6+6, acceptance rate: 100%
 - [Logical Magic State Preparation with Fidelity beyond the Distillation Threshold on a Superconducting Quantum Processor](https://doi.org/10.1103/PhysRevLett.131.210603) (2023) - on Superconducting qubits, QEC code: Surface code, magic state: |T>, fidelity: 0.8771-9+9, acceptance rate: 73.41%
 - [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - on Superconducting qubits, QEC code: Steane, magic state: |T>, fidelity: 0.9992-15+3, acceptance rate: 75.2%, Post-selected logical state tomography measurements
+- [Magic state cultivation on a superconducting quantum processor](https://doi.org/10.48550/arXiv.2512.13908) (2025) - on Superconducting qubits, QEC code: Steane code to d=5 (grafted) Surface code, magic state: |T>, fidelity: 0.9999-1+1, acceptance rate: 8%, Willow processor, fault-tolerant logical Hadamard measurement projects onto |T> axis, kickback tomography characterization, 40x improvement over injection, decoded with Tesseract, error scales as p^3, RL-calibrated, includes 3 QEC cycles + 2 cultivation rounds
 #### Magic State: |CZ>
 
 - [Encoding a magic state with beyond break-even fidelity](https://doi.org/10.1038/s41586-023-06846-3) (2023) - on Superconducting qubits, QEC code: Surface code, magic state: |CZ>, fidelity: 0.9877-11+11, acceptance rate: 17%
@@ -364,6 +381,7 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [AI-Enabled Rapid Assembly of Thousands of Defect-Free Neutral Atom Arrays with Constant-time-overhead](https://doi.org/10.48550/arXiv.2412.14647) (2024) - 2024 qubits on Neutral atoms, Defect-free 2D and 3D atom arrays
 - [Rearrangement of individual atoms in a 2000-site optical-tweezer array at cryogenic temperatures](https://doi.org/10.1103/PhysRevApplied.22.024073) (2024) - 2088 qubits on Neutral atoms, Cryogenic environment at 6K
 - [High-efficiency loading of 2,400 Ytterbium atoms in optical tweezer arrays](https://doi.org/10.48550/arXiv.2512.19795) (2025) - 2400 qubits on Neutral atoms, 2400 Yb-174 atoms in optical tweezer arrays, loading efficiency of 83.5(1)%, imaging fidelity 99.3(1)%
+- [Trapping 11,000 Atoms in a Tweezer Array Generated by a Single Metasurface](https://arxiv.org/abs/2606.02715) (2026) - 11000 qubits on Neutral atoms, Not rearranged; ~11,022 Rb atoms loaded per shot across 18,225 sites (135x135), 60.5% filling, generated by a single ~2 cm metasurface outside the vacuum cell
 
 ### Semiconductor spins
 
