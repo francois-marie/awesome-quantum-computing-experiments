@@ -265,7 +265,7 @@ const entangled_error_plotData = [
       0.0029,
       0.006,
       0.0066,
-      NaN
+      0.00146
     ],
     "type": "scatter",
     "textfont": {
@@ -316,15 +316,15 @@ const entangled_error_plotData = [
       "width": 2
     },
     "mode": "lines",
-    "name": "Neutral atoms fit (\u00f72 every nany)",
+    "name": "Neutral atoms fit (\u00f72 every 2.2y)",
     "showlegend": true,
     "x": [
       2010,
       2026
     ],
     "y": [
-      NaN,
-      NaN
+      0.34528471499284014,
+      0.002422902091890533
     ],
     "type": "scatter",
     "textfont": {
