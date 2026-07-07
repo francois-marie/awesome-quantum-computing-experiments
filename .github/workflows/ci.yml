@@ -14,29 +14,60 @@ concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v4
-    
+      with:
+        # For same-repo PRs, check out the PR branch itself (not the detached
+        # merge commit) so a regenerated README can be committed back to it.
+        ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref || github.ref }}
+        # A PAT (unlike GITHUB_TOKEN) makes the auto-commit re-trigger CI, so
+        # the required "test" check on main gets a run on the new commit.
+        token: ${{ secrets.AUTOCOMMIT_TOKEN || github.token }}
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
         cache: 'pip'
-    
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -e ".[test]"
 
-    - name: Verify README is up to date with CSV data
+    - name: Regenerate README from CSV data
+      run: make readme
+
+    - name: Commit regenerated README
+      # Same-repo PRs and direct pushes: commit the regenerated README back
+      # to the branch so editing CSVs from the GitHub web UI just works.
+      if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+      env:
+        BRANCH: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
       run: |
-        make readme
+        if git diff --quiet -- README.md; then
+          echo "README.md already up to date."
+          exit 0
+        fi
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add README.md
+        git commit -m "Auto-regenerate README from CSV data"
+        git push origin "HEAD:$BRANCH"
+
+    - name: Verify README is up to date (fork PRs)
+      # Fork PRs cannot be pushed to with GITHUB_TOKEN, so keep the strict check.
+      if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+      run: |
         if ! git diff --quiet -- README.md; then
-          echo "::error::README.md is out of date with the CSV data. Run 'make readme' locally and commit the result."
+          echo "::error::README.md is out of date with the CSV data. Run 'make readme' and commit the result."
           git diff -- README.md
           exit 1
         fi
