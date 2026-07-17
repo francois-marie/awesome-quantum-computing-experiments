@@ -182,6 +182,7 @@ The following PNG files are included in the repository to display in this README
 - [Suppressing quantum errors by scaling a surface code logical qubit](https://arxiv.org/abs/2207.06431) (2023) - [3,1,3]-[25,1,25], d=1 on Superconducting circuit, Repetition codes below threshold
 - [Hardware-efficient quantum error correction using concatenated bosonic qubits](https://arxiv.org/abs/2409.13025) (2024) - [[3,1,3]], [[5,1,5]] on Superconducting circuit, Repetition cat codes below threshold
 - [Quantum error correction below the surface code threshold](https://arxiv.org/abs/2408.13687) (2024) - [3,1,3]-[29,1,29], d=1 on Superconducting circuit, Repetition codes below threshold
+- [Quantum error correction with the toric code](https://arxiv.org/abs/2606.04079) (2026) - [3,1,3], [7,1,7], d=1 on Neutral atoms, Phase-sensitive repetition-code memory used to sustain logical info beyond the physical atom lifetime, mid circuit measurement + atom replacement every cycle, Storage zone refill every 20 cycles, 0.5 s forced idle time per cycle
 
 ### [[5,1,3]] Perfect Code
 
@@ -210,6 +211,7 @@ The following PNG files are included in the repository to display in this README
 - [Suppressing quantum errors by scaling a surface code logical qubit](https://arxiv.org/abs/2207.06431) (2023) - [[9,1,3]]-[[25,1,5]] on Superconducting circuit, Repetition codes below threshold
 - [Demonstrating dynamic surface codes](https://arxiv.org/abs/2412.14360) (2024) - [[9,1,3]], [[25,1,5]] on Superconducting circuit
 - [Quantum error correction below the surface code threshold](https://arxiv.org/abs/2408.13687) (2024) - [[9,1,3]], [[25,1,5]], [[49,1,7]] on Superconducting circuit, Surface codes below threshold
+- [Quantum error correction with the toric code](https://arxiv.org/abs/2606.04079) (2026) - [[16,1,3]], [[32,1,4]] on Neutral atoms, Twisted toric (subsystem) codes on a 171Yb zone-based processor, mid-circuit measurement with qubit reset/reuse, data-ancilla role-swapping, and reloading from a MOT for continuous (indefinite-depth) operation, lower logical error rate for the larger-distance code at 4/6/8 cycles (sub-threshold). Asymmetric distances (dX,dZ): det8=(4,3), det16=(6,4); d listed = min(dX,dZ)
 
 ### Bell State
 
