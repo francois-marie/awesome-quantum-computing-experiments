@@ -69,17 +69,13 @@ out/js/
 !out/pdf/*
 !out/pdf/*.pdf
 
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-.DS_Store
-Gemfile.lock
-vendor/
-.bundle/
-
-# Ruby
-Gemfile.lock
+# Website (Astro)
+site/node_modules/
+site/dist/
+site/.astro/
 
 tmp/
 .vault
+
+# site/src/lib is source, not a Python build dir
+!site/src/lib/

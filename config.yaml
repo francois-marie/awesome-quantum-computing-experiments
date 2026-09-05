@@ -5,10 +5,12 @@ paths:
     entangled: data/entangled_state_error_exp.csv
     qubit_count: data/qubit_count.csv
     physical_qubits: data/physical_qubits.csv
+    research_groups: data/research_groups.csv
   output:
     plots: out/plots
     readme: README.md
     js: out/js
+    figures: out/figures
     pdf: out/pdf
 
 # Standard colors for platforms
@@ -23,6 +25,13 @@ platform_colors:
   Semiconductor spins: "#F7DC6F" # Warm Gold
   Semiconductor: "#92DCE5" # Warm Gold
   NV centers: "#E74C3C" # Deep Coral
+
+# Colors for organisation types (research groups)
+org_type_colors:
+  industry: "#2563EB"
+  academic: "#16A34A"
+  mixed: "#F59E0B"
+  unknown: "#A3A3A3"
 
 # Standard colors for QEC codes
 code_colors:

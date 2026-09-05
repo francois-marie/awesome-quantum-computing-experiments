@@ -23,7 +23,16 @@ CSV_TO_PLOT_MODULES: dict[str, list[str]] = {
     "data/physical_qubits.csv": [
         "coherence_times_plot",
     ],
+    "data/research_groups.csv": [
+        "groups_plot",
+    ],
 }
+
+# The research-group plots count papers across every dataset, so any data
+# change must regenerate them.
+for _csv, _modules in CSV_TO_PLOT_MODULES.items():
+    if "groups_plot" not in _modules:
+        _modules.append("groups_plot")
 
 SHARED_PLOT_TRIGGER_PATHS: list[str] = [
     "config.yaml",

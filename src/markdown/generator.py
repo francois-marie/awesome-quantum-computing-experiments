@@ -1,218 +1,251 @@
-import yaml
-import pandas as pd
+"""Generate README.md from the CSV files in ``data/``.
+
+Layout of the generated README (top to bottom):
+
+1. Title, one-line pitch, badges
+2. "The data": table of the CSV files that feed every plot and table
+3. Plot gallery (markdown table of PNGs)
+4. Contents + curated paper lists, one section per dataset
+5. Quick Start, Local Development
+6. Contributing, Citation, License
+"""
+
+import re
 from pathlib import Path
+
+import pandas as pd
+import yaml
+
 from .sections import (
     QECSection, MSDSection, EntangledSection,
     QubitCountSection, PhysicalQubitsSection
 )
 
+REPO_URL = "https://github.com/francois-marie/awesome-quantum-computing-experiments"
+SITE_URL = "https://francoismarieleregent.xyz/awesome-quantum-computing-experiments"
+ARXIV_ID = "2507.03678"
+
+# (config key, file description, key columns) in display order.
+DATASETS = [
+    ("qec", "Quantum error correction experiments",
+     "Code Name, Code Parameters [[n,k,d]], Platform, Year, Research Group"),
+    ("msd", "Magic state preparation, distillation and code switching",
+     "Magic State, Fidelity, Acceptance Rate, QEC Code, Experiment Type"),
+    ("entangled", "Entangled state and two-qubit gate errors",
+     "Entangled State Error, Platform, Year"),
+    ("qubit_count", "Physical qubit count records",
+     "Number of qubits, Platform, Year"),
+    ("physical_qubits", "Coherence times of physical qubits",
+     "Physical system, T1, T2, Platform, Year"),
+]
+
+# (caption, png file name, site anchor) in gallery order.
+PLOTS = [
+    ("Entangled state error", "entangled_error_plot", "entangled-state-error"),
+    ("Qubit count", "qubit_count_plot", "qubit-count"),
+    ("Coherence times (T1, T2)", "coherence_times_plot", "coherence-times"),
+    ("Magic state error vs acceptance rate", "msd_plot", "magic-state"),
+    ("Magic state error over time", "msd_error_evolution_plot", "magic-state-evolution"),
+    ("QEC timeline", "qec_timeline_aggregated", "qec-timeline"),
+    ("[[n, k, d]] code parameters", "nkd_plot_aggregated", "nkd"),
+    ("QEC experiments per platform (cumulative)", "experiment_counts", "experiment-counts"),
+    ("QEC experiments per platform (yearly)", "experiment_counts_yearly", "experiment-counts-yearly"),
+    ("QEC experiments per code (cumulative)", "qec_cumulative_growth", "qec-cumulative"),
+    ("QEC codes by platform", "qec_platform_sunburst", "qec-sunburst"),
+    ("Papers per year, industry vs academia", "papers_by_org_type", "papers-by-org-type"),
+    ("Top research groups", "top_research_groups", "top-research-groups"),
+]
+
+
 class MarkdownGenerator:
     """Generates the complete README.md file."""
-    
+
     def __init__(self):
         with open("config.yaml") as f:
             self.config = yaml.safe_load(f)
-            
-        # Load all data
-        self.qec_data = pd.read_csv(self.config['paths']['data']['qec'])
-        self.msd_data = pd.read_csv(self.config['paths']['data']['msd'])
-        self.entangled_data = pd.read_csv(self.config['paths']['data']['entangled'])
-        self.qubit_count_data = pd.read_csv(self.config['paths']['data']['qubit_count'])
-        self.physical_qubits_data = pd.read_csv(self.config['paths']['data']['physical_qubits'])  # Load physical qubits data
-        
-        # Initialize section generators
+
+        paths = self.config['paths']['data']
+        self.datasets = {key: pd.read_csv(paths[key]) for key, _, _ in DATASETS}
+        self.qec_data = self.datasets['qec']
+        self.msd_data = self.datasets['msd']
+        self.entangled_data = self.datasets['entangled']
+        self.qubit_count_data = self.datasets['qubit_count']
+        self.physical_qubits_data = self.datasets['physical_qubits']
+
         self.sections = [
             QECSection(self.qec_data),
             MSDSection(self.msd_data),
             EntangledSection(self.entangled_data),
             QubitCountSection(self.qubit_count_data),
-            PhysicalQubitsSection(self.physical_qubits_data)  # Pass the data here
+            PhysicalQubitsSection(self.physical_qubits_data),
         ]
-    
+
+    # ------------------------------------------------------------------ public
+
     def generate(self):
-        """Generate the complete README.md content."""
+        """Generate the complete README.md content and write it to disk."""
         content = self._generate_header()
+        content += self._generate_data_section()
+        content += self._generate_plots_section()
         content += self._generate_toc()
         content += self._generate_sections()
+        content += self._generate_usage()
         content += self._generate_footer()
-        
-        # Write to file
+
         readme_path = Path(self.config['paths']['output']['readme'])
         readme_path.write_text(content)
-    
+
+    # ----------------------------------------------------------------- helpers
+
+    @property
+    def total_entries(self) -> int:
+        return sum(len(df) for df in self.datasets.values())
+
+    @property
+    def total_papers(self) -> int:
+        links = pd.concat(df['Link'] for df in self.datasets.values() if 'Link' in df)
+        return links.dropna().nunique()
+
     def _generate_header(self) -> str:
-        """Generate the header section of the README."""
         return f"""# Awesome Quantum Computing Experiments
 
-<div style="text-align: center; font-style: italic; margin: 20px 0;">
-A comprehensive database of notable quantum computing experiments, with emphasis on quantum error correction implementations
-</div>
+> A curated, machine-readable database of quantum computing experiments, with an emphasis on quantum error correction. {self.total_entries} entries from {self.total_papers} papers, every one of them a row in a CSV file.
 
-<hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);">
+[![CI]({REPO_URL}/actions/workflows/ci.yml/badge.svg)]({REPO_URL}/actions/workflows/ci.yml)
+[![arXiv](https://img.shields.io/badge/arXiv-{ARXIV_ID}-b31b1b.svg)](https://arxiv.org/abs/{ARXIV_ID})
+[![Entries](https://img.shields.io/badge/entries-{self.total_entries}-blue.svg)](#the-data)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-## Overview
+Interactive plots, filterable tables and platform rankings live on the **[website]({SITE_URL})**. This README is generated from the same data by `make readme`.
 
-<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 3px solid #007bff;">
-This repository maintains a comprehensive database of quantum computing experiments, with a focus on:
+"""
 
-- Quantum Error Correction (QEC) implementations
-- Magic State Distillation (MSD) experiments
-- Entangled State Error measurements
-- Physical Qubit Count evolution
-- Relaxation and Coherence Times (see [Superconducting Qubits: Current State of Play](https://arxiv.org/abs/1905.13641))
-</div>
+    def _generate_data_section(self) -> str:
+        paths = self.config['paths']['data']
+        rows = []
+        for key, description, columns in DATASETS:
+            path = paths[key]
+            name = Path(path).name
+            rows.append(f"| [`{name}`]({path}) | {description} | {len(self.datasets[key])} | {columns} |")
+        table = "\n".join(rows)
+        return f"""## The data
 
-<hr style="margin: 30px 0;">
+**Everything in this repository comes from five CSV files in [`data/`](data/).** The plots below, the interactive website, and the paper lists further down are all generated from them. To add or fix an experiment, edit a CSV row and open a pull request; CI regenerates the README and the plots.
 
+| File | What it tracks | Entries | Key columns |
+|---|---|---:|---|
+{table}
+
+Every file also carries `Article Title`, `First Author`, `Link`, `Year`, `Platform` and free-text `Notes`. A sixth file, [`research_groups.csv`](data/research_groups.csv), maps each paper to its research group and organisation type (industry / academic / mixed); it is generated from [OpenAlex](https://openalex.org) by `make groups` and hand-corrected rows are kept. The full column reference is in [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) and the submission rules in [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
+
+"""
+
+    def _generate_plots_section(self) -> str:
+        cells = []
+        for caption, png, anchor in PLOTS:
+            cells.append(
+                f"[![{caption}](out/png/{png}.png)]({SITE_URL}/#{anchor})<br>"
+                f"**{caption}** ([interactive]({SITE_URL}/#{anchor}))"
+            )
+        # Two plots per row.
+        rows = []
+        for i in range(0, len(cells), 2):
+            pair = cells[i:i + 2]
+            if len(pair) == 1:
+                pair.append("")
+            rows.append("| " + " | ".join(pair) + " |")
+        table = "\n".join(rows)
+        return f"""## Plots
+
+Static exports of the interactive website plots. Regenerate them with `make plots` (PNG in `out/png`, PDF in `out/pdf`, figure JSON for the website in `out/figures`).
+
+| | |
+|---|---|
+{table}
+
+"""
+
+    def _generate_toc(self) -> str:
+        """Generate table of contents for the paper lists."""
+        content = "## Contents\n\n"
+        headings = [
+            ("Quantum Error Correction", "quantum-error-correction"),
+            ("Magic State", "magic-state"),
+            ("Entangled State Error", "entangled-state-error"),
+            ("Qubit Count", "qubit-count"),
+            ("Physical Qubits", "physical-qubits"),
+        ]
+        for section, (title, anchor) in zip(self.sections, headings):
+            content += f"- [{title}](#{anchor})\n"
+            content += section.generate_toc()
+        content += "\n"
+        return self._deduplicate_anchors(content)
+
+    @staticmethod
+    def _deduplicate_anchors(toc: str) -> str:
+        """Suffix repeated anchors with -1, -2, ... the way GitHub does.
+
+        The same sub-heading (e.g. "Ion traps") appears under several
+        sections; the TOC is in document order so a running count per
+        anchor reproduces GitHub's generated ids.
+        """
+        seen: dict = {}
+
+        def replace(match):
+            anchor = match.group(1)
+            count = seen.get(anchor, 0)
+            seen[anchor] = count + 1
+            return f"](#{anchor}-{count})" if count else f"](#{anchor})"
+
+        return re.sub(r"\]\(#([^)]+)\)", replace, toc)
+
+    def _generate_sections(self) -> str:
+        return "".join(section.generate_content() for section in self.sections)
+
+    def _generate_usage(self) -> str:
+        return f"""
 ## Quick Start
 
-<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
-
-1. Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/francois-marie/awesome-quantum-computing-experiments.git
+git clone {REPO_URL}.git
 cd awesome-quantum-computing-experiments
-pip install -e ".[test]" # Install package and test dependencies
+pip install -e ".[test]"
+make all        # regenerate plots (out/) and this README
+make test       # run the test suite
 ```
 
-2. Generate all plots and README:
-```bash
-make all
-```
-
-For more detailed information:
-- See [Documentation](docs/DOCUMENTATION.md) for usage and data format details
-- See [Contributing Guide](docs/CONTRIBUTING.md) for how to add new experiments
-</div>
-
-<hr style="margin: 30px 0;">
+Individual targets: `make plots`, `make readme`, `make export_pdf`. Each plot can also be produced on its own, for example `python -m src.plotting.entangled_error_plot`.
 
 ## Local Development
 
-<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
-
-1. Set up Ruby environment using rbenv:
-```bash
-eval "$(rbenv init -)"
-rbenv shell 3.1.0
-```
-
-2. Install Ruby dependencies:
-```bash
-bundle install
-```
-
-3. Run Jekyll server:
-```bash
-bundle exec jekyll clean
-bundle exec jekyll serve --baseurl="/awesome-quantum-computing-experiments" --livereload
-```
-
-The site will be available at `http://localhost:4000/awesome-quantum-computing-experiments/`.
-</div>
-
-<hr style="margin: 30px 0;">
-
-## Visualizations
-
-<div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
-
-<h4>Generating Visualizations</h4>
-All visualizations can be regenerated at any time using:
+The website is an [Astro](https://astro.build) site in [`site/`](site/). It reads the CSV files in `data/` and the figure JSON in `out/figures/` at build time, so run `make plots` first if the figures are missing.
 
 ```bash
-# Generate all plots
-make plots
-
-# Or use the consolidated generation script
-make generate_all
+cd site
+npm install
+npm run dev     # http://localhost:4321/awesome-quantum-computing-experiments/
+npm run build   # static output in site/dist
 ```
-
-<h4>Available Visualizations</h4>
-After generation, plots will be available in multiple formats:
-
-- PNG format in the `out/png` directory (for web display)
-- PDF format in the `out/pdf` directory (for publication)
-- JavaScript in the `out/js` directory (for interactive web display)
-
-<h4>Plot Gallery</h4>
-
-The following PNG files are included in the repository to display in this README:
-
-![Cumulative Experiment Counts by Platform](out/png/experiment_counts.png)
-
-![Yearly Experiment Counts](out/png/experiment_counts_yearly.png)
-
-![QEC Platform Distribution](out/png/qec_platform_sunburst.png)
-
-![Timeline of QEC Implementations](out/png/qec_timeline_aggregated.png)
-
-![[[n, k, d]] Distribution](out/png/nkd_plot_aggregated.png)
-
-![Entangled State Error Progress](out/png/entangled_error_plot.png)
-
-![Qubit Count Evolution](out/png/qubit_count_plot.png)
-
-![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)
-
-![Magic State Preparation: Error vs Acceptance Rate](out/png/msd_plot.png)
-
-![Magic State Error Evolution Over Time](out/png/msd_error_evolution_plot.png)
-
-![Cumulative Experiment Counts by QEC code](out/png/qec_cumulative_growth.png)
-
-</div>
-
 """
-    
-    def _generate_toc(self) -> str:
-        """Generate table of contents."""
-        content = "## Table of Contents\n\n"
-        
-        # QEC section
-        content += "- [Quantum Error Correction](#quantum-error-correction)\n"
-        content += self.sections[0].generate_toc()
-        
-        # MSD section
-        content += "- [Magic State](#magic-state)\n"
-        content += self.sections[1].generate_toc()
-        
-        # Entangled section
-        content += "- [Entangled State Error](#entangled-state-error)\n"
-        content += self.sections[2].generate_toc()
-        
-        # Qubit count section
-        content += "- [Qubit Count](#qubit-count)\n"
-        content += self.sections[3].generate_toc()
-        
-        # Physical qubits section
-        content += "- [Physical Qubits](#physical-qubits)\n"
-        content += self.sections[4].generate_toc()
-        
-        content += "\n"
-        return content
-    
-    def _generate_sections(self) -> str:
-        return "".join(section.generate_content() for section in self.sections)
-    
+
     def _generate_footer(self) -> str:
-        return """
+        return f"""
 ## Contributing
 
-Contributions are welcome! If you have suggestions for new entries, please submit a pull request or open an issue.
+Contributions are welcome. Add a row to the relevant CSV in `data/` and open a pull request, or open an issue with the paper link. See the [Contributing Guide](docs/CONTRIBUTING.md).
 
 ## Citation
 
 If you use this dataset in your research, please cite:
 
 ```bibtex
-@unpublished{leregentAwesomeQuantumComputing2025,
-  title = {Awesome Quantum Computing Experiments: Benchmarking Experimental Progress Towards Fault-Tolerant Quantum Computation},
-  author = {Le Régent, François-Marie},
-  date = {2025-07-04},
-  doi = {10.48550/arXiv.2507.03678},
-  url = {http://arxiv.org/abs/2507.03678},
-}
+@unpublished{{leregentAwesomeQuantumComputing2025,
+  title = {{Awesome Quantum Computing Experiments: Benchmarking Experimental Progress Towards Fault-Tolerant Quantum Computation}},
+  author = {{Le Régent, François-Marie}},
+  date = {{2025-07-04}},
+  doi = {{10.48550/arXiv.{ARXIV_ID}}},
+  url = {{http://arxiv.org/abs/{ARXIV_ID}}},
+}}
 ```
 
 ## License
@@ -220,23 +253,12 @@ If you use this dataset in your research, please cite:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 """
 
-    def generate_plots_section(self) -> str:
-        return "\n".join([
-            "![Cumulative Experiment Counts](out/png/experiment_counts.png)",
-            "![Yearly Experiment Counts](out/png/experiment_counts_yearly.png)",
-            "![QEC Platform Distribution](out/png/qec_platform_sunburst.png)",
-            "![Timeline of QEC Implementations](out/png/qec_timeline_aggregated.png)",
-            "![[[n, k, d]] Distribution](out/png/nkd_plot_aggregated.png)",
-            "![Entangled State Error Progress](out/png/entangled_error_plot.png)",
-            "![Qubit Count Evolution](out/png/qubit_count_plot.png)",
-            "![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)",
-            "![QEC Code Parameters](out/png/qec_code_params_bubble.png)"
-        ])
 
 def main():
     """Main function to generate the README."""
     generator = MarkdownGenerator()
     generator.generate()
+
 
 if __name__ == "__main__":
     main()
