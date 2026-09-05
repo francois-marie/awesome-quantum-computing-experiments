@@ -1,0 +1,836 @@
+{
+ "name": "rankings_radar",
+ "data": [
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(37, 99, 235, 0.18)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "best",
+   "line": {
+    "color": "#2563EB",
+    "width": 2
+   },
+   "marker": {
+    "color": "#2563EB",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Best value (rank)",
+   "r": [
+    3,
+    4,
+    1,
+    2,
+    3
+   ],
+   "showlegend": true,
+   "text": [
+    "<b>Superconducting circuits</b><br>#2 best: 6.00e-04 (2024)",
+    "<b>Ion traps</b><br>#1 best: 8.40e-05 (2025)",
+    "<b>Neutral atoms</b><br>#4 best: 1.46e-03 (2026)",
+    "<b>Semiconductor spins</b><br>#3 best: 1.00e-03 (2025)",
+    "<b>Superconducting circuits</b><br>#2 best: 6.00e-04 (2024)"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Semiconductor spins",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(249, 115, 22, 0.08)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "rate",
+   "line": {
+    "color": "#F97316",
+    "dash": "dash",
+    "width": 2
+   },
+   "marker": {
+    "color": "#F97316",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Improvement rate, last 10 y (rank)",
+   "r": [
+    3,
+    1,
+    2,
+    4,
+    3
+   ],
+   "showlegend": true,
+   "text": [
+    "<b>Superconducting circuits</b><br>#2 pace: ÷2 every 1.7 y",
+    "<b>Ion traps</b><br>#4 pace: ÷2 every 4.5 y",
+    "<b>Neutral atoms</b><br>#3 pace: ÷2 every 2.4 y",
+    "<b>Semiconductor spins</b><br>#1 pace: ÷2 every 1.4 y",
+    "<b>Superconducting circuits</b><br>#2 pace: ÷2 every 1.7 y"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Semiconductor spins",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(37, 99, 235, 0.18)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "best",
+   "line": {
+    "color": "#2563EB",
+    "width": 2
+   },
+   "marker": {
+    "color": "#2563EB",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Best value (rank)",
+   "r": [
+    4,
+    3,
+    5,
+    2,
+    1,
+    4
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#2 best: 127 (2023)",
+    "<b>Ion traps</b><br>#3 best: 100 (2023)",
+    "<b>Neutral atoms</b><br>#1 best: 11,000 (2026)",
+    "<b>Semiconductor spins</b><br>#4 best: 11 (2025)",
+    "<b>NV centers</b><br>#5 best: 10 (2019)",
+    "<b>Superconducting circuits</b><br>#2 best: 127 (2023)"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Semiconductor spins",
+    "NV centers",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar2",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(249, 115, 22, 0.08)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "rate",
+   "line": {
+    "color": "#F97316",
+    "dash": "dash",
+    "width": 2
+   },
+   "marker": {
+    "color": "#F97316",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Improvement rate, last 10 y (rank)",
+   "r": [
+    3,
+    2,
+    5,
+    4,
+    0,
+    3
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#3 pace: ×2 every 3.2 y",
+    "<b>Ion traps</b><br>#4 pace: ×2 every 3.2 y",
+    "<b>Neutral atoms</b><br>#1 pace: ×2 every 1.2 y",
+    "<b>Semiconductor spins</b><br>#2 pace: ×2 every 2.8 y",
+    "<b>NV centers</b><br>#5 pace: no trend",
+    "<b>Superconducting circuits</b><br>#3 pace: ×2 every 3.2 y"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Semiconductor spins",
+    "NV centers",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar2",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(37, 99, 235, 0.18)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "best",
+   "line": {
+    "color": "#2563EB",
+    "width": 2
+   },
+   "marker": {
+    "color": "#2563EB",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Best value (rank)",
+   "r": [
+    3,
+    4,
+    2,
+    5,
+    1,
+    3
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#3 best: 127 s (2023)",
+    "<b>Neutral atoms</b><br>#2 best: 420 s (2019)",
+    "<b>Semiconductor spins</b><br>#4 best: 1e-05 s (2018)",
+    "<b>NV centers</b><br>#1 best: 3.6e+03 s (2018)",
+    "<b>Graphene</b><br>#5 best: 5e-08 s (2018)",
+    "<b>Superconducting circuits</b><br>#3 best: 127 s (2023)"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Neutral atoms",
+    "Semiconductor spins",
+    "NV centers",
+    "Graphene",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar3",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(249, 115, 22, 0.08)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "rate",
+   "line": {
+    "color": "#F97316",
+    "dash": "dash",
+    "width": 2
+   },
+   "marker": {
+    "color": "#F97316",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Improvement rate, last 10 y (rank)",
+   "r": [
+    5,
+    4,
+    0,
+    0,
+    0,
+    5
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#1 pace: ×2 every 0.7 y",
+    "<b>Neutral atoms</b><br>#2 pace: worsening (1.7 y)",
+    "<b>Semiconductor spins</b><br>#3 pace: no trend",
+    "<b>NV centers</b><br>#4 pace: no trend",
+    "<b>Graphene</b><br>#5 pace: no trend",
+    "<b>Superconducting circuits</b><br>#1 pace: ×2 every 0.7 y"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Neutral atoms",
+    "Semiconductor spins",
+    "NV centers",
+    "Graphene",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar3",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(37, 99, 235, 0.18)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "best",
+   "line": {
+    "color": "#2563EB",
+    "width": 2
+   },
+   "marker": {
+    "color": "#2563EB",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Best value (rank)",
+   "r": [
+    2,
+    5,
+    4,
+    1,
+    3,
+    2
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#4 best: 0.0014 s (2018)",
+    "<b>Ion traps</b><br>#1 best: 5.5e+03 s (2021)",
+    "<b>Neutral atoms</b><br>#2 best: 12.6 s (2024)",
+    "<b>Semiconductor spins</b><br>#5 best: 1e-06 s (2015)",
+    "<b>NV centers</b><br>#3 best: 1.58 s (2018)",
+    "<b>Superconducting circuits</b><br>#4 best: 0.0014 s (2018)"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Semiconductor spins",
+    "NV centers",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar4",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(249, 115, 22, 0.08)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "rate",
+   "line": {
+    "color": "#F97316",
+    "dash": "dash",
+    "width": 2
+   },
+   "marker": {
+    "color": "#F97316",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Improvement rate, last 10 y (rank)",
+   "r": [
+    3,
+    4,
+    5,
+    0,
+    0,
+    3
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#3 pace: worsening (2.8 y)",
+    "<b>Ion traps</b><br>#2 pace: ×2 every 1.3 y",
+    "<b>Neutral atoms</b><br>#1 pace: ×2 every 0.6 y",
+    "<b>Semiconductor spins</b><br>#4 pace: no trend",
+    "<b>NV centers</b><br>#5 pace: no trend",
+    "<b>Superconducting circuits</b><br>#3 pace: worsening (2.8 y)"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Semiconductor spins",
+    "NV centers",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar4",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(37, 99, 235, 0.18)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "best",
+   "line": {
+    "color": "#2563EB",
+    "width": 2
+   },
+   "marker": {
+    "color": "#2563EB",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Best value (rank)",
+   "r": [
+    6,
+    4,
+    5,
+    3,
+    2,
+    1,
+    6
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#1 best: d = 29 (2024)",
+    "<b>Ion traps</b><br>#3 best: d = 4 (2026)",
+    "<b>Neutral atoms</b><br>#2 best: d = 7 (2023)",
+    "<b>Photons</b><br>#4 best: d = 3 (2020)",
+    "<b>NV centers</b><br>#5 best: d = 3 (2014)",
+    "<b>NMR</b><br>#6 best: d = 3 (1998)",
+    "<b>Superconducting circuits</b><br>#1 best: d = 29 (2024)"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Photons",
+    "NV centers",
+    "NMR",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar5",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(249, 115, 22, 0.08)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "rate",
+   "line": {
+    "color": "#F97316",
+    "dash": "dash",
+    "width": 2
+   },
+   "marker": {
+    "color": "#F97316",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Improvement rate, last 10 y (rank)",
+   "r": [
+    6,
+    5,
+    4,
+    3,
+    0,
+    0,
+    6
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#1 pace: ×2 every 0.4 y",
+    "<b>Ion traps</b><br>#2 pace: ×2 every 2.2 y",
+    "<b>Neutral atoms</b><br>#3 pace: flat",
+    "<b>Photons</b><br>#4 pace: worsening (0.6 y)",
+    "<b>NV centers</b><br>#5 pace: no trend",
+    "<b>NMR</b><br>#6 pace: no trend",
+    "<b>Superconducting circuits</b><br>#1 pace: ×2 every 0.4 y"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Photons",
+    "NV centers",
+    "NMR",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar5",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(37, 99, 235, 0.18)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "best",
+   "line": {
+    "color": "#2563EB",
+    "width": 2
+   },
+   "marker": {
+    "color": "#2563EB",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Best value (rank)",
+   "r": [
+    6,
+    5,
+    4,
+    2,
+    1,
+    3,
+    6
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#1 best: 34 (2025)",
+    "<b>Ion traps</b><br>#2 best: 10 (2026)",
+    "<b>Neutral atoms</b><br>#3 best: 9 (2024)",
+    "<b>Photons</b><br>#5 best: 3 (2022)",
+    "<b>NV centers</b><br>#6 best: 1 (2014)",
+    "<b>NMR</b><br>#4 best: 5 (2012)",
+    "<b>Superconducting circuits</b><br>#1 best: 34 (2025)"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Photons",
+    "NV centers",
+    "NMR",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar6",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(249, 115, 22, 0.08)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "rate",
+   "line": {
+    "color": "#F97316",
+    "dash": "dash",
+    "width": 2
+   },
+   "marker": {
+    "color": "#F97316",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Improvement rate, last 10 y (rank)",
+   "r": [
+    6,
+    4,
+    5,
+    3,
+    0,
+    0,
+    6
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#1 pace: ×2 every 0.1 y",
+    "<b>Ion traps</b><br>#3 pace: ×2 every 0.6 y",
+    "<b>Neutral atoms</b><br>#2 pace: ×2 every 0.2 y",
+    "<b>Photons</b><br>#4 pace: ×2 every 0.6 y",
+    "<b>NV centers</b><br>#5 pace: no trend",
+    "<b>NMR</b><br>#6 pace: no trend",
+    "<b>Superconducting circuits</b><br>#1 pace: ×2 every 0.1 y"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Photons",
+    "NV centers",
+    "NMR",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar6",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(37, 99, 235, 0.18)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "best",
+   "line": {
+    "color": "#2563EB",
+    "width": 2
+   },
+   "marker": {
+    "color": "#2563EB",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Best value (rank)",
+   "r": [
+    3,
+    2,
+    1,
+    3
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#1 best: 1.00e-04 (2025)",
+    "<b>Ion traps</b><br>#2 best: 5.10e-04 (2025)",
+    "<b>Neutral atoms</b><br>#3 best: 6.00e-03 (2024)",
+    "<b>Superconducting circuits</b><br>#1 best: 1.00e-04 (2025)"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar7",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "fill": "toself",
+   "fillcolor": "rgba(249, 115, 22, 0.08)",
+   "hovertemplate": "%{text}<extra></extra>",
+   "legendgroup": "rate",
+   "line": {
+    "color": "#F97316",
+    "dash": "dash",
+    "width": 2
+   },
+   "marker": {
+    "color": "#F97316",
+    "size": 6
+   },
+   "mode": "lines+markers",
+   "name": "Improvement rate, last 10 y (rank)",
+   "r": [
+    3,
+    2,
+    0,
+    3
+   ],
+   "showlegend": false,
+   "text": [
+    "<b>Superconducting circuits</b><br>#1 pace: ÷2 every 0.5 y",
+    "<b>Ion traps</b><br>#2 pace: ÷2 every 1.5 y",
+    "<b>Neutral atoms</b><br>#3 pace: no trend",
+    "<b>Superconducting circuits</b><br>#1 pace: ÷2 every 0.5 y"
+   ],
+   "theta": [
+    "Superconducting circuits",
+    "Ion traps",
+    "Neutral atoms",
+    "Superconducting circuits"
+   ],
+   "type": "scatterpolar",
+   "subplot": "polar7",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  }
+ ],
+ "layout": {
+  "annotations": [
+   {
+    "font": {
+     "size": 15
+    },
+    "showarrow": false,
+    "text": "Entangled state error",
+    "x": 0.225,
+    "xanchor": "center",
+    "xref": "paper",
+    "y": 1.0,
+    "yanchor": "bottom",
+    "yref": "paper",
+    "yshift": 26
+   },
+   {
+    "font": {
+     "size": 15
+    },
+    "showarrow": false,
+    "text": "Qubit count",
+    "x": 0.775,
+    "xanchor": "center",
+    "xref": "paper",
+    "y": 1.0,
+    "yanchor": "bottom",
+    "yref": "paper",
+    "yshift": 26
+   },
+   {
+    "font": {
+     "size": 15
+    },
+    "showarrow": false,
+    "text": "Relaxation time T1",
+    "x": 0.225,
+    "xanchor": "center",
+    "xref": "paper",
+    "y": 0.7250000000000001,
+    "yanchor": "bottom",
+    "yref": "paper",
+    "yshift": 26
+   },
+   {
+    "font": {
+     "size": 15
+    },
+    "showarrow": false,
+    "text": "Coherence time T2",
+    "x": 0.775,
+    "xanchor": "center",
+    "xref": "paper",
+    "y": 0.7250000000000001,
+    "yanchor": "bottom",
+    "yref": "paper",
+    "yshift": 26
+   },
+   {
+    "font": {
+     "size": 15
+    },
+    "showarrow": false,
+    "text": "Largest QEC code distance",
+    "x": 0.225,
+    "xanchor": "center",
+    "xref": "paper",
+    "y": 0.45,
+    "yanchor": "bottom",
+    "yref": "paper",
+    "yshift": 26
+   },
+   {
+    "font": {
+     "size": 15
+    },
+    "showarrow": false,
+    "text": "QEC experiments",
+    "x": 0.775,
+    "xanchor": "center",
+    "xref": "paper",
+    "y": 0.45,
+    "yanchor": "bottom",
+    "yref": "paper",
+    "yshift": 26
+   },
+   {
+    "font": {
+     "size": 15
+    },
+    "showarrow": false,
+    "text": "Magic state error",
+    "x": 0.225,
+    "xanchor": "center",
+    "xref": "paper",
+    "y": 0.175,
+    "yanchor": "bottom",
+    "yref": "paper",
+    "yshift": 26
+   }
+  ],
+  "title": {
+   "font": {
+    "size": 16,
+    "color": "#2F3136",
+    "family": "Arial"
+   },
+   "text": "Platform Rankings per Metric (outer ring = rank 1)",
+   "x": 0.5,
+   "xanchor": "center"
+  },
+  "legend": {
+   "orientation": "h"
+  },
+  "showlegend": true
+ }
+}

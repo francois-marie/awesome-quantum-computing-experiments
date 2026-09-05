@@ -34,6 +34,9 @@ for _csv, _modules in CSV_TO_PLOT_MODULES.items():
     if "groups_plot" not in _modules:
         _modules.append("groups_plot")
 
+# Built from every CSV at once.
+CROSS_DATASET_PLOT_MODULES: list[str] = ["rankings_radar_plot"]
+
 SHARED_PLOT_TRIGGER_PATHS: list[str] = [
     "config.yaml",
     "src/plotting/base.py",
@@ -70,4 +73,6 @@ def plot_modules_for_csvs(csv_paths: list[str]) -> list[str]:
     modules: set[str] = set()
     for csv_path in csv_paths:
         modules.update(CSV_TO_PLOT_MODULES.get(csv_path, []))
+    if modules:
+        modules.update(CROSS_DATASET_PLOT_MODULES)
     return sorted(modules)
