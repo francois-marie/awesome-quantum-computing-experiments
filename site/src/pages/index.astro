@@ -2,7 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import RecordCard from '@/components/RecordCard.astro';
 import { FigureChart } from '@/components/FigureChart';
-import { FIGURES, figuresByName } from '@/lib/figures';
+import { FIGURES, SECTIONS, figuresByName } from '@/lib/figures';
 import { datasets, totals } from '@/lib/data';
 import { METRICS, recordHistory } from '@/lib/metrics';
 
@@ -61,31 +61,37 @@ const records = METRICS.filter((m) => m.aggregate === 'best')
     <p class="mb-6 text-sm text-muted-foreground">
       Click a legend entry to hide it. Hover a point for the paper. Each plot links to its rows in the tables.
     </p>
-    <div class="flex flex-col gap-10">
-      {FIGURES.map((f) => {
-        const figure = figuresByName[f.name];
-        if (!figure) return null;
-        return (
-          <article id={f.anchor} class="scroll-mt-20 rounded-xl border bg-card p-4 sm:p-6">
-            <header class="mb-4 flex flex-wrap items-start justify-between gap-2">
-              <div>
-                <h3 class="text-base font-semibold">{f.title}</h3>
-                <p class="text-sm text-muted-foreground">{f.description}</p>
-              </div>
-              <div class="flex gap-3 text-xs text-muted-foreground">
-                {f.dataset ? (
-                  <a href={`${base}/experiments#${f.dataset}`} class="underline-offset-4 hover:underline">{datasets[f.dataset].file}</a>
-                ) : (
-                  <a href={`${base}/groups`} class="underline-offset-4 hover:underline">research_groups.csv</a>
-                )}
-                <a href={`${repo}/blob/main/out/png/${f.name}.png`} class="underline-offset-4 hover:underline">PNG</a>
-                <a href={`#${f.anchor}`} class="underline-offset-4 hover:underline">#</a>
-              </div>
-            </header>
-            <FigureChart client:visible figure={figure} height={f.name === 'qec_platform_sunburst' ? 680 : 440} />
-          </article>
-        );
-      })}
-    </div>
+    {SECTIONS.map((sec) => (
+      <div class="mb-12">
+        <h3 class="text-lg font-semibold tracking-tight">{sec.title}</h3>
+        <p class="mb-4 text-sm text-muted-foreground">{sec.blurb}</p>
+        <div class="flex flex-col gap-8">
+          {FIGURES.filter((f) => f.section === sec.key).map((f) => {
+            const figure = figuresByName[f.name];
+            if (!figure) return null;
+            return (
+              <article id={f.anchor} class="scroll-mt-20 rounded-xl border bg-card p-4 sm:p-6">
+                <header class="mb-4 flex flex-wrap items-start justify-between gap-2">
+                  <div>
+                    <h4 class="text-base font-semibold">{f.title}</h4>
+                    <p class="text-sm text-muted-foreground">{f.description}</p>
+                  </div>
+                  <div class="flex gap-3 text-xs text-muted-foreground">
+                    {f.dataset ? (
+                      <a href={`${base}/experiments#${f.dataset}`} class="underline-offset-4 hover:underline">{datasets[f.dataset].file}</a>
+                    ) : (
+                      <a href={`${base}/groups`} class="underline-offset-4 hover:underline">research_groups.csv</a>
+                    )}
+                    <a href={`${repo}/blob/main/out/png/${f.name}.png`} class="underline-offset-4 hover:underline">PNG</a>
+                    <a href={`#${f.anchor}`} class="underline-offset-4 hover:underline">#</a>
+                  </div>
+                </header>
+                <FigureChart client:visible figure={figure} height={f.name === 'qec_platform_sunburst' ? 680 : f.name === 'top_research_groups' ? 520 : 440} />
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    ))}
   </section>
 </Base>
