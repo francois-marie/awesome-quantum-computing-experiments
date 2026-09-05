@@ -1,0 +1,269 @@
+{
+ "name": "qday_qubits_superconducting_circuits",
+ "data": [
+  {
+   "customdata": [
+    "https://www.science.org/doi/10.1126/science.1130886",
+    "https://doi.org/10.1038/ncomms5015",
+    "https://www.nature.com/articles/nature13171",
+    "https://www.nature.com/articles/s41586-019-1666-5",
+    "https://www.nature.com/articles/s41586-023-06096-3"
+   ],
+   "hovertemplate": "<b>%{text}</b><br>Qubits: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+   "marker": {
+    "color": "#2ECC71",
+    "line": {
+     "color": "white",
+     "width": 2
+    },
+    "size": 11
+   },
+   "mode": "markers",
+   "name": "Demonstrated (Superconducting circuits)",
+   "text": [
+    "Measurement of the Entanglement of Two Superconducting Qubits via State Tomography",
+    "Implementing a strand of a scalable fault-tolerant quantum computing fabric",
+    "Superconducting quantum circuits at the surface code threshold for fault tolerance",
+    "Quantum supremacy using a programmable superconducting processor",
+    "Evidence for the utility of quantum computing before fault tolerance"
+   ],
+   "x": [
+    2006.0,
+    2013.0,
+    2014.0,
+    2019.0,
+    2023.0
+   ],
+   "y": [
+    2.0,
+    3.0,
+    5.0,
+    53.0,
+    127.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "line": {
+    "color": "#2ECC71",
+    "dash": "dash",
+    "width": 2
+   },
+   "mode": "lines",
+   "name": "Trend fit (×2 every 2.6y)",
+   "x": [
+    2005.0,
+    2069.4900901345545
+   ],
+   "y": [
+    0.7842794678409505,
+    26162963.059992112
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Gidney 2025</b><br>RSA-2048<br>Requirement: 1e+06<br>Runtime: < 1 week<br><a href='https://arxiv.org/abs/2505.15917' target='_blank'>Paper</a><extra></extra>",
+   "legendgroup": "target0",
+   "line": {
+    "color": "#DC2626",
+    "dash": "dot",
+    "width": 1.5
+   },
+   "mode": "lines",
+   "name": "Gidney 2025: RSA-2048 (1M) → 2057",
+   "x": [
+    2005.0,
+    2069.4900901345545
+   ],
+   "y": [
+    1000000.0,
+    1000000.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Gidney 2025</b> met in 2057<extra></extra>",
+   "legendgroup": "target0",
+   "marker": {
+    "color": "#DC2626",
+    "size": 13,
+    "symbol": "x"
+   },
+   "mode": "markers",
+   "name": "Gidney 2025 crossing",
+   "showlegend": false,
+   "x": [
+    2057.3374739172864
+   ],
+   "y": [
+    1000000.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Gidney & Ekerå 2019</b><br>RSA-2048<br>Requirement: 2e+07<br>Runtime: 8 hours<br><a href='https://arxiv.org/abs/1905.09749' target='_blank'>Paper</a><extra></extra>",
+   "legendgroup": "target1",
+   "line": {
+    "color": "#DB2777",
+    "dash": "dot",
+    "width": 1.5
+   },
+   "mode": "lines",
+   "name": "Gidney & Ekerå 2019: RSA-2048 (20M) → 2068",
+   "x": [
+    2005.0,
+    2069.4900901345545
+   ],
+   "y": [
+    20000000.0,
+    20000000.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Gidney & Ekerå 2019</b> met in 2068<extra></extra>",
+   "legendgroup": "target1",
+   "marker": {
+    "color": "#DB2777",
+    "size": 13,
+    "symbol": "x"
+   },
+   "mode": "markers",
+   "name": "Gidney & Ekerå 2019 crossing",
+   "showlegend": false,
+   "x": [
+    2068.4900901345545
+   ],
+   "y": [
+    20000000.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Gouzien 2023 (cat qubits)</b><br>ECC-256<br>Requirement: 126133<br>Runtime: 9 hours<br><a href='https://arxiv.org/abs/2302.06639' target='_blank'>Paper</a><extra></extra>",
+   "legendgroup": "target2",
+   "line": {
+    "color": "#EA580C",
+    "dash": "dot",
+    "width": 1.5
+   },
+   "mode": "lines",
+   "name": "Gouzien 2023 (cat qubits): ECC-256 (126.133k) → 2050",
+   "x": [
+    2005.0,
+    2069.4900901345545
+   ],
+   "y": [
+    126133.0,
+    126133.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Gouzien 2023 (cat qubits)</b> met in 2050<extra></extra>",
+   "legendgroup": "target2",
+   "marker": {
+    "color": "#EA580C",
+    "size": 13,
+    "symbol": "x"
+   },
+   "mode": "markers",
+   "name": "Gouzien 2023 (cat qubits) crossing",
+   "showlegend": false,
+   "x": [
+    2049.6296484453233
+   ],
+   "y": [
+    126133.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  }
+ ],
+ "layout": {
+  "legend": {},
+  "showlegend": true,
+  "title": {
+   "font": {
+    "color": "#2F3136",
+    "size": 16,
+    "family": "Arial"
+   },
+   "text": "Superconducting circuits: physical qubit count vs. requirements"
+  },
+  "xaxis": {
+   "title": {
+    "text": "Year"
+   }
+  },
+  "yaxis": {
+   "title": {
+    "text": "Physical Qubit Count"
+   },
+   "type": "log"
+  }
+ }
+}

@@ -8,7 +8,9 @@ import type { DatasetKey } from './data';
 const modules = import.meta.glob<{ default: Figure }>('../../../out/figures/*.json', { eager: true });
 
 export const figuresByName: Record<string, Figure> = Object.fromEntries(
-  Object.values(modules).map((m) => [m.default.name, m.default]),
+  Object.values(modules)
+    .filter((m) => Array.isArray(m.default.data))
+    .map((m) => [m.default.name, m.default]),
 );
 
 export interface FigureMeta {
@@ -21,7 +23,9 @@ export interface FigureMeta {
   /** Per-platform dashboard: can this figure be filtered to one platform? */
   perPlatform: boolean;
   /** Section on the home page. */
-  section: 'metrics' | 'qec' | 'groups';
+  section: 'metrics' | 'qec' | 'groups' | 'qday';
+  /** Shown on the home page (default true). */
+  home?: boolean;
 }
 
 export const FIGURES: FigureMeta[] = [
@@ -149,12 +153,66 @@ export const FIGURES: FigureMeta[] = [
     perPlatform: false,
     section: 'groups',
   },
+  {
+    name: 'qday_summary',
+    anchor: 'qday',
+    title: 'Q-day estimates',
+    description: 'Year at which each platform trend meets the physical qubit count (circle) and error rate (square) required by a published resource estimate. Star: both met.',
+    perPlatform: false,
+    section: 'qday',
+  },
+  {
+    name: 'qday_qubits_neutral_atoms',
+    anchor: 'qday-qubits-neutral-atoms',
+    title: 'Neutral atoms: qubit count vs. requirements',
+    description: 'Demonstrated qubit counts, all-time exponential trend, and the qubit counts required by published proposals.',
+    perPlatform: false,
+    section: 'qday',
+    home: false,
+  },
+  {
+    name: 'qday_error_neutral_atoms',
+    anchor: 'qday-error-neutral-atoms',
+    title: 'Neutral atoms: entangled state error vs. requirements',
+    description: 'Demonstrated two-qubit errors, trend, and the physical error rate the proposals assume.',
+    perPlatform: false,
+    section: 'qday',
+    home: false,
+  },
+  {
+    name: 'qday_qubits_superconducting_circuits',
+    anchor: 'qday-qubits-superconducting-circuits',
+    title: 'Superconducting circuits: qubit count vs. requirements',
+    description: 'Demonstrated qubit counts, all-time exponential trend, and the qubit counts required by published proposals.',
+    perPlatform: false,
+    section: 'qday',
+    home: false,
+  },
+  {
+    name: 'qday_error_superconducting_circuits',
+    anchor: 'qday-error-superconducting-circuits',
+    title: 'Superconducting circuits: entangled state error vs. requirements',
+    description: 'Demonstrated two-qubit errors, trend, and the physical error rate the proposals assume.',
+    perPlatform: false,
+    section: 'qday',
+    home: false,
+  },
+  {
+    name: 'qday_qubits_ion_traps',
+    anchor: 'qday-qubits-ion-traps',
+    title: 'Ion traps: qubit count vs. requirements',
+    description: 'Demonstrated qubit counts, all-time exponential trend, and the qubit counts required by published proposals.',
+    perPlatform: false,
+    section: 'qday',
+    home: false,
+  },
 ];
 
 export const SECTIONS: { key: FigureMeta['section']; title: string; blurb: string }[] = [
   { key: 'metrics', title: 'Hardware metrics', blurb: 'Two-qubit error, qubit count, coherence and magic states over time.' },
   { key: 'qec', title: 'Quantum error correction', blurb: 'Which codes were implemented, where, and how large.' },
   { key: 'groups', title: 'Who does the work', blurb: 'Research groups and the industry versus academia split.' },
+  { key: 'qday', title: 'Q-day', blurb: 'When do the trends meet the requirements of published RSA-2048 / ECC-256 resource estimates?' },
 ];
 
 export const figureMeta = (name: string) => FIGURES.find((f) => f.name === name);

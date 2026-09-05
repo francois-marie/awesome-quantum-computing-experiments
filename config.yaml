@@ -6,6 +6,7 @@ paths:
     qubit_count: data/qubit_count.csv
     physical_qubits: data/physical_qubits.csv
     research_groups: data/research_groups.csv
+    qday_targets: data/qday_targets.csv
   output:
     plots: out/plots
     readme: README.md

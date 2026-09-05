@@ -1,0 +1,163 @@
+{
+ "name": "qday_qubits_ion_traps",
+ "data": [
+  {
+   "customdata": [
+    "https://arxiv.org/abs/quant-ph/9806012",
+    "https://www.nature.com/articles/35005011",
+    "https://arxiv.org/abs/1009.6126",
+    "https://arxiv.org/abs/1711.11092",
+    "https://arxiv.org/abs/2302.00565",
+    "https://doi.org/10.48550/arXiv.2511.05465"
+   ],
+   "hovertemplate": "<b>%{text}</b><br>Qubits: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+   "marker": {
+    "color": "#FFC107",
+    "line": {
+     "color": "white",
+     "width": 2
+    },
+    "size": 11
+   },
+   "mode": "markers",
+   "name": "Demonstrated (Ion traps)",
+   "text": [
+    "Experimental Demonstration of a Controlled-NOT Quantum Gate",
+    "Experimental Entanglement of Four Particles",
+    "14-qubit entanglement: creation and coherence",
+    "Observation of Entangled States of a Fully Controlled 20-Qubit System",
+    "Controlling two-dimensional Coulomb crystals of more than 100 ions in a monolithic radio-frequency trap",
+    "Helios: A 98-qubit trapped-ion quantum computer"
+   ],
+   "x": [
+    1998.0,
+    2000.0,
+    2011.0,
+    2017.0,
+    2023.0,
+    2025.0
+   ],
+   "y": [
+    2.0,
+    4.0,
+    14.0,
+    20.0,
+    100.0,
+    98.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "line": {
+    "color": "#FFC107",
+    "dash": "dash",
+    "width": 2
+   },
+   "mode": "lines",
+   "name": "Trend fit (×2 every 5.0y)",
+   "x": [
+    1997.0,
+    2076.211855094935
+   ],
+   "y": [
+    2.007587054648567,
+    114830.96051736551
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Tripier 2026 (Walking Cat)</b><br>RSA-2048 / ECC-256<br>Requirement: 100000<br>Runtime: n/a<br><a href='https://arxiv.org/abs/2604.19481' target='_blank'>Paper</a><extra></extra>",
+   "legendgroup": "target0",
+   "line": {
+    "color": "#DC2626",
+    "dash": "dot",
+    "width": 1.5
+   },
+   "mode": "lines",
+   "name": "Tripier 2026 (Walking Cat): RSA-2048 / ECC-256 (100k) → 2075",
+   "x": [
+    1997.0,
+    2076.211855094935
+   ],
+   "y": [
+    100000.0,
+    100000.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Tripier 2026 (Walking Cat)</b> met in 2075<extra></extra>",
+   "legendgroup": "target0",
+   "marker": {
+    "color": "#DC2626",
+    "size": 13,
+    "symbol": "x"
+   },
+   "mode": "markers",
+   "name": "Tripier 2026 (Walking Cat) crossing",
+   "showlegend": false,
+   "x": [
+    2075.211855094935
+   ],
+   "y": [
+    100000.0
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  }
+ ],
+ "layout": {
+  "legend": {},
+  "showlegend": true,
+  "title": {
+   "font": {
+    "color": "#2F3136",
+    "size": 16,
+    "family": "Arial"
+   },
+   "text": "Ion traps: physical qubit count vs. requirements"
+  },
+  "xaxis": {
+   "title": {
+    "text": "Year"
+   }
+  },
+  "yaxis": {
+   "title": {
+    "text": "Physical Qubit Count"
+   },
+   "type": "log"
+  }
+ }
+}

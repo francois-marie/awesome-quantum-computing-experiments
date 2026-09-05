@@ -1,0 +1,171 @@
+{
+ "generated_from": [
+  "data/qday_targets.csv",
+  "data/qubit_count.csv",
+  "data/entangled_state_error_exp.csv"
+ ],
+ "crossings": [
+  {
+   "target": "Gidney 2025",
+   "problem": "RSA-2048",
+   "platform": "Superconducting circuits",
+   "physical_qubits": 1000000.0,
+   "physical_error": 0.001,
+   "qubits_year": 2057.3374739172864,
+   "error_year": 2024.0,
+   "qday_year": 2057.3374739172864,
+   "limiting": "qubits",
+   "runtime": "< 1 week",
+   "link": "https://arxiv.org/abs/2505.15917",
+   "notes": "Surface code, 0.1% uniform gate error, 1 µs cycle, yoked surface codes and magic state cultivation"
+  },
+  {
+   "target": "Gidney & Ekerå 2019",
+   "problem": "RSA-2048",
+   "platform": "Superconducting circuits",
+   "physical_qubits": 20000000.0,
+   "physical_error": 0.001,
+   "qubits_year": 2068.4900901345545,
+   "error_year": 2024.0,
+   "qday_year": 2068.4900901345545,
+   "limiting": "qubits",
+   "runtime": "8 hours",
+   "link": "https://arxiv.org/abs/1905.09749",
+   "notes": "Surface code, 0.1% gate error, 1 µs cycle"
+  },
+  {
+   "target": "Gouzien 2023 (cat qubits)",
+   "problem": "ECC-256",
+   "platform": "Superconducting circuits",
+   "physical_qubits": 126133.0,
+   "physical_error": null,
+   "qubits_year": 2049.6296484453233,
+   "error_year": null,
+   "qday_year": 2049.6296484453233,
+   "limiting": "qubits",
+   "runtime": "9 hours",
+   "link": "https://arxiv.org/abs/2302.06639",
+   "notes": "Repetition cat code; requirement is a single- to two-photon loss ratio of 1e-5 with 19 photons per cat, not a two-qubit gate error, so only the qubit count is compared"
+  },
+  {
+   "target": "Cain 2026 (min)",
+   "problem": "ECC-256",
+   "platform": "Neutral atoms",
+   "physical_qubits": 10000.0,
+   "physical_error": 0.001,
+   "qubits_year": 2026.0,
+   "error_year": 2028.8550726090516,
+   "qday_year": 2028.8550726090516,
+   "limiting": "error",
+   "runtime": "weeks",
+   "link": "https://arxiv.org/abs/2603.28627",
+   "notes": "Space-efficient architecture, 0.1% physical error, 1 ms cycle"
+  },
+  {
+   "target": "Cain 2026 (fast)",
+   "problem": "ECC-256",
+   "platform": "Neutral atoms",
+   "physical_qubits": 26000.0,
+   "physical_error": 0.001,
+   "qubits_year": 2028.8589113100911,
+   "error_year": 2028.8550726090516,
+   "qday_year": 2028.8589113100911,
+   "limiting": "qubits",
+   "runtime": "a few days",
+   "link": "https://arxiv.org/abs/2603.28627",
+   "notes": "Time-efficient architecture with parallel operations, 0.1% physical error, 1 ms cycle"
+  },
+  {
+   "target": "Cain 2026 (RSA min)",
+   "problem": "RSA-2048",
+   "platform": "Neutral atoms",
+   "physical_qubits": 14000.0,
+   "physical_error": 0.001,
+   "qubits_year": 2027.6601327694493,
+   "error_year": 2028.8550726090516,
+   "qday_year": 2028.8550726090516,
+   "limiting": "error",
+   "runtime": "~ 2 years",
+   "link": "https://arxiv.org/abs/2603.28627",
+   "notes": "11,000 to 14,000 qubits, roughly two orders of magnitude longer than the fastest ECC-256 run"
+  },
+  {
+   "target": "Cain 2026 (RSA fast)",
+   "problem": "RSA-2048",
+   "platform": "Neutral atoms",
+   "physical_qubits": 102000.0,
+   "physical_error": 0.001,
+   "qubits_year": 2031.5058873404403,
+   "error_year": 2028.8550726090516,
+   "qday_year": 2031.5058873404403,
+   "limiting": "qubits",
+   "runtime": "97 days",
+   "link": "https://arxiv.org/abs/2603.28627",
+   "notes": "Parallelised architecture, 0.1% physical error, 1 ms cycle"
+  },
+  {
+   "target": "Tripier 2026 (Walking Cat)",
+   "problem": "RSA-2048 / ECC-256",
+   "platform": "Ion traps",
+   "physical_qubits": 100000.0,
+   "physical_error": null,
+   "qubits_year": 2075.211855094935,
+   "error_year": null,
+   "qday_year": 2075.211855094935,
+   "limiting": "qubits",
+   "runtime": "",
+   "link": "https://arxiv.org/abs/2604.19481",
+   "notes": "Order-of-magnitude statement: about 100,000 physical qubits could suffice to break RSA-2048 or ECC-256. The noise parameter p is not fixed in the paper, so only the qubit count is compared"
+  }
+ ],
+ "trends": {
+  "Ion traps": {
+   "qubits_fit": {
+    "slope": 0.0600589975484292,
+    "intercept": -119.63514371761792,
+    "n": 6,
+    "doubling_time": 5.012238098400536
+   },
+   "error_fit": {
+    "slope": -0.1134978135147356,
+    "intercept": 226.019824531366,
+    "n": 11,
+    "doubling_time": 2.6522977521932436
+   },
+   "qubits_last_year": 2025.0,
+   "error_last_year": 2025.0
+  },
+  "Neutral atoms": {
+   "qubits_fit": {
+    "slope": 0.22426603678493054,
+    "intercept": -450.5891738873322,
+    "n": 11,
+    "doubling_time": 1.342289719743283
+   },
+   "error_fit": {
+    "slope": -0.13461509303759145,
+    "intercept": 270.11451435905684,
+    "n": 12,
+    "doubling_time": 2.236227668616016
+   },
+   "qubits_last_year": 2026.0,
+   "error_last_year": 2026.0
+  },
+  "Superconducting circuits": {
+   "qubits_fit": {
+    "slope": 0.11665693235722671,
+    "intercept": -234.00267853075655,
+    "n": 5,
+    "doubling_time": 2.5804724124080987
+   },
+   "error_fit": {
+    "slope": -0.1229931882334816,
+    "intercept": 245.77550812822244,
+    "n": 7,
+    "doubling_time": 2.4475338836857135
+   },
+   "qubits_last_year": 2023.0,
+   "error_last_year": 2024.0
+  }
+ }
+}

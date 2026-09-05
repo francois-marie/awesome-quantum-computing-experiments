@@ -99,6 +99,10 @@ METRICS: list[Metric] = [
 ]
 
 
+def metric_by_key(key: str) -> Metric:
+    return next(m for m in METRICS if m.key == key)
+
+
 @dataclass
 class Point:
     year: float

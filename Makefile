@@ -1,4 +1,4 @@
-.PHONY: all plots readme test clean setup authors groups site site-dev
+.PHONY: all plots readme test clean setup authors groups qday site site-dev
 
 all: setup plots readme
 
@@ -17,6 +17,7 @@ plots: setup
 	python -m src.plotting.msd_error_evolution_plot
 	python -m src.plotting.groups_plot
 	python -m src.plotting.rankings_radar_plot
+	python -m src.plotting.qday_plot
 
 # Alternative way to generate all plots at once
 generate_all: setup
@@ -31,6 +32,9 @@ readme:
 
 groups:
 	python scripts/fetch_research_groups.py
+
+qday:
+	python -m src.plotting.qday_plot
 
 site:
 	cd site && npm install && npm run build

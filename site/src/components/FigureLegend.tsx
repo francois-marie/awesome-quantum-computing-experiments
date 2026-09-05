@@ -22,7 +22,9 @@ function Swatch({ entry }: { entry: LegendEntry }) {
       {entry.symbol === 'square' && <rect x="2" y="2" width="10" height="10" {...common} />}
       {entry.symbol === 'diamond' && <polygon points="7,1 13,7 7,13 1,7" {...common} />}
       {entry.symbol === 'triangle-up' && <polygon points="7,1.5 13,12.5 1,12.5" {...common} />}
-      {!['square', 'diamond', 'triangle-up'].includes(entry.symbol) && <circle cx="7" cy="7" r="5" {...common} />}
+      {entry.symbol === 'star' && <polygon points="7,0.5 8.6,5 13.5,5 9.5,8 11,13 7,10 3,13 4.5,8 0.5,5 5.4,5" {...common} />}
+      {entry.symbol === 'x' && <path d="M2,2 L12,12 M12,2 L2,12" stroke={c} strokeWidth="2.5" fill="none" />}
+      {!['square', 'diamond', 'triangle-up', 'star', 'x'].includes(entry.symbol) && <circle cx="7" cy="7" r="5" {...common} />}
     </svg>
   );
 }

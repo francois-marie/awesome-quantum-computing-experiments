@@ -55,6 +55,10 @@ PLOTS = [
     ("Papers per year, industry vs academia", "papers_by_org_type", "papers-by-org-type"),
     ("Top research groups", "top_research_groups", "top-research-groups"),
     ("Platform rankings per metric (spider charts)", "rankings_radar", "/rankings"),
+    ("Q-day estimates: trends vs published requirements", "qday_summary", "/qday"),
+    ("Neutral atoms: qubit count vs Shor requirements", "qday_qubits_neutral_atoms", "/qday"),
+    ("Superconducting circuits: qubit count vs Shor requirements", "qday_qubits_superconducting_circuits", "/qday"),
+    ("Ion traps: qubit count vs Shor requirements", "qday_qubits_ion_traps", "/qday"),
 ]
 
 
@@ -137,7 +141,7 @@ Interactive plots, filterable tables, [platform rankings]({SITE_URL}/rankings) (
 |---|---|---:|---|
 {table}
 
-Every file also carries `Article Title`, `First Author`, `Link`, `Year`, `Platform` and free-text `Notes`. A sixth file, [`research_groups.csv`](data/research_groups.csv), maps each paper to its research group and organisation type (industry / academic / mixed); it is generated from [OpenAlex](https://openalex.org) by `make groups` and hand-corrected rows are kept. The full column reference is in [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) and the submission rules in [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
+Every file also carries `Article Title`, `First Author`, `Link`, `Year`, `Platform` and free-text `Notes`. A sixth file, [`research_groups.csv`](data/research_groups.csv), maps each paper to its research group and organisation type (industry / academic / mixed); it is generated from [OpenAlex](https://openalex.org) by `make groups` and hand-corrected rows are kept. A seventh, [`qday_targets.csv`](data/qday_targets.csv), lists the physical qubit counts and error rates that published resource estimates require to break RSA-2048 or ECC-256, per platform; the [Q-day page]({SITE_URL}/qday) extrapolates each platform's trend to those requirements. The full column reference is in [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) and the submission rules in [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
 """
 

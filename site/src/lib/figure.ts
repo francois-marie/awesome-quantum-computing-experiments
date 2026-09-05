@@ -267,6 +267,7 @@ const SYMBOLS: Record<string, string> = {
   diamond: 'diamond',
   'triangle-up': 'triangle',
   cross: 'path://M-1,-3h2v2h2v2h-2v2h-2v-2h-2v-2h2z',
+  star: 'path://M50,5 L61,39 L98,39 L68,60 L79,95 L50,73 L21,95 L32,60 L2,39 L39,39 Z',
   x: 'path://M-3,-2l1,-1l2,2l2,-2l1,1l-2,2l2,2l-1,1l-2,-2l-2,2l-1,-1l2,-2z',
 };
 
@@ -503,6 +504,11 @@ export function toOption({ model, hidden, theme, colorFor, size }: ToOptionArgs)
   const horizontal = traces.some((t) => t.type === 'bar' && t.orientation === 'h');
   if (horizontal) return horizontalBarOption(model, visible, theme);
 
+  // Category y axis (e.g. one row per target on the Q-day summary).
+  const ySpec = figure.layout.yaxis;
+  const yCategories: string[] | null =
+    ySpec?.type === 'category' ? ySpec.categoryarray ?? [...new Set(visible.flatMap(({ t }) => (t.y ?? []).map((v) => String(v))))] : null;
+
   // Category x axis when Plotly says so or x values are strings.
   const xAxisSpec = figure.layout.xaxis;
   let categories: string[] | null = null;
@@ -520,7 +526,7 @@ export function toOption({ model, hidden, theme, colorFor, size }: ToOptionArgs)
     const color = traceColor(t);
     const xs = t.x ?? [];
     const ys = t.y ?? [];
-    const pairs = xs.map((x, k) => [categories ? String(x) : x, ys[k]] as [string | number, number | null]);
+    const pairs = xs.map((x, k) => [categories ? String(x) : x, yCategories ? String(ys[k]) : ys[k]] as [string | number, number | string | null]);
 
     if (t.type === 'bar') {
       series.push({
@@ -637,7 +643,13 @@ export function toOption({ model, hidden, theme, colorFor, size }: ToOptionArgs)
   return {
     backgroundColor: 'transparent',
     animation: false,
-    grid: { left: figure.layout.yaxis?.ticktext ? 150 : 64, right: 20, top: 20, bottom: 52, containLabel: false },
+    grid: {
+      left: yCategories ? Math.min(340, 24 + Math.max(...yCategories.map((c) => c.length)) * 6.5) : figure.layout.yaxis?.ticktext ? 150 : 64,
+      right: 20,
+      top: 20,
+      bottom: 52,
+      containLabel: false,
+    },
     tooltip: {
       trigger: 'item',
       enterable: true,
@@ -648,7 +660,16 @@ export function toOption({ model, hidden, theme, colorFor, size }: ToOptionArgs)
       extraCssText: 'max-width: 320px; white-space: normal; box-shadow: 0 4px 24px rgba(0,0,0,.12); border-radius: 8px;',
     },
     xAxis: axisOption(figure.layout.xaxis, theme, categories, true, numbersOf(visible, 'x')) as never,
-    yAxis: axisOption(figure.layout.yaxis, theme, null, false, numbersOf(visible, 'y')) as never,
+    yAxis: (yCategories
+      ? {
+          type: 'category',
+          data: yCategories,
+          axisLabel: { color: theme.text, fontSize: 11, width: 320, overflow: 'truncate' },
+          axisLine: { lineStyle: { color: theme.grid } },
+          axisTick: { show: false },
+          splitLine: { show: true, lineStyle: { color: theme.grid } },
+        }
+      : axisOption(figure.layout.yaxis, theme, null, false, numbersOf(visible, 'y'))) as never,
     series,
   };
 }

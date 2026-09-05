@@ -1,0 +1,352 @@
+{
+ "name": "qday_error_neutral_atoms",
+ "data": [
+  {
+   "customdata": [
+    "https://arxiv.org/abs/0907.5552",
+    "https://arxiv.org/abs/0908.0454",
+    "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.92.022336",
+    "https://arxiv.org/abs/1908.06101",
+    "https://arxiv.org/abs/2001.04455",
+    "https://arxiv.org/abs/2305.03406",
+    "https://doi.org/10.1038/s41586-023-06481-y",
+    "https://doi.org/10.48550/arXiv.2411.11708",
+    "https://doi.org/10.48550/arXiv.2408.08288",
+    "https://doi.org/10.1103/PRXQuantum.6.010331",
+    "https://doi.org/10.1103/PhysRevX.15.011009",
+    "https://arxiv.org/abs/2604.25987"
+   ],
+   "hovertemplate": "<b>%{text}</b><br>Error: %{y}<br>Year: %{x}<br><a href='%{customdata}' target='_blank'>Link</a><extra></extra>",
+   "marker": {
+    "color": "#95A5A6",
+    "line": {
+     "color": "white",
+     "width": 2
+    },
+    "size": 11
+   },
+   "mode": "markers",
+   "name": "Demonstrated (Neutral atoms)",
+   "text": [
+    "Demonstration of a neutral atom controlled-NOT quantum gate",
+    "Entanglement of two individual neutral atoms using Rydberg blockade",
+    "Rydberg-blockade controlled-not gate and entanglement in a two-dimensional array of neutral-atom qubits",
+    "Parallel implementation of high-fidelity multi-qubit gates with neutral atoms",
+    "High-Fidelity Entanglement and Detection of Alkaline-Earth Rydberg Atoms",
+    "Erasure conversion in a high-fidelity Rydberg quantum simulator",
+    "High-fidelity parallel entangling gates on a neutral-atom quantum computer",
+    "High-fidelity universal gates in the 171Yb ground state nuclear spin qubit",
+    "A universal neutral-atom quantum computer with individual optical addressing and non-destructive readout",
+    "Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates",
+    "Spectroscopy and Modeling of 171Yb Rydberg States for High-Fidelity Two-Qubit Gates",
+    "High-fidelity entangling gates and nonlocal circuits with neutral atoms"
+   ],
+   "x": [
+    2010.0,
+    2010.0,
+    2015.0,
+    2019.0,
+    2020.0,
+    2023.0,
+    2023.0,
+    2024.0,
+    2025.0,
+    2025.0,
+    2025.0,
+    2026.0
+   ],
+   "y": [
+    0.27,
+    0.25,
+    0.21,
+    0.03,
+    0.01,
+    0.002,
+    0.005,
+    0.006,
+    0.0066,
+    0.0029,
+    0.006,
+    0.00146
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "line": {
+    "color": "#95A5A6",
+    "dash": "dash",
+    "width": 2
+   },
+   "mode": "lines",
+   "name": "Trend fit (÷2 every 2.2y)",
+   "x": [
+    2009.0,
+    2029.8550726090516
+   ],
+   "y": [
+    0.47075229562865134,
+    0.0007334743095234306
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Cain 2026 (min)</b><br>ECC-256<br>Requirement: 0.001<br>Runtime: weeks<br><a href='https://arxiv.org/abs/2603.28627' target='_blank'>Paper</a><extra></extra>",
+   "legendgroup": "target0",
+   "line": {
+    "color": "#DC2626",
+    "dash": "dot",
+    "width": 1.5
+   },
+   "mode": "lines",
+   "name": "Cain 2026 (min): ECC-256 (0.001) → 2029",
+   "x": [
+    2009.0,
+    2029.8550726090516
+   ],
+   "y": [
+    0.001,
+    0.001
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Cain 2026 (min)</b> met in 2029<extra></extra>",
+   "legendgroup": "target0",
+   "marker": {
+    "color": "#DC2626",
+    "size": 13,
+    "symbol": "x"
+   },
+   "mode": "markers",
+   "name": "Cain 2026 (min) crossing",
+   "showlegend": false,
+   "x": [
+    2028.8550726090516
+   ],
+   "y": [
+    0.001
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Cain 2026 (fast)</b><br>ECC-256<br>Requirement: 0.001<br>Runtime: a few days<br><a href='https://arxiv.org/abs/2603.28627' target='_blank'>Paper</a><extra></extra>",
+   "legendgroup": "target1",
+   "line": {
+    "color": "#DB2777",
+    "dash": "dot",
+    "width": 1.5
+   },
+   "mode": "lines",
+   "name": "Cain 2026 (fast): ECC-256 (0.001) → 2029",
+   "x": [
+    2009.0,
+    2029.8550726090516
+   ],
+   "y": [
+    0.001,
+    0.001
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Cain 2026 (fast)</b> met in 2029<extra></extra>",
+   "legendgroup": "target1",
+   "marker": {
+    "color": "#DB2777",
+    "size": 13,
+    "symbol": "x"
+   },
+   "mode": "markers",
+   "name": "Cain 2026 (fast) crossing",
+   "showlegend": false,
+   "x": [
+    2028.8550726090516
+   ],
+   "y": [
+    0.001
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Cain 2026 (RSA min)</b><br>RSA-2048<br>Requirement: 0.001<br>Runtime: ~ 2 years<br><a href='https://arxiv.org/abs/2603.28627' target='_blank'>Paper</a><extra></extra>",
+   "legendgroup": "target2",
+   "line": {
+    "color": "#EA580C",
+    "dash": "dot",
+    "width": 1.5
+   },
+   "mode": "lines",
+   "name": "Cain 2026 (RSA min): RSA-2048 (0.001) → 2029",
+   "x": [
+    2009.0,
+    2029.8550726090516
+   ],
+   "y": [
+    0.001,
+    0.001
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Cain 2026 (RSA min)</b> met in 2029<extra></extra>",
+   "legendgroup": "target2",
+   "marker": {
+    "color": "#EA580C",
+    "size": 13,
+    "symbol": "x"
+   },
+   "mode": "markers",
+   "name": "Cain 2026 (RSA min) crossing",
+   "showlegend": false,
+   "x": [
+    2028.8550726090516
+   ],
+   "y": [
+    0.001
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Cain 2026 (RSA fast)</b><br>RSA-2048<br>Requirement: 0.001<br>Runtime: 97 days<br><a href='https://arxiv.org/abs/2603.28627' target='_blank'>Paper</a><extra></extra>",
+   "legendgroup": "target3",
+   "line": {
+    "color": "#7C3AED",
+    "dash": "dot",
+    "width": 1.5
+   },
+   "mode": "lines",
+   "name": "Cain 2026 (RSA fast): RSA-2048 (0.001) → 2029",
+   "x": [
+    2009.0,
+    2029.8550726090516
+   ],
+   "y": [
+    0.001,
+    0.001
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "<b>Cain 2026 (RSA fast)</b> met in 2029<extra></extra>",
+   "legendgroup": "target3",
+   "marker": {
+    "color": "#7C3AED",
+    "size": 13,
+    "symbol": "x"
+   },
+   "mode": "markers",
+   "name": "Cain 2026 (RSA fast) crossing",
+   "showlegend": false,
+   "x": [
+    2028.8550726090516
+   ],
+   "y": [
+    0.001
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  }
+ ],
+ "layout": {
+  "legend": {},
+  "showlegend": true,
+  "title": {
+   "font": {
+    "color": "#2F3136",
+    "size": 16,
+    "family": "Arial"
+   },
+   "text": "Neutral atoms: entangled state error vs. requirements"
+  },
+  "xaxis": {
+   "title": {
+    "text": "Year"
+   }
+  },
+  "yaxis": {
+   "title": {
+    "text": "Entanglement Error"
+   },
+   "type": "log"
+  }
+ }
+}

@@ -75,10 +75,14 @@ const records = METRICS.filter((m) => m.aggregate === 'best')
     </p>
     {SECTIONS.map((sec) => (
       <div class="mb-12">
-        <h3 class="text-lg font-semibold tracking-tight">{sec.title}</h3>
+        <div class="flex items-baseline justify-between">
+          <h3 class="text-lg font-semibold tracking-tight">{sec.title}</h3>
+          {sec.key === 'qday' && <a href={`${base}/qday`} class="text-sm text-muted-foreground underline-offset-4 hover:underline">Per-platform detail →</a>}
+          {sec.key === 'groups' && <a href={`${base}/groups`} class="text-sm text-muted-foreground underline-offset-4 hover:underline">Leaderboard →</a>}
+        </div>
         <p class="mb-4 text-sm text-muted-foreground">{sec.blurb}</p>
         <div class="flex flex-col gap-8">
-          {FIGURES.filter((f) => f.section === sec.key).map((f) => {
+          {FIGURES.filter((f) => f.section === sec.key && f.home !== false).map((f) => {
             const figure = figuresByName[f.name];
             if (!figure) return null;
             return (
@@ -91,6 +95,8 @@ const records = METRICS.filter((m) => m.aggregate === 'best')
                   <div class="flex gap-3 text-xs text-muted-foreground">
                     {f.dataset ? (
                       <a href={`${base}/experiments#${f.dataset}`} class="underline-offset-4 hover:underline">{datasets[f.dataset].file}</a>
+                    ) : f.section === 'qday' ? (
+                      <a href={`${repo}/blob/main/data/qday_targets.csv`} class="underline-offset-4 hover:underline">qday_targets.csv</a>
                     ) : (
                       <a href={`${base}/groups`} class="underline-offset-4 hover:underline">research_groups.csv</a>
                     )}

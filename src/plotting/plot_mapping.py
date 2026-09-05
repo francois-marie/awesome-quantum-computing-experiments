@@ -16,15 +16,20 @@ CSV_TO_PLOT_MODULES: dict[str, list[str]] = {
     ],
     "data/entangled_state_error_exp.csv": [
         "entangled_error_plot",
+        "qday_plot",
     ],
     "data/qubit_count.csv": [
         "qubit_count_plot",
+        "qday_plot",
     ],
     "data/physical_qubits.csv": [
         "coherence_times_plot",
     ],
     "data/research_groups.csv": [
         "groups_plot",
+    ],
+    "data/qday_targets.csv": [
+        "qday_plot",
     ],
 }
 

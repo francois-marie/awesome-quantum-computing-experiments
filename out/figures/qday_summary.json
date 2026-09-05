@@ -1,0 +1,324 @@
+{
+ "name": "qday_summary",
+ "data": [
+  {
+   "hoverinfo": "skip",
+   "line": {
+    "color": "#BDBDBD",
+    "width": 2
+   },
+   "mode": "lines",
+   "name": "range",
+   "showlegend": false,
+   "x": [
+    2026.0,
+    2028.9
+   ],
+   "y": [
+    "Neutral atoms · Cain 2026 (min) · ECC-256",
+    "Neutral atoms · Cain 2026 (min) · ECC-256"
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hoverinfo": "skip",
+   "line": {
+    "color": "#BDBDBD",
+    "width": 2
+   },
+   "mode": "lines",
+   "name": "range",
+   "showlegend": false,
+   "x": [
+    2027.7,
+    2028.9
+   ],
+   "y": [
+    "Neutral atoms · Cain 2026 (RSA min) · RSA-2048",
+    "Neutral atoms · Cain 2026 (RSA min) · RSA-2048"
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hoverinfo": "skip",
+   "line": {
+    "color": "#BDBDBD",
+    "width": 2
+   },
+   "mode": "lines",
+   "name": "range",
+   "showlegend": false,
+   "x": [
+    2028.9,
+    2031.5
+   ],
+   "y": [
+    "Neutral atoms · Cain 2026 (RSA fast) · RSA-2048",
+    "Neutral atoms · Cain 2026 (RSA fast) · RSA-2048"
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hoverinfo": "skip",
+   "line": {
+    "color": "#BDBDBD",
+    "width": 2
+   },
+   "mode": "lines",
+   "name": "range",
+   "showlegend": false,
+   "x": [
+    2024.0,
+    2057.3
+   ],
+   "y": [
+    "Superconducting circuits · Gidney 2025 · RSA-2048",
+    "Superconducting circuits · Gidney 2025 · RSA-2048"
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hoverinfo": "skip",
+   "line": {
+    "color": "#BDBDBD",
+    "width": 2
+   },
+   "mode": "lines",
+   "name": "range",
+   "showlegend": false,
+   "x": [
+    2024.0,
+    2068.5
+   ],
+   "y": [
+    "Superconducting circuits · Gidney & Ekerå 2019 · RSA-2048",
+    "Superconducting circuits · Gidney & Ekerå 2019 · RSA-2048"
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "%{text}<extra></extra>",
+   "marker": {
+    "color": "#2563EB",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "size": 12,
+    "symbol": "circle"
+   },
+   "mode": "markers",
+   "name": "Qubit count met",
+   "text": [
+    "<b>Tripier 2026 (Walking Cat)</b><br>RSA-2048 / ECC-256 on Ion traps<br>Qubit count met: 2075",
+    "<b>Cain 2026 (min)</b><br>ECC-256 on Neutral atoms<br>Qubit count met: 2026",
+    "<b>Cain 2026 (RSA min)</b><br>RSA-2048 on Neutral atoms<br>Qubit count met: 2028",
+    "<b>Cain 2026 (fast)</b><br>ECC-256 on Neutral atoms<br>Qubit count met: 2029",
+    "<b>Cain 2026 (RSA fast)</b><br>RSA-2048 on Neutral atoms<br>Qubit count met: 2032",
+    "<b>Gouzien 2023 (cat qubits)</b><br>ECC-256 on Superconducting circuits<br>Qubit count met: 2050",
+    "<b>Gidney 2025</b><br>RSA-2048 on Superconducting circuits<br>Qubit count met: 2057",
+    "<b>Gidney & Ekerå 2019</b><br>RSA-2048 on Superconducting circuits<br>Qubit count met: 2068"
+   ],
+   "x": [
+    2075.2,
+    2026.0,
+    2027.7,
+    2028.9,
+    2031.5,
+    2049.6,
+    2057.3,
+    2068.5
+   ],
+   "y": [
+    "Ion traps · Tripier 2026 (Walking Cat) · RSA-2048 / ECC-256",
+    "Neutral atoms · Cain 2026 (min) · ECC-256",
+    "Neutral atoms · Cain 2026 (RSA min) · RSA-2048",
+    "Neutral atoms · Cain 2026 (fast) · ECC-256",
+    "Neutral atoms · Cain 2026 (RSA fast) · RSA-2048",
+    "Superconducting circuits · Gouzien 2023 (cat qubits) · ECC-256",
+    "Superconducting circuits · Gidney 2025 · RSA-2048",
+    "Superconducting circuits · Gidney & Ekerå 2019 · RSA-2048"
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "%{text}<extra></extra>",
+   "marker": {
+    "color": "#EA580C",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "size": 12,
+    "symbol": "square"
+   },
+   "mode": "markers",
+   "name": "Error rate met",
+   "text": [
+    "<b>Cain 2026 (min)</b><br>ECC-256 on Neutral atoms<br>Error rate met: 2029",
+    "<b>Cain 2026 (RSA min)</b><br>RSA-2048 on Neutral atoms<br>Error rate met: 2029",
+    "<b>Cain 2026 (fast)</b><br>ECC-256 on Neutral atoms<br>Error rate met: 2029",
+    "<b>Cain 2026 (RSA fast)</b><br>RSA-2048 on Neutral atoms<br>Error rate met: 2029",
+    "<b>Gidney 2025</b><br>RSA-2048 on Superconducting circuits<br>Error rate met: 2024",
+    "<b>Gidney & Ekerå 2019</b><br>RSA-2048 on Superconducting circuits<br>Error rate met: 2024"
+   ],
+   "x": [
+    2028.9,
+    2028.9,
+    2028.9,
+    2028.9,
+    2024.0,
+    2024.0
+   ],
+   "y": [
+    "Neutral atoms · Cain 2026 (min) · ECC-256",
+    "Neutral atoms · Cain 2026 (RSA min) · RSA-2048",
+    "Neutral atoms · Cain 2026 (fast) · ECC-256",
+    "Neutral atoms · Cain 2026 (RSA fast) · RSA-2048",
+    "Superconducting circuits · Gidney 2025 · RSA-2048",
+    "Superconducting circuits · Gidney & Ekerå 2019 · RSA-2048"
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hovertemplate": "%{text}<extra></extra>",
+   "marker": {
+    "color": "#DC2626",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "size": 18,
+    "symbol": "star"
+   },
+   "mode": "markers",
+   "name": "Q-day estimate (both met)",
+   "text": [
+    "<b>Tripier 2026 (Walking Cat)</b><br>RSA-2048 / ECC-256 on Ion traps<br>Q-day estimate (both met): 2075",
+    "<b>Cain 2026 (min)</b><br>ECC-256 on Neutral atoms<br>Q-day estimate (both met): 2029",
+    "<b>Cain 2026 (RSA min)</b><br>RSA-2048 on Neutral atoms<br>Q-day estimate (both met): 2029",
+    "<b>Cain 2026 (fast)</b><br>ECC-256 on Neutral atoms<br>Q-day estimate (both met): 2029",
+    "<b>Cain 2026 (RSA fast)</b><br>RSA-2048 on Neutral atoms<br>Q-day estimate (both met): 2032",
+    "<b>Gouzien 2023 (cat qubits)</b><br>ECC-256 on Superconducting circuits<br>Q-day estimate (both met): 2050",
+    "<b>Gidney 2025</b><br>RSA-2048 on Superconducting circuits<br>Q-day estimate (both met): 2057",
+    "<b>Gidney & Ekerå 2019</b><br>RSA-2048 on Superconducting circuits<br>Q-day estimate (both met): 2068"
+   ],
+   "x": [
+    2075.2,
+    2028.9,
+    2028.9,
+    2028.9,
+    2031.5,
+    2049.6,
+    2057.3,
+    2068.5
+   ],
+   "y": [
+    "Ion traps · Tripier 2026 (Walking Cat) · RSA-2048 / ECC-256",
+    "Neutral atoms · Cain 2026 (min) · ECC-256",
+    "Neutral atoms · Cain 2026 (RSA min) · RSA-2048",
+    "Neutral atoms · Cain 2026 (fast) · ECC-256",
+    "Neutral atoms · Cain 2026 (RSA fast) · RSA-2048",
+    "Superconducting circuits · Gouzien 2023 (cat qubits) · ECC-256",
+    "Superconducting circuits · Gidney 2025 · RSA-2048",
+    "Superconducting circuits · Gidney & Ekerå 2019 · RSA-2048"
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  }
+ ],
+ "layout": {
+  "legend": {},
+  "showlegend": true,
+  "title": {
+   "font": {
+    "color": "#2F3136",
+    "size": 16,
+    "family": "Arial"
+   },
+   "text": "Q-day estimates: when platform trends meet published requirements"
+  },
+  "xaxis": {
+   "title": {
+    "text": "Year"
+   }
+  },
+  "yaxis": {
+   "categoryarray": [
+    "Superconducting circuits · Gidney & Ekerå 2019 · RSA-2048",
+    "Superconducting circuits · Gidney 2025 · RSA-2048",
+    "Superconducting circuits · Gouzien 2023 (cat qubits) · ECC-256",
+    "Neutral atoms · Cain 2026 (RSA fast) · RSA-2048",
+    "Neutral atoms · Cain 2026 (fast) · ECC-256",
+    "Neutral atoms · Cain 2026 (RSA min) · RSA-2048",
+    "Neutral atoms · Cain 2026 (min) · ECC-256",
+    "Ion traps · Tripier 2026 (Walking Cat) · RSA-2048 / ECC-256"
+   ],
+   "categoryorder": "array",
+   "type": "category"
+  }
+ }
+}

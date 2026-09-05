@@ -1,0 +1,132 @@
+---
+import Base from '@/layouts/Base.astro';
+import { FigureChart } from '@/components/FigureChart';
+import { FIGURES, figuresByName } from '@/lib/figures';
+import { platformColor } from '@/lib/data';
+import qday from '../../../out/figures/qday.json';
+
+interface Crossing {
+  target: string;
+  problem: string;
+  platform: string;
+  physical_qubits: number;
+  physical_error: number | null;
+  qubits_year: number | null;
+  error_year: number | null;
+  qday_year: number | null;
+  limiting: 'qubits' | 'error' | null;
+  runtime: string;
+  link: string;
+  notes: string;
+}
+interface Trend {
+  qubits_fit: { slope: number; doubling_time: number; n: number } | null;
+  error_fit: { slope: number; doubling_time: number; n: number } | null;
+}
+
+const rows = (qday.crossings as Crossing[]).slice().sort((a, b) => (a.qday_year ?? 9e9) - (b.qday_year ?? 9e9));
+const trends = qday.trends as Record<string, Trend>;
+const platforms = [...new Set(rows.map((r) => r.platform))];
+const repo = 'https://github.com/francois-marie/awesome-quantum-computing-experiments';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const fmtQubits = (n: number) => (n >= 1e6 ? `${n / 1e6}M` : n >= 1e3 ? `${Math.round(n / 1e3)}k` : `${n}`);
+const year = (y: number | null) => (y === null ? '—' : `${Math.round(y)}`);
+const figuresFor = (platform: string) =>
+  FIGURES.filter((f) => f.section === 'qday' && f.name.includes(platform.toLowerCase().replace(/[^a-z0-9]+/g, '_')) && figuresByName[f.name]);
+const summary = figuresByName['qday_summary'];
+---
+
+<Base title="Q-day" description="When do platform trends in qubit count and two-qubit error meet the requirements of published resource estimates for breaking RSA-2048 and ECC-256?" wide>
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">Q-day</h1>
+    <p class="mt-2 max-w-3xl text-muted-foreground">
+      Published resource estimates state how many physical qubits, at what physical error rate, a given architecture needs to run Shor's algorithm on RSA-2048 or a 256-bit elliptic curve. This page extrapolates each platform's all-time exponential trend in demonstrated qubit count and entangled-state error to those requirements. The Q-day estimate for a target is the later of the two crossings.
+    </p>
+    <p class="mt-2 max-w-3xl text-sm text-muted-foreground">
+      This is a straight-line extrapolation of the database, not a forecast: it ignores that a fault-tolerant machine needs both requirements met <em>in the same device</em>, plus cycle time, connectivity, and everything else the proposals assume. Targets live in
+      <a class="underline underline-offset-4" href={`${repo}/blob/main/data/qday_targets.csv`}>data/qday_targets.csv</a>; add a row to add a proposal.
+    </p>
+  </header>
+
+  <section class="mb-10 overflow-x-auto rounded-lg border">
+    <table class="w-full text-sm">
+      <thead class="bg-muted/50 text-left text-xs text-muted-foreground">
+        <tr>
+          <th class="px-3 py-2 font-medium">Platform</th>
+          <th class="px-3 py-2 font-medium">Proposal</th>
+          <th class="px-3 py-2 font-medium">Problem</th>
+          <th class="px-3 py-2 text-right font-medium">Qubits needed</th>
+          <th class="px-3 py-2 text-right font-medium">Error needed</th>
+          <th class="px-3 py-2 font-medium">Runtime</th>
+          <th class="px-3 py-2 text-right font-medium">Qubits met</th>
+          <th class="px-3 py-2 text-right font-medium">Error met</th>
+          <th class="px-3 py-2 text-right font-medium">Q-day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr class="border-t align-top hover:bg-muted/40">
+            <td class="px-3 py-2 whitespace-nowrap">
+              <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2 rounded-full" style={`background:${platformColor(r.platform)}`}></span>{r.platform}</span>
+            </td>
+            <td class="px-3 py-2">
+              <a href={r.link} target="_blank" rel="noopener" class="font-medium hover:underline" title={r.notes}>{r.target}</a>
+            </td>
+            <td class="px-3 py-2 whitespace-nowrap">{r.problem}</td>
+            <td class="px-3 py-2 text-right tabular-nums">{fmtQubits(r.physical_qubits)}</td>
+            <td class="px-3 py-2 text-right tabular-nums">{r.physical_error === null ? <span class="text-muted-foreground" title={r.notes}>n/a</span> : r.physical_error}</td>
+            <td class="px-3 py-2 whitespace-nowrap text-muted-foreground">{r.runtime || '—'}</td>
+            <td class:list={['px-3 py-2 text-right tabular-nums', r.limiting === 'qubits' && 'font-semibold']}>{year(r.qubits_year)}</td>
+            <td class:list={['px-3 py-2 text-right tabular-nums', r.limiting === 'error' && 'font-semibold']}>{r.physical_error === null ? <span class="text-muted-foreground">n/a</span> : year(r.error_year)}</td>
+            <td class="px-3 py-2 text-right text-base font-semibold tabular-nums">{r.qday_year === null ? <span class="text-sm font-normal text-muted-foreground">trend never crosses</span> : `≈ ${Math.round(r.qday_year)}`}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="px-3 py-2 text-xs text-muted-foreground">Bold: the requirement that sets the Q-day estimate. Proposals without a stated physical error rate are compared on qubit count only.</p>
+  </section>
+
+  {summary && (
+    <section id="qday" class="mb-12 scroll-mt-20 rounded-xl border bg-card p-4 sm:p-6">
+      <h2 class="font-semibold">All targets on one timeline</h2>
+      <p class="mb-2 text-sm text-muted-foreground">Circle: qubit count met. Square: error rate met. Star: Q-day estimate (both met).</p>
+      <FigureChart client:visible figure={summary} height={420} />
+    </section>
+  )}
+
+  {platforms.map((platform) => {
+    const t = trends[platform];
+    return (
+      <section class="mb-12">
+        <h2 class="mb-1 flex items-center gap-2 text-xl font-semibold tracking-tight">
+          <span class="inline-block size-3 rounded-full" style={`background:${platformColor(platform)}`}></span>
+          {platform}
+        </h2>
+        <p class="mb-4 text-sm text-muted-foreground">
+          {t?.qubits_fit ? `Qubit count doubles every ${t.qubits_fit.doubling_time.toFixed(1)} years (${t.qubits_fit.n} points).` : 'No qubit-count trend.'}
+          {' '}
+          {t?.error_fit ? `Entangled-state error halves every ${t.error_fit.doubling_time.toFixed(1)} years (${t.error_fit.n} points).` : 'No error trend in the database.'}
+        </p>
+        <div class="flex flex-col gap-6">
+          {figuresFor(platform).map((f) => (
+            <article id={f.anchor} class="scroll-mt-20 rounded-xl border bg-card p-4 sm:p-6">
+              <header class="mb-3 flex flex-wrap items-start justify-between gap-2">
+                <div>
+                  <h3 class="text-base font-semibold">{f.title}</h3>
+                  <p class="text-sm text-muted-foreground">{f.description}</p>
+                </div>
+                <a href={`${repo}/blob/main/out/png/${f.name}.png`} class="text-xs text-muted-foreground underline-offset-4 hover:underline">PNG</a>
+              </header>
+              <FigureChart client:visible figure={figuresByName[f.name]} height={440} />
+            </article>
+          ))}
+        </div>
+      </section>
+    );
+  })}
+
+  <p class="max-w-3xl text-xs text-muted-foreground">
+    Trend fits are the same least-squares fits in log space as the dotted lines on the <a class="underline underline-offset-4" href={`${base}/`}>plots page</a>. A requirement already met by a demonstrated result counts as met in that result's year.
+  </p>
+</Base>
