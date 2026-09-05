@@ -1,0 +1,585 @@
+{
+ "name": "qec_timeline_aggregated",
+ "data": [
+  {
+   "customdata": [
+    "<b>Platform: Ion traps</b><br>Year: 2004<br>Experiments: 1",
+    "<b>Platform: Ion traps</b><br>Year: 2011<br>Experiments: 1",
+    "<b>Platform: Ion traps</b><br>Year: 2014<br>Experiments: 1",
+    "<b>Platform: Ion traps</b><br>Year: 2017<br>Experiments: 1",
+    "<b>Platform: Ion traps</b><br>Year: 2017<br>Experiments: 1",
+    "<b>Platform: Ion traps</b><br>Year: 2020<br>Experiments: 1",
+    "<b>Platform: Ion traps</b><br>Year: 2024<br>Experiments: 1",
+    "<b>Platform: Ion traps</b><br>Year: 2025<br>Experiments: 1",
+    "<b>Platform: Ion traps</b><br>Year: 2026<br>Experiments: 1",
+    "<b>Platform: Ion traps</b><br>Year: 2026<br>Experiments: 1"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#FFC107",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "opacity": 0.8,
+    "size": [
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0
+    ]
+   },
+   "mode": "markers",
+   "name": "Ion traps",
+   "x": [
+    "2004",
+    "2011",
+    "2014",
+    "2017",
+    "2017",
+    "2020",
+    "2024",
+    "2025",
+    "2026",
+    "2026"
+   ],
+   "y": [
+    5.7,
+    5.7,
+    3.7,
+    3.7,
+    4.7,
+    -0.3,
+    4.7,
+    4.7,
+    1.7,
+    3.7
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "customdata": [
+    "<b>Platform: NMR</b><br>Year: 1998<br>Experiments: 1",
+    "<b>Platform: NMR</b><br>Year: 2001<br>Experiments: 1",
+    "<b>Platform: NMR</b><br>Year: 2011<br>Experiments: 2",
+    "<b>Platform: NMR</b><br>Year: 2012<br>Experiments: 1"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#3498DB",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "opacity": 0.8,
+    "size": [
+     20.0,
+     20.0,
+     28.284271247461902,
+     20.0
+    ]
+   },
+   "mode": "markers",
+   "name": "NMR",
+   "x": [
+    "1998",
+    "2001",
+    "2011",
+    "2012"
+   ],
+   "y": [
+    5.82,
+    7.82,
+    5.82,
+    7.82
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "customdata": [
+    "<b>Platform: NV centers</b><br>Year: 2014<br>Experiments: 1"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#E74C3C",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "opacity": 0.8,
+    "size": [
+     20.0
+    ]
+   },
+   "mode": "markers",
+   "name": "NV centers",
+   "x": [
+    "2014"
+   ],
+   "y": [
+    5.94
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "customdata": [
+    "<b>Platform: Neutral atoms</b><br>Year: 2021<br>Experiments: 1",
+    "<b>Platform: Neutral atoms</b><br>Year: 2021<br>Experiments: 1",
+    "<b>Platform: Neutral atoms</b><br>Year: 2021<br>Experiments: 1",
+    "<b>Platform: Neutral atoms</b><br>Year: 2023<br>Experiments: 1",
+    "<b>Platform: Neutral atoms</b><br>Year: 2023<br>Experiments: 1",
+    "<b>Platform: Neutral atoms</b><br>Year: 2024<br>Experiments: 1",
+    "<b>Platform: Neutral atoms</b><br>Year: 2024<br>Experiments: 1",
+    "<b>Platform: Neutral atoms</b><br>Year: 2024<br>Experiments: 2"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#95A5A6",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "opacity": 0.8,
+    "size": [
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     28.284271247461902
+    ]
+   },
+   "mode": "markers",
+   "name": "Neutral atoms",
+   "x": [
+    "2021",
+    "2021",
+    "2021",
+    "2023",
+    "2023",
+    "2024",
+    "2024",
+    "2024"
+   ],
+   "y": [
+    3.06,
+    4.06,
+    7.06,
+    4.06,
+    7.06,
+    0.06,
+    4.06,
+    5.06
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "customdata": [
+    "<b>Platform: Photons</b><br>Year: 2014<br>Experiments: 1",
+    "<b>Platform: Photons</b><br>Year: 2020<br>Experiments: 1",
+    "<b>Platform: Photons</b><br>Year: 2022<br>Experiments: 1"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#7A288A",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "opacity": 0.8,
+    "size": [
+     20.0,
+     20.0,
+     20.0
+    ]
+   },
+   "mode": "markers",
+   "name": "Photons",
+   "x": [
+    "2014",
+    "2020",
+    "2022"
+   ],
+   "y": [
+    7.18,
+    0.18,
+    5.18
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "customdata": [
+    "<b>Platform: Superconducting circuit</b><br>Year: 2012<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2014<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2015<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2015<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2016<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2017<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2017<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2018<br>Experiments: 3",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2018<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2019<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2019<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2019<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2020<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2020<br>Experiments: 3",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2020<br>Experiments: 2",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2020<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2021<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2021<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2022<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2023<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2023<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2024<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2024<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2024<br>Experiments: 2",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2024<br>Experiments: 2",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2025<br>Experiments: 1",
+    "<b>Platform: Superconducting circuit</b><br>Year: 2025<br>Experiments: 1"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#2ECC71",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "opacity": 0.8,
+    "size": [
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     34.64101615137754,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     34.64101615137754,
+     28.284271247461902,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     20.0,
+     28.284271247461902,
+     28.284271247461902,
+     20.0,
+     20.0
+    ]
+   },
+   "mode": "markers",
+   "name": "Superconducting circuit",
+   "x": [
+    "2012",
+    "2014",
+    "2015",
+    "2015",
+    "2016",
+    "2017",
+    "2017",
+    "2018",
+    "2018",
+    "2019",
+    "2019",
+    "2019",
+    "2020",
+    "2020",
+    "2020",
+    "2020",
+    "2021",
+    "2021",
+    "2022",
+    "2023",
+    "2023",
+    "2024",
+    "2024",
+    "2024",
+    "2024",
+    "2025",
+    "2025"
+   ],
+   "y": [
+    6.3,
+    6.3,
+    1.3,
+    6.3,
+    6.3,
+    4.3,
+    5.3,
+    5.3,
+    6.3,
+    1.3,
+    5.3,
+    8.3,
+    1.3,
+    5.3,
+    6.3,
+    7.3,
+    5.3,
+    7.3,
+    5.3,
+    6.3,
+    7.3,
+    4.3,
+    5.3,
+    6.3,
+    7.3,
+    4.3,
+    7.3
+   ],
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hoverinfo": "skip",
+   "marker": {
+    "color": "gray",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "opacity": 0.7,
+    "size": 20.0
+   },
+   "mode": "markers",
+   "showlegend": false,
+   "x": [
+    0.15
+   ],
+   "xaxis": "x2",
+   "y": [
+    0.5
+   ],
+   "yaxis": "y2",
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "hoverinfo": "skip",
+   "marker": {
+    "color": "gray",
+    "line": {
+     "color": "white",
+     "width": 1.5
+    },
+    "opacity": 0.7,
+    "size": 34.64101615137754
+   },
+   "mode": "markers",
+   "showlegend": false,
+   "x": [
+    0.15
+   ],
+   "xaxis": "x2",
+   "y": [
+    0.65
+   ],
+   "yaxis": "y2",
+   "type": "scatter",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  }
+ ],
+ "layout": {
+  "title": {
+   "font": {
+    "size": 16,
+    "color": "#2F3136",
+    "family": "Arial"
+   },
+   "text": "Aggregated Timeline of Quantum Error Correction Implementations"
+  },
+  "legend": {
+   "title": {
+    "text": "Quantum Platform"
+   }
+  },
+  "xaxis": {
+   "title": {
+    "text": "Publication Year"
+   },
+   "type": "category",
+   "categoryorder": "array",
+   "categoryarray": [
+    "1998",
+    "2001",
+    "2004",
+    "2011",
+    "2012",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+   ]
+  },
+  "yaxis": {
+   "title": {
+    "text": "QEC Code Type"
+   },
+   "tickvals": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "ticktext": [
+    "Bacon-Shor Code",
+    "Bell State",
+    "Carbon Code",
+    "Cluster State",
+    "Color Code",
+    "Four-qubit Code",
+    "Repetition Code",
+    "Surface Code",
+    "[[5,1,3]] Perfect Code"
+   ]
+  },
+  "showlegend": true,
+  "annotations": [
+   {
+    "font": {
+     "color": "black",
+     "size": 10
+    },
+    "showarrow": false,
+    "text": "1 exp",
+    "x": 0.22999999999999998,
+    "xanchor": "left",
+    "xref": "x2",
+    "y": 0.5,
+    "yanchor": "middle",
+    "yref": "y2"
+   },
+   {
+    "font": {
+     "color": "black",
+     "size": 10
+    },
+    "showarrow": false,
+    "text": "3 exps",
+    "x": 0.22999999999999998,
+    "xanchor": "left",
+    "xref": "x2",
+    "y": 0.65,
+    "yanchor": "middle",
+    "yref": "y2"
+   },
+   {
+    "font": {
+     "color": "black",
+     "size": 11
+    },
+    "showarrow": false,
+    "text": "<b>Marker Size</b>",
+    "x": 0.15,
+    "xanchor": "center",
+    "xref": "x2",
+    "y": 0.35,
+    "yanchor": "top",
+    "yref": "y2"
+   }
+  ],
+  "xaxis2": {
+   "range": [
+    0,
+    1
+   ]
+  },
+  "yaxis2": {
+   "range": [
+    0,
+    3
+   ]
+  }
+ }
+}

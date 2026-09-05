@@ -25,6 +25,10 @@ To add new experiments to the database:
 - Provide source links that are stable and accessible
 - Include relevant notes for special cases or important details
 
+After merging, CI regenerates `README.md`, the PNG/PDF plots and the figure JSON used by the
+website. Run `make groups` if you want the new paper's research group resolved locally;
+otherwise the website lists it as "Unknown" until the next run.
+
 ### 2. Code Contributions
 
 1. Fork the repository

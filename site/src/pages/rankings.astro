@@ -1,0 +1,17 @@
+---
+import Base from '@/layouts/Base.astro';
+import { RadarRankings } from '@/components/RadarRankings';
+---
+
+<Base title="Rankings" description="Hardware platforms ranked on every tracked metric, by current best value and by pace of improvement, for any year.">
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">Rankings</h1>
+    <p class="mt-2 max-w-2xl text-muted-foreground">
+      Metrics span many orders of magnitude, so the radars show <em>ranks</em>, not values. Two rankings per metric: the best result to date, and the pace of improvement fitted on recent results. Drag the year slider to replay history.
+    </p>
+  </header>
+  <RadarRankings client:load />
+  <p class="mt-8 max-w-2xl text-xs text-muted-foreground">
+    Pace is the slope of a least-squares fit of log10(value) against year over the chosen window, the same fit as the dotted lines on the home page. Platforms without a result on a metric are left at rank 0 (the center).
+  </p>
+</Base>

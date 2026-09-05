@@ -1,0 +1,88 @@
+---
+import Base from '@/layouts/Base.astro';
+import { platformColor, PLATFORMS } from '@/lib/data';
+import { METRICS, recordHistory, milestoneYear, points, bestAsOf } from '@/lib/metrics';
+
+const history = METRICS.filter((m) => m.aggregate === 'best').map((m) => ({ metric: m, chain: recordHistory(m).reverse() }));
+
+// Milestones: a round-number target one step beyond today's record.
+const TARGETS: Record<string, { target: number; label: string }> = {
+  entangled_error: { target: 1e-5, label: 'two-qubit error of 10⁻⁵' },
+  qubit_count: { target: 100000, label: '100,000 physical qubits' },
+  t1: { target: 3600, label: 'T1 of one hour' },
+  t2: { target: 3600, label: 'T2 of one hour' },
+  magic_error: { target: 1e-6, label: 'magic state error of 10⁻⁶' },
+};
+const milestones = METRICS.filter((m) => TARGETS[m.key]).map((m) => {
+  const present = new Set(points(m).map((p) => p.platform));
+  const best = bestAsOf(m);
+  const reached = (p: string) => {
+    const b = best.get(p as never);
+    if (!b) return null;
+    const t = TARGETS[m.key].target;
+    return (m.better === 'min' ? b.value <= t : b.value >= t) ? b.year : null;
+  };
+  const rows = PLATFORMS.filter((p) => present.has(p))
+    .map((p) => ({ platform: p, reached: reached(p), year: milestoneYear(m, p, TARGETS[m.key].target) }))
+    .sort((a, b) => (a.reached ?? a.year ?? 9e9) - (b.reached ?? b.year ?? 9e9));
+  return { metric: m, ...TARGETS[m.key], rows };
+});
+---
+
+<Base title="Records" description="Who holds the record on each metric, who held it before, and when current trends reach the next milestone.">
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">Records</h1>
+    <p class="mt-2 max-w-2xl text-muted-foreground">
+      Every time a result beat the previous best across all platforms. Newest first.
+    </p>
+  </header>
+
+  <div class="grid gap-6 lg:grid-cols-2">
+    {history.map(({ metric, chain }) => (
+      <section class="rounded-xl border bg-card p-4">
+        <h2 class="font-semibold">{metric.label}</h2>
+        <p class="text-xs text-muted-foreground">{chain.length} record{chain.length === 1 ? '' : 's'} since {chain[chain.length - 1]?.year}</p>
+        <ol class="mt-3 flex flex-col">
+          {chain.map((p, i) => (
+            <li class="flex gap-3 border-l pl-3 pb-3 last:pb-0" style={`border-color:${platformColor(p.platform)}`}>
+              <span class="w-10 shrink-0 text-xs text-muted-foreground tabular-nums pt-0.5">{p.year}</span>
+              <div class="min-w-0">
+                <div class="flex items-baseline gap-2">
+                  <span class:list={['font-semibold tabular-nums', i === 0 && 'text-lg']}>{metric.format(p.value)}</span>
+                  <span class="text-xs text-muted-foreground">{p.platform}</span>
+                </div>
+                <a href={p.link} target="_blank" rel="noopener" class="line-clamp-1 text-xs text-muted-foreground hover:text-foreground hover:underline">
+                  {p.title}{p.author ? ` · ${p.author} et al.` : ''}
+                </a>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+  </div>
+
+  <section class="mt-14">
+    <h2 class="text-xl font-semibold tracking-tight">Milestone estimates</h2>
+    <p class="mt-1 mb-4 max-w-2xl text-sm text-muted-foreground">
+      Year at which each platform's all-time exponential trend (the dotted fits on the home page) reaches the next round milestone. A straight-line extrapolation, not a forecast.
+    </p>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {milestones.map(({ metric, label, rows }) => (
+        <div class="rounded-xl border bg-card p-4">
+          <h3 class="text-sm font-semibold">{metric.label}</h3>
+          <p class="text-xs text-muted-foreground">Reaching {label}</p>
+          <ul class="mt-3 flex flex-col gap-1 text-sm">
+            {rows.map((r) => (
+              <li class="flex items-center gap-2">
+                <span class="inline-block size-2 rounded-full" style={`background:${platformColor(r.platform)}`}></span>
+                <span>{r.platform}</span>
+                <span class="ml-auto tabular-nums text-muted-foreground">{r.reached ? `reached in ${r.reached}` : r.year ? `~${Math.round(r.year)}` : 'trend not converging'}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -10,6 +10,75 @@ from pathlib import Path
 import os
 from .export_utils import export_figure_to_pdf, ensure_directory_exists, export_figure_to_png
 
+def clean_data_for_js(obj):
+    """Recursively clean data to avoid binary encoding."""
+    import numpy as np
+    import base64
+    import struct
+
+    if isinstance(obj, np.ndarray):
+        # Convert numpy arrays to regular Python lists
+        return obj.tolist()
+    elif isinstance(obj, np.integer):
+        # Convert numpy integers to regular Python integers
+        return int(obj)
+    elif isinstance(obj, np.floating):
+        # Convert numpy floats to regular Python floats
+        return float(obj)
+    elif isinstance(obj, dict):
+        cleaned = {}
+        for key, value in obj.items():
+            # Handle any dictionary that contains 'bdata' (binary data)
+            if isinstance(value, dict) and 'bdata' in value:
+                try:
+                    decoded = base64.b64decode(value['bdata'])
+                    # Try different data types based on dtype if available
+                    if 'dtype' in value:
+                        if value['dtype'] in ['i1', 'int8']:
+                            # 8-bit integers (1 byte each)
+                            integers = struct.unpack(f'<{len(decoded)}b', decoded)
+                            cleaned[key] = list(integers)
+                        elif value['dtype'] in ['i2', 'int16']:
+                            # 16-bit integers (2 bytes each)
+                            integers = struct.unpack(f'<{len(decoded)//2}h', decoded)
+                            cleaned[key] = list(integers)
+                        elif value['dtype'] in ['i4', 'int32']:
+                            # 32-bit integers (4 bytes each)
+                            integers = struct.unpack(f'<{len(decoded)//4}i', decoded)
+                            cleaned[key] = list(integers)
+                        elif value['dtype'] in ['f4', 'float32']:
+                            # 32-bit floats (4 bytes each)
+                            floats = struct.unpack(f'<{len(decoded)//4}f', decoded)
+                            cleaned[key] = list(floats)
+                        elif value['dtype'] in ['f8', 'float64']:
+                            # 64-bit floats (8 bytes each)
+                            floats = struct.unpack(f'<{len(decoded)//8}d', decoded)
+                            cleaned[key] = list(floats)
+                        else:
+                            # Default to 64-bit floats if dtype not recognized
+                            floats = struct.unpack(f'<{len(decoded)//8}d', decoded)
+                            cleaned[key] = list(floats)
+                    else:
+                        # Default to 64-bit floats if no dtype specified
+                        floats = struct.unpack(f'<{len(decoded)//8}d', decoded)
+                        cleaned[key] = list(floats)
+                except Exception as e:
+                    # print(f"Warning: Could not decode binary data for {key}: {e}")
+                    # Fallback: use a default value or empty list
+                    if key == 'size':
+                        cleaned[key] = 20  # Default marker size
+                    else:
+                        cleaned[key] = []
+            else:
+                cleaned[key] = clean_data_for_js(value)
+        return cleaned
+    elif isinstance(obj, (list, tuple)):
+        return [clean_data_for_js(item) for item in obj]
+    else:
+        return obj
+
+
+
 class BasePlot(ABC):
     """Base class for all plotting classes."""
     
@@ -176,76 +245,6 @@ class BasePlot(ABC):
         output_dir.mkdir(parents=True, exist_ok=True)
         output_path = output_dir / f"{filename}.js"
         
-        # Create a clean copy of the data to avoid binary encoding issues
-        import copy
-        
-        def clean_data_for_js(obj):
-            """Recursively clean data to avoid binary encoding."""
-            import numpy as np
-            import base64
-            import struct
-            
-            if isinstance(obj, np.ndarray):
-                # Convert numpy arrays to regular Python lists
-                return obj.tolist()
-            elif isinstance(obj, np.integer):
-                # Convert numpy integers to regular Python integers
-                return int(obj)
-            elif isinstance(obj, np.floating):
-                # Convert numpy floats to regular Python floats
-                return float(obj)
-            elif isinstance(obj, dict):
-                cleaned = {}
-                for key, value in obj.items():
-                    # Handle any dictionary that contains 'bdata' (binary data)
-                    if isinstance(value, dict) and 'bdata' in value:
-                        try:
-                            decoded = base64.b64decode(value['bdata'])
-                            # Try different data types based on dtype if available
-                            if 'dtype' in value:
-                                if value['dtype'] in ['i1', 'int8']:
-                                    # 8-bit integers (1 byte each)
-                                    integers = struct.unpack(f'<{len(decoded)}b', decoded)
-                                    cleaned[key] = list(integers)
-                                elif value['dtype'] in ['i2', 'int16']:
-                                    # 16-bit integers (2 bytes each)
-                                    integers = struct.unpack(f'<{len(decoded)//2}h', decoded)
-                                    cleaned[key] = list(integers)
-                                elif value['dtype'] in ['i4', 'int32']:
-                                    # 32-bit integers (4 bytes each)
-                                    integers = struct.unpack(f'<{len(decoded)//4}i', decoded)
-                                    cleaned[key] = list(integers)
-                                elif value['dtype'] in ['f4', 'float32']:
-                                    # 32-bit floats (4 bytes each)
-                                    floats = struct.unpack(f'<{len(decoded)//4}f', decoded)
-                                    cleaned[key] = list(floats)
-                                elif value['dtype'] in ['f8', 'float64']:
-                                    # 64-bit floats (8 bytes each)
-                                    floats = struct.unpack(f'<{len(decoded)//8}d', decoded)
-                                    cleaned[key] = list(floats)
-                                else:
-                                    # Default to 64-bit floats if dtype not recognized
-                                    floats = struct.unpack(f'<{len(decoded)//8}d', decoded)
-                                    cleaned[key] = list(floats)
-                            else:
-                                # Default to 64-bit floats if no dtype specified
-                                floats = struct.unpack(f'<{len(decoded)//8}d', decoded)
-                                cleaned[key] = list(floats)
-                        except Exception as e:
-                            # print(f"Warning: Could not decode binary data for {key}: {e}")
-                            # Fallback: use a default value or empty list
-                            if key == 'size':
-                                cleaned[key] = 20  # Default marker size
-                            else:
-                                cleaned[key] = []
-                    else:
-                        cleaned[key] = clean_data_for_js(value)
-                return cleaned
-            elif isinstance(obj, (list, tuple)):
-                return [clean_data_for_js(item) for item in obj]
-            else:
-                return obj
-        
         # Clean the data to avoid binary encoding
         cleaned_data = clean_data_for_js(data)
         cleaned_layout = clean_data_for_js(layout)
@@ -269,6 +268,56 @@ Plotly.newPlot('{element_id}', {filename.replace('-', '_')}Data, {filename.repla
             
         return output_path
         
+    def export_to_figure_json(self, data, layout, filename):
+        """
+        Export a Plotly figure as library-neutral JSON for the website.
+
+        The website re-renders these figures with its own charting library,
+        so only the content (traces, axis types, titles, annotations) is
+        kept; Plotly's template and styling defaults are dropped.
+        """
+        import numpy as np
+
+        def clean(obj):
+            if isinstance(obj, np.ndarray):
+                return [clean(v) for v in obj.tolist()]
+            if isinstance(obj, np.integer):
+                return int(obj)
+            if isinstance(obj, np.floating):
+                v = float(obj)
+                return None if v != v else v
+            if isinstance(obj, float) and obj != obj:
+                return None
+            if isinstance(obj, dict):
+                return {k: clean(v) for k, v in obj.items()}
+            if isinstance(obj, (list, tuple)):
+                return [clean(v) for v in obj]
+            return obj
+
+        data = clean_data_for_js(data)
+        layout = clean(clean_data_for_js(layout))
+        layout.pop('template', None)
+        keep_axis = {'title', 'type', 'range', 'tickvals', 'ticktext', 'categoryorder',
+                     'categoryarray', 'dtick', 'tick0', 'autorange', 'tickformat',
+                     'exponentformat', 'showexponent', 'tickangle'}
+        for key in list(layout):
+            if key.startswith('xaxis') or key.startswith('yaxis'):
+                layout[key] = {k: v for k, v in layout[key].items() if k in keep_axis}
+        keep_layout = {'title', 'annotations', 'barmode', 'legend', 'shapes', 'showlegend'}
+        layout = {k: v for k, v in layout.items()
+                  if k in keep_layout or k.startswith('xaxis') or k.startswith('yaxis')}
+        if 'legend' in layout:
+            layout['legend'] = {k: v for k, v in layout['legend'].items()
+                                if k in {'title', 'orientation', 'traceorder'}}
+
+        output_dir = Path(self.config['paths']['output'].get('figures', 'out/figures'))
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_path = output_dir / f"{filename}.json"
+        with open(output_path, 'w') as f:
+            json.dump({'name': filename, 'data': clean(data), 'layout': layout},
+                      f, indent=1, ensure_ascii=False)
+        return output_path
+
     def export_to_pdf(self, fig, filename):
         """
         Export a Plotly figure to PDF.
@@ -340,5 +389,6 @@ Plotly.newPlot('{element_id}', {filename.replace('-', '_')}Data, {filename.repla
             element_id if element_id else export_name.replace('_', '-'),
             export_name
         )
+        self.export_to_figure_json(fig_dict['data'], fig_dict['layout'], export_name)
 
 

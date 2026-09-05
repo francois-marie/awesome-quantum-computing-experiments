@@ -1,0 +1,52 @@
+---
+import Base from '@/layouts/Base.astro';
+import { DataTable } from '@/components/DataTable';
+import { datasets, DATASET_KEYS } from '@/lib/data';
+
+const repo = 'https://github.com/francois-marie/awesome-quantum-computing-experiments';
+const raw = 'https://raw.githubusercontent.com/francois-marie/awesome-quantum-computing-experiments/main/data';
+
+const PRIMARY: Record<string, string[]> = {
+  qec: ['Year', 'Platform', 'Code Name', 'Code Parameters', 'Research Group', 'Notes'],
+  msd: ['Year', 'Platform', 'Experiment Type', 'Magic State', 'QEC Code', 'Fidelity', 'Acceptance Rate (%)', 'MSD Protocol'],
+  entangled: ['Year', 'Platform', 'Entangled State Error', 'Notes'],
+  qubit_count: ['Year', 'Platform', 'Number of qubits', 'Notes'],
+  physical_qubits: ['Year', 'Platform', 'Code Name', 'Physical system', 'T1', 'T2', 'Notes'],
+};
+---
+
+<Base title="Experiments" description="Every experiment in the database as a sortable, filterable table, one per CSV file." wide>
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">Experiments</h1>
+    <p class="mt-2 max-w-2xl text-muted-foreground">
+      One table per CSV file in <a class="underline underline-offset-4" href={`${repo}/tree/main/data`}>data/</a>. Sort by clicking a header, filter with the search box, and download the raw file to use the data yourself.
+    </p>
+  </header>
+
+  <nav class="mb-8 flex flex-wrap gap-2 text-sm">
+    {DATASET_KEYS.map((k) => (
+      <a href={`#${k}`} class="rounded-full border px-3 py-1 hover:bg-muted">{datasets[k].title} <span class="text-muted-foreground tabular-nums">{datasets[k].rows.length}</span></a>
+    ))}
+  </nav>
+
+  <div class="flex flex-col gap-14">
+    {DATASET_KEYS.map((k) => {
+      const d = datasets[k];
+      return (
+        <section id={k} class="scroll-mt-20">
+          <div class="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+            <div>
+              <h2 class="text-xl font-semibold tracking-tight">{d.title}</h2>
+              <p class="text-sm text-muted-foreground">{d.description}</p>
+            </div>
+            <div class="flex gap-3 text-xs">
+              <a href={`${raw}/${d.file}`} class="rounded-md border px-2.5 py-1 hover:bg-muted">Download {d.file}</a>
+              <a href={`${repo}/edit/main/data/${d.file}`} class="rounded-md border px-2.5 py-1 hover:bg-muted">Edit on GitHub</a>
+            </div>
+          </div>
+          <DataTable client:load rows={d.rows} columns={d.columns} primary={PRIMARY[k]} />
+        </section>
+      );
+    })}
+  </div>
+</Base>

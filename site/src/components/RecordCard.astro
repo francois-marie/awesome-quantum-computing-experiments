@@ -1,0 +1,36 @@
+---
+import { platformColor } from '@/lib/data';
+import type { Metric, Point } from '@/lib/metrics';
+
+interface Props {
+  metric: Metric;
+  record: Point;
+  previous?: Point | null;
+}
+const { metric, record, previous } = Astro.props;
+const color = platformColor(record.platform);
+---
+
+<a
+  href={record.link}
+  target="_blank"
+  rel="noopener"
+  class="group flex flex-col gap-1.5 rounded-xl border bg-card p-4 transition-colors hover:border-foreground/30"
+>
+  <div class="flex items-center justify-between gap-2 text-xs text-muted-foreground">
+    <span>{metric.label}</span>
+    <span class="tabular-nums">{record.year}</span>
+  </div>
+  <div class="text-2xl font-semibold tracking-tight tabular-nums">{metric.format(record.value)}</div>
+  <div class="flex items-center gap-1.5 text-sm">
+    <span class="inline-block size-2 rounded-full" style={`background:${color}`}></span>
+    <span>{record.platform}</span>
+    {record.author && <span class="text-muted-foreground">· {record.author} et al.</span>}
+  </div>
+  <div class="mt-1 line-clamp-2 text-xs text-muted-foreground group-hover:text-foreground/80">{record.title}</div>
+  {previous && (
+    <div class="mt-auto pt-1 text-[11px] text-muted-foreground">
+      Previous record {metric.format(previous.value)} ({previous.platform}, {previous.year})
+    </div>
+  )}
+</a>

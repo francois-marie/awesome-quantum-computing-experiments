@@ -1,0 +1,14 @@
+---
+import Base from '@/layouts/Base.astro';
+import { PlatformDashboard } from '@/components/PlatformDashboard';
+---
+
+<Base title="Platforms" description="Every metric for one hardware platform at a time: superconducting circuits, ion traps, neutral atoms, spins and more.">
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">Platforms</h1>
+    <p class="mt-2 max-w-2xl text-muted-foreground">
+      The same plots as the home page, filtered to a single hardware platform, with its best value and rank on every tracked metric.
+    </p>
+  </header>
+  <PlatformDashboard client:load />
+</Base>

@@ -9,6 +9,7 @@ paths:
     plots: out/plots
     readme: README.md
     js: out/js
+    figures: out/figures
     pdf: out/pdf
 
 # Standard colors for platforms

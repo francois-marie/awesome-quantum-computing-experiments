@@ -1,0 +1,109 @@
+---
+import Base from '@/layouts/Base.astro';
+import { OrgTypeChart } from '@/components/OrgTypeChart';
+import { groupSummaries, papersPerYearByOrgType, recordsByOrgType, ORG_TYPES, groupByLink } from '@/lib/groups';
+import { datasets, DATASET_KEYS, platformColor } from '@/lib/data';
+
+const groups = groupSummaries();
+const perYear = papersPerYearByOrgType();
+const records = recordsByOrgType();
+const totalPapers = groupByLink.size;
+const resolved = [...groupByLink.values()].filter((g) => g.orgType !== 'unknown').length;
+
+const byType = ORG_TYPES.map((t) => ({
+  ...t,
+  papers: [...groupByLink.values()].filter((g) => g.orgType === t.key).length,
+  groups: groups.filter((g) => g.orgType === t.key).length,
+  records: records[t.key],
+})).filter((t) => t.papers > 0);
+
+const chartSeries = ORG_TYPES.filter((t) => perYear.series[t.key].some((v) => v > 0)).map((t) => ({
+  key: t.key,
+  label: t.label,
+  color: t.color,
+  values: perYear.series[t.key],
+}));
+
+const typeStyle = Object.fromEntries(ORG_TYPES.map((t) => [t.key, t]));
+---
+
+<Base title="Groups" description="Which research groups and companies produce the experiments: papers, records held, and the industry versus academia split over time." wide>
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">Groups</h1>
+    <p class="mt-2 max-w-2xl text-muted-foreground">
+      Who is behind the experiments. Affiliations come from <a class="underline underline-offset-4" href="https://openalex.org">OpenAlex</a> via the first author's institution, with manual overrides in
+      <a class="underline underline-offset-4" href="https://github.com/francois-marie/awesome-quantum-computing-experiments/blob/main/data/research_groups.csv">data/research_groups.csv</a>.
+      {resolved} of {totalPapers} papers are classified.
+    </p>
+  </header>
+
+  <section class="mb-10 grid gap-3 sm:grid-cols-3">
+    {byType.map((t) => (
+      <div class="rounded-xl border bg-card p-4">
+        <div class="flex items-center gap-2 text-sm">
+          <span class="inline-block size-2.5 rounded-full" style={`background:${t.color}`}></span>
+          <span class="font-medium">{t.label}</span>
+        </div>
+        <div class="mt-2 grid grid-cols-3 gap-2 text-center">
+          <div><div class="text-2xl font-semibold tabular-nums">{t.papers}</div><div class="text-xs text-muted-foreground">papers</div></div>
+          <div><div class="text-2xl font-semibold tabular-nums">{t.groups}</div><div class="text-xs text-muted-foreground">groups</div></div>
+          <div><div class="text-2xl font-semibold tabular-nums">{t.records}</div><div class="text-xs text-muted-foreground">records held</div></div>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <section class="mb-12 rounded-xl border bg-card p-4 sm:p-6">
+    <h2 class="font-semibold">Papers per year, industry vs academia</h2>
+    <p class="mb-2 text-sm text-muted-foreground">Unique papers in the database by publication year and by the first author's organisation type.</p>
+    <OrgTypeChart client:visible years={perYear.years} series={chartSeries} />
+  </section>
+
+  <section>
+    <h2 class="mb-1 text-xl font-semibold tracking-tight">Leaderboard</h2>
+    <p class="mb-4 text-sm text-muted-foreground">Groups ranked by number of papers in the database. Records are the current all-platform bests on the <a class="underline underline-offset-4" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/records`}>Records</a> page.</p>
+    <div class="overflow-x-auto rounded-lg border">
+      <table class="w-full text-sm">
+        <thead class="bg-muted/50 text-left text-xs text-muted-foreground">
+          <tr>
+            <th class="px-3 py-2 font-medium">#</th>
+            <th class="px-3 py-2 font-medium">Group</th>
+            <th class="px-3 py-2 font-medium">Type</th>
+            <th class="px-3 py-2 text-right font-medium">Papers</th>
+            <th class="px-3 py-2 text-right font-medium">Entries</th>
+            {DATASET_KEYS.map((k) => <th class="px-3 py-2 text-right font-medium" title={datasets[k].title}>{datasets[k].title.split(' ')[0]}</th>)}
+            <th class="px-3 py-2 font-medium">Platforms</th>
+            <th class="px-3 py-2 font-medium">Active</th>
+            <th class="px-3 py-2 font-medium">Records held</th>
+          </tr>
+        </thead>
+        <tbody>
+          {groups.map((g, i) => (
+            <tr class="border-t align-top hover:bg-muted/40">
+              <td class="px-3 py-2 tabular-nums text-muted-foreground">{i + 1}</td>
+              <td class="px-3 py-2 font-medium">{g.group}{g.country && <span class="ml-1 text-xs text-muted-foreground">{g.country}</span>}</td>
+              <td class="px-3 py-2">
+                <span class="inline-flex items-center gap-1.5 text-xs">
+                  <span class="inline-block size-2 rounded-full" style={`background:${typeStyle[g.orgType].color}`}></span>
+                  {typeStyle[g.orgType].label}
+                </span>
+              </td>
+              <td class="px-3 py-2 text-right tabular-nums">{g.papers}</td>
+              <td class="px-3 py-2 text-right tabular-nums">{g.entries}</td>
+              {DATASET_KEYS.map((k) => <td class="px-3 py-2 text-right tabular-nums text-muted-foreground">{g.byDataset[k] || ''}</td>)}
+              <td class="px-3 py-2">
+                <span class="flex gap-1">
+                  {g.platforms.map((p) => <span class="inline-block size-2.5 rounded-full" title={p} style={`background:${platformColor(p)}`}></span>)}
+                </span>
+              </td>
+              <td class="px-3 py-2 whitespace-nowrap tabular-nums text-muted-foreground">{g.firstYear === g.lastYear ? g.firstYear : `${g.firstYear}–${g.lastYear}`}</td>
+              <td class="px-3 py-2 text-xs">
+                {g.records.map((r) => <span class="mr-2 inline-block whitespace-nowrap rounded-full border px-1.5 py-0.5">{r.metric}: {r.value}</span>)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Base>

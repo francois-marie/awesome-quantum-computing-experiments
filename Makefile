@@ -1,4 +1,4 @@
-.PHONY: all plots readme test clean setup authors
+.PHONY: all plots readme test clean setup authors groups site site-dev
 
 all: setup plots readme
 
@@ -27,6 +27,15 @@ export_pdf: setup
 readme:
 	python -m src.markdown.generator
 
+groups:
+	python scripts/fetch_research_groups.py
+
+site:
+	cd site && npm install && npm run build
+
+site-dev:
+	cd site && npm install && npm run dev
+
 test:
 	pytest tests/
 
@@ -35,11 +44,12 @@ authors:
 
 clean:
 	rm -rf out/js/*.js
+	rm -rf out/figures/*.json
 	rm -rf out/pdf/*.pdf
 	rm -rf out/png/*.png
 	rm -rf out/plots/*.png
-	mkdir -p out/js out/pdf out/png out/plots
+	mkdir -p out/js out/pdf out/png out/plots out/figures
 
 # Ensure required directories exist
 setup:
-	mkdir -p out/js out/pdf out/png out/plots 
+	mkdir -p out/js out/pdf out/png out/plots out/figures 

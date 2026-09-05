@@ -8,6 +8,7 @@ on:
       - 'data/*.csv'
       - 'src/plotting/**'
       - 'config.yaml'
+      - 'scripts/fetch_research_groups.py'
   workflow_dispatch:
 
 jobs:
@@ -81,23 +82,17 @@ jobs:
         fi
         python scripts/run_plot_modules.py --csv $CSV_ARGS
 
-    - name: Deploy plot JS to gh-pages-assets branch
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out/js
-        publish_branch: gh-pages-assets
-        destination_dir: js
-        keep_files: true
-        commit_message: "Update plot JS assets"
-
-    - name: Purge jsDelivr cache for plot JS
+    - name: Commit regenerated figures (JSON, PNG, PDF)
+      # The website (site/) reads out/figures/*.json at build time and the
+      # README embeds out/png/*.png, so both are committed back to main.
       run: |
-        for f in coherence_times_plot entangled_error_plot qubit_count_plot \
-                 msd_plot msd_error_evolution_plot experiment_counts \
-                 nkd_plot_aggregated experiment_counts_yearly \
-                 qec_cumulative_growth qec_timeline_aggregated qec_platform_sunburst; do
-          url="https://purge.jsdelivr.net/gh/${{ github.repository }}@gh-pages-assets/js/$f.js"
-          echo "Purging $f.js"
-          curl -sf "$url" > /dev/null || echo "::warning::purge failed for $f.js"
-        done
+        git add out/figures out/png out/pdf
+        if git diff --cached --quiet; then
+          echo "Figures already up to date."
+          exit 0
+        fi
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git commit -m "Auto-regenerate figures from CSV data"
+        git pull --rebase origin main
+        git push origin HEAD:main
