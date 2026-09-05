@@ -1,0 +1,160 @@
+{
+ "name": "top_research_groups",
+ "data": [
+  {
+   "customdata": [
+    "<b>Google Quantum AI</b><br>8 papers<br>Magic state: 2<br>QEC: 7<br>Qubit count: 1",
+    "<b>IBM Research</b><br>10 papers<br>QEC: 8<br>Qubit count: 2"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#2563EB"
+   },
+   "name": "Industry",
+   "orientation": "h",
+   "x": [
+    8,
+    10
+   ],
+   "y": [
+    "Google Quantum AI",
+    "IBM Research"
+   ],
+   "type": "bar",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "customdata": [
+    "<b>Yale (Schoelkopf)</b><br>2 papers<br>QEC: 2",
+    "<b>Los Alamos / MIT</b><br>2 papers<br>QEC: 2",
+    "<b>Delft (DiCarlo)</b><br>2 papers<br>QEC: 2",
+    "<b>IQC Waterloo</b><br>3 papers<br>QEC: 3",
+    "<b>Delft</b><br>3 papers<br>Coherence: 2<br>Qubit count: 1",
+    "<b>ETH Zurich</b><br>3 papers<br>QEC: 3",
+    "<b>Centre National de la Recherche Scientifique</b><br>3 papers<br>Coherence: 3",
+    "<b>USTC</b><br>3 papers<br>Magic state: 1<br>QEC: 2",
+    "<b>QuTech</b><br>4 papers<br>Entangled error: 1<br>Magic state: 1<br>Coherence: 1<br>Qubit count: 1",
+    "<b>Caltech</b><br>5 papers<br>Entangled error: 2<br>Coherence: 2<br>Qubit count: 1",
+    "<b>NIST</b><br>7 papers<br>Entangled error: 4<br>Magic state: 1<br>Coherence: 1<br>QEC: 1<br>Qubit count: 2"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#16A34A"
+   },
+   "name": "Academic",
+   "orientation": "h",
+   "x": [
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    4,
+    5,
+    7
+   ],
+   "y": [
+    "Yale (Schoelkopf)",
+    "Los Alamos / MIT",
+    "Delft (DiCarlo)",
+    "IQC Waterloo",
+    "Delft",
+    "ETH Zurich",
+    "Centre National de la Recherche Scientifique",
+    "USTC",
+    "QuTech",
+    "Caltech",
+    "NIST"
+   ],
+   "type": "bar",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "customdata": [
+    "<b>Harvard</b><br>2 papers<br>Entangled error: 1<br>Coherence: 1",
+    "<b>Harvard / QuEra</b><br>3 papers<br>Magic state: 1<br>QEC: 3"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#F59E0B"
+   },
+   "name": "Mixed",
+   "orientation": "h",
+   "x": [
+    2,
+    3
+   ],
+   "y": [
+    "Harvard",
+    "Harvard / QuEra"
+   ],
+   "type": "bar",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  }
+ ],
+ "layout": {
+  "legend": {},
+  "showlegend": true,
+  "title": {
+   "font": {
+    "color": "#2F3136",
+    "size": 16,
+    "family": "Arial"
+   },
+   "text": "Top 15 Research Groups by Papers"
+  },
+  "xaxis": {
+   "title": {
+    "text": "Number of Papers"
+   }
+  },
+  "yaxis": {
+   "categoryarray": [
+    "Harvard",
+    "Yale (Schoelkopf)",
+    "Los Alamos / MIT",
+    "Delft (DiCarlo)",
+    "IQC Waterloo",
+    "Delft",
+    "ETH Zurich",
+    "Centre National de la Recherche Scientifique",
+    "USTC",
+    "Harvard / QuEra",
+    "QuTech",
+    "Caltech",
+    "NIST",
+    "Google Quantum AI",
+    "IBM Research"
+   ],
+   "categoryorder": "array",
+   "title": {
+    "text": ""
+   },
+   "type": "category"
+  }
+ }
+}

@@ -52,6 +52,8 @@ PLOTS = [
     ("QEC experiments per platform (yearly)", "experiment_counts_yearly", "experiment-counts-yearly"),
     ("QEC experiments per code (cumulative)", "qec_cumulative_growth", "qec-cumulative"),
     ("QEC codes by platform", "qec_platform_sunburst", "qec-sunburst"),
+    ("Papers per year, industry vs academia", "papers_by_org_type", "papers-by-org-type"),
+    ("Top research groups", "top_research_groups", "top-research-groups"),
 ]
 
 
@@ -134,7 +136,7 @@ Interactive plots, filterable tables and platform rankings live on the **[websit
 |---|---|---:|---|
 {table}
 
-Every file also carries `Article Title`, `First Author`, `Link`, `Year`, `Platform` and free-text `Notes`. The full column reference is in [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) and the submission rules in [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
+Every file also carries `Article Title`, `First Author`, `Link`, `Year`, `Platform` and free-text `Notes`. A sixth file, [`research_groups.csv`](data/research_groups.csv), maps each paper to its research group and organisation type (industry / academic / mixed); it is generated from [OpenAlex](https://openalex.org) by `make groups` and hand-corrected rows are kept. The full column reference is in [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) and the submission rules in [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
 """
 

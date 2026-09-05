@@ -15,6 +15,7 @@ plots: setup
 	python -m src.plotting.qec_qubit_count_plot
 	python -m src.plotting.msd_plot
 	python -m src.plotting.msd_error_evolution_plot
+	python -m src.plotting.groups_plot
 
 # Alternative way to generate all plots at once
 generate_all: setup

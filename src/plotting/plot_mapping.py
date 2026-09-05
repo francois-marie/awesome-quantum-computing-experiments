@@ -23,6 +23,9 @@ CSV_TO_PLOT_MODULES: dict[str, list[str]] = {
     "data/physical_qubits.csv": [
         "coherence_times_plot",
     ],
+    "data/research_groups.csv": [
+        "groups_plot",
+    ],
 }
 
 SHARED_PLOT_TRIGGER_PATHS: list[str] = [

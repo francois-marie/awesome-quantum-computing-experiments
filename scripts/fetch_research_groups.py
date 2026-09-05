@@ -99,6 +99,8 @@ def paper_links(config: dict) -> tuple[list[str], dict[str, str]]:
     links: list[str] = []
     manual: dict[str, str] = {}
     for key, path in config["paths"]["data"].items():
+        if key == "research_groups":
+            continue
         with open(path, newline="") as f:
             for row in csv.DictReader(f):
                 link = (row.get("Link") or "").strip()
@@ -223,7 +225,9 @@ def main() -> int:
     config = load_yaml("config.yaml")
     links, manual = paper_links(config)
     titles: dict[str, str] = {}
-    for path in config["paths"]["data"].values():
+    for key, path in config["paths"]["data"].items():
+        if key == "research_groups":
+            continue
         with open(path, newline="") as f:
             for row in csv.DictReader(f):
                 if row.get("Link"):
