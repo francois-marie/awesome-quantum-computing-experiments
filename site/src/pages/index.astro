@@ -2,6 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import RecordCard from '@/components/RecordCard.astro';
 import { FigureChart } from '@/components/FigureChart';
+import { RadarRankings } from '@/components/RadarRankings';
 import { FIGURES, SECTIONS, figuresByName } from '@/lib/figures';
 import { datasets, totals } from '@/lib/data';
 import { METRICS, recordHistory } from '@/lib/metrics';
@@ -54,6 +55,17 @@ const records = METRICS.filter((m) => m.aggregate === 'best')
     <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {records.map(({ metric, record, previous }) => <RecordCard metric={metric} record={record} previous={previous} />)}
     </div>
+  </section>
+
+  <section id="rankings" class="scroll-mt-20 py-8">
+    <div class="mb-1 flex items-baseline justify-between">
+      <h2 class="text-xl font-semibold tracking-tight">Platform rankings</h2>
+      <a href={`${base}/rankings`} class="text-sm text-muted-foreground underline-offset-4 hover:underline">Full page →</a>
+    </div>
+    <p class="mb-4 text-sm text-muted-foreground">
+      One spider chart per metric. Axes are the platforms, the outer ring is rank 1. Solid: best result to date. Dashed: pace of improvement. Drag the year to replay history.
+    </p>
+    <RadarRankings client:visible />
   </section>
 
   <section class="py-8">

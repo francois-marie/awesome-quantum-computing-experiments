@@ -54,6 +54,7 @@ PLOTS = [
     ("QEC codes by platform", "qec_platform_sunburst", "qec-sunburst"),
     ("Papers per year, industry vs academia", "papers_by_org_type", "papers-by-org-type"),
     ("Top research groups", "top_research_groups", "top-research-groups"),
+    ("Platform rankings per metric (spider charts)", "rankings_radar", "/rankings"),
 ]
 
 
@@ -116,7 +117,7 @@ class MarkdownGenerator:
 [![Entries](https://img.shields.io/badge/entries-{self.total_entries}-blue.svg)](#the-data)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-Interactive plots, filterable tables and platform rankings live on the **[website]({SITE_URL})**. This README is generated from the same data by `make readme`.
+Interactive plots, filterable tables, [platform rankings]({SITE_URL}/rankings) (spider charts, replayable by year) and [research groups]({SITE_URL}/groups) live on the **[website]({SITE_URL})**. This README is generated from the same data by `make readme`.
 
 """
 
@@ -143,9 +144,11 @@ Every file also carries `Article Title`, `First Author`, `Link`, `Year`, `Platfo
     def _generate_plots_section(self) -> str:
         cells = []
         for caption, png, anchor in PLOTS:
+            # Anchors starting with "/" are site pages, the rest are home-page sections.
+            url = f"{SITE_URL}{anchor}" if anchor.startswith("/") else f"{SITE_URL}/#{anchor}"
             cells.append(
-                f"[![{caption}](out/png/{png}.png)]({SITE_URL}/#{anchor})<br>"
-                f"**{caption}** ([interactive]({SITE_URL}/#{anchor}))"
+                f"[![{caption}](out/png/{png}.png)]({url})<br>"
+                f"**{caption}** ([interactive]({url}))"
             )
         # Two plots per row.
         rows = []
