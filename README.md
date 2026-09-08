@@ -1,125 +1,43 @@
 # Awesome Quantum Computing Experiments
 
-<div style="text-align: center; font-style: italic; margin: 20px 0;">
-A comprehensive database of notable quantum computing experiments, with emphasis on quantum error correction implementations
-</div>
+> A curated, machine-readable database of quantum computing experiments, with an emphasis on quantum error correction. 179 entries from 157 papers, every one of them a row in a CSV file.
 
-<hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);">
+[![CI](https://github.com/francois-marie/awesome-quantum-computing-experiments/actions/workflows/ci.yml/badge.svg)](https://github.com/francois-marie/awesome-quantum-computing-experiments/actions/workflows/ci.yml)
+[![arXiv](https://img.shields.io/badge/arXiv-2507.03678-b31b1b.svg)](https://arxiv.org/abs/2507.03678)
+[![Entries](https://img.shields.io/badge/entries-179-blue.svg)](#the-data)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-## Overview
+Interactive plots, filterable tables and platform rankings live on the **[website](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments)**. This README is generated from the same data by `make readme`.
 
-<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 3px solid #007bff;">
-This repository maintains a comprehensive database of quantum computing experiments, with a focus on:
+## The data
 
-- Quantum Error Correction (QEC) implementations
-- Magic State Distillation (MSD) experiments
-- Entangled State Error measurements
-- Physical Qubit Count evolution
-- Relaxation and Coherence Times (see [Superconducting Qubits: Current State of Play](https://arxiv.org/abs/1905.13641))
-</div>
+**Everything in this repository comes from five CSV files in [`data/`](data/).** The plots below, the interactive website, and the paper lists further down are all generated from them. To add or fix an experiment, edit a CSV row and open a pull request; CI regenerates the README and the plots.
 
-<hr style="margin: 30px 0;">
+| File | What it tracks | Entries | Key columns |
+|---|---|---:|---|
+| [`qec_exp.csv`](data/qec_exp.csv) | Quantum error correction experiments | 62 | Code Name, Code Parameters [[n,k,d]], Platform, Year, Research Group |
+| [`msd_exp.csv`](data/msd_exp.csv) | Magic state preparation, distillation and code switching | 15 | Magic State, Fidelity, Acceptance Rate, QEC Code, Experiment Type |
+| [`entangled_state_error_exp.csv`](data/entangled_state_error_exp.csv) | Entangled state and two-qubit gate errors | 34 | Entangled State Error, Platform, Year |
+| [`qubit_count.csv`](data/qubit_count.csv) | Physical qubit count records | 27 | Number of qubits, Platform, Year |
+| [`physical_qubits.csv`](data/physical_qubits.csv) | Coherence times of physical qubits | 41 | Physical system, T1, T2, Platform, Year |
 
-## Quick Start
+Every file also carries `Article Title`, `First Author`, `Link`, `Year`, `Platform` and free-text `Notes`. A sixth file, [`research_groups.csv`](data/research_groups.csv), maps each paper to its research group and organisation type (industry / academic / mixed); it is generated from [OpenAlex](https://openalex.org) by `make groups` and hand-corrected rows are kept. The full column reference is in [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) and the submission rules in [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
-<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+## Plots
 
-1. Clone the repository and install dependencies:
-```bash
-git clone https://github.com/francois-marie/awesome-quantum-computing-experiments.git
-cd awesome-quantum-computing-experiments
-pip install -e ".[test]" # Install package and test dependencies
-```
+Static exports of the interactive website plots. Regenerate them with `make plots` (PNG in `out/png`, PDF in `out/pdf`, figure JSON for the website in `out/figures`).
 
-2. Generate all plots and README:
-```bash
-make all
-```
+| | |
+|---|---|
+| [![Entangled state error](out/png/entangled_error_plot.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#entangled-state-error)<br>**Entangled state error** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#entangled-state-error)) | [![Qubit count](out/png/qubit_count_plot.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#qubit-count)<br>**Qubit count** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#qubit-count)) |
+| [![Coherence times (T1, T2)](out/png/coherence_times_plot.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#coherence-times)<br>**Coherence times (T1, T2)** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#coherence-times)) | [![Magic state error vs acceptance rate](out/png/msd_plot.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#magic-state)<br>**Magic state error vs acceptance rate** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#magic-state)) |
+| [![Magic state error over time](out/png/msd_error_evolution_plot.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#magic-state-evolution)<br>**Magic state error over time** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#magic-state-evolution)) | [![QEC timeline](out/png/qec_timeline_aggregated.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#qec-timeline)<br>**QEC timeline** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#qec-timeline)) |
+| [![[[n, k, d]] code parameters](out/png/nkd_plot_aggregated.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#nkd)<br>**[[n, k, d]] code parameters** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#nkd)) | [![QEC experiments per platform (cumulative)](out/png/experiment_counts.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#experiment-counts)<br>**QEC experiments per platform (cumulative)** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#experiment-counts)) |
+| [![QEC experiments per platform (yearly)](out/png/experiment_counts_yearly.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#experiment-counts-yearly)<br>**QEC experiments per platform (yearly)** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#experiment-counts-yearly)) | [![QEC experiments per code (cumulative)](out/png/qec_cumulative_growth.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#qec-cumulative)<br>**QEC experiments per code (cumulative)** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#qec-cumulative)) |
+| [![QEC codes by platform](out/png/qec_platform_sunburst.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#qec-sunburst)<br>**QEC codes by platform** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#qec-sunburst)) | [![Papers per year, industry vs academia](out/png/papers_by_org_type.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#papers-by-org-type)<br>**Papers per year, industry vs academia** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#papers-by-org-type)) |
+| [![Top research groups](out/png/top_research_groups.png)](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#top-research-groups)<br>**Top research groups** ([interactive](https://francoismarieleregent.xyz/awesome-quantum-computing-experiments/#top-research-groups)) |  |
 
-For more detailed information:
-- See [Documentation](docs/DOCUMENTATION.md) for usage and data format details
-- See [Contributing Guide](docs/CONTRIBUTING.md) for how to add new experiments
-</div>
-
-<hr style="margin: 30px 0;">
-
-## Local Development
-
-<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
-
-1. Set up Ruby environment using rbenv:
-```bash
-eval "$(rbenv init -)"
-rbenv shell 3.1.0
-```
-
-2. Install Ruby dependencies:
-```bash
-bundle install
-```
-
-3. Run Jekyll server:
-```bash
-bundle exec jekyll clean
-bundle exec jekyll serve --baseurl="/awesome-quantum-computing-experiments" --livereload
-```
-
-The site will be available at `http://localhost:4000/awesome-quantum-computing-experiments/`.
-</div>
-
-<hr style="margin: 30px 0;">
-
-## Visualizations
-
-<div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
-
-<h4>Generating Visualizations</h4>
-All visualizations can be regenerated at any time using:
-
-```bash
-# Generate all plots
-make plots
-
-# Or use the consolidated generation script
-make generate_all
-```
-
-<h4>Available Visualizations</h4>
-After generation, plots will be available in multiple formats:
-
-- PNG format in the `out/png` directory (for web display)
-- PDF format in the `out/pdf` directory (for publication)
-- JavaScript in the `out/js` directory (for interactive web display)
-
-<h4>Plot Gallery</h4>
-
-The following PNG files are included in the repository to display in this README:
-
-![Cumulative Experiment Counts by Platform](out/png/experiment_counts.png)
-
-![Yearly Experiment Counts](out/png/experiment_counts_yearly.png)
-
-![QEC Platform Distribution](out/png/qec_platform_sunburst.png)
-
-![Timeline of QEC Implementations](out/png/qec_timeline_aggregated.png)
-
-![[[n, k, d]] Distribution](out/png/nkd_plot_aggregated.png)
-
-![Entangled State Error Progress](out/png/entangled_error_plot.png)
-
-![Qubit Count Evolution](out/png/qubit_count_plot.png)
-
-![Physical Qubit Coherence Times](out/png/coherence_times_plot.png)
-
-![Magic State Preparation: Error vs Acceptance Rate](out/png/msd_plot.png)
-
-![Magic State Error Evolution Over Time](out/png/msd_error_evolution_plot.png)
-
-![Cumulative Experiment Counts by QEC code](out/png/qec_cumulative_growth.png)
-
-</div>
-
-## Table of Contents
+## Contents
 
 - [Quantum Error Correction](#quantum-error-correction)
 	- [Repetition Code](#repetition-code)
@@ -130,18 +48,16 @@ The following PNG files are included in the repository to display in this README
 	- [Four-qubit Code](#four-qubit-code)
 	- [Bacon-Shor Code](#bacon-shor-code)
 	- [Cluster State](#cluster-state)
-	- [Color code](#color-code)
-	- [Surface code](#surface-code)
 	- [Carbon Code](#carbon-code)
 - [Magic State](#magic-state)
 	- [Preparation](#preparation)
-		- [|CZ>](#magic-state:-|cz>)
-		- [|H>](#magic-state:-|h>)
-		- [|M>](#magic-state:-|m>)
-		- [|T>](#magic-state:-|t>)
+		- [|CZ>](#magic-state-cz)
+		- [|H>](#magic-state-h)
+		- [|M>](#magic-state-m)
+		- [|T>](#magic-state-t)
 	- [Distillation](#distillation)
-		- [4 to 2](#protocol:-4-to-2)
-		- [5 to 1](#protocol:-5-to-1)
+		- [4 to 2](#protocol-4-to-2)
+		- [5 to 1](#protocol-5-to-1)
 	- [Code Switching](#code-switching)
 - [Entangled State Error](#entangled-state-error)
 	- [Ion traps](#ion-traps)
@@ -149,17 +65,17 @@ The following PNG files are included in the repository to display in this README
 	- [Neutral atoms](#neutral-atoms)
 	- [Semiconductor spins](#semiconductor-spins)
 - [Qubit Count](#qubit-count)
-	- [Ion traps](#ion-traps)
+	- [Ion traps](#ion-traps-1)
 	- [Superconducting circuit](#superconducting-circuit)
-	- [Neutral atoms](#neutral-atoms)
-	- [Semiconductor spins](#semiconductor-spins)
+	- [Neutral atoms](#neutral-atoms-1)
+	- [Semiconductor spins](#semiconductor-spins-1)
 	- [NV centers](#nv-centers)
 - [Physical Qubits](#physical-qubits)
-	- [Superconducting circuit](#superconducting-circuit)
-	- [Ion traps](#ion-traps)
-	- [Neutral atoms](#neutral-atoms)
+	- [Superconducting circuit](#superconducting-circuit-1)
+	- [Ion traps](#ion-traps-2)
+	- [Neutral atoms](#neutral-atoms-2)
 	- [Semiconductor](#semiconductor)
-	- [NV centers](#nv-centers)
+	- [NV centers](#nv-centers-1)
 	- [Graphene](#graphene)
 
 ## Quantum Error Correction
@@ -198,6 +114,7 @@ The following PNG files are included in the repository to display in this README
 - [Logical quantum processor based on reconfigurable atom arrays](https://arxiv.org/abs/2312.03982) (2023) - [[7,1,3]], [[8,3,2]] on Neutral atoms
 - [Experimental Demonstration of Logical Magic State Distillation](https://arxiv.org/abs/2412.15165) (2024) - [[7, 1, 3]], [[17,1,5]] on Neutral atoms
 - [Scaling and logic in the color code on a superconducting quantum processor](https://arxiv.org/abs/2412.14256) (2024) - [[7, 1, 3]], [[17,1,5]] on Superconducting circuit
+- [Magic state cultivation on a superconducting quantum processor](https://doi.org/10.48550/arXiv.2512.13908) (2025) - [[7,1,3]] on Superconducting circuit, Willow processor. Magic state cultivation via fault-tolerant logical H_L measurement + postselection, kickback tomography (KT) characterization, |T> fidelity 0.9999(1); 40x improvement over injection; fault distance 3; error scales as p^3, RL-calibrated control, each QEC cycle = 30 two-qubit gates + 6 measurements
 - [Improved quantum processor logical error rates via correction and detection](https://www.nature.com/articles/s41586-026-10628-y) (2026) - [[16,4,4]] on Ion traps, Tesseract subsystem colour code from self-dual [[16,6,4]] tesseract code (2 encoded qubits sacrificed as gauge qubits), distance 4, 4 logical qubits; one code block = 18 physical qubits (16 data + 2 reused ancillae); X and Z stabilisers measured in parallel, 8 CNOTs per weight-4 measurement pair = 64 CNOTs/round; Quantinuum H2; up to 5 rounds of post-selected fault-tolerant EC; graph states up to 12 logical qubits (cube graph = 12 logical CNOTs, 12-qubit cat = 11 logical CNOTs); acceptance >=50% (50-90%); logical error ~0.02% per round (2.1e-4/round fit); two-qubit gate count reported only per round (64 CNOTs/round), no per-experiment total tabulated; tesseract experiments from arXiv:2409.04628
 
 ### Surface Code
@@ -210,6 +127,7 @@ The following PNG files are included in the repository to display in this README
 - [Suppressing quantum errors by scaling a surface code logical qubit](https://arxiv.org/abs/2207.06431) (2023) - [[9,1,3]]-[[25,1,5]] on Superconducting circuit, Repetition codes below threshold
 - [Demonstrating dynamic surface codes](https://arxiv.org/abs/2412.14360) (2024) - [[9,1,3]], [[25,1,5]] on Superconducting circuit
 - [Quantum error correction below the surface code threshold](https://arxiv.org/abs/2408.13687) (2024) - [[9,1,3]], [[25,1,5]], [[49,1,7]] on Superconducting circuit, Surface codes below threshold
+- [Magic state cultivation on a superconducting quantum processor](https://doi.org/10.48550/arXiv.2512.13908) (2025) - [[25, 1, 5]] on Superconducting circuit, Willow processor, cultivated |T> state grafted from d=3 color code into d=5 surface-code-compatible encoding, proof-of-principle code switching, 1 extension cycle + N-1 grafted-code cycles, decoded with Tesseract (A* most-likely-error decoder), LER ~7x higher than SI1000 simulation (leakage suspected), memory experiment up to N=9 QEC cycles
 
 ### Bell State
 
@@ -247,14 +165,6 @@ rate and the use of teleportation flags was responsible for the additional 50% r
 ### Cluster State
 
 - [A quantum processor based on coherent transport of entangled atom arrays](https://arxiv.org/abs/2112.03923) (2021) - 1D with 12 qubits on Neutral atoms
-
-### Color code
-
-- [Magic state cultivation on a superconducting quantum processor](https://doi.org/10.48550/arXiv.2512.13908) (2025) - [[7,1,3]] on Superconducting circuit, Willow processor. Magic state cultivation via fault-tolerant logical H_L measurement + postselection, kickback tomography (KT) characterization, |T> fidelity 0.9999(1); 40x improvement over injection; fault distance 3; error scales as p^3, RL-calibrated control, each QEC cycle = 30 two-qubit gates + 6 measurements
-
-### Surface code
-
-- [Magic state cultivation on a superconducting quantum processor](https://doi.org/10.48550/arXiv.2512.13908) (2025) - [[25, 1, 5]] on Superconducting, Willow processor, cultivated |T> state grafted from d=3 color code into d=5 surface-code-compatible encoding, proof-of-principle code switching, 1 extension cycle + N-1 grafted-code cycles, decoded with Tesseract (A* most-likely-error decoder), LER ~7x higher than SI1000 simulation (leakage suspected), memory experiment up to N=9 QEC cycles
 
 ### Carbon Code
 
@@ -457,9 +367,32 @@ Magic states are crucial non-Clifford quantum states that enable universal fault
 - [Quantum coherent control of a hybrid superconducting circuit made with graphene-based van der Waals heterostructures](https://arxiv.org/abs/1809.05215) (2018) - Gatemon, T1: 5e-08s on Graphene
 
 
+## Quick Start
+
+```bash
+git clone https://github.com/francois-marie/awesome-quantum-computing-experiments.git
+cd awesome-quantum-computing-experiments
+pip install -e ".[test]"
+make all        # regenerate plots (out/) and this README
+make test       # run the test suite
+```
+
+Individual targets: `make plots`, `make readme`, `make export_pdf`. Each plot can also be produced on its own, for example `python -m src.plotting.entangled_error_plot`.
+
+## Local Development
+
+The website is an [Astro](https://astro.build) site in [`site/`](site/). It reads the CSV files in `data/` and the figure JSON in `out/figures/` at build time, so run `make plots` first if the figures are missing.
+
+```bash
+cd site
+npm install
+npm run dev     # http://localhost:4321/awesome-quantum-computing-experiments/
+npm run build   # static output in site/dist
+```
+
 ## Contributing
 
-Contributions are welcome! If you have suggestions for new entries, please submit a pull request or open an issue.
+Contributions are welcome. Add a row to the relevant CSV in `data/` and open a pull request, or open an issue with the paper link. See the [Contributing Guide](docs/CONTRIBUTING.md).
 
 ## Citation
 

@@ -1,0 +1,160 @@
+{
+ "name": "top_research_groups",
+ "data": [
+  {
+   "customdata": [
+    "<b>Harvard / QuEra</b><br>3 papers<br>Magic state: 1<br>QEC: 3",
+    "<b>Google Quantum AI</b><br>8 papers<br>Magic state: 2<br>QEC: 7<br>Qubit count: 1"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#2563EB"
+   },
+   "name": "Industry",
+   "orientation": "h",
+   "x": [
+    3,
+    8
+   ],
+   "y": [
+    "Harvard / QuEra",
+    "Google Quantum AI"
+   ],
+   "type": "bar",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "customdata": [
+    "<b>UCSB</b><br>3 papers<br>Entangled error: 1<br>Coherence: 1<br>Qubit count: 2",
+    "<b>ETH Zurich</b><br>3 papers<br>QEC: 3",
+    "<b>Delft</b><br>3 papers<br>Coherence: 2<br>Qubit count: 1",
+    "<b>IQC Waterloo</b><br>3 papers<br>QEC: 3",
+    "<b>Centre National de la Recherche Scientifique</b><br>4 papers<br>Entangled error: 1<br>Coherence: 3<br>Qubit count: 1",
+    "<b>USTC</b><br>4 papers<br>Magic state: 1<br>QEC: 2<br>Qubit count: 1",
+    "<b>Austrian Academy of Sciences</b><br>4 papers<br>Entangled error: 2<br>Qubit count: 2",
+    "<b>QuTech</b><br>6 papers<br>Entangled error: 1<br>Magic state: 1<br>Coherence: 1<br>Qubit count: 3",
+    "<b>Yale</b><br>6 papers<br>Entangled error: 1<br>Coherence: 5",
+    "<b>Caltech</b><br>6 papers<br>Entangled error: 3<br>Coherence: 2<br>Qubit count: 1",
+    "<b>NIST</b><br>8 papers<br>Entangled error: 4<br>Magic state: 1<br>Coherence: 2<br>QEC: 1<br>Qubit count: 2",
+    "<b>IBM Research</b><br>10 papers<br>QEC: 8<br>Qubit count: 2"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#16A34A"
+   },
+   "name": "Academic",
+   "orientation": "h",
+   "x": [
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    6,
+    6,
+    6,
+    8,
+    10
+   ],
+   "y": [
+    "UCSB",
+    "ETH Zurich",
+    "Delft",
+    "IQC Waterloo",
+    "Centre National de la Recherche Scientifique",
+    "USTC",
+    "Austrian Academy of Sciences",
+    "QuTech",
+    "Yale",
+    "Caltech",
+    "NIST",
+    "IBM Research"
+   ],
+   "type": "bar",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  },
+  {
+   "customdata": [
+    "<b>Harvard</b><br>4 papers<br>Entangled error: 1<br>Coherence: 1<br>Qubit count: 2"
+   ],
+   "hovertemplate": "%{customdata}<extra></extra>",
+   "marker": {
+    "color": "#F59E0B"
+   },
+   "name": "Mixed",
+   "orientation": "h",
+   "x": [
+    4
+   ],
+   "y": [
+    "Harvard"
+   ],
+   "type": "bar",
+   "textfont": {
+    "family": "Arial"
+   },
+   "hoverlabel": {
+    "font": {
+     "family": "Arial"
+    }
+   }
+  }
+ ],
+ "layout": {
+  "legend": {},
+  "showlegend": true,
+  "title": {
+   "font": {
+    "color": "#2F3136",
+    "size": 16,
+    "family": "Arial"
+   },
+   "text": "Top 15 Research Groups by Papers"
+  },
+  "xaxis": {
+   "title": {
+    "text": "Number of Papers"
+   }
+  },
+  "yaxis": {
+   "categoryarray": [
+    "UCSB",
+    "ETH Zurich",
+    "Delft",
+    "IQC Waterloo",
+    "Harvard / QuEra",
+    "Centre National de la Recherche Scientifique",
+    "USTC",
+    "Austrian Academy of Sciences",
+    "Harvard",
+    "QuTech",
+    "Yale",
+    "Caltech",
+    "Google Quantum AI",
+    "NIST",
+    "IBM Research"
+   ],
+   "categoryorder": "array",
+   "title": {
+    "text": ""
+   },
+   "type": "category"
+  }
+ }
+}

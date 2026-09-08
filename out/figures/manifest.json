@@ -1,0 +1,26 @@
+{
+  "data": {
+    "entangled": "8e66208befba9082d88892bd5714c23a94380a7297d550d4ac3cd4e4aae5f42a",
+    "msd": "dfff8f853c9bddbf092fba3b81b3c5b874b068cf775fb3586fd10800f7c06cd6",
+    "physical_qubits": "6d899bb92bc6777122f8f5d9dbae555d24bc9df3a2ce01969b6fe83524a825a0",
+    "qec": "e27960435e4f647382e6e713d9ed49a156b17737c053ee75a5ff9a2d3239e359",
+    "qubit_count": "6299e4534d900d59941692303fc8a6e7c79bcbf517c161a583cd01dd2be4b612",
+    "research_groups": "19df02749b4cbcd81c354fa033a75ca4605b419cbe1bb94a28ce3b184625e9bb"
+  },
+  "figures": [
+    "coherence_times_plot",
+    "entangled_error_plot",
+    "experiment_counts",
+    "experiment_counts_yearly",
+    "msd_error_evolution_plot",
+    "msd_plot",
+    "nkd_plot_aggregated",
+    "papers_by_org_type",
+    "qec_cumulative_growth",
+    "qec_data_qubit_count_plot",
+    "qec_platform_sunburst",
+    "qec_timeline_aggregated",
+    "qubit_count_plot",
+    "top_research_groups"
+  ]
+}

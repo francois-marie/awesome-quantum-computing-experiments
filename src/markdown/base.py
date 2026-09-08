@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import re
 import pandas as pd
 from typing import List, Optional
 
@@ -20,12 +21,10 @@ class BaseSection(ABC):
         
     @staticmethod
     def format_anchor(text: str) -> str:
-        """Format text into a markdown anchor."""
-        return (text.lower()
-                .replace(" ", "-")
-                .replace("[", "")
-                .replace("]", "")
-                .replace(",", ""))
+        """Format heading text into a GitHub-style markdown anchor."""
+        text = text.strip().lower()
+        text = re.sub(r"[^\w\s-]", "", text)
+        return re.sub(r"\s", "-", text)
 
 class ExperimentSection(BaseSection):
     """Base class for experiment sections with common formatting."""

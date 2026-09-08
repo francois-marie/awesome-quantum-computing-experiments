@@ -8,6 +8,7 @@ on:
       - 'data/*.csv'
       - 'src/plotting/**'
       - 'config.yaml'
+      - 'scripts/fetch_research_groups.py'
   workflow_dispatch:
 
 jobs:
@@ -34,6 +35,8 @@ jobs:
             - 'data/qubit_count.csv'
           physical_qubits:
             - 'data/physical_qubits.csv'
+          research_groups:
+            - 'data/research_groups.csv'
           shared:
             - 'config.yaml'
             - 'src/plotting/base.py'
@@ -49,6 +52,19 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -e ".[test]"
+
+    - name: Refresh research groups for new papers (OpenAlex)
+      # Resolves newly added paper links to research groups; existing rows are
+      # kept, so this is cheap. Skipped when only research_groups.csv itself
+      # was hand-edited. A network failure must not block the figures.
+      if: |
+        steps.filter.outputs.qec_exp == 'true' ||
+        steps.filter.outputs.msd_exp == 'true' ||
+        steps.filter.outputs.entangled == 'true' ||
+        steps.filter.outputs.qubit_count == 'true' ||
+        steps.filter.outputs.physical_qubits == 'true'
+      continue-on-error: true
+      run: make groups
 
     - name: Generate all plots (shared code changed)
       if: steps.filter.outputs.shared == 'true'
@@ -75,29 +91,32 @@ jobs:
         if [ "${{ steps.filter.outputs.physical_qubits }}" = "true" ]; then
           CSV_ARGS="$CSV_ARGS data/physical_qubits.csv"
         fi
+        if [ "${{ steps.filter.outputs.research_groups }}" = "true" ] || ! git diff --quiet -- data/research_groups.csv; then
+          CSV_ARGS="$CSV_ARGS data/research_groups.csv"
+        fi
         if [ -z "$CSV_ARGS" ]; then
           echo "No data CSV changes detected; skipping plot generation."
           exit 0
         fi
         python scripts/run_plot_modules.py --csv $CSV_ARGS
 
-    - name: Deploy plot JS to gh-pages-assets branch
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out/js
-        publish_branch: gh-pages-assets
-        destination_dir: js
-        keep_files: true
-        commit_message: "Update plot JS assets"
+    - name: Write figures manifest
+      # Hashes of the data CSVs. Netlify only builds on commits touching
+      # out/figures, so this guarantees one build per data change, after the
+      # figures are regenerated (tables and plots update together).
+      run: python scripts/write_figures_manifest.py
 
-    - name: Purge jsDelivr cache for plot JS
+    - name: Commit regenerated figures (JSON, PNG, PDF) and research groups
+      # The website (site/) reads out/figures/*.json at build time and the
+      # README embeds out/png/*.png, so both are committed back to main.
       run: |
-        for f in coherence_times_plot entangled_error_plot qubit_count_plot \
-                 msd_plot msd_error_evolution_plot experiment_counts \
-                 nkd_plot_aggregated experiment_counts_yearly \
-                 qec_cumulative_growth qec_timeline_aggregated qec_platform_sunburst; do
-          url="https://purge.jsdelivr.net/gh/${{ github.repository }}@gh-pages-assets/js/$f.js"
-          echo "Purging $f.js"
-          curl -sf "$url" > /dev/null || echo "::warning::purge failed for $f.js"
-        done
+        git add out/figures out/png out/pdf data/research_groups.csv
+        if git diff --cached --quiet; then
+          echo "Figures already up to date."
+          exit 0
+        fi
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git commit -m "Auto-regenerate figures from CSV data"
+        git pull --rebase origin main
+        git push origin HEAD:main

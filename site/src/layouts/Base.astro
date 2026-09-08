@@ -1,0 +1,85 @@
+---
+import '@/styles/global.css';
+import Nav from '@/components/Nav.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  wide?: boolean;
+}
+
+const SITE_TITLE = 'Awesome Quantum Computing Experiments';
+const { title, description = 'A curated, machine-readable database of quantum computing experiments, with an emphasis on quantum error correction.', wide = false } = Astro.props;
+const fullTitle = title ? `${title} · AQCE` : SITE_TITLE;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const social = 'https://francoismarieleregent.xyz/img/user/social_image_aqce.png';
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href={`${base}/atom-emoji.png`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={social} />
+    <meta property="og:site_name" content="AQCE" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@fm_leregent" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={social} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Dataset',
+      name: SITE_TITLE,
+      description,
+      url: canonical,
+      license: 'https://opensource.org/licenses/MIT',
+      creator: { '@type': 'Person', name: 'François-Marie Le Régent', sameAs: ['https://github.com/francois-marie', 'https://twitter.com/fm_leregent'] },
+      citation: 'https://arxiv.org/abs/2507.03678',
+    })} />
+
+    <script is:inline>
+      // Apply the stored theme before paint to avoid a flash.
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          var dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-background text-foreground antialiased">
+    <Nav />
+    <main class:list={['mx-auto w-full px-4 pb-24 pt-8 sm:px-6', wide ? 'max-w-[1400px]' : 'max-w-6xl']}>
+      <slot />
+    </main>
+    <footer class="border-t">
+      <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p>
+          Data and code are MIT licensed. Cite{' '}
+          <a class="underline underline-offset-4 hover:text-foreground" href="https://arxiv.org/abs/2507.03678">arXiv:2507.03678</a>{' '}
+          if you use the dataset.
+        </p>
+        <p>
+          <a class="underline underline-offset-4 hover:text-foreground" href="https://github.com/francois-marie/awesome-quantum-computing-experiments">GitHub</a>
+          {' · '}
+          <a class="underline underline-offset-4 hover:text-foreground" href="https://github.com/francois-marie/awesome-quantum-computing-experiments/tree/main/data">CSV data</a>
+          {' · '}
+          <a class="underline underline-offset-4 hover:text-foreground" href="https://github.com/francois-marie/awesome-quantum-computing-experiments/blob/main/docs/CONTRIBUTING.md">Contribute</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

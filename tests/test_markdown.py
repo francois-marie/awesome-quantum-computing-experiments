@@ -63,7 +63,8 @@ class TestMarkdownGenerator:
         assert mock_write.called
         content = mock_write.call_args[0][0]
         assert "# Awesome Quantum Computing Experiments" in content
-        assert "## Table of Contents" in content
+        assert "## Contents" in content
+        assert "## The data" in content
         assert "## Contributing" in content 
 
 class TestPhysicalQubitsSection:
