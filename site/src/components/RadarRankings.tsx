@@ -113,24 +113,28 @@ export function RadarRankings() {
     const rel = table.filter((t) => t.platforms.includes(platform));
     if (rel.length < 3) return null;
     const rows = rel.map((t) => t.rows.find((r) => r.platform === platform)!);
+    // Axes have different platform counts, so rescale each to the shared max:
+    // rank 1 always lands on the outer ring whatever the field size.
+    const axisMax = Math.max(...rel.map((t) => t.platforms.length));
+    const scaled = (rank: number, i: number) => (score(rank, rel[i].platforms.length) / rel[i].platforms.length) * axisMax;
     const option = radarOption(
       rel.map((t) => t.metric.short),
       [
         {
           name: 'Rank on best value',
           color: platformColor(platform),
-          values: rows.map((r, i) => (r.best ? score(r.bestRank, rel[i].platforms.length) : 0)),
+          values: rows.map((r, i) => (r.best ? scaled(r.bestRank, i) : 0)),
           tips: rows.map((r, i) => `${rel[i].metric.label}: #${r.bestRank} of ${rel[i].platforms.length}${r.best ? ` (${rel[i].metric.format(r.best.value)})` : ''}`),
         },
         {
           name: 'Rank on improvement rate',
           color: '#f97316',
           dashed: true,
-          values: rows.map((r, i) => (r.rate ? score(r.rateRank, rel[i].platforms.length) : 0)),
+          values: rows.map((r, i) => (r.rate ? scaled(r.rateRank, i) : 0)),
           tips: rows.map((r, i) => `${rel[i].metric.label}: #${r.rateRank} pace, ${rateLabel(rel[i].metric, r)}`),
         },
       ],
-      Math.max(...rel.map((t) => t.platforms.length)),
+      axisMax,
       theme,
     );
     return { platform, option };
