@@ -1,11 +1,11 @@
 ---
 import Base from '@/layouts/Base.astro';
-import { OrgTypeChart } from '@/components/OrgTypeChart';
-import { groupSummaries, papersPerYearByOrgType, recordsByOrgType, ORG_TYPES, groupByLink } from '@/lib/groups';
+import { FigureChart } from '@/components/FigureChart';
+import { figuresByName, FIGURES } from '@/lib/figures';
+import { groupSummaries, recordsByOrgType, ORG_TYPES, groupByLink } from '@/lib/groups';
 import { datasets, DATASET_KEYS, platformColor } from '@/lib/data';
 
 const groups = groupSummaries();
-const perYear = papersPerYearByOrgType();
 const records = recordsByOrgType();
 const totalPapers = groupByLink.size;
 const resolved = [...groupByLink.values()].filter((g) => g.orgType !== 'unknown').length;
@@ -16,13 +16,6 @@ const byType = ORG_TYPES.map((t) => ({
   groups: groups.filter((g) => g.orgType === t.key).length,
   records: records[t.key],
 })).filter((t) => t.papers > 0);
-
-const chartSeries = ORG_TYPES.filter((t) => perYear.series[t.key].some((v) => v > 0)).map((t) => ({
-  key: t.key,
-  label: t.label,
-  color: t.color,
-  values: perYear.series[t.key],
-}));
 
 const typeStyle = Object.fromEntries(ORG_TYPES.map((t) => [t.key, t]));
 ---
@@ -53,11 +46,15 @@ const typeStyle = Object.fromEntries(ORG_TYPES.map((t) => [t.key, t]));
     ))}
   </section>
 
-  <section class="mb-12 rounded-xl border bg-card p-4 sm:p-6">
-    <h2 class="font-semibold">Papers per year, industry vs academia</h2>
-    <p class="mb-2 text-sm text-muted-foreground">Unique papers in the database by publication year and by the first author's organisation type.</p>
-    <OrgTypeChart client:visible years={perYear.years} series={chartSeries} />
-  </section>
+  <div class="mb-12 flex flex-col gap-6">
+    {FIGURES.filter((f) => f.section === 'groups' && figuresByName[f.name]).map((f) => (
+      <section id={f.anchor} class="scroll-mt-20 rounded-xl border bg-card p-4 sm:p-6">
+        <h2 class="font-semibold">{f.title}</h2>
+        <p class="mb-2 text-sm text-muted-foreground">{f.description}</p>
+        <FigureChart client:visible figure={figuresByName[f.name]} height={f.name === 'top_research_groups' ? 520 : 380} />
+      </section>
+    ))}
+  </div>
 
   <section>
     <h2 class="mb-1 text-xl font-semibold tracking-tight">Leaderboard</h2>
